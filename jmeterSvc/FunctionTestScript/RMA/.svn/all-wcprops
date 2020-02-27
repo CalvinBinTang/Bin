@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/qadmodule_repository/!svn/ver/231799/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA
+END
+JFT_RMA_002_Bulk_RMACreation1.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/qadmodule_repository/!svn/ver/230001/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/JFT_RMA_002_Bulk_RMACreation1.jmx
+END
+JFT_Bulk_RMACreation.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/qadmodule_repository/!svn/ver/230001/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/JFT_Bulk_RMACreation.jmx
+END
+JFT_RMA_001_Bulk_Action_Confirmation_Submit.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/qadmodule_repository/!svn/ver/230866/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/JFT_RMA_001_Bulk_Action_Confirmation_Submit.jmx
+END
+JFT_RMA_002_Bulk_RMAAllocation_Creation.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/qadmodule_repository/!svn/ver/231799/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/JFT_RMA_002_Bulk_RMAAllocation_Creation.jmx
+END

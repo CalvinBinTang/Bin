@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Test Fragment" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set default values" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// Add module variables here
+//varsList.add(&quot;[prefix]_[var_name]&quot;);
+varsList.add(&quot;domainCode&quot;);
+varsList.add(&quot;entity&quot;);
+varsList.add(&quot;site_siteCode&quot;);
+varsList.add(&quot;site_InvStatus&quot;);
+varsList.add(&quot;site_Description&quot;);
+
+// Set default values
+varsList.each {
+	if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Initialize-/${webapp}/api/erp/sites" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="initialize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">initialize</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/sites</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://${server}:${tomcatPort}/${webapp}/</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="x-qadcalluid" elementType="Header">
+                <stringProp name="Header.name">x-qadcalluid</stringProp>
+                <stringProp name="Header.value">cd0a51ea-19c3-4129-a40c-ca84638ef792</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Initialize-/${webapp}/api/erp/sites" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="initialize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">initialize</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/sites</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://${server}:${tomcatPort}/${webapp}/</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="x-qadcalluid" elementType="Header">
+                <stringProp name="Header.name">x-qadcalluid</stringProp>
+                <stringProp name="Header.value">cd0a51ea-19c3-4129-a40c-ca84638ef792</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Post- /${webapp}/api/erp/sites" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/sites</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var strRequest = vars.get(&quot;RequestData&quot;);
+//Parse the Response JSON to get a JavaScript data object
+var objResponse = JSON.parse(strRequest);
+
+objResponse.sites[0].siteCode=&quot;${site_siteCode}&quot;;
+objResponse.sites[0].defaultInventoryStatus=&quot;${site_InvStatus}&quot;;
+if (&quot;${site_Description}&quot; != &quot;[N/A]&quot;) objResponse.sites[0].description=&quot;${site_Description}&quot;;
+
+var strUpdatedResponse =JSON.stringify(objResponse);
+vars.put(&quot;RequestData&quot;,strUpdatedResponse);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://${server}:${tomcatPort}/${webapp}/</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="x-qadcalluid" elementType="Header">
+                <stringProp name="Header.name">x-qadcalluid</stringProp>
+                <stringProp name="Header.value">8fb6ba00-cf54-4a3d-ba26-29b514168ecc</stringProp>
+              </elementProp>
+              <elementProp name="x-qadskipdefaulterrorhandling" elementType="Header">
+                <stringProp name="Header.name">x-qadskipdefaulterrorhandling</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="false">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">{
+  &quot;supplementaryMessages&quot;: [
+    
+  ],
+  &quot;sites&quot;: [
+    {
+      &quot;uri&quot;: &quot;${__V(urn:be:com.qad.base.item.ISite:${domainCode})}&quot;,
+      &quot;siteCode&quot;: &quot;${site_siteCode}&quot;,
+      &quot;siMstrChr05&quot;: &quot;&quot;,
+      &quot;disallowedActionsMessage&quot;: &quot;&quot;,
+      &quot;disallowedActions&quot;: &quot;&quot;,
+      &quot;siMstrLog01&quot;: false,
+      &quot;usePlanSchedWorkbenches&quot;: false,
+      &quot;siMstrUser1&quot;: &quot;&quot;,
+      &quot;siMstrUser2&quot;: &quot;&quot;,
+      &quot;siMstrChr02&quot;: &quot;&quot;,
+      &quot;EMTSupplierName&quot;: &quot;&quot;,
+      &quot;entityCode&quot;: &quot;${entityCode}&quot;,
+      &quot;domainCode&quot;: &quot;${domainCode}&quot;,
+      &quot;transferVarianceSubAcct&quot;: &quot;Mech&quot;,
+      &quot;concurrencyHash&quot;: &quot;&quot;,
+      &quot;dataOperation&quot;: &quot;&quot;,
+      &quot;siteOID&quot;: 0,
+      &quot;siMstrDec02&quot;: 0,
+      &quot;GLCostSet&quot;: &quot;&quot;,
+      &quot;siteType&quot;: true,
+      &quot;usersRolesCanAccess&quot;: &quot;&quot;,
+      &quot;externalSupplier&quot;: false,
+      &quot;transferVarianceAcct&quot;: &quot;6820&quot;,
+      &quot;declarant&quot;: &quot;&quot;,
+      &quot;siMstrDec01&quot;: 0,
+      &quot;inspectionLocation&quot;: &quot;030&quot;,
+      &quot;automaticLocations&quot;: true,
+      &quot;transferClearingSubAcct&quot;: &quot;&quot;,
+      &quot;transferClearingAcct&quot;: &quot;&quot;,
+      &quot;currentCostSet&quot;: &quot;&quot;,
+      &quot;lastModifiedUser&quot;: &quot;&quot;,
+      &quot;ownershipDomainCode&quot;: &quot;${domainCode}&quot;,
+      &quot;siMstrChr04&quot;: &quot;&quot;,
+      &quot;transferClearingCC&quot;: &quot;&quot;,
+      &quot;siMstrChr01&quot;: &quot;&quot;,
+      &quot;customDecimal0&quot;: 0,
+      &quot;customDecimal1&quot;: 0,
+      &quot;customDecimal2&quot;: 0,
+      &quot;customDecimal3&quot;: 0,
+      &quot;customDecimal4&quot;: 0,
+      &quot;customInteger0&quot;: 0,
+      &quot;customInteger1&quot;: 0,
+      &quot;customInteger2&quot;: 0,
+      &quot;customInteger3&quot;: 0,
+      &quot;customInteger4&quot;: 0,
+      &quot;customLong0&quot;: &quot;&quot;,
+      &quot;customLong1&quot;: &quot;&quot;,
+      &quot;customNote&quot;: &quot;&quot;,
+      &quot;customShort0&quot;: &quot;&quot;,
+      &quot;customShort1&quot;: &quot;&quot;,
+      &quot;customShort2&quot;: &quot;&quot;,
+      &quot;customShort3&quot;: &quot;&quot;,
+      &quot;customShort4&quot;: &quot;&quot;,
+      &quot;customShort5&quot;: &quot;&quot;,
+      &quot;customShort6&quot;: &quot;&quot;,
+      &quot;customShort7&quot;: &quot;&quot;,
+      &quot;customShort8&quot;: &quot;&quot;,
+      &quot;customShort9&quot;: &quot;&quot;,
+      &quot;customShort10&quot;: &quot;&quot;,
+      &quot;customShort11&quot;: &quot;&quot;,
+      &quot;customShort12&quot;: &quot;&quot;,
+      &quot;customShort13&quot;: &quot;&quot;,
+      &quot;customShort14&quot;: &quot;&quot;,
+      &quot;customShort15&quot;: &quot;&quot;,
+      &quot;customShort16&quot;: &quot;&quot;,
+      &quot;customShort17&quot;: &quot;&quot;,
+      &quot;customShort18&quot;: &quot;&quot;,
+      &quot;customShort19&quot;: &quot;&quot;,
+      &quot;transferVarianceCC&quot;: &quot;&quot;,
+      &quot;defaultInventoryStatus&quot;: &quot;${site_InvStatus}&quot;,
+      &quot;POTransitLocation&quot;: &quot;&quot;,
+      &quot;siMstrChr03&quot;: &quot;&quot;,
+      &quot;ARAPTransactionSubAcct&quot;: &quot;&quot;,
+      &quot;EMTSupplier&quot;: &quot;&quot;,
+      &quot;transferOwnership&quot;: false,
+      &quot;description&quot;: &quot;${site_Description}&quot;
+    }
+  ]
+}</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">siteCode</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.sites[0].siteCode</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;site_&quot;;
+
+copyHs = new HashSet(vars.entrySet());
+for (Iterator iter = copyHs.iterator(); iter.hasNext();) {
+    name = iter.next().getKey();
+    if (name.startsWith(prefix)) {
+        vars.remove(name);
+    }
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

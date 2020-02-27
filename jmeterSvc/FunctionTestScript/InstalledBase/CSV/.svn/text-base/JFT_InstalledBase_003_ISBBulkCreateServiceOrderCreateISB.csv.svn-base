@@ -1,0 +1,4 @@
+endUserCode,item,lotSerial,ref,qty,parentItem,parentSerial,parentRef,isComponent,isParent,itemType,isbRevision,model,warrantyCode,installedDate,warrantyExpiration,lastPMDate,PMDays,isbStatus,ownerShip,location
+30C1001,01010,bulk01,,,,,,,,O,,,180-A,2019-06-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk02,,,,,,,,O,,,180-A,2019-01-01T00:00:00.000Z,2019-07-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk03,,,,,,,,O,,,180-A,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,

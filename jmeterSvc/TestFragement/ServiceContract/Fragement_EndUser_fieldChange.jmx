@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="contractLine fieldChange" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;contractLine_url_fieldName&quot;);
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;contractLine_fieldValue&quot;);
+varsList.add(&quot;contractLine_confirmation&quot;);
+varsList.add(&quot;contractLine_isResponseAffirmative&quot;);
+varsList.add(&quot;contractLine_message&quot;);
+
+varsList.add(&quot;contractLine_validate_ListPrice&quot;);
+varsList.add(&quot;contractLine_validate_Discount&quot;);
+varsList.add(&quot;contractLine_validate_NetPrice&quot;);
+varsList.add(&quot;contractLine_validate_Extended&quot;);
+varsList.add(&quot;contractLine_validate_Cost&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="endUsert fieldChange" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/serviceContractLines/fieldChange?fieldName=${contractLine_url_fieldName}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var defaultValue = &quot;[N/A]&quot;;
+var failureMessage = &quot;&quot;;
+
+var temp1=&quot;${contractLine_url_fieldName}&quot;;
+var temp2=&quot;${contractLine_fieldValue}&quot;;
+eval( &quot;objRequest.serviceContractLines[0].&quot; + temp1 + &quot;=&apos;&quot; +temp2+&quot;&apos;&quot;);
+
+/*if(&quot;${contractLine_confirmation}&quot;==&quot;true&quot;)
+  objRequest.serviceContractLineConfirmations[0].isProcessedByClient=true;
+*/
+ 
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="VAR">RequestData</stringProp>
+            <stringProp name="JSONPATH">$.data</stringProp>
+            <stringProp name="DEFAULT">NotFound</stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+            <stringProp name="INPUT_FORMAT">JSON</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+var prefix2 = &quot;contractLine_validate_&quot;;
+
+
+// All the fields in dataset should be set here
+// Below code block is only for serviceContractHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix2) &amp;&amp; e.getValue() != defaultValue){
+		var actValue = eval(&quot;objRequest.serviceContractLines[0].&quot; + varName.replace(prefix2,&quot;&quot;));
+		if(actValue != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix2,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot;\n&quot;;
+		}
+	}
+}
+
+if(&quot;${contractLine_message}&quot;!=&quot;[N/A]&quot; &amp;&amp; &quot;contractLine_confirmation&quot; != &quot;true&quot;)
+  {
+  	var temp = prev.getResponseDataAsString();
+	//vars.put(&quot;temp&quot;, temp);
+	var errormessage = JSON.parse(temp);
+	var findMessage = false ;
+	for(var i in errormessage.submitResult.errors)
+	{
+  		var actValue = eval(&quot;errormessage.submitResult.errors[&quot;+i+&quot;].message&quot;);
+  		//failureMessage = failureMessage +actValue+ &quot;\n&quot;;
+  		if(actValue == &quot;${contractLine_message}&quot;)
+  		 {
+  		 	findMessage = true ;
+  		 	//failureMessage = failureMessage + &quot;find=true\n&quot;;
+  		 	break;
+  		 }
+	}
+  	if(findMessage == false)
+  	failureMessage = failureMessage + &quot;Expect &quot; + &quot;${contractLine_message}&quot; + &quot; but can not find\n&quot;;
+  }
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If need confirmation again" enabled="true">
+          <stringProp name="IfController.condition">&quot;${contractLine_confirmation}&quot;==&quot;true&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="contractLine fieldChange" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/serviceContractLines/fieldChange?fieldName=${contractLine_url_fieldName}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var defaultValue = &quot;[N/A]&quot;;
+var failureMessage = &quot;&quot;;
+
+var temp1=&quot;${contractLine_url_fieldName}&quot;;
+var temp2=&quot;${contractLine_fieldValue}&quot;;
+eval( &quot;objRequest.serviceContractLines[0].&quot; + temp1 + &quot;=&apos;&quot; +temp2+&quot;&apos;&quot;);
+
+if(&quot;${contractLine_confirmation}&quot;==&quot;true&quot;)
+  objRequest.serviceContractLineConfirmations[0].isProcessedByClient=true;
+  
+if(&quot;${contractLine_isResponseAffirmative}&quot;==&quot;true&quot;)
+  objRequest.serviceContractLineConfirmations[0].isResponseAffirmative=true;
+
+ 
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="VAR">RequestData</stringProp>
+              <stringProp name="JSONPATH">$.data</stringProp>
+              <stringProp name="DEFAULT">NotFound</stringProp>
+              <stringProp name="VARIABLE"></stringProp>
+              <stringProp name="SUBJECT">BODY</stringProp>
+              <stringProp name="INPUT_FORMAT">JSON</stringProp>
+            </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+var prefix2 = &quot;contractLine_validate_&quot;;
+
+
+// All the fields in dataset should be set here
+// Below code block is only for serviceContractHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix2)){
+		var actValue = eval(&quot;objRequest.serviceContractLines[0].&quot; + varName.replace(prefix2,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  actValue != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix2,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot;\n&quot;;
+		}
+	}
+}
+
+if(&quot;${contractLine_message}&quot;!=&quot;[N/A]&quot;)
+  {
+  	var temp = prev.getResponseDataAsString();
+	var errormessage = JSON.parse(temp);
+	var findMessage = false ;
+	for(var i in errormessage.submitResult.errors)
+	{
+  		var actValue = eval(&quot;errormessage.submitResult.errors[&quot;+i+&quot;].message&quot;);
+  		//failureMessage = failureMessage +actValue+ &quot;\n&quot;;
+  		if(actValue == &quot;${contractLine_message}&quot;)
+  		 {
+  		 	findMessage = true ;
+  		 	//failureMessage = failureMessage + &quot;find=true\n&quot;;
+  		 	break;
+  		 }
+	}
+  	if(findMessage == false)
+  	failureMessage = failureMessage + &quot;Expect &quot; + &quot;${contractLine_message}&quot; + &quot; but can not find\n&quot;;
+  }
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);</stringProp>
+              <stringProp name="scriptLanguage">javascript</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;contractLine_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

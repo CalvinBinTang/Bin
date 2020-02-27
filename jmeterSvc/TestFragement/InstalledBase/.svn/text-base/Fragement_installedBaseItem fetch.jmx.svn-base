@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="installedBaseItem fetch" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fetch" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;domainCode&quot;);
+varsList.add(&quot;installedBaseItem_url_endUserCode&quot;);
+varsList.add(&quot;installedBaseItem_url_itemCode&quot;);
+varsList.add(&quot;installedBaseItem_url_serialCode&quot;);
+varsList.add(&quot;installedBaseItem_url_referenceCode&quot;);
+
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;installedBaseItem_domainCode&quot;);
+varsList.add(&quot;installedBaseItem_endUserCode&quot;);
+varsList.add(&quot;installedBaseItem_endUserCustomerCode&quot;);
+varsList.add(&quot;installedBaseItem_endUserCustomerName&quot;);
+varsList.add(&quot;installedBaseItem_endUserCustomerTimeZone&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField1&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField2&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField3&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField4&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField5&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField6&quot;);
+varsList.add(&quot;installedBaseItem_itemCode&quot;);
+varsList.add(&quot;installedBaseItem_serialCode&quot;);
+varsList.add(&quot;installedBaseItem_newSerialCode&quot;);
+varsList.add(&quot;installedBaseItem_referenceCode&quot;);
+varsList.add(&quot;installedBaseItem_newReferenceCode&quot;);
+varsList.add(&quot;installedBaseItem_parentItemCode&quot;);
+varsList.add(&quot;installedBaseItem_parentSerialCode&quot;);
+varsList.add(&quot;installedBaseItem_parentReferenceCode&quot;);
+varsList.add(&quot;installedBaseItem_sequenceNumber&quot;);
+varsList.add(&quot;installedBaseItem_warrantyDuration&quot;);
+varsList.add(&quot;installedBaseItem_statusCode&quot;);
+varsList.add(&quot;installedBaseItem_statusCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_revision&quot;);
+varsList.add(&quot;installedBaseItem_revisionDescription&quot;);
+varsList.add(&quot;installedBaseItem_installDate&quot;);
+varsList.add(&quot;installedBaseItem_lastPreventiveMaintenanceDate&quot;);
+varsList.add(&quot;installedBaseItem_preventiveMaintenanceDays&quot;);
+varsList.add(&quot;installedBaseItem_salesOrderNumber&quot;);
+varsList.add(&quot;installedBaseItem_description&quot;);
+varsList.add(&quot;installedBaseItem_description2&quot;);
+varsList.add(&quot;installedBaseItem_warrantyCode&quot;);
+varsList.add(&quot;installedBaseItem_warrantyCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_isComponent&quot;);
+varsList.add(&quot;installedBaseItem_isParent&quot;);
+varsList.add(&quot;installedBaseItem_warrantyExpiration&quot;);
+varsList.add(&quot;installedBaseItem_nextPreventiveMaintenanceDate&quot;);
+varsList.add(&quot;installedBaseItem_salesOrderLine&quot;);
+varsList.add(&quot;installedBaseItem_invoiceNumber&quot;);
+varsList.add(&quot;installedBaseItem_ownership&quot;);
+varsList.add(&quot;installedBaseItem_ownershipDescription&quot;);
+varsList.add(&quot;installedBaseItem_tariffNumber&quot;);
+varsList.add(&quot;installedBaseItem_countryOfOrigin&quot;);
+varsList.add(&quot;installedBaseItem_itemTypeCode&quot;);
+varsList.add(&quot;installedBaseItem_itemTypeDescription&quot;);
+varsList.add(&quot;installedBaseItem_lastUpdatedDate&quot;);
+varsList.add(&quot;installedBaseItem_unitOfMeasure&quot;);
+varsList.add(&quot;installedBaseItem_location&quot;);
+varsList.add(&quot;installedBaseItem_shipDate&quot;);
+varsList.add(&quot;installedBaseItem_inventoryReference&quot;);
+varsList.add(&quot;installedBaseItem_calibration&quot;);
+varsList.add(&quot;installedBaseItem_calibrationDate&quot;);
+varsList.add(&quot;installedBaseItem_model&quot;);
+varsList.add(&quot;installedBaseItem_modelDescription&quot;);
+varsList.add(&quot;installedBaseItem_articleNumber&quot;);
+varsList.add(&quot;installedBaseItem_soldToCustomerCode&quot;);
+varsList.add(&quot;installedBaseItem_priceSold&quot;);
+varsList.add(&quot;installedBaseItem_isRebuildInstalledBase&quot;);
+varsList.add(&quot;installedBaseItem_customerId&quot;);
+varsList.add(&quot;installedBaseItem_commentIndex&quot;);
+varsList.add(&quot;installedBaseItem_updates&quot;);
+varsList.add(&quot;installedBaseItem_originalInstall&quot;);
+varsList.add(&quot;installedBaseItem_isInternalPreventiveMaintenance&quot;);
+varsList.add(&quot;installedBaseItem_engineerCode&quot;);
+varsList.add(&quot;installedBaseItem_laborWarrantyExpires&quot;);
+varsList.add(&quot;installedBaseItem_quantity&quot;);
+varsList.add(&quot;installedBaseItem_latestMeterReading&quot;);
+varsList.add(&quot;installedBaseItem_meterReadingDate&quot;);
+varsList.add(&quot;installedBaseItem_meterReadingInterval&quot;);
+varsList.add(&quot;installedBaseItem_meterReadingUnits&quot;);
+varsList.add(&quot;installedBaseItem_isWarrantyOverride&quot;);
+varsList.add(&quot;installedBaseItem_classificationCode&quot;);
+varsList.add(&quot;installedBaseItem_classificationCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_isRebuildConfigurationDetail&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrUser1&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrUser2&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr04&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr05&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr06&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr07&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr08&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr09&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr10&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDec01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDec02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDec03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte04&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog04&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog05&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserCode&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserAddressField1&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserAddressField2&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserAddressField3&quot;);
+varsList.add(&quot;installedBaseItem_moveDate&quot;);
+varsList.add(&quot;installedBaseItem_isRecaculateCoverage&quot;);
+varsList.add(&quot;installedBaseItem_isClearWarranty&quot;);
+varsList.add(&quot;installedBaseItem_newWarranty&quot;);
+varsList.add(&quot;installedBaseItem_newWarrantyDescription&quot;);
+varsList.add(&quot;installedBaseItem_isRecaculateEnd&quot;);
+varsList.add(&quot;installedBaseItem_moveISB&quot;);
+varsList.add(&quot;installedBaseItem_dataOperation&quot;);
+varsList.add(&quot;installedBaseItem_concurrencyHash&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;installedBaseItem_validate_domainCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserCustomerCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserCustomerName&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserCustomerTimeZone&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserAddressField1&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserAddressField2&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserAddressField3&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserAddressField4&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserAddressField5&quot;);
+varsList.add(&quot;installedBaseItem_validate_endUserAddressField6&quot;);
+varsList.add(&quot;installedBaseItem_validate_itemCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_serialCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_newSerialCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_referenceCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_newReferenceCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_parentItemCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_parentSerialCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_parentReferenceCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_sequenceNumber&quot;);
+varsList.add(&quot;installedBaseItem_validate_warrantyDuration&quot;);
+varsList.add(&quot;installedBaseItem_validate_statusCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_statusCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_revision&quot;);
+varsList.add(&quot;installedBaseItem_validate_revisionDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_installDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_lastPreventiveMaintenanceDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_preventiveMaintenanceDays&quot;);
+varsList.add(&quot;installedBaseItem_validate_salesOrderNumber&quot;);
+varsList.add(&quot;installedBaseItem_validate_description&quot;);
+varsList.add(&quot;installedBaseItem_validate_description2&quot;);
+varsList.add(&quot;installedBaseItem_validate_warrantyCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_warrantyCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_isComponent&quot;);
+varsList.add(&quot;installedBaseItem_validate_isParent&quot;);
+varsList.add(&quot;installedBaseItem_validate_warrantyExpiration&quot;);
+varsList.add(&quot;installedBaseItem_validate_nextPreventiveMaintenanceDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_salesOrderLine&quot;);
+varsList.add(&quot;installedBaseItem_validate_invoiceNumber&quot;);
+varsList.add(&quot;installedBaseItem_validate_ownership&quot;);
+varsList.add(&quot;installedBaseItem_validate_ownershipDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_tariffNumber&quot;);
+varsList.add(&quot;installedBaseItem_validate_countryOfOrigin&quot;);
+varsList.add(&quot;installedBaseItem_validate_itemTypeCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_itemTypeDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_lastUpdatedDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_unitOfMeasure&quot;);
+varsList.add(&quot;installedBaseItem_validate_location&quot;);
+varsList.add(&quot;installedBaseItem_validate_shipDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_inventoryReference&quot;);
+varsList.add(&quot;installedBaseItem_validate_calibration&quot;);
+varsList.add(&quot;installedBaseItem_validate_calibrationDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_model&quot;);
+varsList.add(&quot;installedBaseItem_validate_modelDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_articleNumber&quot;);
+varsList.add(&quot;installedBaseItem_validate_soldToCustomerCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_priceSold&quot;);
+varsList.add(&quot;installedBaseItem_validate_isRebuildInstalledBase&quot;);
+varsList.add(&quot;installedBaseItem_validate_customerId&quot;);
+varsList.add(&quot;installedBaseItem_validate_commentIndex&quot;);
+varsList.add(&quot;installedBaseItem_validate_updates&quot;);
+varsList.add(&quot;installedBaseItem_validate_originalInstall&quot;);
+varsList.add(&quot;installedBaseItem_validate_isInternalPreventiveMaintenance&quot;);
+varsList.add(&quot;installedBaseItem_validate_engineerCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_laborWarrantyExpires&quot;);
+varsList.add(&quot;installedBaseItem_validate_quantity&quot;);
+varsList.add(&quot;installedBaseItem_validate_latestMeterReading&quot;);
+varsList.add(&quot;installedBaseItem_validate_meterReadingDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_meterReadingInterval&quot;);
+varsList.add(&quot;installedBaseItem_validate_meterReadingUnits&quot;);
+varsList.add(&quot;installedBaseItem_validate_isWarrantyOverride&quot;);
+varsList.add(&quot;installedBaseItem_validate_classificationCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_classificationCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_isRebuildConfigurationDetail&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrUser1&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrUser2&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr01&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr02&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr03&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr04&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr05&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr06&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr07&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr08&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr09&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrChr10&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDec01&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDec02&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDec03&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDte01&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDte02&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDte03&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrDte04&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrLog01&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrLog02&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrLog03&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrLog04&quot;);
+varsList.add(&quot;installedBaseItem_validate_isbMstrLog05&quot;);
+varsList.add(&quot;installedBaseItem_validate_targetEndUserCode&quot;);
+varsList.add(&quot;installedBaseItem_validate_targetEndUserAddressField1&quot;);
+varsList.add(&quot;installedBaseItem_validate_targetEndUserAddressField2&quot;);
+varsList.add(&quot;installedBaseItem_validate_targetEndUserAddressField3&quot;);
+varsList.add(&quot;installedBaseItem_validate_moveDate&quot;);
+varsList.add(&quot;installedBaseItem_validate_isRecaculateCoverage&quot;);
+varsList.add(&quot;installedBaseItem_validate_isClearWarranty&quot;);
+varsList.add(&quot;installedBaseItem_validate_newWarranty&quot;);
+varsList.add(&quot;installedBaseItem_validate_newWarrantyDescription&quot;);
+varsList.add(&quot;installedBaseItem_validate_isRecaculateEnd&quot;);
+varsList.add(&quot;installedBaseItem_validate_moveISB&quot;);
+varsList.add(&quot;installedBaseItem_validate_dataOperation&quot;);
+varsList.add(&quot;installedBaseItem_validate_concurrencyHash&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="installedBaseItem fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="endUserCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">endUserCode</stringProp>
+                <stringProp name="Argument.value">${installedBaseItem_url_endUserCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="itemCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">itemCode</stringProp>
+                <stringProp name="Argument.value">${installedBaseItem_url_itemCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="serialCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">serialCode</stringProp>
+                <stringProp name="Argument.value">${installedBaseItem_url_serialCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="referenceCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">referenceCode</stringProp>
+                <stringProp name="Argument.value">${installedBaseItem_url_referenceCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_endUserCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserCode= &quot;${installedBaseItem_endUserCode}&quot;;
+if (&quot;${installedBaseItem_endUserCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserCustomerCode= &quot;${installedBaseItem_endUserCustomerCode}&quot;;
+if (&quot;${installedBaseItem_endUserCustomerName}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserCustomerName= &quot;${installedBaseItem_endUserCustomerName}&quot;;
+if (&quot;${installedBaseItem_endUserCustomerTimeZone}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserCustomerTimeZone= &quot;${installedBaseItem_endUserCustomerTimeZone}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserAddressField1= &quot;${installedBaseItem_endUserAddressField1}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserAddressField2= &quot;${installedBaseItem_endUserAddressField2}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserAddressField3= &quot;${installedBaseItem_endUserAddressField3}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserAddressField4= &quot;${installedBaseItem_endUserAddressField4}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserAddressField5= &quot;${installedBaseItem_endUserAddressField5}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].endUserAddressField6= &quot;${installedBaseItem_endUserAddressField6}&quot;;
+if (&quot;${installedBaseItem_itemCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].itemCode= &quot;${installedBaseItem_itemCode}&quot;;
+if (&quot;${installedBaseItem_serialCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].serialCode= &quot;${installedBaseItem_serialCode}&quot;;
+if (&quot;${installedBaseItem_newSerialCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].newSerialCode= &quot;${installedBaseItem_newSerialCode}&quot;;
+if (&quot;${installedBaseItem_referenceCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].referenceCode= &quot;${installedBaseItem_referenceCode}&quot;;
+if (&quot;${installedBaseItem_newReferenceCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].newReferenceCode= &quot;${installedBaseItem_newReferenceCode}&quot;;
+if (&quot;${installedBaseItem_parentItemCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].parentItemCode= &quot;${installedBaseItem_parentItemCode}&quot;;
+if (&quot;${installedBaseItem_parentSerialCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].parentSerialCode= &quot;${installedBaseItem_parentSerialCode}&quot;;
+if (&quot;${installedBaseItem_parentReferenceCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].parentReferenceCode= &quot;${installedBaseItem_parentReferenceCode}&quot;;
+if (&quot;${installedBaseItem_sequenceNumber}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].sequenceNumber= &quot;${installedBaseItem_sequenceNumber}&quot;;
+if (&quot;${installedBaseItem_warrantyDuration}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].warrantyDuration= &quot;${installedBaseItem_warrantyDuration}&quot;;
+if (&quot;${installedBaseItem_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].statusCode= &quot;${installedBaseItem_statusCode}&quot;;
+if (&quot;${installedBaseItem_statusCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].statusCodeDescription= &quot;${installedBaseItem_statusCodeDescription}&quot;;
+if (&quot;${installedBaseItem_revision}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].revision= &quot;${installedBaseItem_revision}&quot;;
+if (&quot;${installedBaseItem_revisionDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].revisionDescription= &quot;${installedBaseItem_revisionDescription}&quot;;
+if (&quot;${installedBaseItem_installDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].installDate= &quot;${installedBaseItem_installDate}&quot;;
+if (&quot;${installedBaseItem_lastPreventiveMaintenanceDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].lastPreventiveMaintenanceDate= &quot;${installedBaseItem_lastPreventiveMaintenanceDate}&quot;;
+if (&quot;${installedBaseItem_preventiveMaintenanceDays}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].preventiveMaintenanceDays= &quot;${installedBaseItem_preventiveMaintenanceDays}&quot;;
+if (&quot;${installedBaseItem_salesOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].salesOrderNumber= &quot;${installedBaseItem_salesOrderNumber}&quot;;
+if (&quot;${installedBaseItem_description}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].description= &quot;${installedBaseItem_description}&quot;;
+if (&quot;${installedBaseItem_description2}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].description2= &quot;${installedBaseItem_description2}&quot;;
+if (&quot;${installedBaseItem_warrantyCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].warrantyCode= &quot;${installedBaseItem_warrantyCode}&quot;;
+if (&quot;${installedBaseItem_warrantyCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].warrantyCodeDescription= &quot;${installedBaseItem_warrantyCodeDescription}&quot;;
+if (&quot;${installedBaseItem_isComponent}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isComponent= &quot;${installedBaseItem_isComponent}&quot;;
+if (&quot;${installedBaseItem_isParent}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isParent= &quot;${installedBaseItem_isParent}&quot;;
+if (&quot;${installedBaseItem_warrantyExpiration}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].warrantyExpiration= &quot;${installedBaseItem_warrantyExpiration}&quot;;
+if (&quot;${installedBaseItem_nextPreventiveMaintenanceDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].nextPreventiveMaintenanceDate= &quot;${installedBaseItem_nextPreventiveMaintenanceDate}&quot;;
+if (&quot;${installedBaseItem_salesOrderLine}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].salesOrderLine= &quot;${installedBaseItem_salesOrderLine}&quot;;
+if (&quot;${installedBaseItem_invoiceNumber}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].invoiceNumber= &quot;${installedBaseItem_invoiceNumber}&quot;;
+if (&quot;${installedBaseItem_ownership}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].ownership= &quot;${installedBaseItem_ownership}&quot;;
+if (&quot;${installedBaseItem_ownershipDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].ownershipDescription= &quot;${installedBaseItem_ownershipDescription}&quot;;
+if (&quot;${installedBaseItem_tariffNumber}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].tariffNumber= &quot;${installedBaseItem_tariffNumber}&quot;;
+if (&quot;${installedBaseItem_countryOfOrigin}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].countryOfOrigin= &quot;${installedBaseItem_countryOfOrigin}&quot;;
+if (&quot;${installedBaseItem_itemTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].itemTypeCode= &quot;${installedBaseItem_itemTypeCode}&quot;;
+if (&quot;${installedBaseItem_itemTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].itemTypeDescription= &quot;${installedBaseItem_itemTypeDescription}&quot;;
+if (&quot;${installedBaseItem_lastUpdatedDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].lastUpdatedDate= &quot;${installedBaseItem_lastUpdatedDate}&quot;;
+if (&quot;${installedBaseItem_unitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].unitOfMeasure= &quot;${installedBaseItem_unitOfMeasure}&quot;;
+if (&quot;${installedBaseItem_location}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].location= &quot;${installedBaseItem_location}&quot;;
+if (&quot;${installedBaseItem_shipDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].shipDate= &quot;${installedBaseItem_shipDate}&quot;;
+if (&quot;${installedBaseItem_inventoryReference}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].inventoryReference= &quot;${installedBaseItem_inventoryReference}&quot;;
+if (&quot;${installedBaseItem_calibration}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].calibration= &quot;${installedBaseItem_calibration}&quot;;
+if (&quot;${installedBaseItem_calibrationDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].calibrationDate= &quot;${installedBaseItem_calibrationDate}&quot;;
+if (&quot;${installedBaseItem_model}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].model= &quot;${installedBaseItem_model}&quot;;
+if (&quot;${installedBaseItem_modelDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].modelDescription= &quot;${installedBaseItem_modelDescription}&quot;;
+if (&quot;${installedBaseItem_articleNumber}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].articleNumber= &quot;${installedBaseItem_articleNumber}&quot;;
+if (&quot;${installedBaseItem_soldToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].soldToCustomerCode= &quot;${installedBaseItem_soldToCustomerCode}&quot;;
+if (&quot;${installedBaseItem_priceSold}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].priceSold= &quot;${installedBaseItem_priceSold}&quot;;
+if (&quot;${installedBaseItem_isRebuildInstalledBase}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isRebuildInstalledBase= &quot;${installedBaseItem_isRebuildInstalledBase}&quot;;
+if (&quot;${installedBaseItem_customerId}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].customerId= &quot;${installedBaseItem_customerId}&quot;;
+if (&quot;${installedBaseItem_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].commentIndex= &quot;${installedBaseItem_commentIndex}&quot;;
+if (&quot;${installedBaseItem_updates}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].updates= &quot;${installedBaseItem_updates}&quot;;
+if (&quot;${installedBaseItem_originalInstall}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].originalInstall= &quot;${installedBaseItem_originalInstall}&quot;;
+if (&quot;${installedBaseItem_isInternalPreventiveMaintenance}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isInternalPreventiveMaintenance= &quot;${installedBaseItem_isInternalPreventiveMaintenance}&quot;;
+if (&quot;${installedBaseItem_engineerCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].engineerCode= &quot;${installedBaseItem_engineerCode}&quot;;
+if (&quot;${installedBaseItem_laborWarrantyExpires}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].laborWarrantyExpires= &quot;${installedBaseItem_laborWarrantyExpires}&quot;;
+if (&quot;${installedBaseItem_quantity}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].quantity= &quot;${installedBaseItem_quantity}&quot;;
+if (&quot;${installedBaseItem_latestMeterReading}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].latestMeterReading= &quot;${installedBaseItem_latestMeterReading}&quot;;
+if (&quot;${installedBaseItem_meterReadingDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].meterReadingDate= &quot;${installedBaseItem_meterReadingDate}&quot;;
+if (&quot;${installedBaseItem_meterReadingInterval}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].meterReadingInterval= &quot;${installedBaseItem_meterReadingInterval}&quot;;
+if (&quot;${installedBaseItem_meterReadingUnits}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].meterReadingUnits= &quot;${installedBaseItem_meterReadingUnits}&quot;;
+if (&quot;${installedBaseItem_isWarrantyOverride}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isWarrantyOverride= &quot;${installedBaseItem_isWarrantyOverride}&quot;;
+if (&quot;${installedBaseItem_classificationCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].classificationCode= &quot;${installedBaseItem_classificationCode}&quot;;
+if (&quot;${installedBaseItem_classificationCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].classificationCodeDescription= &quot;${installedBaseItem_classificationCodeDescription}&quot;;
+if (&quot;${installedBaseItem_isRebuildConfigurationDetail}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isRebuildConfigurationDetail= &quot;${installedBaseItem_isRebuildConfigurationDetail}&quot;;
+if (&quot;${installedBaseItem_isbMstrUser1}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrUser1= &quot;${installedBaseItem_isbMstrUser1}&quot;;
+if (&quot;${installedBaseItem_isbMstrUser2}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrUser2= &quot;${installedBaseItem_isbMstrUser2}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr01}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr01= &quot;${installedBaseItem_isbMstrChr01}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr02}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr02= &quot;${installedBaseItem_isbMstrChr02}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr03}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr03= &quot;${installedBaseItem_isbMstrChr03}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr04}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr04= &quot;${installedBaseItem_isbMstrChr04}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr05}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr05= &quot;${installedBaseItem_isbMstrChr05}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr06}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr06= &quot;${installedBaseItem_isbMstrChr06}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr07}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr07= &quot;${installedBaseItem_isbMstrChr07}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr08}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr08= &quot;${installedBaseItem_isbMstrChr08}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr09}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr09= &quot;${installedBaseItem_isbMstrChr09}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr10}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrChr10= &quot;${installedBaseItem_isbMstrChr10}&quot;;
+if (&quot;${installedBaseItem_isbMstrDec01}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDec01= &quot;${installedBaseItem_isbMstrDec01}&quot;;
+if (&quot;${installedBaseItem_isbMstrDec02}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDec02= &quot;${installedBaseItem_isbMstrDec02}&quot;;
+if (&quot;${installedBaseItem_isbMstrDec03}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDec03= &quot;${installedBaseItem_isbMstrDec03}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte01}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDte01= &quot;${installedBaseItem_isbMstrDte01}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte02}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDte02= &quot;${installedBaseItem_isbMstrDte02}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte03}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDte03= &quot;${installedBaseItem_isbMstrDte03}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte04}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrDte04= &quot;${installedBaseItem_isbMstrDte04}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog01}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrLog01= &quot;${installedBaseItem_isbMstrLog01}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog02}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrLog02= &quot;${installedBaseItem_isbMstrLog02}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog03}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrLog03= &quot;${installedBaseItem_isbMstrLog03}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog04}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrLog04= &quot;${installedBaseItem_isbMstrLog04}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog05}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isbMstrLog05= &quot;${installedBaseItem_isbMstrLog05}&quot;;
+if (&quot;${installedBaseItem_targetEndUserCode}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].targetEndUserCode= &quot;${installedBaseItem_targetEndUserCode}&quot;;
+if (&quot;${installedBaseItem_targetEndUserAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].targetEndUserAddressField1= &quot;${installedBaseItem_targetEndUserAddressField1}&quot;;
+if (&quot;${installedBaseItem_targetEndUserAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].targetEndUserAddressField2= &quot;${installedBaseItem_targetEndUserAddressField2}&quot;;
+if (&quot;${installedBaseItem_targetEndUserAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].targetEndUserAddressField3= &quot;${installedBaseItem_targetEndUserAddressField3}&quot;;
+if (&quot;${installedBaseItem_moveDate}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].moveDate= &quot;${installedBaseItem_moveDate}&quot;;
+if (&quot;${installedBaseItem_isRecaculateCoverage}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isRecaculateCoverage= &quot;${installedBaseItem_isRecaculateCoverage}&quot;;
+if (&quot;${installedBaseItem_isClearWarranty}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isClearWarranty= &quot;${installedBaseItem_isClearWarranty}&quot;;
+if (&quot;${installedBaseItem_newWarranty}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].newWarranty= &quot;${installedBaseItem_newWarranty}&quot;;
+if (&quot;${installedBaseItem_newWarrantyDescription}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].newWarrantyDescription= &quot;${installedBaseItem_newWarrantyDescription}&quot;;
+if (&quot;${installedBaseItem_isRecaculateEnd}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].isRecaculateEnd= &quot;${installedBaseItem_isRecaculateEnd}&quot;;
+if (&quot;${installedBaseItem_moveISB}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].moveISB= &quot;${installedBaseItem_moveISB}&quot;;
+if (&quot;${installedBaseItem_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].dataOperation= &quot;${installedBaseItem_dataOperation}&quot;;
+if (&quot;${installedBaseItem_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.installedBaseItems[0].concurrencyHash= &quot;${installedBaseItem_concurrencyHash}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].domainCode!= &quot;${installedBaseItem_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${installedBaseItem_validate_domainCode} but got &quot; + objRequest.installedBaseItems[0].domainCode}
+if (&quot;${installedBaseItem_validate_endUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserCode!= &quot;${installedBaseItem_validate_endUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCode${installedBaseItem_validate_endUserCode} but got &quot; + objRequest.installedBaseItems[0].endUserCode}
+if (&quot;${installedBaseItem_validate_endUserCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserCustomerCode!= &quot;${installedBaseItem_validate_endUserCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCustomerCode${installedBaseItem_validate_endUserCustomerCode} but got &quot; + objRequest.installedBaseItems[0].endUserCustomerCode}
+if (&quot;${installedBaseItem_validate_endUserCustomerName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserCustomerName!= &quot;${installedBaseItem_validate_endUserCustomerName}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCustomerName${installedBaseItem_validate_endUserCustomerName} but got &quot; + objRequest.installedBaseItems[0].endUserCustomerName}
+if (&quot;${installedBaseItem_validate_endUserCustomerTimeZone}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserCustomerTimeZone!= &quot;${installedBaseItem_validate_endUserCustomerTimeZone}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCustomerTimeZone${installedBaseItem_validate_endUserCustomerTimeZone} but got &quot; + objRequest.installedBaseItems[0].endUserCustomerTimeZone}
+if (&quot;${installedBaseItem_validate_endUserAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserAddressField1!= &quot;${installedBaseItem_validate_endUserAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField1${installedBaseItem_validate_endUserAddressField1} but got &quot; + objRequest.installedBaseItems[0].endUserAddressField1}
+if (&quot;${installedBaseItem_validate_endUserAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserAddressField2!= &quot;${installedBaseItem_validate_endUserAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField2${installedBaseItem_validate_endUserAddressField2} but got &quot; + objRequest.installedBaseItems[0].endUserAddressField2}
+if (&quot;${installedBaseItem_validate_endUserAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserAddressField3!= &quot;${installedBaseItem_validate_endUserAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField3${installedBaseItem_validate_endUserAddressField3} but got &quot; + objRequest.installedBaseItems[0].endUserAddressField3}
+if (&quot;${installedBaseItem_validate_endUserAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserAddressField4!= &quot;${installedBaseItem_validate_endUserAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField4${installedBaseItem_validate_endUserAddressField4} but got &quot; + objRequest.installedBaseItems[0].endUserAddressField4}
+if (&quot;${installedBaseItem_validate_endUserAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserAddressField5!= &quot;${installedBaseItem_validate_endUserAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField5${installedBaseItem_validate_endUserAddressField5} but got &quot; + objRequest.installedBaseItems[0].endUserAddressField5}
+if (&quot;${installedBaseItem_validate_endUserAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].endUserAddressField6!= &quot;${installedBaseItem_validate_endUserAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField6${installedBaseItem_validate_endUserAddressField6} but got &quot; + objRequest.installedBaseItems[0].endUserAddressField6}
+if (&quot;${installedBaseItem_validate_itemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].itemCode!= &quot;${installedBaseItem_validate_itemCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemCode${installedBaseItem_validate_itemCode} but got &quot; + objRequest.installedBaseItems[0].itemCode}
+if (&quot;${installedBaseItem_validate_serialCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].serialCode!= &quot;${installedBaseItem_validate_serialCode}&quot;) { failureMessage = failureMessage + &quot;Expect serialCode${installedBaseItem_validate_serialCode} but got &quot; + objRequest.installedBaseItems[0].serialCode}
+if (&quot;${installedBaseItem_validate_newSerialCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].newSerialCode!= &quot;${installedBaseItem_validate_newSerialCode}&quot;) { failureMessage = failureMessage + &quot;Expect newSerialCode${installedBaseItem_validate_newSerialCode} but got &quot; + objRequest.installedBaseItems[0].newSerialCode}
+if (&quot;${installedBaseItem_validate_referenceCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].referenceCode!= &quot;${installedBaseItem_validate_referenceCode}&quot;) { failureMessage = failureMessage + &quot;Expect referenceCode${installedBaseItem_validate_referenceCode} but got &quot; + objRequest.installedBaseItems[0].referenceCode}
+if (&quot;${installedBaseItem_validate_newReferenceCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].newReferenceCode!= &quot;${installedBaseItem_validate_newReferenceCode}&quot;) { failureMessage = failureMessage + &quot;Expect newReferenceCode${installedBaseItem_validate_newReferenceCode} but got &quot; + objRequest.installedBaseItems[0].newReferenceCode}
+if (&quot;${installedBaseItem_validate_parentItemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].parentItemCode!= &quot;${installedBaseItem_validate_parentItemCode}&quot;) { failureMessage = failureMessage + &quot;Expect parentItemCode${installedBaseItem_validate_parentItemCode} but got &quot; + objRequest.installedBaseItems[0].parentItemCode}
+if (&quot;${installedBaseItem_validate_parentSerialCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].parentSerialCode!= &quot;${installedBaseItem_validate_parentSerialCode}&quot;) { failureMessage = failureMessage + &quot;Expect parentSerialCode${installedBaseItem_validate_parentSerialCode} but got &quot; + objRequest.installedBaseItems[0].parentSerialCode}
+if (&quot;${installedBaseItem_validate_parentReferenceCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].parentReferenceCode!= &quot;${installedBaseItem_validate_parentReferenceCode}&quot;) { failureMessage = failureMessage + &quot;Expect parentReferenceCode${installedBaseItem_validate_parentReferenceCode} but got &quot; + objRequest.installedBaseItems[0].parentReferenceCode}
+if (&quot;${installedBaseItem_validate_sequenceNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].sequenceNumber!= &quot;${installedBaseItem_validate_sequenceNumber}&quot;) { failureMessage = failureMessage + &quot;Expect sequenceNumber${installedBaseItem_validate_sequenceNumber} but got &quot; + objRequest.installedBaseItems[0].sequenceNumber}
+if (&quot;${installedBaseItem_validate_warrantyDuration}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].warrantyDuration!= &quot;${installedBaseItem_validate_warrantyDuration}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyDuration${installedBaseItem_validate_warrantyDuration} but got &quot; + objRequest.installedBaseItems[0].warrantyDuration}
+if (&quot;${installedBaseItem_validate_statusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].statusCode!= &quot;${installedBaseItem_validate_statusCode}&quot;) { failureMessage = failureMessage + &quot;Expect statusCode${installedBaseItem_validate_statusCode} but got &quot; + objRequest.installedBaseItems[0].statusCode}
+if (&quot;${installedBaseItem_validate_statusCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].statusCodeDescription!= &quot;${installedBaseItem_validate_statusCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect statusCodeDescription${installedBaseItem_validate_statusCodeDescription} but got &quot; + objRequest.installedBaseItems[0].statusCodeDescription}
+if (&quot;${installedBaseItem_validate_revision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].revision!= &quot;${installedBaseItem_validate_revision}&quot;) { failureMessage = failureMessage + &quot;Expect revision${installedBaseItem_validate_revision} but got &quot; + objRequest.installedBaseItems[0].revision}
+if (&quot;${installedBaseItem_validate_revisionDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].revisionDescription!= &quot;${installedBaseItem_validate_revisionDescription}&quot;) { failureMessage = failureMessage + &quot;Expect revisionDescription${installedBaseItem_validate_revisionDescription} but got &quot; + objRequest.installedBaseItems[0].revisionDescription}
+if (&quot;${installedBaseItem_validate_installDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].installDate!= &quot;${installedBaseItem_validate_installDate}&quot;) { failureMessage = failureMessage + &quot;Expect installDate${installedBaseItem_validate_installDate} but got &quot; + objRequest.installedBaseItems[0].installDate}
+if (&quot;${installedBaseItem_validate_lastPreventiveMaintenanceDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].lastPreventiveMaintenanceDate!= &quot;${installedBaseItem_validate_lastPreventiveMaintenanceDate}&quot;) { failureMessage = failureMessage + &quot;Expect lastPreventiveMaintenanceDate${installedBaseItem_validate_lastPreventiveMaintenanceDate} but got &quot; + objRequest.installedBaseItems[0].lastPreventiveMaintenanceDate}
+if (&quot;${installedBaseItem_validate_preventiveMaintenanceDays}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].preventiveMaintenanceDays!= &quot;${installedBaseItem_validate_preventiveMaintenanceDays}&quot;) { failureMessage = failureMessage + &quot;Expect preventiveMaintenanceDays${installedBaseItem_validate_preventiveMaintenanceDays} but got &quot; + objRequest.installedBaseItems[0].preventiveMaintenanceDays}
+if (&quot;${installedBaseItem_validate_salesOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].salesOrderNumber!= &quot;${installedBaseItem_validate_salesOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect salesOrderNumber${installedBaseItem_validate_salesOrderNumber} but got &quot; + objRequest.installedBaseItems[0].salesOrderNumber}
+if (&quot;${installedBaseItem_validate_description}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].description!= &quot;${installedBaseItem_validate_description}&quot;) { failureMessage = failureMessage + &quot;Expect description${installedBaseItem_validate_description} but got &quot; + objRequest.installedBaseItems[0].description}
+if (&quot;${installedBaseItem_validate_description2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].description2!= &quot;${installedBaseItem_validate_description2}&quot;) { failureMessage = failureMessage + &quot;Expect description2${installedBaseItem_validate_description2} but got &quot; + objRequest.installedBaseItems[0].description2}
+if (&quot;${installedBaseItem_validate_warrantyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].warrantyCode!= &quot;${installedBaseItem_validate_warrantyCode}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyCode${installedBaseItem_validate_warrantyCode} but got &quot; + objRequest.installedBaseItems[0].warrantyCode}
+if (&quot;${installedBaseItem_validate_warrantyCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].warrantyCodeDescription!= &quot;${installedBaseItem_validate_warrantyCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyCodeDescription${installedBaseItem_validate_warrantyCodeDescription} but got &quot; + objRequest.installedBaseItems[0].warrantyCodeDescription}
+if (&quot;${installedBaseItem_validate_isComponent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isComponent!= &quot;${installedBaseItem_validate_isComponent}&quot;) { failureMessage = failureMessage + &quot;Expect isComponent${installedBaseItem_validate_isComponent} but got &quot; + objRequest.installedBaseItems[0].isComponent}
+if (&quot;${installedBaseItem_validate_isParent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isParent!= &quot;${installedBaseItem_validate_isParent}&quot;) { failureMessage = failureMessage + &quot;Expect isParent${installedBaseItem_validate_isParent} but got &quot; + objRequest.installedBaseItems[0].isParent}
+if (&quot;${installedBaseItem_validate_warrantyExpiration}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].warrantyExpiration!= &quot;${installedBaseItem_validate_warrantyExpiration}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyExpiration${installedBaseItem_validate_warrantyExpiration} but got &quot; + objRequest.installedBaseItems[0].warrantyExpiration}
+if (&quot;${installedBaseItem_validate_nextPreventiveMaintenanceDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].nextPreventiveMaintenanceDate!= &quot;${installedBaseItem_validate_nextPreventiveMaintenanceDate}&quot;) { failureMessage = failureMessage + &quot;Expect nextPreventiveMaintenanceDate${installedBaseItem_validate_nextPreventiveMaintenanceDate} but got &quot; + objRequest.installedBaseItems[0].nextPreventiveMaintenanceDate}
+if (&quot;${installedBaseItem_validate_salesOrderLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].salesOrderLine!= &quot;${installedBaseItem_validate_salesOrderLine}&quot;) { failureMessage = failureMessage + &quot;Expect salesOrderLine${installedBaseItem_validate_salesOrderLine} but got &quot; + objRequest.installedBaseItems[0].salesOrderLine}
+if (&quot;${installedBaseItem_validate_invoiceNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].invoiceNumber!= &quot;${installedBaseItem_validate_invoiceNumber}&quot;) { failureMessage = failureMessage + &quot;Expect invoiceNumber${installedBaseItem_validate_invoiceNumber} but got &quot; + objRequest.installedBaseItems[0].invoiceNumber}
+if (&quot;${installedBaseItem_validate_ownership}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].ownership!= &quot;${installedBaseItem_validate_ownership}&quot;) { failureMessage = failureMessage + &quot;Expect ownership${installedBaseItem_validate_ownership} but got &quot; + objRequest.installedBaseItems[0].ownership}
+if (&quot;${installedBaseItem_validate_ownershipDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].ownershipDescription!= &quot;${installedBaseItem_validate_ownershipDescription}&quot;) { failureMessage = failureMessage + &quot;Expect ownershipDescription${installedBaseItem_validate_ownershipDescription} but got &quot; + objRequest.installedBaseItems[0].ownershipDescription}
+if (&quot;${installedBaseItem_validate_tariffNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].tariffNumber!= &quot;${installedBaseItem_validate_tariffNumber}&quot;) { failureMessage = failureMessage + &quot;Expect tariffNumber${installedBaseItem_validate_tariffNumber} but got &quot; + objRequest.installedBaseItems[0].tariffNumber}
+if (&quot;${installedBaseItem_validate_countryOfOrigin}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].countryOfOrigin!= &quot;${installedBaseItem_validate_countryOfOrigin}&quot;) { failureMessage = failureMessage + &quot;Expect countryOfOrigin${installedBaseItem_validate_countryOfOrigin} but got &quot; + objRequest.installedBaseItems[0].countryOfOrigin}
+if (&quot;${installedBaseItem_validate_itemTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].itemTypeCode!= &quot;${installedBaseItem_validate_itemTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemTypeCode${installedBaseItem_validate_itemTypeCode} but got &quot; + objRequest.installedBaseItems[0].itemTypeCode}
+if (&quot;${installedBaseItem_validate_itemTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].itemTypeDescription!= &quot;${installedBaseItem_validate_itemTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect itemTypeDescription${installedBaseItem_validate_itemTypeDescription} but got &quot; + objRequest.installedBaseItems[0].itemTypeDescription}
+if (&quot;${installedBaseItem_validate_lastUpdatedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].lastUpdatedDate!= &quot;${installedBaseItem_validate_lastUpdatedDate}&quot;) { failureMessage = failureMessage + &quot;Expect lastUpdatedDate${installedBaseItem_validate_lastUpdatedDate} but got &quot; + objRequest.installedBaseItems[0].lastUpdatedDate}
+if (&quot;${installedBaseItem_validate_unitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].unitOfMeasure!= &quot;${installedBaseItem_validate_unitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect unitOfMeasure${installedBaseItem_validate_unitOfMeasure} but got &quot; + objRequest.installedBaseItems[0].unitOfMeasure}
+if (&quot;${installedBaseItem_validate_location}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].location!= &quot;${installedBaseItem_validate_location}&quot;) { failureMessage = failureMessage + &quot;Expect location${installedBaseItem_validate_location} but got &quot; + objRequest.installedBaseItems[0].location}
+if (&quot;${installedBaseItem_validate_shipDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].shipDate!= &quot;${installedBaseItem_validate_shipDate}&quot;) { failureMessage = failureMessage + &quot;Expect shipDate${installedBaseItem_validate_shipDate} but got &quot; + objRequest.installedBaseItems[0].shipDate}
+if (&quot;${installedBaseItem_validate_inventoryReference}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].inventoryReference!= &quot;${installedBaseItem_validate_inventoryReference}&quot;) { failureMessage = failureMessage + &quot;Expect inventoryReference${installedBaseItem_validate_inventoryReference} but got &quot; + objRequest.installedBaseItems[0].inventoryReference}
+if (&quot;${installedBaseItem_validate_calibration}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].calibration!= &quot;${installedBaseItem_validate_calibration}&quot;) { failureMessage = failureMessage + &quot;Expect calibration${installedBaseItem_validate_calibration} but got &quot; + objRequest.installedBaseItems[0].calibration}
+if (&quot;${installedBaseItem_validate_calibrationDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].calibrationDate!= &quot;${installedBaseItem_validate_calibrationDate}&quot;) { failureMessage = failureMessage + &quot;Expect calibrationDate${installedBaseItem_validate_calibrationDate} but got &quot; + objRequest.installedBaseItems[0].calibrationDate}
+if (&quot;${installedBaseItem_validate_model}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].model!= &quot;${installedBaseItem_validate_model}&quot;) { failureMessage = failureMessage + &quot;Expect model${installedBaseItem_validate_model} but got &quot; + objRequest.installedBaseItems[0].model}
+if (&quot;${installedBaseItem_validate_modelDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].modelDescription!= &quot;${installedBaseItem_validate_modelDescription}&quot;) { failureMessage = failureMessage + &quot;Expect modelDescription${installedBaseItem_validate_modelDescription} but got &quot; + objRequest.installedBaseItems[0].modelDescription}
+if (&quot;${installedBaseItem_validate_articleNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].articleNumber!= &quot;${installedBaseItem_validate_articleNumber}&quot;) { failureMessage = failureMessage + &quot;Expect articleNumber${installedBaseItem_validate_articleNumber} but got &quot; + objRequest.installedBaseItems[0].articleNumber}
+if (&quot;${installedBaseItem_validate_soldToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].soldToCustomerCode!= &quot;${installedBaseItem_validate_soldToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect soldToCustomerCode${installedBaseItem_validate_soldToCustomerCode} but got &quot; + objRequest.installedBaseItems[0].soldToCustomerCode}
+if (&quot;${installedBaseItem_validate_priceSold}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].priceSold!= &quot;${installedBaseItem_validate_priceSold}&quot;) { failureMessage = failureMessage + &quot;Expect priceSold${installedBaseItem_validate_priceSold} but got &quot; + objRequest.installedBaseItems[0].priceSold}
+if (&quot;${installedBaseItem_validate_isRebuildInstalledBase}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isRebuildInstalledBase!= &quot;${installedBaseItem_validate_isRebuildInstalledBase}&quot;) { failureMessage = failureMessage + &quot;Expect isRebuildInstalledBase${installedBaseItem_validate_isRebuildInstalledBase} but got &quot; + objRequest.installedBaseItems[0].isRebuildInstalledBase}
+if (&quot;${installedBaseItem_validate_customerId}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].customerId!= &quot;${installedBaseItem_validate_customerId}&quot;) { failureMessage = failureMessage + &quot;Expect customerId${installedBaseItem_validate_customerId} but got &quot; + objRequest.installedBaseItems[0].customerId}
+if (&quot;${installedBaseItem_validate_commentIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].commentIndex!= &quot;${installedBaseItem_validate_commentIndex}&quot;) { failureMessage = failureMessage + &quot;Expect commentIndex${installedBaseItem_validate_commentIndex} but got &quot; + objRequest.installedBaseItems[0].commentIndex}
+if (&quot;${installedBaseItem_validate_updates}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].updates!= &quot;${installedBaseItem_validate_updates}&quot;) { failureMessage = failureMessage + &quot;Expect updates${installedBaseItem_validate_updates} but got &quot; + objRequest.installedBaseItems[0].updates}
+if (&quot;${installedBaseItem_validate_originalInstall}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].originalInstall!= &quot;${installedBaseItem_validate_originalInstall}&quot;) { failureMessage = failureMessage + &quot;Expect originalInstall${installedBaseItem_validate_originalInstall} but got &quot; + objRequest.installedBaseItems[0].originalInstall}
+if (&quot;${installedBaseItem_validate_isInternalPreventiveMaintenance}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isInternalPreventiveMaintenance!= &quot;${installedBaseItem_validate_isInternalPreventiveMaintenance}&quot;) { failureMessage = failureMessage + &quot;Expect isInternalPreventiveMaintenance${installedBaseItem_validate_isInternalPreventiveMaintenance} but got &quot; + objRequest.installedBaseItems[0].isInternalPreventiveMaintenance}
+if (&quot;${installedBaseItem_validate_engineerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].engineerCode!= &quot;${installedBaseItem_validate_engineerCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerCode${installedBaseItem_validate_engineerCode} but got &quot; + objRequest.installedBaseItems[0].engineerCode}
+if (&quot;${installedBaseItem_validate_laborWarrantyExpires}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].laborWarrantyExpires!= &quot;${installedBaseItem_validate_laborWarrantyExpires}&quot;) { failureMessage = failureMessage + &quot;Expect laborWarrantyExpires${installedBaseItem_validate_laborWarrantyExpires} but got &quot; + objRequest.installedBaseItems[0].laborWarrantyExpires}
+if (&quot;${installedBaseItem_validate_quantity}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].quantity!= &quot;${installedBaseItem_validate_quantity}&quot;) { failureMessage = failureMessage + &quot;Expect quantity${installedBaseItem_validate_quantity} but got &quot; + objRequest.installedBaseItems[0].quantity}
+if (&quot;${installedBaseItem_validate_latestMeterReading}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].latestMeterReading!= &quot;${installedBaseItem_validate_latestMeterReading}&quot;) { failureMessage = failureMessage + &quot;Expect latestMeterReading${installedBaseItem_validate_latestMeterReading} but got &quot; + objRequest.installedBaseItems[0].latestMeterReading}
+if (&quot;${installedBaseItem_validate_meterReadingDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].meterReadingDate!= &quot;${installedBaseItem_validate_meterReadingDate}&quot;) { failureMessage = failureMessage + &quot;Expect meterReadingDate${installedBaseItem_validate_meterReadingDate} but got &quot; + objRequest.installedBaseItems[0].meterReadingDate}
+if (&quot;${installedBaseItem_validate_meterReadingInterval}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].meterReadingInterval!= &quot;${installedBaseItem_validate_meterReadingInterval}&quot;) { failureMessage = failureMessage + &quot;Expect meterReadingInterval${installedBaseItem_validate_meterReadingInterval} but got &quot; + objRequest.installedBaseItems[0].meterReadingInterval}
+if (&quot;${installedBaseItem_validate_meterReadingUnits}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].meterReadingUnits!= &quot;${installedBaseItem_validate_meterReadingUnits}&quot;) { failureMessage = failureMessage + &quot;Expect meterReadingUnits${installedBaseItem_validate_meterReadingUnits} but got &quot; + objRequest.installedBaseItems[0].meterReadingUnits}
+if (&quot;${installedBaseItem_validate_isWarrantyOverride}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isWarrantyOverride!= &quot;${installedBaseItem_validate_isWarrantyOverride}&quot;) { failureMessage = failureMessage + &quot;Expect isWarrantyOverride${installedBaseItem_validate_isWarrantyOverride} but got &quot; + objRequest.installedBaseItems[0].isWarrantyOverride}
+if (&quot;${installedBaseItem_validate_classificationCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].classificationCode!= &quot;${installedBaseItem_validate_classificationCode}&quot;) { failureMessage = failureMessage + &quot;Expect classificationCode${installedBaseItem_validate_classificationCode} but got &quot; + objRequest.installedBaseItems[0].classificationCode}
+if (&quot;${installedBaseItem_validate_classificationCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].classificationCodeDescription!= &quot;${installedBaseItem_validate_classificationCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect classificationCodeDescription${installedBaseItem_validate_classificationCodeDescription} but got &quot; + objRequest.installedBaseItems[0].classificationCodeDescription}
+if (&quot;${installedBaseItem_validate_isRebuildConfigurationDetail}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isRebuildConfigurationDetail!= &quot;${installedBaseItem_validate_isRebuildConfigurationDetail}&quot;) { failureMessage = failureMessage + &quot;Expect isRebuildConfigurationDetail${installedBaseItem_validate_isRebuildConfigurationDetail} but got &quot; + objRequest.installedBaseItems[0].isRebuildConfigurationDetail}
+if (&quot;${installedBaseItem_validate_isbMstrUser1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrUser1!= &quot;${installedBaseItem_validate_isbMstrUser1}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrUser1${installedBaseItem_validate_isbMstrUser1} but got &quot; + objRequest.installedBaseItems[0].isbMstrUser1}
+if (&quot;${installedBaseItem_validate_isbMstrUser2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrUser2!= &quot;${installedBaseItem_validate_isbMstrUser2}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrUser2${installedBaseItem_validate_isbMstrUser2} but got &quot; + objRequest.installedBaseItems[0].isbMstrUser2}
+if (&quot;${installedBaseItem_validate_isbMstrChr01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr01!= &quot;${installedBaseItem_validate_isbMstrChr01}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr01${installedBaseItem_validate_isbMstrChr01} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr01}
+if (&quot;${installedBaseItem_validate_isbMstrChr02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr02!= &quot;${installedBaseItem_validate_isbMstrChr02}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr02${installedBaseItem_validate_isbMstrChr02} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr02}
+if (&quot;${installedBaseItem_validate_isbMstrChr03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr03!= &quot;${installedBaseItem_validate_isbMstrChr03}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr03${installedBaseItem_validate_isbMstrChr03} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr03}
+if (&quot;${installedBaseItem_validate_isbMstrChr04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr04!= &quot;${installedBaseItem_validate_isbMstrChr04}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr04${installedBaseItem_validate_isbMstrChr04} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr04}
+if (&quot;${installedBaseItem_validate_isbMstrChr05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr05!= &quot;${installedBaseItem_validate_isbMstrChr05}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr05${installedBaseItem_validate_isbMstrChr05} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr05}
+if (&quot;${installedBaseItem_validate_isbMstrChr06}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr06!= &quot;${installedBaseItem_validate_isbMstrChr06}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr06${installedBaseItem_validate_isbMstrChr06} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr06}
+if (&quot;${installedBaseItem_validate_isbMstrChr07}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr07!= &quot;${installedBaseItem_validate_isbMstrChr07}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr07${installedBaseItem_validate_isbMstrChr07} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr07}
+if (&quot;${installedBaseItem_validate_isbMstrChr08}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr08!= &quot;${installedBaseItem_validate_isbMstrChr08}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr08${installedBaseItem_validate_isbMstrChr08} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr08}
+if (&quot;${installedBaseItem_validate_isbMstrChr09}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr09!= &quot;${installedBaseItem_validate_isbMstrChr09}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr09${installedBaseItem_validate_isbMstrChr09} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr09}
+if (&quot;${installedBaseItem_validate_isbMstrChr10}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrChr10!= &quot;${installedBaseItem_validate_isbMstrChr10}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrChr10${installedBaseItem_validate_isbMstrChr10} but got &quot; + objRequest.installedBaseItems[0].isbMstrChr10}
+if (&quot;${installedBaseItem_validate_isbMstrDec01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDec01!= &quot;${installedBaseItem_validate_isbMstrDec01}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDec01${installedBaseItem_validate_isbMstrDec01} but got &quot; + objRequest.installedBaseItems[0].isbMstrDec01}
+if (&quot;${installedBaseItem_validate_isbMstrDec02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDec02!= &quot;${installedBaseItem_validate_isbMstrDec02}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDec02${installedBaseItem_validate_isbMstrDec02} but got &quot; + objRequest.installedBaseItems[0].isbMstrDec02}
+if (&quot;${installedBaseItem_validate_isbMstrDec03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDec03!= &quot;${installedBaseItem_validate_isbMstrDec03}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDec03${installedBaseItem_validate_isbMstrDec03} but got &quot; + objRequest.installedBaseItems[0].isbMstrDec03}
+if (&quot;${installedBaseItem_validate_isbMstrDte01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDte01!= &quot;${installedBaseItem_validate_isbMstrDte01}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDte01${installedBaseItem_validate_isbMstrDte01} but got &quot; + objRequest.installedBaseItems[0].isbMstrDte01}
+if (&quot;${installedBaseItem_validate_isbMstrDte02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDte02!= &quot;${installedBaseItem_validate_isbMstrDte02}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDte02${installedBaseItem_validate_isbMstrDte02} but got &quot; + objRequest.installedBaseItems[0].isbMstrDte02}
+if (&quot;${installedBaseItem_validate_isbMstrDte03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDte03!= &quot;${installedBaseItem_validate_isbMstrDte03}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDte03${installedBaseItem_validate_isbMstrDte03} but got &quot; + objRequest.installedBaseItems[0].isbMstrDte03}
+if (&quot;${installedBaseItem_validate_isbMstrDte04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrDte04!= &quot;${installedBaseItem_validate_isbMstrDte04}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrDte04${installedBaseItem_validate_isbMstrDte04} but got &quot; + objRequest.installedBaseItems[0].isbMstrDte04}
+if (&quot;${installedBaseItem_validate_isbMstrLog01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrLog01!= &quot;${installedBaseItem_validate_isbMstrLog01}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrLog01${installedBaseItem_validate_isbMstrLog01} but got &quot; + objRequest.installedBaseItems[0].isbMstrLog01}
+if (&quot;${installedBaseItem_validate_isbMstrLog02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrLog02!= &quot;${installedBaseItem_validate_isbMstrLog02}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrLog02${installedBaseItem_validate_isbMstrLog02} but got &quot; + objRequest.installedBaseItems[0].isbMstrLog02}
+if (&quot;${installedBaseItem_validate_isbMstrLog03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrLog03!= &quot;${installedBaseItem_validate_isbMstrLog03}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrLog03${installedBaseItem_validate_isbMstrLog03} but got &quot; + objRequest.installedBaseItems[0].isbMstrLog03}
+if (&quot;${installedBaseItem_validate_isbMstrLog04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrLog04!= &quot;${installedBaseItem_validate_isbMstrLog04}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrLog04${installedBaseItem_validate_isbMstrLog04} but got &quot; + objRequest.installedBaseItems[0].isbMstrLog04}
+if (&quot;${installedBaseItem_validate_isbMstrLog05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isbMstrLog05!= &quot;${installedBaseItem_validate_isbMstrLog05}&quot;) { failureMessage = failureMessage + &quot;Expect isbMstrLog05${installedBaseItem_validate_isbMstrLog05} but got &quot; + objRequest.installedBaseItems[0].isbMstrLog05}
+if (&quot;${installedBaseItem_validate_targetEndUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].targetEndUserCode!= &quot;${installedBaseItem_validate_targetEndUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect targetEndUserCode${installedBaseItem_validate_targetEndUserCode} but got &quot; + objRequest.installedBaseItems[0].targetEndUserCode}
+if (&quot;${installedBaseItem_validate_targetEndUserAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].targetEndUserAddressField1!= &quot;${installedBaseItem_validate_targetEndUserAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect targetEndUserAddressField1${installedBaseItem_validate_targetEndUserAddressField1} but got &quot; + objRequest.installedBaseItems[0].targetEndUserAddressField1}
+if (&quot;${installedBaseItem_validate_targetEndUserAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].targetEndUserAddressField2!= &quot;${installedBaseItem_validate_targetEndUserAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect targetEndUserAddressField2${installedBaseItem_validate_targetEndUserAddressField2} but got &quot; + objRequest.installedBaseItems[0].targetEndUserAddressField2}
+if (&quot;${installedBaseItem_validate_targetEndUserAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].targetEndUserAddressField3!= &quot;${installedBaseItem_validate_targetEndUserAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect targetEndUserAddressField3${installedBaseItem_validate_targetEndUserAddressField3} but got &quot; + objRequest.installedBaseItems[0].targetEndUserAddressField3}
+if (&quot;${installedBaseItem_validate_moveDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].moveDate!= &quot;${installedBaseItem_validate_moveDate}&quot;) { failureMessage = failureMessage + &quot;Expect moveDate${installedBaseItem_validate_moveDate} but got &quot; + objRequest.installedBaseItems[0].moveDate}
+if (&quot;${installedBaseItem_validate_isRecaculateCoverage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isRecaculateCoverage!= &quot;${installedBaseItem_validate_isRecaculateCoverage}&quot;) { failureMessage = failureMessage + &quot;Expect isRecaculateCoverage${installedBaseItem_validate_isRecaculateCoverage} but got &quot; + objRequest.installedBaseItems[0].isRecaculateCoverage}
+if (&quot;${installedBaseItem_validate_isClearWarranty}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isClearWarranty!= &quot;${installedBaseItem_validate_isClearWarranty}&quot;) { failureMessage = failureMessage + &quot;Expect isClearWarranty${installedBaseItem_validate_isClearWarranty} but got &quot; + objRequest.installedBaseItems[0].isClearWarranty}
+if (&quot;${installedBaseItem_validate_newWarranty}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].newWarranty!= &quot;${installedBaseItem_validate_newWarranty}&quot;) { failureMessage = failureMessage + &quot;Expect newWarranty${installedBaseItem_validate_newWarranty} but got &quot; + objRequest.installedBaseItems[0].newWarranty}
+if (&quot;${installedBaseItem_validate_newWarrantyDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].newWarrantyDescription!= &quot;${installedBaseItem_validate_newWarrantyDescription}&quot;) { failureMessage = failureMessage + &quot;Expect newWarrantyDescription${installedBaseItem_validate_newWarrantyDescription} but got &quot; + objRequest.installedBaseItems[0].newWarrantyDescription}
+if (&quot;${installedBaseItem_validate_isRecaculateEnd}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].isRecaculateEnd!= &quot;${installedBaseItem_validate_isRecaculateEnd}&quot;) { failureMessage = failureMessage + &quot;Expect isRecaculateEnd${installedBaseItem_validate_isRecaculateEnd} but got &quot; + objRequest.installedBaseItems[0].isRecaculateEnd}
+if (&quot;${installedBaseItem_validate_moveISB}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].moveISB!= &quot;${installedBaseItem_validate_moveISB}&quot;) { failureMessage = failureMessage + &quot;Expect moveISB${installedBaseItem_validate_moveISB} but got &quot; + objRequest.installedBaseItems[0].moveISB}
+if (&quot;${installedBaseItem_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].dataOperation!= &quot;${installedBaseItem_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${installedBaseItem_validate_dataOperation} but got &quot; + objRequest.installedBaseItems[0].dataOperation}
+if (&quot;${installedBaseItem_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.installedBaseItems[0].concurrencyHash!= &quot;${installedBaseItem_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${installedBaseItem_validate_concurrencyHash} but got &quot; + objRequest.installedBaseItems[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;installedBaseItem_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

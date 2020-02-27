@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create RMA Header" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Create RMA Header" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set default values" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// Add module variables here
+//varsList.add(&quot;[prefix]_[var_name]&quot;);
+varsList.add(&quot;rmaHeaderCreate_soldToCustomerCode&quot;);
+varsList.add(&quot;rmaHeaderCreate_purchaseOrderNumber&quot;);
+varsList.add(&quot;rmaHeaderCreate_isConfirmed&quot;);
+
+
+// Set default values
+varsList.each {
+	if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}
+varsList.add(&quot;rmaHeader_rmaNumber&quot;);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="RMA Header Initialize" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="initialize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">initialize</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="viewUri" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">urn:be:com.qad.service.rma.IRmaHeader</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">viewUri</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/rmaHeaders</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Field Change" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="soldToCustomerCode fieldchange data setup" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;rmaHeader_fieldValue&quot;,&quot;${rmaHeaderCreate_soldToCustomerCode}&quot;)
+vars.put(&quot;rmaHeader_url_fieldName&quot;,&quot;soldToCustomerCode&quot;)
+if (&quot;${rmaNumber}&quot;!=&quot;&quot;)
+{
+	 vars.put(&quot;rmaHeader_rmaNumber&quot;,&quot;${rmaNumber}&quot;);
+	}
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Field Change fragment" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\RMA\Fragment_rmaHeader_fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="rmaHeader nextRmaNumber" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/rmaHeaders/nextRmaNumber</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract NextRMANumber" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">output_rmaHeader_nextRmaNumber</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.nextRmaNumber</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NONE</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="get rmaNumber from the response" enabled="false">
+          <stringProp name="scriptLanguage">javascript</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+if (&quot;${rmaNumber}&quot;!=&quot;&quot;)
+	{
+	 objRequest.rmaHeaders[0].rmaNumber=&quot;${rmaNumber}&quot;;
+	 vars.put(&quot;rmaHeader_rmaNumber&quot;,&quot;${rmaNumber}&quot;);
+	}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Header Save-${rmaNumber}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Save Data Setup" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var defaultValue = &quot;[N/A]&quot;;
+if (&quot;${rmaHeaderCreate_purchaseOrderNumber}&quot;!=defaultValue){
+	vars.put(&quot;rmaHeader_update_s_purchaseOrderNumber&quot;,&quot;${rmaHeaderCreate_purchaseOrderNumber}&quot;);
+}
+if (&quot;${rmaHeaderCreate_isConfirmed}&quot;!=defaultValue){
+	vars.put(&quot;rmaHeader_update_i_isConfirmed&quot;,${rmaHeaderCreate_isConfirmed});
+	
+}
+if (&quot;${rmaNumber}&quot;!=&quot;&quot;)
+	{
+
+	 vars.put(&quot;rmaHeader_rmaNumber&quot;,&quot;${rmaNumber}&quot;);
+	}
+
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugSampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="RMA Header save" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}&#xd;
+</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/rmaHeaders?viewUri=urn:be:com.qad.service.rma.IRmaHeader</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var defaultValue = &quot;[N/A]&quot;;
+var prefix1 = &quot;rmaHeader_update_&quot;;
+
+// All the fields in dataset should be set here
+// Below code block is only for rmaHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix1)){		
+		if(e.getValue() != defaultValue){
+				var temp = varName.replace(prefix1,&quot;&quot;)
+			var temp0 = vars.get(varName);
+			if(temp.startsWith(&quot;s_&quot;)){ 
+				eval(&quot;objRequest.rmaHeaders[0].&quot; + temp.replace(&quot;s_&quot;,&quot;&quot;) + &quot;= &apos;&quot; + temp0 + &quot;&apos;&quot;);
+			}
+			else if (temp.startsWith(&quot;i_&quot;)){
+				eval(&quot;objRequest.rmaHeaders[0].&quot; + temp.replace(&quot;i_&quot;,&quot;&quot;) + &quot;=&quot; + temp0);			
+			}
+		}
+	}
+	
+}
+
+if (&quot;${rmaNumber}&quot;!=defaultValue){
+	objRequest.rmaHeaders[0].rmaNumber=&quot;${rmaNumber}&quot;;
+
+	
+}
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract full response" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="JSON Extractor" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">rmaHeader_rmaNumber</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.rmaHeaders[0].rmaNumber</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="false">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+var prefix2 = &quot;rmaHeader_validate_&quot;;
+
+
+// All the fields in dataset should be set here
+// Below code block is only for serviceContractHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix2)){
+		var actValue = eval(&quot;objRequest.rmaHeaders[0].&quot; + varName.replace(prefix2,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  actValue != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix2,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot;\n&quot;;
+		}
+	}
+}
+
+
+
+</stringProp>
+              <stringProp name="scriptLanguage">javascript</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="RMAHeader Create: ${rmaNumber}" enabled="false">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\RMA\Fragment_rmaHeader_save1.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="false">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;rmaHeader_rmaNumber&quot;);
+varsList.add(&quot;rmaHeader_url_parameters&quot;);
+
+
+// Inputs
+varsList.add(&quot;rmaHeader_update_s_purchaseOrderNumber&quot;); //purchase order number
+
+varsList.add(&quot;rmaHeader_update_i_isForecastConsumed&quot;); //contract Visit
+
+
+// Fields for validation
+varsList.add(&quot;rmaHeader_validate_shipVia&quot;); //sold-To
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String prefix = &quot;rmaHeaderCreate_&quot;;
+
+vars.entrySet().each { entry -&gt; 
+	def name = entry.getKey()
+	if (name.startsWith(prefix)) {
+		vars.put(name, &quot;[N/A]&quot;);
+	}
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

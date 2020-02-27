@@ -1,0 +1,37 @@
+fieldName,fieldValue,error,type
+serviceTypeCode,180-c,Update not allowed.,replacement
+serviceTypeCode,180-c,Update not allowed.,repair
+workCode,5000,Update not allowed.,repair
+workCode,5000,Update not allowed.,replacement
+soldToCustomerCode,10c1002,End user does not belong to this customer.,header
+baseCurrencyCode,CNY,[N/A],header
+serviceTypeCode,180-a,Activity recorded for this item. Cannot change service type.,header
+timeZoneCode,COT,[N/A],header
+defaultTimeZoneCode,COT,[N/A],header
+exchangeRate,233,Update not allowed.,header
+exchangeRate2,2333,Update not allowed.,header
+isFixedRate,true,Update not allowed.,header
+siteEntityCode,11CANCO,[N/A],repair
+endUserCode,10c1003,Update not allowed.,repair
+billToCustomerCode,10c1003,Update not allowed.,header
+currencyCode,CNY,Update not allowed.,header
+salesAccount,4020,[N/A],repair
+salesSubAccount,4020,[N/A],repair
+salesCostCenter,4020,[N/A],repair
+discountAccount,4020,[N/A],repair
+discountSubAccount,4020,[N/A],repair
+discountCostCenter,4020,[N/A],repair
+isFixedPrice,false,Update not allowed.,replace
+isFixedPrice,true,Update not allowed.,repair
+isFixedPrice,false,Update not allowed.,replacement
+reference,1,Update not allowed.,repair
+itemCode,5001,Update not allowed.,repair
+siteCode,10-200,Update not allowed.,repair
+quantity,4,Update not allowed.,repair
+quantity,4,Update not allowed.,replacement
+currencyCode,CNY,Update not allowed.,repair
+itemRepairTypeDisplayValue,repair,Update not allowed.,replace
+itemRepairTypeDisplayValue,repair,Update not allowed.,replacement
+lotSerial,feg,Update not allowed.,repair
+wipProductLine,10,Update not allowed.,replacement
+wipProductLine,10,Update not allowed.,repair

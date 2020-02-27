@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Fragment - IMaterialOrderBulkConfirmation - Search" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="IMaterialOrderBulkConfirmation - Search" enabled="true"/>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${Line}&quot; != &quot;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Request Data" enabled="false">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">./CSV/IMaterialOrderBulkConfirmationSearchRequest.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.group</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Response Data" enabled="false">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">./CSV/IMaterialOrderBulkConfirmationSearchResponse.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.group</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="TestPlan.comments">Check if variable from CSV is &lt;EOF&gt;</stringProp>
+            <stringProp name="IfController.condition">&quot;${Line}&quot; != &quot;&quot;&amp;&amp;&quot;${Line}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SoapUI - IMaterialOrderBulkConfirmation - Search" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Setup - IMaterialOrderBulkConfirmation : Search" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${netUIport}</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">wsa/wsa1/wsdl</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Current Interface" enabled="true">
+                  <stringProp name="TestPlan.comments">Test the current Interface and get its response</stringProp>
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">currentInterface</stringProp>
+                  <stringProp name="RegexExtractor.regex">targetURI=urn:services-qad-com:service:IMaterialOrderBulkConfirmation:(.+?)&quot;</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">none</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+                <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySamplerProperties">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Call Search" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:urn=&quot;urn:services-qad-com:service:IMaterialOrderBulkConfirmation:2019-10-01:IMaterialOrderBulkConfirmation&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;urn:Search&gt;&#xd;
+         &lt;urn:ServiceContext&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;urn:ServiceProperty&gt;&#xd;
+               &lt;urn:PropertyName&gt;username&lt;/urn:PropertyName&gt;&#xd;
+               &lt;urn:PropertyValue&gt;mfg&lt;/urn:PropertyValue&gt;&#xd;
+            &lt;/urn:ServiceProperty&gt;&#xd;
+         &lt;/urn:ServiceContext&gt;&#xd;
+         &lt;urn:MaterialOrderBulkConfs&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;urn:MaterialOrderBulkConf&gt;&#xd;
+               &lt;urn:DomainCode&gt;${domainCode}&lt;/urn:DomainCode&gt;&#xd;
+               &lt;urn:Criteria&gt;${RequiredCriteria}&lt;/urn:Criteria&gt;&#xd;
+               &lt;urn:OrdersReturned&gt;${OrderReturned}&lt;/urn:OrdersReturned&gt;&#xd;
+               &lt;urn:RequiredCriteria&gt;${RequiredCriteria}&lt;/urn:RequiredCriteria&gt;&#xd;
+               &lt;urn:IsAllocate&gt;${IsAllocate}&lt;/urn:IsAllocate&gt;&#xd;
+               &lt;urn:IsExpensedMO&gt;false&lt;/urn:IsExpensedMO&gt;&#xd;
+               &lt;urn:IsChangeDueDatesATPWarnings&gt;${IsChangeDueDatesATPWarnings}&lt;/urn:IsChangeDueDatesATPWarnings&gt;&#xd;
+               &lt;urn:IsChangeDueDatesATPErrors&gt;${IsChangeDueDatesATPErrors}&lt;/urn:IsChangeDueDatesATPErrors&gt;&#xd;
+               &lt;urn:SiteCodeFrom&gt;${SiteCodeFrom}&lt;/urn:SiteCodeFrom&gt;&#xd;
+               &lt;urn:SiteFromDescription&gt;&lt;/urn:SiteFromDescription&gt;&#xd;
+               &lt;urn:SiteCodeTo&gt;${SiteCodeTo}&lt;/urn:SiteCodeTo&gt;&#xd;
+               &lt;urn:SiteToDescription&gt;&lt;/urn:SiteToDescription&gt;&#xd;
+               &lt;urn:ItemCodeFrom&gt;${ItemCodeFrom}&lt;/urn:ItemCodeFrom&gt;&#xd;
+               &lt;urn:ItemFromDescription&gt;&lt;/urn:ItemFromDescription&gt;&#xd;
+               &lt;urn:ItemCodeTo&gt;${ItemCodeTo}&lt;/urn:ItemCodeTo&gt;&#xd;
+               &lt;urn:ItemToDescription&gt;&lt;/urn:ItemToDescription&gt;&#xd;
+               &lt;urn:OrderLinesSelected&gt;${OrderLinesSelected}&lt;/urn:OrderLinesSelected&gt;&#xd;
+               &lt;urn:LinesWithErrors&gt;${LinesWithErrors}&lt;/urn:LinesWithErrors&gt;&#xd;
+               &lt;urn:BrowseUrn&gt;&lt;/urn:BrowseUrn&gt;&#xd;
+               &lt;urn:SuccessLines&gt;${SuccessLines}&lt;/urn:SuccessLines&gt;&#xd;
+               &lt;urn:CustomDate0&gt;?&lt;/urn:CustomDate0&gt;&#xd;
+               &lt;urn:CustomDate1&gt;?&lt;/urn:CustomDate1&gt;&#xd;
+               &lt;urn:CustomDate2&gt;?&lt;/urn:CustomDate2&gt;&#xd;
+               &lt;urn:CustomDate3&gt;?&lt;/urn:CustomDate3&gt;&#xd;
+               &lt;urn:CustomDate4&gt;?&lt;/urn:CustomDate4&gt;&#xd;
+               &lt;urn:CustomDecimal0&gt;?&lt;/urn:CustomDecimal0&gt;&#xd;
+               &lt;urn:CustomDecimal1&gt;?&lt;/urn:CustomDecimal1&gt;&#xd;
+               &lt;urn:CustomDecimal2&gt;?&lt;/urn:CustomDecimal2&gt;&#xd;
+               &lt;urn:CustomDecimal3&gt;?&lt;/urn:CustomDecimal3&gt;&#xd;
+               &lt;urn:CustomDecimal4&gt;?&lt;/urn:CustomDecimal4&gt;&#xd;
+               &lt;urn:CustomInteger0&gt;?&lt;/urn:CustomInteger0&gt;&#xd;
+               &lt;urn:CustomInteger1&gt;?&lt;/urn:CustomInteger1&gt;&#xd;
+               &lt;urn:CustomInteger2&gt;?&lt;/urn:CustomInteger2&gt;&#xd;
+               &lt;urn:CustomInteger3&gt;?&lt;/urn:CustomInteger3&gt;&#xd;
+               &lt;urn:CustomInteger4&gt;?&lt;/urn:CustomInteger4&gt;&#xd;
+               &lt;urn:CustomLong0&gt;?&lt;/urn:CustomLong0&gt;&#xd;
+               &lt;urn:CustomLong1&gt;?&lt;/urn:CustomLong1&gt;&#xd;
+               &lt;urn:CustomNote&gt;?&lt;/urn:CustomNote&gt;&#xd;
+               &lt;urn:CustomShort0&gt;?&lt;/urn:CustomShort0&gt;&#xd;
+               &lt;urn:CustomShort1&gt;?&lt;/urn:CustomShort1&gt;&#xd;
+               &lt;urn:CustomShort2&gt;?&lt;/urn:CustomShort2&gt;&#xd;
+               &lt;urn:CustomShort3&gt;?&lt;/urn:CustomShort3&gt;&#xd;
+               &lt;urn:CustomShort4&gt;?&lt;/urn:CustomShort4&gt;&#xd;
+               &lt;urn:CustomShort5&gt;?&lt;/urn:CustomShort5&gt;&#xd;
+               &lt;urn:CustomShort6&gt;?&lt;/urn:CustomShort6&gt;&#xd;
+               &lt;urn:CustomShort7&gt;?&lt;/urn:CustomShort7&gt;&#xd;
+               &lt;urn:CustomShort8&gt;?&lt;/urn:CustomShort8&gt;&#xd;
+               &lt;urn:CustomShort9&gt;?&lt;/urn:CustomShort9&gt;&#xd;
+               &lt;urn:CustomShort10&gt;?&lt;/urn:CustomShort10&gt;&#xd;
+               &lt;urn:CustomShort11&gt;?&lt;/urn:CustomShort11&gt;&#xd;
+               &lt;urn:CustomShort12&gt;?&lt;/urn:CustomShort12&gt;&#xd;
+               &lt;urn:CustomShort13&gt;?&lt;/urn:CustomShort13&gt;&#xd;
+               &lt;urn:CustomShort14&gt;?&lt;/urn:CustomShort14&gt;&#xd;
+               &lt;urn:CustomShort15&gt;?&lt;/urn:CustomShort15&gt;&#xd;
+               &lt;urn:CustomShort16&gt;?&lt;/urn:CustomShort16&gt;&#xd;
+               &lt;urn:CustomShort17&gt;?&lt;/urn:CustomShort17&gt;&#xd;
+               &lt;urn:CustomShort18&gt;?&lt;/urn:CustomShort18&gt;&#xd;
+               &lt;urn:CustomShort19&gt;?&lt;/urn:CustomShort19&gt;&#xd;
+               &lt;urn:DataOperation&gt;?&lt;/urn:DataOperation&gt;&#xd;
+            &lt;/urn:MaterialOrderBulkConf&gt;&#xd;
+             &lt;urn:BulkFilterCondition&gt;&#xd;
+               &lt;urn:FieldName&gt;${FieldName}&lt;/urn:FieldName&gt;&#xd;
+               &lt;urn:Operator&gt;${Operator}&lt;/urn:Operator&gt;&#xd;
+               &lt;urn:Value1&gt;${Value1}&lt;/urn:Value1&gt;&#xd;
+               &lt;urn:Value1Type&gt;literal&lt;/urn:Value1Type&gt;&#xd;
+               &lt;urn:Value2&gt;${Value2}&lt;/urn:Value2&gt;&#xd;
+               &lt;urn:Value2Type&gt;literal&lt;/urn:Value2Type&gt;&#xd;
+            &lt;/urn:BulkFilterCondition&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+         &lt;/urn:MaterialOrderBulkConfs&gt;&#xd;
+      &lt;/urn:Search&gt;&#xd;
+   &lt;/soapenv:Body&gt;</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${netUIport}</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">wsa/wsa1</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value"> text/xml</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">SOAPAction</stringProp>
+                      <stringProp name="Header.value"> &quot;&quot;</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor MaterialOrderNumber" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">MaterialOrderNumber</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//MaterialOrderNumber</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion MaterialOrderNumber" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-1064957596">${MaterialOrderNumber}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">MaterialOrderNumber</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor MaterialOrderLine" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">MaterialOrderLine</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//MaterialOrderLine</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion MaterialOrderLine" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-2085990887">${MaterialOrderLine}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">MaterialOrderLine</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor OrderType" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">OrderType</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//OrderType</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion OrderType" enabled="false">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1110196748">${OrderType}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">OrderType</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor EngineerCode" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">EngineerCode</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//EngineerCode</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion EngineerCode" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="817123178">${EngineerCode}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">EngineerCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor SiteCode" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">SiteCode</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//SiteCode</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion SiteCode" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-1517399534">${SiteCode}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">SiteCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor SoldToCustomerCode" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">SoldToCustomerCode</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//SoldToCustomerCode</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion SoldToCustomerCode" enabled="false">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="937290348">${SoldToCustomerCode}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">SoldToCustomerCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor IsConfirmed" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsConfirmed</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsConfirmed</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion IsConfirmed" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="428930111">${IsConfirmed}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">IsConfirmed</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor ItemCode" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">ItemCode</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//ItemCode</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion ItemCode" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1169700294">${ItemCode}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">ItemCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor QuantityOrdered" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">QuantityOrdered</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//QuantityOrdered</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion QuantityOrdered" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-1992368558">${QuantityOrdered}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">QuantityOrdered</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor UnitOfMeasure" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">UnitOfMeasure</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//UnitOfMeasure</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion UnitOfMeasure" enabled="false">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1055743793">${UnitOfMeasure}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">UnitOfMeasure</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor QuantityAllocated" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">QuantityAllocated</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//QuantityAllocated</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion QuantityAllocated" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-1784715080">${QuantityAllocated}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">QuantityAllocated</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor DueDate" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">DueDate</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//DueDate</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion DueDate" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="209963762">${DueDate}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">DueDate</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor EMTType" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">EMTType</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//EMTType</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion EMTType" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="341157134">${EMTType}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">EMTType</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor EMTSupplier" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">EMTSupplier</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//EMTSupplier</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion EMTSupplier" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-704753860">${EMTSupplier}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">EMTSupplier</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor ShipToCustomerCode" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">ShipToCustomerCode</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//ShipToCustomerCode</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion ShipToCustomerCode" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="2025424900">${ShipToCustomerCode}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">ShipToCustomerCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor PurchaseOrderNumber" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">PurchaseOrderNumber</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//PurchaseOrderNumber</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion PurchaseOrderNumber" enabled="false">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="465089086">${PurchaseOrderNumber}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">PurchaseOrderNumber</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor OrderDate" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">OrderDate</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//OrderDate</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion OrderDate" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1094709272">${OrderDate}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">OrderDate</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor ActionStatus" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">ActionStatus</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//ActionStatus</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion ActionStatus" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="968163358">${ActionStatus}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">ActionStatus</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor IsSelected" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsSelected</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsSelected</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion IsSelected" enabled="false">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-2144949791">${IsSelected}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">IsSelected</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor ServiceOrderNumber" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">ServiceOrderNumber</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//ServiceOrderNumber</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion ServiceOrderNumber" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1174498340">${ServiceOrderNumber}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">ServiceOrderNumber</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor EndUserCode" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">EndUserCode</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//EndUserCode</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion EndUserCode" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="1612515073">${EndUserCode}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">EndUserCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Bulk Action ERROR" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">LinesWithErrors</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//LinesWithErrors</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion Non ERROR" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="228534596">${LinesWithErrors}</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">EndUserCode</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

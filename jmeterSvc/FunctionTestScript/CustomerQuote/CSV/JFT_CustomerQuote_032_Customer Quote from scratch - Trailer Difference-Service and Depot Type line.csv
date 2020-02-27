@@ -1,0 +1,3 @@
+QuoteType,QuoteLine,RepairType,EndUser,Engineer,WorkCode,itemCode,LotSerial,LineSite,FreightWeight,FreightClass,QuantityQuoted
+Service,1,,10C1001,10-eng01,3001,01010,Serial032-1,,,,1
+Depot,2,Repair,10c1001,10-eng01,4003,01010,Serial032-2,,5,,1

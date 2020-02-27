@@ -1,0 +1,9 @@
+<JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extractor WorkCode" enabled="true">
+  <stringProp name="JSONPostProcessor.referenceNames">{Field Name}</stringProp>
+  <stringProp name="JSONPostProcessor.jsonPathExprs">\$\.data\.{Component Name}\[0\]</stringProp>
+  <stringProp name="JSONPostProcessor.match_numbers">-1</stringProp>
+  <stringProp name="Sample.scope">variable</stringProp>
+  <stringProp name="Scope.variable">responseJson</stringProp>
+  <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+</JSONPostProcessor>
+<hashTree/>

@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create Replacement Line" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Create Replacement Line" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set default values" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// Add module variables here
+//varsList.add(&quot;[prefix]_[var_name]&quot;);
+varsList.add(&quot;rmaHeader_rmaNumber&quot;);
+
+
+varsList.add(&quot;itemCode&quot;);
+varsList.add(&quot;lotSerial&quot;);
+varsList.add(&quot;reference&quot;);
+varsList.add(&quot;quantity&quot;);
+varsList.add(&quot;netPrice&quot;);
+varsList.add(&quot;siteCode&quot;)
+// Set default values
+varsList.each {
+	if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Replacement Line Inputs ${rmaNumber}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Line Initialize" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="RMA Replacement Line Initialize" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="initialize" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">initialize</stringProp>
+                    <stringProp name="Argument.value">true</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="domainCode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">domainCode</stringProp>
+                    <stringProp name="Argument.value">${domainCode}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="viewUri" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">urn:be:com.qad.service.rma.IRmaReplacementLineV2</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">viewUri</stringProp>
+                  </elementProp>
+                  <elementProp name="rmaNumber" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${rmaNumber}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">rmaNumber</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/rmaReplacementLines</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Item Code Change" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="itemCode Field Change Data Setup" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;rmaReplacementLine_url_fieldName&quot;,&quot;itemCode&quot;);
+vars.put(&quot;rmaReplacementLine_fieldValue&quot;,vars.get(&quot;itemCode&quot;));
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Item Code fieldChange" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/RMA/Fragment_rmaReplacementLine_fieldChange.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Site Code Change" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Site Code Field Change Data Setup" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;rmaReplacementLine_url_fieldName&quot;,&quot;siteCode&quot;);
+vars.put(&quot;rmaReplacementLine_fieldValue&quot;,vars.get(&quot;siteCode&quot;));
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="SiteCode fieldChange" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/RMA/Fragment_rmaReplacementLine_fieldChange.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Lot/Serial Change" enabled="true">
+            <stringProp name="IfController.condition">&quot;${lotSerial}&quot; != &quot;[N/A]&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="lotSerial Field Change Data Setup" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;rmaReplacementLine_url_fieldName&quot;,&quot;lotSerial&quot;);
+vars.put(&quot;rmaReplacementLine_fieldValue&quot;,vars.get(&quot;lotSerial&quot;));
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Lot Serial fieldChange" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/RMA/Fragment_rmaReplacementLine_fieldChange.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Reference Change" enabled="true">
+            <stringProp name="IfController.condition">&quot;${reference}&quot; != &quot;[N/A]&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reference Field Change Data Setup" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;rmaReplacementLine_url_fieldName&quot;,&quot;reference&quot;);
+vars.put(&quot;rmaReplacementLine_fieldValue&quot;,vars.get(&quot;reference&quot;));
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="reference fieldChange" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/RMA/Fragment_rmaReplacementLine_fieldChange.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="quantityOrdered Change" enabled="true">
+            <stringProp name="IfController.condition">&quot;${quantity}&quot; != &quot;[N/A]&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="quantityOrdered Field Change Data Setup" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;rmaReplacementLine_url_fieldName&quot;,&quot;quantityOrdered&quot;);
+vars.put(&quot;rmaReplacementLine_fieldValue&quot;,vars.get(&quot;quantity&quot;));
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="quantity fieldChange" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/RMA/Fragment_rmaReplacementLine_fieldChange.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Net Price Change" enabled="true">
+            <stringProp name="IfController.condition">&quot;${netPrice}&quot; != &quot;[N/A]&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="netPrice Field Change Data Setup" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;rmaReplacementLine_url_fieldName&quot;,&quot;netPrice&quot;);
+vars.put(&quot;rmaReplacementLine_fieldValue&quot;,vars.get(&quot;netPrice&quot;));
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="netPrice fieldChange" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/RMA/Fragment_rmaReplacementLine_fieldChange.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Submit the changes" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Setup data" enabled="false">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;rmaReplacementLineCreate_isconfirmed&quot;, ${isConfirmedLine})
+}
+if (&quot;${rmaNumber}&quot;!=&quot;&quot;)
+{
+	vars.put(&quot;rmaHeader_rmaNumber&quot;,&quot;${rmaNumber}&quot;);
+	}</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Line Create" enabled="false">
+            <stringProp name="IncludeController.includepath">Fragment_rmaReplacementLine_save.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;rmaHeader_rmaNumber&quot;);
+varsList.add(&quot;rmaReplacementLine_url_parameters&quot;);
+
+
+// Inputs
+varsList.add(&quot;rmaReplacementLine_update_s_purchaseOrderNumber&quot;); //purchase order number
+
+varsList.add(&quot;rmaReplacementLine_update_i_isForecastConsumed&quot;); //contract Visit
+
+varsList.add(&quot;rmaReplacementLine_update_i_isDetailAllocations&quot;)
+varsList.add(&quot;rmaReplacementLine_update_i_quantityAllocated&quot;)
+varsList.add(&quot;rmaReplacementLine_update_s_dueDate&quot;)
+varsList.add(&quot;rmaReplacementLine_update_i_isConfirmed&quot;)
+// Fields for validation
+//varsList.add(&quot;rmaReplacementLine_validate_shipVia&quot;); //sold-To
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="RMA Replacement Line save" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/rmaReplacementLines</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var defaultValue = &quot;[N/A]&quot;;
+var prefix1 = &quot;rmaReplacementLine_update_&quot;;
+
+// If rmaReturnLine_rmaNumber is not defined, it is a creating scenario. Otherwise, it is a updating scenario.
+
+// All the fields in dataset should be set here
+// Below code block is only for rmaLines[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix1)){		
+		if(e.getValue() != defaultValue){
+				var temp = varName.replace(prefix1,&quot;&quot;)
+			var temp0 = vars.get(varName);
+			if(temp.startsWith(&quot;s_&quot;)){ 
+				eval(&quot;objRequest.rmaReplacementLineV2s[0].&quot; + temp.replace(&quot;s_&quot;,&quot;&quot;) + &quot;= &apos;&quot; + temp0 + &quot;&apos;&quot;);
+			}
+			else if (temp.startsWith(&quot;i_&quot;)){
+				eval(&quot;objRequest.rmaReplacementLineV2s[0].&quot; + temp.replace(&quot;i_&quot;,&quot;&quot;) + &quot;=&quot; + temp0);			
+			}
+		}
+	}
+}
+
+if (&quot;${rmaNumber}&quot;!=defaultValue){
+	vars.put(&quot;rmaReplacementLine_url_parameters&quot;,&quot;&amp;domainCode=${domainCode}&amp;rmaNumber=${rmaNumber}&quot;)
+	vars.put(&quot;rmaHeader_rmaNumber&quot;,&quot;${rmaNumber}&quot;);
+}
+else{
+	vars.put(&quot;rmaReplacementLine_url_parameters&quot;,&quot;&quot;)
+}
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract full response" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="false">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+var prefix2 = &quot;rmaReplacementLine_validate_&quot;;
+
+
+// All the fields in dataset should be set here
+// Below code block is only for serviceContractHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix2)){
+		var actValue = eval(&quot;objRequest.rmaReplacementLineV2s[0].&quot; + varName.replace(prefix2,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  actValue != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix2,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot;\n&quot;;
+		}
+	}
+}
+
+
+
+</stringProp>
+              <stringProp name="scriptLanguage">javascript</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+          <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+            <boolProp name="displayJMeterProperties">false</boolProp>
+            <boolProp name="displayJMeterVariables">true</boolProp>
+            <boolProp name="displaySystemProperties">false</boolProp>
+          </DebugSampler>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String prefix = &quot;rmaReplacementLineCreate_&quot;;
+
+vars.entrySet().each { entry -&gt; 
+	def name = entry.getKey()
+	if (name.startsWith(prefix)) {
+		vars.put(name, &quot;[N/A]&quot;);
+	}
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

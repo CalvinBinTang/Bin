@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="serviceActivityReport fetch" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fetch" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;serviceActivityReport_url_domainCode&quot;);
+varsList.add(&quot;serviceActivityReport_url_serviceOrderNumber&quot;);
+varsList.add(&quot;serviceActivityReport_url_reportID&quot;);
+varsList.add(&quot;serviceActivityReport_url_initialize&quot;);
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;serviceActivityReport_domainCode&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderNumber&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderLine&quot;);
+varsList.add(&quot;serviceActivityReport_reportID&quot;);
+varsList.add(&quot;serviceActivityReport_salesJob&quot;);
+varsList.add(&quot;serviceActivityReport_orderDate&quot;);
+varsList.add(&quot;serviceActivityReport_releaseDate&quot;);
+varsList.add(&quot;serviceActivityReport_dueDate&quot;);
+varsList.add(&quot;serviceActivityReport_performanceDate&quot;);
+varsList.add(&quot;serviceActivityReport_itemCode&quot;);
+varsList.add(&quot;serviceActivityReport_itemDescription&quot;);
+varsList.add(&quot;serviceActivityReport_itemDescription2&quot;);
+varsList.add(&quot;serviceActivityReport_workOrderType&quot;);
+varsList.add(&quot;serviceActivityReport_quantityOrdered&quot;);
+varsList.add(&quot;serviceActivityReport_quantityCompleted&quot;);
+varsList.add(&quot;serviceActivityReport_quantityRejected&quot;);
+varsList.add(&quot;serviceActivityReport_statusCode&quot;);
+varsList.add(&quot;serviceActivityReport_statusCodeDisplay&quot;);
+varsList.add(&quot;serviceActivityReport_statusCodeDescription&quot;);
+varsList.add(&quot;serviceActivityReport_yieldPercent&quot;);
+varsList.add(&quot;serviceActivityReport_workInProcessAcct&quot;);
+varsList.add(&quot;serviceActivityReport_workInProcessCC&quot;);
+varsList.add(&quot;serviceActivityReport_commentIndex&quot;);
+varsList.add(&quot;serviceActivityReport_projectCode&quot;);
+varsList.add(&quot;serviceActivityReport_projectDescription&quot;);
+varsList.add(&quot;serviceActivityReport_wipCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_laborCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_materialCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_burdenCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_locationCode&quot;);
+varsList.add(&quot;serviceActivityReport_locationDescription&quot;);
+varsList.add(&quot;serviceActivityReport_lotSerial&quot;);
+varsList.add(&quot;serviceActivityReport_routingCode&quot;);
+varsList.add(&quot;serviceActivityReport_routingDescription&quot;);
+varsList.add(&quot;serviceActivityReport_bomCode&quot;);
+varsList.add(&quot;serviceActivityReport_bomDescription&quot;);
+varsList.add(&quot;serviceActivityReport_siteCode&quot;);
+varsList.add(&quot;serviceActivityReport_siteDescription&quot;);
+varsList.add(&quot;serviceActivityReport_isPostVarAtSfc&quot;);
+varsList.add(&quot;serviceActivityReport_postedMaterialVar&quot;);
+varsList.add(&quot;serviceActivityReport_postedLaborVar&quot;);
+varsList.add(&quot;serviceActivityReport_materialUsageVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_materialUsageVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_materialRateVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_materialRateVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_subcontractUsageVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_subcontractUsageVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_subcontractRateVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_subcontractRateVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_floorStockAcct&quot;);
+varsList.add(&quot;serviceActivityReport_floorStockCC&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderType&quot;);
+varsList.add(&quot;serviceActivityReport_mixVarianceAcct&quot;);
+varsList.add(&quot;serviceActivityReport_mixVarianceCC&quot;);
+varsList.add(&quot;serviceActivityReport_isReceiptStatusActive&quot;);
+varsList.add(&quot;serviceActivityReport_receiptStatus&quot;);
+varsList.add(&quot;serviceActivityReport_nextLotSerial&quot;);
+varsList.add(&quot;serviceActivityReport_workCode&quot;);
+varsList.add(&quot;serviceActivityReport_workCodeDescription&quot;);
+varsList.add(&quot;serviceActivityReport_postedDate&quot;);
+varsList.add(&quot;serviceActivityReport_engineerCode&quot;);
+varsList.add(&quot;serviceActivityReport_engineerName&quot;);
+varsList.add(&quot;serviceActivityReport_workInProcessSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_floorStockSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_materialUsageVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_materialRateVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_subcontractUsageVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_subcontractRateVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_mixVarianceSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_reference&quot;);
+varsList.add(&quot;serviceActivityReport_lineStatusCode&quot;);
+varsList.add(&quot;serviceActivityReport_lineStatusDescription&quot;);
+varsList.add(&quot;serviceActivityReport_lineEndUserCode&quot;);
+varsList.add(&quot;serviceActivityReport_lineIsBOMGenerated&quot;);
+varsList.add(&quot;serviceActivityReport_lineIsUninvoiced&quot;);
+varsList.add(&quot;serviceActivityReport_currencyCode&quot;);
+varsList.add(&quot;serviceActivityReport_currencyDescription&quot;);
+varsList.add(&quot;serviceActivityReport_itemSerial&quot;);
+varsList.add(&quot;serviceActivityReport_itemReference&quot;);
+varsList.add(&quot;serviceActivityReport_itemQuantity&quot;);
+varsList.add(&quot;serviceActivityReport_itemProductLine&quot;);
+varsList.add(&quot;serviceActivityReport_itemProductLineDescription&quot;);
+varsList.add(&quot;serviceActivityReport_itemServiceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_itemServiceTypeDescription&quot;);
+varsList.add(&quot;serviceActivityReport_isUpdateISB&quot;);
+varsList.add(&quot;serviceActivityReport_serviceType&quot;);
+varsList.add(&quot;serviceActivityReport_serviceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_contractLine&quot;);
+varsList.add(&quot;serviceActivityReport_contractLineForDisplay&quot;);
+varsList.add(&quot;serviceActivityReport_contractNumber&quot;);
+varsList.add(&quot;serviceActivityReport_contractStartDate&quot;);
+varsList.add(&quot;serviceActivityReport_contractEndDate&quot;);
+varsList.add(&quot;serviceActivityReport_warrantyStartDate&quot;);
+varsList.add(&quot;serviceActivityReport_warrantyEndDate&quot;);
+varsList.add(&quot;serviceActivityReport_warrantyServiceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_contractServiceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_isCheckCoverage&quot;);
+varsList.add(&quot;serviceActivityReport_isCheckContractLimit&quot;);
+varsList.add(&quot;serviceActivityReport_contractLimitsSource&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderStatusCode&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderStatusDescription&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderCompleteDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderNextStatusDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_serviceOrderClosedDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_lineStartDownDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_lineEndDownDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_lineJobStartDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_lineCompleteDate&quot;);
+varsList.add(&quot;serviceActivityReport_lineIsFixedPrice&quot;);
+varsList.add(&quot;serviceActivityReport_lineFixedPrice&quot;);
+varsList.add(&quot;serviceActivityReport_statusMessage&quot;);
+varsList.add(&quot;serviceActivityReport_disallowedActions&quot;);
+varsList.add(&quot;serviceActivityReport_disallowedActionsMessage&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrUser1&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrUser2&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrChr01&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrChr02&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrChr03&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrChr04&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrChr05&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrDte01&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrDte02&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrDec01&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrDec02&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrDec03&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrDec04&quot;);
+varsList.add(&quot;serviceActivityReport_woMstrLog01&quot;);
+varsList.add(&quot;serviceActivityReport_isRequiredToCreateIsb&quot;);
+varsList.add(&quot;serviceActivityReport_previousTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_timeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_timeZoneDescription&quot;);
+varsList.add(&quot;serviceActivityReport_defaultTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_endUserTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_engineerTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_currentUserTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_isMultipleTimeZoneEnabled&quot;);
+varsList.add(&quot;serviceActivityReport_isMOLineSelectionEnabled&quot;);
+varsList.add(&quot;serviceActivityReport_isWIPProductLineDisabled&quot;);
+varsList.add(&quot;serviceActivityReport_dataOperation&quot;);
+varsList.add(&quot;serviceActivityReport_workOrderMasterConcurrencyHash&quot;);
+varsList.add(&quot;serviceActivityReport_concurrencyHash&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;serviceActivityReport_validate_domainCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderNumber&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderLine&quot;);
+varsList.add(&quot;serviceActivityReport_validate_reportID&quot;);
+varsList.add(&quot;serviceActivityReport_validate_salesJob&quot;);
+varsList.add(&quot;serviceActivityReport_validate_orderDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_releaseDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_dueDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_performanceDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemDescription2&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workOrderType&quot;);
+varsList.add(&quot;serviceActivityReport_validate_quantityOrdered&quot;);
+varsList.add(&quot;serviceActivityReport_validate_quantityCompleted&quot;);
+varsList.add(&quot;serviceActivityReport_validate_quantityRejected&quot;);
+varsList.add(&quot;serviceActivityReport_validate_statusCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_statusCodeDisplay&quot;);
+varsList.add(&quot;serviceActivityReport_validate_statusCodeDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_yieldPercent&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workInProcessAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workInProcessCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_commentIndex&quot;);
+varsList.add(&quot;serviceActivityReport_validate_projectCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_projectDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_wipCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_validate_laborCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_validate_burdenCostTotal&quot;);
+varsList.add(&quot;serviceActivityReport_validate_locationCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_locationDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lotSerial&quot;);
+varsList.add(&quot;serviceActivityReport_validate_routingCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_routingDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_bomCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_bomDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_siteCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_siteDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isPostVarAtSfc&quot;);
+varsList.add(&quot;serviceActivityReport_validate_postedMaterialVar&quot;);
+varsList.add(&quot;serviceActivityReport_validate_postedLaborVar&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialUsageVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialUsageVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialRateVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialRateVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_subcontractUsageVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_subcontractUsageVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_subcontractRateVarAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_subcontractRateVarCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_floorStockAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_floorStockCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderType&quot;);
+varsList.add(&quot;serviceActivityReport_validate_mixVarianceAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_mixVarianceCC&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isReceiptStatusActive&quot;);
+varsList.add(&quot;serviceActivityReport_validate_receiptStatus&quot;);
+varsList.add(&quot;serviceActivityReport_validate_nextLotSerial&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workCodeDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_postedDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_engineerCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_engineerName&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workInProcessSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_floorStockSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialUsageVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_materialRateVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_subcontractUsageVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_subcontractRateVarSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_mixVarianceSubAcct&quot;);
+varsList.add(&quot;serviceActivityReport_validate_reference&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineStatusCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineStatusDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineEndUserCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineIsBOMGenerated&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineIsUninvoiced&quot;);
+varsList.add(&quot;serviceActivityReport_validate_currencyCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_currencyDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemSerial&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemReference&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemQuantity&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemProductLine&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemProductLineDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemServiceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_itemServiceTypeDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isUpdateISB&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceType&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractLine&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractLineForDisplay&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractNumber&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractStartDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractEndDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_warrantyStartDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_warrantyEndDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_warrantyServiceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractServiceTypeCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isCheckCoverage&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isCheckContractLimit&quot;);
+varsList.add(&quot;serviceActivityReport_validate_contractLimitsSource&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderStatusCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderStatusDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderCompleteDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderNextStatusDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_validate_serviceOrderClosedDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineStartDownDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineEndDownDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineJobStartDateTime&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineCompleteDate&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineIsFixedPrice&quot;);
+varsList.add(&quot;serviceActivityReport_validate_lineFixedPrice&quot;);
+varsList.add(&quot;serviceActivityReport_validate_statusMessage&quot;);
+varsList.add(&quot;serviceActivityReport_validate_disallowedActions&quot;);
+varsList.add(&quot;serviceActivityReport_validate_disallowedActionsMessage&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrUser1&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrUser2&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrChr01&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrChr02&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrChr03&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrChr04&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrChr05&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrDte01&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrDte02&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrDec01&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrDec02&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrDec03&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrDec04&quot;);
+varsList.add(&quot;serviceActivityReport_validate_woMstrLog01&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isRequiredToCreateIsb&quot;);
+varsList.add(&quot;serviceActivityReport_validate_previousTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_timeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_timeZoneDescription&quot;);
+varsList.add(&quot;serviceActivityReport_validate_defaultTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_endUserTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_engineerTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_currentUserTimeZoneCode&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isMultipleTimeZoneEnabled&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isMOLineSelectionEnabled&quot;);
+varsList.add(&quot;serviceActivityReport_validate_isWIPProductLineDisabled&quot;);
+varsList.add(&quot;serviceActivityReport_validate_dataOperation&quot;);
+varsList.add(&quot;serviceActivityReport_validate_workOrderMasterConcurrencyHash&quot;);
+varsList.add(&quot;serviceActivityReport_validate_concurrencyHash&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="serviceActivityReport fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="serviceOrderNumber" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">serviceOrderNumber</stringProp>
+                <stringProp name="Argument.value">${serviceActivityReport_url_serviceOrderNumber}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="reportID" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">reportID</stringProp>
+                <stringProp name="Argument.value">${serviceActivityReport_url_reportID}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/serviceActivityReports</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${serviceActivityReport_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].domainCode= &quot;${serviceActivityReport_domainCode}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderNumber= &quot;${serviceActivityReport_serviceOrderNumber}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderLine}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderLine= &quot;${serviceActivityReport_serviceOrderLine}&quot;;
+if (&quot;${serviceActivityReport_reportID}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].reportID= &quot;${serviceActivityReport_reportID}&quot;;
+if (&quot;${serviceActivityReport_salesJob}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].salesJob= &quot;${serviceActivityReport_salesJob}&quot;;
+if (&quot;${serviceActivityReport_orderDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].orderDate= &quot;${serviceActivityReport_orderDate}&quot;;
+if (&quot;${serviceActivityReport_releaseDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].releaseDate= &quot;${serviceActivityReport_releaseDate}&quot;;
+if (&quot;${serviceActivityReport_dueDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].dueDate= &quot;${serviceActivityReport_dueDate}&quot;;
+if (&quot;${serviceActivityReport_performanceDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].performanceDate= &quot;${serviceActivityReport_performanceDate}&quot;;
+if (&quot;${serviceActivityReport_itemCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemCode= &quot;${serviceActivityReport_itemCode}&quot;;
+if (&quot;${serviceActivityReport_itemDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemDescription= &quot;${serviceActivityReport_itemDescription}&quot;;
+if (&quot;${serviceActivityReport_itemDescription2}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemDescription2= &quot;${serviceActivityReport_itemDescription2}&quot;;
+if (&quot;${serviceActivityReport_workOrderType}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workOrderType= &quot;${serviceActivityReport_workOrderType}&quot;;
+if (&quot;${serviceActivityReport_quantityOrdered}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].quantityOrdered= &quot;${serviceActivityReport_quantityOrdered}&quot;;
+if (&quot;${serviceActivityReport_quantityCompleted}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].quantityCompleted= &quot;${serviceActivityReport_quantityCompleted}&quot;;
+if (&quot;${serviceActivityReport_quantityRejected}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].quantityRejected= &quot;${serviceActivityReport_quantityRejected}&quot;;
+if (&quot;${serviceActivityReport_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].statusCode= &quot;${serviceActivityReport_statusCode}&quot;;
+if (&quot;${serviceActivityReport_statusCodeDisplay}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].statusCodeDisplay= &quot;${serviceActivityReport_statusCodeDisplay}&quot;;
+if (&quot;${serviceActivityReport_statusCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].statusCodeDescription= &quot;${serviceActivityReport_statusCodeDescription}&quot;;
+if (&quot;${serviceActivityReport_yieldPercent}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].yieldPercent= &quot;${serviceActivityReport_yieldPercent}&quot;;
+if (&quot;${serviceActivityReport_workInProcessAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workInProcessAcct= &quot;${serviceActivityReport_workInProcessAcct}&quot;;
+if (&quot;${serviceActivityReport_workInProcessCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workInProcessCC= &quot;${serviceActivityReport_workInProcessCC}&quot;;
+if (&quot;${serviceActivityReport_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].commentIndex= &quot;${serviceActivityReport_commentIndex}&quot;;
+if (&quot;${serviceActivityReport_projectCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].projectCode= &quot;${serviceActivityReport_projectCode}&quot;;
+if (&quot;${serviceActivityReport_projectDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].projectDescription= &quot;${serviceActivityReport_projectDescription}&quot;;
+if (&quot;${serviceActivityReport_wipCostTotal}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].wipCostTotal= &quot;${serviceActivityReport_wipCostTotal}&quot;;
+if (&quot;${serviceActivityReport_laborCostTotal}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].laborCostTotal= &quot;${serviceActivityReport_laborCostTotal}&quot;;
+if (&quot;${serviceActivityReport_materialCostTotal}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialCostTotal= &quot;${serviceActivityReport_materialCostTotal}&quot;;
+if (&quot;${serviceActivityReport_burdenCostTotal}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].burdenCostTotal= &quot;${serviceActivityReport_burdenCostTotal}&quot;;
+if (&quot;${serviceActivityReport_locationCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].locationCode= &quot;${serviceActivityReport_locationCode}&quot;;
+if (&quot;${serviceActivityReport_locationDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].locationDescription= &quot;${serviceActivityReport_locationDescription}&quot;;
+if (&quot;${serviceActivityReport_lotSerial}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lotSerial= &quot;${serviceActivityReport_lotSerial}&quot;;
+if (&quot;${serviceActivityReport_routingCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].routingCode= &quot;${serviceActivityReport_routingCode}&quot;;
+if (&quot;${serviceActivityReport_routingDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].routingDescription= &quot;${serviceActivityReport_routingDescription}&quot;;
+if (&quot;${serviceActivityReport_bomCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].bomCode= &quot;${serviceActivityReport_bomCode}&quot;;
+if (&quot;${serviceActivityReport_bomDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].bomDescription= &quot;${serviceActivityReport_bomDescription}&quot;;
+if (&quot;${serviceActivityReport_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].siteCode= &quot;${serviceActivityReport_siteCode}&quot;;
+if (&quot;${serviceActivityReport_siteDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].siteDescription= &quot;${serviceActivityReport_siteDescription}&quot;;
+if (&quot;${serviceActivityReport_isPostVarAtSfc}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isPostVarAtSfc= &quot;${serviceActivityReport_isPostVarAtSfc}&quot;;
+if (&quot;${serviceActivityReport_postedMaterialVar}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].postedMaterialVar= &quot;${serviceActivityReport_postedMaterialVar}&quot;;
+if (&quot;${serviceActivityReport_postedLaborVar}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].postedLaborVar= &quot;${serviceActivityReport_postedLaborVar}&quot;;
+if (&quot;${serviceActivityReport_materialUsageVarAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialUsageVarAcct= &quot;${serviceActivityReport_materialUsageVarAcct}&quot;;
+if (&quot;${serviceActivityReport_materialUsageVarCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialUsageVarCC= &quot;${serviceActivityReport_materialUsageVarCC}&quot;;
+if (&quot;${serviceActivityReport_materialRateVarAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialRateVarAcct= &quot;${serviceActivityReport_materialRateVarAcct}&quot;;
+if (&quot;${serviceActivityReport_materialRateVarCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialRateVarCC= &quot;${serviceActivityReport_materialRateVarCC}&quot;;
+if (&quot;${serviceActivityReport_subcontractUsageVarAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].subcontractUsageVarAcct= &quot;${serviceActivityReport_subcontractUsageVarAcct}&quot;;
+if (&quot;${serviceActivityReport_subcontractUsageVarCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].subcontractUsageVarCC= &quot;${serviceActivityReport_subcontractUsageVarCC}&quot;;
+if (&quot;${serviceActivityReport_subcontractRateVarAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].subcontractRateVarAcct= &quot;${serviceActivityReport_subcontractRateVarAcct}&quot;;
+if (&quot;${serviceActivityReport_subcontractRateVarCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].subcontractRateVarCC= &quot;${serviceActivityReport_subcontractRateVarCC}&quot;;
+if (&quot;${serviceActivityReport_floorStockAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].floorStockAcct= &quot;${serviceActivityReport_floorStockAcct}&quot;;
+if (&quot;${serviceActivityReport_floorStockCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].floorStockCC= &quot;${serviceActivityReport_floorStockCC}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderType}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderType= &quot;${serviceActivityReport_serviceOrderType}&quot;;
+if (&quot;${serviceActivityReport_mixVarianceAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].mixVarianceAcct= &quot;${serviceActivityReport_mixVarianceAcct}&quot;;
+if (&quot;${serviceActivityReport_mixVarianceCC}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].mixVarianceCC= &quot;${serviceActivityReport_mixVarianceCC}&quot;;
+if (&quot;${serviceActivityReport_isReceiptStatusActive}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isReceiptStatusActive= &quot;${serviceActivityReport_isReceiptStatusActive}&quot;;
+if (&quot;${serviceActivityReport_receiptStatus}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].receiptStatus= &quot;${serviceActivityReport_receiptStatus}&quot;;
+if (&quot;${serviceActivityReport_nextLotSerial}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].nextLotSerial= &quot;${serviceActivityReport_nextLotSerial}&quot;;
+if (&quot;${serviceActivityReport_workCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workCode= &quot;${serviceActivityReport_workCode}&quot;;
+if (&quot;${serviceActivityReport_workCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workCodeDescription= &quot;${serviceActivityReport_workCodeDescription}&quot;;
+if (&quot;${serviceActivityReport_postedDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].postedDate= &quot;${serviceActivityReport_postedDate}&quot;;
+if (&quot;${serviceActivityReport_engineerCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].engineerCode= &quot;${serviceActivityReport_engineerCode}&quot;;
+if (&quot;${serviceActivityReport_engineerName}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].engineerName= &quot;${serviceActivityReport_engineerName}&quot;;
+if (&quot;${serviceActivityReport_workInProcessSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workInProcessSubAcct= &quot;${serviceActivityReport_workInProcessSubAcct}&quot;;
+if (&quot;${serviceActivityReport_floorStockSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].floorStockSubAcct= &quot;${serviceActivityReport_floorStockSubAcct}&quot;;
+if (&quot;${serviceActivityReport_materialUsageVarSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialUsageVarSubAcct= &quot;${serviceActivityReport_materialUsageVarSubAcct}&quot;;
+if (&quot;${serviceActivityReport_materialRateVarSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].materialRateVarSubAcct= &quot;${serviceActivityReport_materialRateVarSubAcct}&quot;;
+if (&quot;${serviceActivityReport_subcontractUsageVarSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].subcontractUsageVarSubAcct= &quot;${serviceActivityReport_subcontractUsageVarSubAcct}&quot;;
+if (&quot;${serviceActivityReport_subcontractRateVarSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].subcontractRateVarSubAcct= &quot;${serviceActivityReport_subcontractRateVarSubAcct}&quot;;
+if (&quot;${serviceActivityReport_mixVarianceSubAcct}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].mixVarianceSubAcct= &quot;${serviceActivityReport_mixVarianceSubAcct}&quot;;
+if (&quot;${serviceActivityReport_reference}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].reference= &quot;${serviceActivityReport_reference}&quot;;
+if (&quot;${serviceActivityReport_lineStatusCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineStatusCode= &quot;${serviceActivityReport_lineStatusCode}&quot;;
+if (&quot;${serviceActivityReport_lineStatusDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineStatusDescription= &quot;${serviceActivityReport_lineStatusDescription}&quot;;
+if (&quot;${serviceActivityReport_lineEndUserCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineEndUserCode= &quot;${serviceActivityReport_lineEndUserCode}&quot;;
+if (&quot;${serviceActivityReport_lineIsBOMGenerated}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineIsBOMGenerated= &quot;${serviceActivityReport_lineIsBOMGenerated}&quot;;
+if (&quot;${serviceActivityReport_lineIsUninvoiced}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineIsUninvoiced= &quot;${serviceActivityReport_lineIsUninvoiced}&quot;;
+if (&quot;${serviceActivityReport_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].currencyCode= &quot;${serviceActivityReport_currencyCode}&quot;;
+if (&quot;${serviceActivityReport_currencyDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].currencyDescription= &quot;${serviceActivityReport_currencyDescription}&quot;;
+if (&quot;${serviceActivityReport_itemSerial}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemSerial= &quot;${serviceActivityReport_itemSerial}&quot;;
+if (&quot;${serviceActivityReport_itemReference}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemReference= &quot;${serviceActivityReport_itemReference}&quot;;
+if (&quot;${serviceActivityReport_itemQuantity}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemQuantity= &quot;${serviceActivityReport_itemQuantity}&quot;;
+if (&quot;${serviceActivityReport_itemProductLine}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemProductLine= &quot;${serviceActivityReport_itemProductLine}&quot;;
+if (&quot;${serviceActivityReport_itemProductLineDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemProductLineDescription= &quot;${serviceActivityReport_itemProductLineDescription}&quot;;
+if (&quot;${serviceActivityReport_itemServiceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemServiceTypeCode= &quot;${serviceActivityReport_itemServiceTypeCode}&quot;;
+if (&quot;${serviceActivityReport_itemServiceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].itemServiceTypeDescription= &quot;${serviceActivityReport_itemServiceTypeDescription}&quot;;
+if (&quot;${serviceActivityReport_isUpdateISB}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isUpdateISB= &quot;${serviceActivityReport_isUpdateISB}&quot;;
+if (&quot;${serviceActivityReport_serviceType}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceType= &quot;${serviceActivityReport_serviceType}&quot;;
+if (&quot;${serviceActivityReport_serviceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceTypeCode= &quot;${serviceActivityReport_serviceTypeCode}&quot;;
+if (&quot;${serviceActivityReport_contractLine}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractLine= &quot;${serviceActivityReport_contractLine}&quot;;
+if (&quot;${serviceActivityReport_contractLineForDisplay}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractLineForDisplay= &quot;${serviceActivityReport_contractLineForDisplay}&quot;;
+if (&quot;${serviceActivityReport_contractNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractNumber= &quot;${serviceActivityReport_contractNumber}&quot;;
+if (&quot;${serviceActivityReport_contractStartDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractStartDate= &quot;${serviceActivityReport_contractStartDate}&quot;;
+if (&quot;${serviceActivityReport_contractEndDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractEndDate= &quot;${serviceActivityReport_contractEndDate}&quot;;
+if (&quot;${serviceActivityReport_warrantyStartDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].warrantyStartDate= &quot;${serviceActivityReport_warrantyStartDate}&quot;;
+if (&quot;${serviceActivityReport_warrantyEndDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].warrantyEndDate= &quot;${serviceActivityReport_warrantyEndDate}&quot;;
+if (&quot;${serviceActivityReport_warrantyServiceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].warrantyServiceTypeCode= &quot;${serviceActivityReport_warrantyServiceTypeCode}&quot;;
+if (&quot;${serviceActivityReport_contractServiceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractServiceTypeCode= &quot;${serviceActivityReport_contractServiceTypeCode}&quot;;
+if (&quot;${serviceActivityReport_isCheckCoverage}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isCheckCoverage= &quot;${serviceActivityReport_isCheckCoverage}&quot;;
+if (&quot;${serviceActivityReport_isCheckContractLimit}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isCheckContractLimit= &quot;${serviceActivityReport_isCheckContractLimit}&quot;;
+if (&quot;${serviceActivityReport_contractLimitsSource}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].contractLimitsSource= &quot;${serviceActivityReport_contractLimitsSource}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderStatusCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderStatusCode= &quot;${serviceActivityReport_serviceOrderStatusCode}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderStatusDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderStatusDescription= &quot;${serviceActivityReport_serviceOrderStatusDescription}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderCompleteDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderCompleteDateTime= &quot;${serviceActivityReport_serviceOrderCompleteDateTime}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderNextStatusDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderNextStatusDateTime= &quot;${serviceActivityReport_serviceOrderNextStatusDateTime}&quot;;
+if (&quot;${serviceActivityReport_serviceOrderClosedDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].serviceOrderClosedDateTime= &quot;${serviceActivityReport_serviceOrderClosedDateTime}&quot;;
+if (&quot;${serviceActivityReport_lineStartDownDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineStartDownDateTime= &quot;${serviceActivityReport_lineStartDownDateTime}&quot;;
+if (&quot;${serviceActivityReport_lineEndDownDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineEndDownDateTime= &quot;${serviceActivityReport_lineEndDownDateTime}&quot;;
+if (&quot;${serviceActivityReport_lineJobStartDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineJobStartDateTime= &quot;${serviceActivityReport_lineJobStartDateTime}&quot;;
+if (&quot;${serviceActivityReport_lineCompleteDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineCompleteDate= &quot;${serviceActivityReport_lineCompleteDate}&quot;;
+if (&quot;${serviceActivityReport_lineIsFixedPrice}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineIsFixedPrice= &quot;${serviceActivityReport_lineIsFixedPrice}&quot;;
+if (&quot;${serviceActivityReport_lineFixedPrice}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].lineFixedPrice= &quot;${serviceActivityReport_lineFixedPrice}&quot;;
+if (&quot;${serviceActivityReport_statusMessage}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].statusMessage= &quot;${serviceActivityReport_statusMessage}&quot;;
+if (&quot;${serviceActivityReport_disallowedActions}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].disallowedActions= &quot;${serviceActivityReport_disallowedActions}&quot;;
+if (&quot;${serviceActivityReport_disallowedActionsMessage}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].disallowedActionsMessage= &quot;${serviceActivityReport_disallowedActionsMessage}&quot;;
+if (&quot;${serviceActivityReport_woMstrUser1}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrUser1= &quot;${serviceActivityReport_woMstrUser1}&quot;;
+if (&quot;${serviceActivityReport_woMstrUser2}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrUser2= &quot;${serviceActivityReport_woMstrUser2}&quot;;
+if (&quot;${serviceActivityReport_woMstrChr01}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrChr01= &quot;${serviceActivityReport_woMstrChr01}&quot;;
+if (&quot;${serviceActivityReport_woMstrChr02}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrChr02= &quot;${serviceActivityReport_woMstrChr02}&quot;;
+if (&quot;${serviceActivityReport_woMstrChr03}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrChr03= &quot;${serviceActivityReport_woMstrChr03}&quot;;
+if (&quot;${serviceActivityReport_woMstrChr04}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrChr04= &quot;${serviceActivityReport_woMstrChr04}&quot;;
+if (&quot;${serviceActivityReport_woMstrChr05}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrChr05= &quot;${serviceActivityReport_woMstrChr05}&quot;;
+if (&quot;${serviceActivityReport_woMstrDte01}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrDte01= &quot;${serviceActivityReport_woMstrDte01}&quot;;
+if (&quot;${serviceActivityReport_woMstrDte02}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrDte02= &quot;${serviceActivityReport_woMstrDte02}&quot;;
+if (&quot;${serviceActivityReport_woMstrDec01}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrDec01= &quot;${serviceActivityReport_woMstrDec01}&quot;;
+if (&quot;${serviceActivityReport_woMstrDec02}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrDec02= &quot;${serviceActivityReport_woMstrDec02}&quot;;
+if (&quot;${serviceActivityReport_woMstrDec03}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrDec03= &quot;${serviceActivityReport_woMstrDec03}&quot;;
+if (&quot;${serviceActivityReport_woMstrDec04}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrDec04= &quot;${serviceActivityReport_woMstrDec04}&quot;;
+if (&quot;${serviceActivityReport_woMstrLog01}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].woMstrLog01= &quot;${serviceActivityReport_woMstrLog01}&quot;;
+if (&quot;${serviceActivityReport_isRequiredToCreateIsb}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isRequiredToCreateIsb= &quot;${serviceActivityReport_isRequiredToCreateIsb}&quot;;
+if (&quot;${serviceActivityReport_previousTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].previousTimeZoneCode= &quot;${serviceActivityReport_previousTimeZoneCode}&quot;;
+if (&quot;${serviceActivityReport_timeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].timeZoneCode= &quot;${serviceActivityReport_timeZoneCode}&quot;;
+if (&quot;${serviceActivityReport_timeZoneDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].timeZoneDescription= &quot;${serviceActivityReport_timeZoneDescription}&quot;;
+if (&quot;${serviceActivityReport_defaultTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].defaultTimeZoneCode= &quot;${serviceActivityReport_defaultTimeZoneCode}&quot;;
+if (&quot;${serviceActivityReport_endUserTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].endUserTimeZoneCode= &quot;${serviceActivityReport_endUserTimeZoneCode}&quot;;
+if (&quot;${serviceActivityReport_engineerTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].engineerTimeZoneCode= &quot;${serviceActivityReport_engineerTimeZoneCode}&quot;;
+if (&quot;${serviceActivityReport_currentUserTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].currentUserTimeZoneCode= &quot;${serviceActivityReport_currentUserTimeZoneCode}&quot;;
+if (&quot;${serviceActivityReport_isMultipleTimeZoneEnabled}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isMultipleTimeZoneEnabled= &quot;${serviceActivityReport_isMultipleTimeZoneEnabled}&quot;;
+if (&quot;${serviceActivityReport_isMOLineSelectionEnabled}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isMOLineSelectionEnabled= &quot;${serviceActivityReport_isMOLineSelectionEnabled}&quot;;
+if (&quot;${serviceActivityReport_isWIPProductLineDisabled}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].isWIPProductLineDisabled= &quot;${serviceActivityReport_isWIPProductLineDisabled}&quot;;
+if (&quot;${serviceActivityReport_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].dataOperation= &quot;${serviceActivityReport_dataOperation}&quot;;
+if (&quot;${serviceActivityReport_workOrderMasterConcurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].workOrderMasterConcurrencyHash= &quot;${serviceActivityReport_workOrderMasterConcurrencyHash}&quot;;
+if (&quot;${serviceActivityReport_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.serviceActivityReports[0].concurrencyHash= &quot;${serviceActivityReport_concurrencyHash}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="VAR">RequestData</stringProp>
+            <stringProp name="JSONPATH">$.data</stringProp>
+            <stringProp name="DEFAULT">NotFound</stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="false">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+
+// All the fields in dataset should be set here
+if (&quot;${serviceActivityReport_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].domainCode!= &quot;${serviceActivityReport_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${serviceActivityReport_validate_domainCode} but got &quot; + objRequest.serviceActivityReports[0].domainCode}
+if (&quot;${serviceActivityReport_validate_serviceOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderNumber!= &quot;${serviceActivityReport_validate_serviceOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderNumber${serviceActivityReport_validate_serviceOrderNumber} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderNumber}
+if (&quot;${serviceActivityReport_validate_serviceOrderLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderLine!= &quot;${serviceActivityReport_validate_serviceOrderLine}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderLine${serviceActivityReport_validate_serviceOrderLine} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderLine}
+if (&quot;${serviceActivityReport_validate_reportID}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].reportID!= &quot;${serviceActivityReport_validate_reportID}&quot;) { failureMessage = failureMessage + &quot;Expect reportID${serviceActivityReport_validate_reportID} but got &quot; + objRequest.serviceActivityReports[0].reportID}
+if (&quot;${serviceActivityReport_validate_salesJob}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].salesJob!= &quot;${serviceActivityReport_validate_salesJob}&quot;) { failureMessage = failureMessage + &quot;Expect salesJob${serviceActivityReport_validate_salesJob} but got &quot; + objRequest.serviceActivityReports[0].salesJob}
+if (&quot;${serviceActivityReport_validate_orderDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].orderDate!= &quot;${serviceActivityReport_validate_orderDate}&quot;) { failureMessage = failureMessage + &quot;Expect orderDate${serviceActivityReport_validate_orderDate} but got &quot; + objRequest.serviceActivityReports[0].orderDate}
+if (&quot;${serviceActivityReport_validate_releaseDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].releaseDate!= &quot;${serviceActivityReport_validate_releaseDate}&quot;) { failureMessage = failureMessage + &quot;Expect releaseDate${serviceActivityReport_validate_releaseDate} but got &quot; + objRequest.serviceActivityReports[0].releaseDate}
+if (&quot;${serviceActivityReport_validate_dueDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].dueDate!= &quot;${serviceActivityReport_validate_dueDate}&quot;) { failureMessage = failureMessage + &quot;Expect dueDate${serviceActivityReport_validate_dueDate} but got &quot; + objRequest.serviceActivityReports[0].dueDate}
+if (&quot;${serviceActivityReport_validate_performanceDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].performanceDate!= &quot;${serviceActivityReport_validate_performanceDate}&quot;) { failureMessage = failureMessage + &quot;Expect performanceDate${serviceActivityReport_validate_performanceDate} but got &quot; + objRequest.serviceActivityReports[0].performanceDate}
+if (&quot;${serviceActivityReport_validate_itemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemCode!= &quot;${serviceActivityReport_validate_itemCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemCode${serviceActivityReport_validate_itemCode} but got &quot; + objRequest.serviceActivityReports[0].itemCode}
+if (&quot;${serviceActivityReport_validate_itemDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemDescription!= &quot;${serviceActivityReport_validate_itemDescription}&quot;) { failureMessage = failureMessage + &quot;Expect itemDescription${serviceActivityReport_validate_itemDescription} but got &quot; + objRequest.serviceActivityReports[0].itemDescription}
+if (&quot;${serviceActivityReport_validate_itemDescription2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemDescription2!= &quot;${serviceActivityReport_validate_itemDescription2}&quot;) { failureMessage = failureMessage + &quot;Expect itemDescription2${serviceActivityReport_validate_itemDescription2} but got &quot; + objRequest.serviceActivityReports[0].itemDescription2}
+if (&quot;${serviceActivityReport_validate_workOrderType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workOrderType!= &quot;${serviceActivityReport_validate_workOrderType}&quot;) { failureMessage = failureMessage + &quot;Expect workOrderType${serviceActivityReport_validate_workOrderType} but got &quot; + objRequest.serviceActivityReports[0].workOrderType}
+if (&quot;${serviceActivityReport_validate_quantityOrdered}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].quantityOrdered!= &quot;${serviceActivityReport_validate_quantityOrdered}&quot;) { failureMessage = failureMessage + &quot;Expect quantityOrdered${serviceActivityReport_validate_quantityOrdered} but got &quot; + objRequest.serviceActivityReports[0].quantityOrdered}
+if (&quot;${serviceActivityReport_validate_quantityCompleted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].quantityCompleted!= &quot;${serviceActivityReport_validate_quantityCompleted}&quot;) { failureMessage = failureMessage + &quot;Expect quantityCompleted${serviceActivityReport_validate_quantityCompleted} but got &quot; + objRequest.serviceActivityReports[0].quantityCompleted}
+if (&quot;${serviceActivityReport_validate_quantityRejected}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].quantityRejected!= &quot;${serviceActivityReport_validate_quantityRejected}&quot;) { failureMessage = failureMessage + &quot;Expect quantityRejected${serviceActivityReport_validate_quantityRejected} but got &quot; + objRequest.serviceActivityReports[0].quantityRejected}
+if (&quot;${serviceActivityReport_validate_statusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].statusCode!= &quot;${serviceActivityReport_validate_statusCode}&quot;) { failureMessage = failureMessage + &quot;Expect statusCode${serviceActivityReport_validate_statusCode} but got &quot; + objRequest.serviceActivityReports[0].statusCode}
+if (&quot;${serviceActivityReport_validate_statusCodeDisplay}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].statusCodeDisplay!= &quot;${serviceActivityReport_validate_statusCodeDisplay}&quot;) { failureMessage = failureMessage + &quot;Expect statusCodeDisplay${serviceActivityReport_validate_statusCodeDisplay} but got &quot; + objRequest.serviceActivityReports[0].statusCodeDisplay}
+if (&quot;${serviceActivityReport_validate_statusCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].statusCodeDescription!= &quot;${serviceActivityReport_validate_statusCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect statusCodeDescription${serviceActivityReport_validate_statusCodeDescription} but got &quot; + objRequest.serviceActivityReports[0].statusCodeDescription}
+if (&quot;${serviceActivityReport_validate_yieldPercent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].yieldPercent!= &quot;${serviceActivityReport_validate_yieldPercent}&quot;) { failureMessage = failureMessage + &quot;Expect yieldPercent${serviceActivityReport_validate_yieldPercent} but got &quot; + objRequest.serviceActivityReports[0].yieldPercent}
+if (&quot;${serviceActivityReport_validate_workInProcessAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workInProcessAcct!= &quot;${serviceActivityReport_validate_workInProcessAcct}&quot;) { failureMessage = failureMessage + &quot;Expect workInProcessAcct${serviceActivityReport_validate_workInProcessAcct} but got &quot; + objRequest.serviceActivityReports[0].workInProcessAcct}
+if (&quot;${serviceActivityReport_validate_workInProcessCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workInProcessCC!= &quot;${serviceActivityReport_validate_workInProcessCC}&quot;) { failureMessage = failureMessage + &quot;Expect workInProcessCC${serviceActivityReport_validate_workInProcessCC} but got &quot; + objRequest.serviceActivityReports[0].workInProcessCC}
+if (&quot;${serviceActivityReport_validate_commentIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].commentIndex!= &quot;${serviceActivityReport_validate_commentIndex}&quot;) { failureMessage = failureMessage + &quot;Expect commentIndex${serviceActivityReport_validate_commentIndex} but got &quot; + objRequest.serviceActivityReports[0].commentIndex}
+if (&quot;${serviceActivityReport_validate_projectCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].projectCode!= &quot;${serviceActivityReport_validate_projectCode}&quot;) { failureMessage = failureMessage + &quot;Expect projectCode${serviceActivityReport_validate_projectCode} but got &quot; + objRequest.serviceActivityReports[0].projectCode}
+if (&quot;${serviceActivityReport_validate_projectDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].projectDescription!= &quot;${serviceActivityReport_validate_projectDescription}&quot;) { failureMessage = failureMessage + &quot;Expect projectDescription${serviceActivityReport_validate_projectDescription} but got &quot; + objRequest.serviceActivityReports[0].projectDescription}
+if (&quot;${serviceActivityReport_validate_wipCostTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].wipCostTotal!= &quot;${serviceActivityReport_validate_wipCostTotal}&quot;) { failureMessage = failureMessage + &quot;Expect wipCostTotal${serviceActivityReport_validate_wipCostTotal} but got &quot; + objRequest.serviceActivityReports[0].wipCostTotal}
+if (&quot;${serviceActivityReport_validate_laborCostTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].laborCostTotal!= &quot;${serviceActivityReport_validate_laborCostTotal}&quot;) { failureMessage = failureMessage + &quot;Expect laborCostTotal${serviceActivityReport_validate_laborCostTotal} but got &quot; + objRequest.serviceActivityReports[0].laborCostTotal}
+if (&quot;${serviceActivityReport_validate_materialCostTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialCostTotal!= &quot;${serviceActivityReport_validate_materialCostTotal}&quot;) { failureMessage = failureMessage + &quot;Expect materialCostTotal${serviceActivityReport_validate_materialCostTotal} but got &quot; + objRequest.serviceActivityReports[0].materialCostTotal}
+if (&quot;${serviceActivityReport_validate_burdenCostTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].burdenCostTotal!= &quot;${serviceActivityReport_validate_burdenCostTotal}&quot;) { failureMessage = failureMessage + &quot;Expect burdenCostTotal${serviceActivityReport_validate_burdenCostTotal} but got &quot; + objRequest.serviceActivityReports[0].burdenCostTotal}
+if (&quot;${serviceActivityReport_validate_locationCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].locationCode!= &quot;${serviceActivityReport_validate_locationCode}&quot;) { failureMessage = failureMessage + &quot;Expect locationCode${serviceActivityReport_validate_locationCode} but got &quot; + objRequest.serviceActivityReports[0].locationCode}
+if (&quot;${serviceActivityReport_validate_locationDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].locationDescription!= &quot;${serviceActivityReport_validate_locationDescription}&quot;) { failureMessage = failureMessage + &quot;Expect locationDescription${serviceActivityReport_validate_locationDescription} but got &quot; + objRequest.serviceActivityReports[0].locationDescription}
+if (&quot;${serviceActivityReport_validate_lotSerial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lotSerial!= &quot;${serviceActivityReport_validate_lotSerial}&quot;) { failureMessage = failureMessage + &quot;Expect lotSerial${serviceActivityReport_validate_lotSerial} but got &quot; + objRequest.serviceActivityReports[0].lotSerial}
+if (&quot;${serviceActivityReport_validate_routingCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].routingCode!= &quot;${serviceActivityReport_validate_routingCode}&quot;) { failureMessage = failureMessage + &quot;Expect routingCode${serviceActivityReport_validate_routingCode} but got &quot; + objRequest.serviceActivityReports[0].routingCode}
+if (&quot;${serviceActivityReport_validate_routingDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].routingDescription!= &quot;${serviceActivityReport_validate_routingDescription}&quot;) { failureMessage = failureMessage + &quot;Expect routingDescription${serviceActivityReport_validate_routingDescription} but got &quot; + objRequest.serviceActivityReports[0].routingDescription}
+if (&quot;${serviceActivityReport_validate_bomCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].bomCode!= &quot;${serviceActivityReport_validate_bomCode}&quot;) { failureMessage = failureMessage + &quot;Expect bomCode${serviceActivityReport_validate_bomCode} but got &quot; + objRequest.serviceActivityReports[0].bomCode}
+if (&quot;${serviceActivityReport_validate_bomDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].bomDescription!= &quot;${serviceActivityReport_validate_bomDescription}&quot;) { failureMessage = failureMessage + &quot;Expect bomDescription${serviceActivityReport_validate_bomDescription} but got &quot; + objRequest.serviceActivityReports[0].bomDescription}
+if (&quot;${serviceActivityReport_validate_siteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].siteCode!= &quot;${serviceActivityReport_validate_siteCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteCode${serviceActivityReport_validate_siteCode} but got &quot; + objRequest.serviceActivityReports[0].siteCode}
+if (&quot;${serviceActivityReport_validate_siteDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].siteDescription!= &quot;${serviceActivityReport_validate_siteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteDescription${serviceActivityReport_validate_siteDescription} but got &quot; + objRequest.serviceActivityReports[0].siteDescription}
+if (&quot;${serviceActivityReport_validate_isPostVarAtSfc}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isPostVarAtSfc!= &quot;${serviceActivityReport_validate_isPostVarAtSfc}&quot;) { failureMessage = failureMessage + &quot;Expect isPostVarAtSfc${serviceActivityReport_validate_isPostVarAtSfc} but got &quot; + objRequest.serviceActivityReports[0].isPostVarAtSfc}
+if (&quot;${serviceActivityReport_validate_postedMaterialVar}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].postedMaterialVar!= &quot;${serviceActivityReport_validate_postedMaterialVar}&quot;) { failureMessage = failureMessage + &quot;Expect postedMaterialVar${serviceActivityReport_validate_postedMaterialVar} but got &quot; + objRequest.serviceActivityReports[0].postedMaterialVar}
+if (&quot;${serviceActivityReport_validate_postedLaborVar}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].postedLaborVar!= &quot;${serviceActivityReport_validate_postedLaborVar}&quot;) { failureMessage = failureMessage + &quot;Expect postedLaborVar${serviceActivityReport_validate_postedLaborVar} but got &quot; + objRequest.serviceActivityReports[0].postedLaborVar}
+if (&quot;${serviceActivityReport_validate_materialUsageVarAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialUsageVarAcct!= &quot;${serviceActivityReport_validate_materialUsageVarAcct}&quot;) { failureMessage = failureMessage + &quot;Expect materialUsageVarAcct${serviceActivityReport_validate_materialUsageVarAcct} but got &quot; + objRequest.serviceActivityReports[0].materialUsageVarAcct}
+if (&quot;${serviceActivityReport_validate_materialUsageVarCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialUsageVarCC!= &quot;${serviceActivityReport_validate_materialUsageVarCC}&quot;) { failureMessage = failureMessage + &quot;Expect materialUsageVarCC${serviceActivityReport_validate_materialUsageVarCC} but got &quot; + objRequest.serviceActivityReports[0].materialUsageVarCC}
+if (&quot;${serviceActivityReport_validate_materialRateVarAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialRateVarAcct!= &quot;${serviceActivityReport_validate_materialRateVarAcct}&quot;) { failureMessage = failureMessage + &quot;Expect materialRateVarAcct${serviceActivityReport_validate_materialRateVarAcct} but got &quot; + objRequest.serviceActivityReports[0].materialRateVarAcct}
+if (&quot;${serviceActivityReport_validate_materialRateVarCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialRateVarCC!= &quot;${serviceActivityReport_validate_materialRateVarCC}&quot;) { failureMessage = failureMessage + &quot;Expect materialRateVarCC${serviceActivityReport_validate_materialRateVarCC} but got &quot; + objRequest.serviceActivityReports[0].materialRateVarCC}
+if (&quot;${serviceActivityReport_validate_subcontractUsageVarAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].subcontractUsageVarAcct!= &quot;${serviceActivityReport_validate_subcontractUsageVarAcct}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractUsageVarAcct${serviceActivityReport_validate_subcontractUsageVarAcct} but got &quot; + objRequest.serviceActivityReports[0].subcontractUsageVarAcct}
+if (&quot;${serviceActivityReport_validate_subcontractUsageVarCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].subcontractUsageVarCC!= &quot;${serviceActivityReport_validate_subcontractUsageVarCC}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractUsageVarCC${serviceActivityReport_validate_subcontractUsageVarCC} but got &quot; + objRequest.serviceActivityReports[0].subcontractUsageVarCC}
+if (&quot;${serviceActivityReport_validate_subcontractRateVarAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].subcontractRateVarAcct!= &quot;${serviceActivityReport_validate_subcontractRateVarAcct}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractRateVarAcct${serviceActivityReport_validate_subcontractRateVarAcct} but got &quot; + objRequest.serviceActivityReports[0].subcontractRateVarAcct}
+if (&quot;${serviceActivityReport_validate_subcontractRateVarCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].subcontractRateVarCC!= &quot;${serviceActivityReport_validate_subcontractRateVarCC}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractRateVarCC${serviceActivityReport_validate_subcontractRateVarCC} but got &quot; + objRequest.serviceActivityReports[0].subcontractRateVarCC}
+if (&quot;${serviceActivityReport_validate_floorStockAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].floorStockAcct!= &quot;${serviceActivityReport_validate_floorStockAcct}&quot;) { failureMessage = failureMessage + &quot;Expect floorStockAcct${serviceActivityReport_validate_floorStockAcct} but got &quot; + objRequest.serviceActivityReports[0].floorStockAcct}
+if (&quot;${serviceActivityReport_validate_floorStockCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].floorStockCC!= &quot;${serviceActivityReport_validate_floorStockCC}&quot;) { failureMessage = failureMessage + &quot;Expect floorStockCC${serviceActivityReport_validate_floorStockCC} but got &quot; + objRequest.serviceActivityReports[0].floorStockCC}
+if (&quot;${serviceActivityReport_validate_serviceOrderType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderType!= &quot;${serviceActivityReport_validate_serviceOrderType}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderType${serviceActivityReport_validate_serviceOrderType} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderType}
+if (&quot;${serviceActivityReport_validate_mixVarianceAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].mixVarianceAcct!= &quot;${serviceActivityReport_validate_mixVarianceAcct}&quot;) { failureMessage = failureMessage + &quot;Expect mixVarianceAcct${serviceActivityReport_validate_mixVarianceAcct} but got &quot; + objRequest.serviceActivityReports[0].mixVarianceAcct}
+if (&quot;${serviceActivityReport_validate_mixVarianceCC}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].mixVarianceCC!= &quot;${serviceActivityReport_validate_mixVarianceCC}&quot;) { failureMessage = failureMessage + &quot;Expect mixVarianceCC${serviceActivityReport_validate_mixVarianceCC} but got &quot; + objRequest.serviceActivityReports[0].mixVarianceCC}
+if (&quot;${serviceActivityReport_validate_isReceiptStatusActive}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isReceiptStatusActive!= &quot;${serviceActivityReport_validate_isReceiptStatusActive}&quot;) { failureMessage = failureMessage + &quot;Expect isReceiptStatusActive${serviceActivityReport_validate_isReceiptStatusActive} but got &quot; + objRequest.serviceActivityReports[0].isReceiptStatusActive}
+if (&quot;${serviceActivityReport_validate_receiptStatus}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].receiptStatus!= &quot;${serviceActivityReport_validate_receiptStatus}&quot;) { failureMessage = failureMessage + &quot;Expect receiptStatus${serviceActivityReport_validate_receiptStatus} but got &quot; + objRequest.serviceActivityReports[0].receiptStatus}
+if (&quot;${serviceActivityReport_validate_nextLotSerial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].nextLotSerial!= &quot;${serviceActivityReport_validate_nextLotSerial}&quot;) { failureMessage = failureMessage + &quot;Expect nextLotSerial${serviceActivityReport_validate_nextLotSerial} but got &quot; + objRequest.serviceActivityReports[0].nextLotSerial}
+if (&quot;${serviceActivityReport_validate_workCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workCode!= &quot;${serviceActivityReport_validate_workCode}&quot;) { failureMessage = failureMessage + &quot;Expect workCode${serviceActivityReport_validate_workCode} but got &quot; + objRequest.serviceActivityReports[0].workCode}
+if (&quot;${serviceActivityReport_validate_workCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workCodeDescription!= &quot;${serviceActivityReport_validate_workCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect workCodeDescription${serviceActivityReport_validate_workCodeDescription} but got &quot; + objRequest.serviceActivityReports[0].workCodeDescription}
+if (&quot;${serviceActivityReport_validate_postedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].postedDate!= &quot;${serviceActivityReport_validate_postedDate}&quot;) { failureMessage = failureMessage + &quot;Expect postedDate${serviceActivityReport_validate_postedDate} but got &quot; + objRequest.serviceActivityReports[0].postedDate}
+if (&quot;${serviceActivityReport_validate_engineerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].engineerCode!= &quot;${serviceActivityReport_validate_engineerCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerCode${serviceActivityReport_validate_engineerCode} but got &quot; + objRequest.serviceActivityReports[0].engineerCode}
+if (&quot;${serviceActivityReport_validate_engineerName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].engineerName!= &quot;${serviceActivityReport_validate_engineerName}&quot;) { failureMessage = failureMessage + &quot;Expect engineerName${serviceActivityReport_validate_engineerName} but got &quot; + objRequest.serviceActivityReports[0].engineerName}
+if (&quot;${serviceActivityReport_validate_workInProcessSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workInProcessSubAcct!= &quot;${serviceActivityReport_validate_workInProcessSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect workInProcessSubAcct${serviceActivityReport_validate_workInProcessSubAcct} but got &quot; + objRequest.serviceActivityReports[0].workInProcessSubAcct}
+if (&quot;${serviceActivityReport_validate_floorStockSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].floorStockSubAcct!= &quot;${serviceActivityReport_validate_floorStockSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect floorStockSubAcct${serviceActivityReport_validate_floorStockSubAcct} but got &quot; + objRequest.serviceActivityReports[0].floorStockSubAcct}
+if (&quot;${serviceActivityReport_validate_materialUsageVarSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialUsageVarSubAcct!= &quot;${serviceActivityReport_validate_materialUsageVarSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect materialUsageVarSubAcct${serviceActivityReport_validate_materialUsageVarSubAcct} but got &quot; + objRequest.serviceActivityReports[0].materialUsageVarSubAcct}
+if (&quot;${serviceActivityReport_validate_materialRateVarSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].materialRateVarSubAcct!= &quot;${serviceActivityReport_validate_materialRateVarSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect materialRateVarSubAcct${serviceActivityReport_validate_materialRateVarSubAcct} but got &quot; + objRequest.serviceActivityReports[0].materialRateVarSubAcct}
+if (&quot;${serviceActivityReport_validate_subcontractUsageVarSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].subcontractUsageVarSubAcct!= &quot;${serviceActivityReport_validate_subcontractUsageVarSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractUsageVarSubAcct${serviceActivityReport_validate_subcontractUsageVarSubAcct} but got &quot; + objRequest.serviceActivityReports[0].subcontractUsageVarSubAcct}
+if (&quot;${serviceActivityReport_validate_subcontractRateVarSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].subcontractRateVarSubAcct!= &quot;${serviceActivityReport_validate_subcontractRateVarSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractRateVarSubAcct${serviceActivityReport_validate_subcontractRateVarSubAcct} but got &quot; + objRequest.serviceActivityReports[0].subcontractRateVarSubAcct}
+if (&quot;${serviceActivityReport_validate_mixVarianceSubAcct}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].mixVarianceSubAcct!= &quot;${serviceActivityReport_validate_mixVarianceSubAcct}&quot;) { failureMessage = failureMessage + &quot;Expect mixVarianceSubAcct${serviceActivityReport_validate_mixVarianceSubAcct} but got &quot; + objRequest.serviceActivityReports[0].mixVarianceSubAcct}
+if (&quot;${serviceActivityReport_validate_reference}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].reference!= &quot;${serviceActivityReport_validate_reference}&quot;) { failureMessage = failureMessage + &quot;Expect reference${serviceActivityReport_validate_reference} but got &quot; + objRequest.serviceActivityReports[0].reference}
+if (&quot;${serviceActivityReport_validate_lineStatusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineStatusCode!= &quot;${serviceActivityReport_validate_lineStatusCode}&quot;) { failureMessage = failureMessage + &quot;Expect lineStatusCode${serviceActivityReport_validate_lineStatusCode} but got &quot; + objRequest.serviceActivityReports[0].lineStatusCode}
+if (&quot;${serviceActivityReport_validate_lineStatusDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineStatusDescription!= &quot;${serviceActivityReport_validate_lineStatusDescription}&quot;) { failureMessage = failureMessage + &quot;Expect lineStatusDescription${serviceActivityReport_validate_lineStatusDescription} but got &quot; + objRequest.serviceActivityReports[0].lineStatusDescription}
+if (&quot;${serviceActivityReport_validate_lineEndUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineEndUserCode!= &quot;${serviceActivityReport_validate_lineEndUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect lineEndUserCode${serviceActivityReport_validate_lineEndUserCode} but got &quot; + objRequest.serviceActivityReports[0].lineEndUserCode}
+if (&quot;${serviceActivityReport_validate_lineIsBOMGenerated}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineIsBOMGenerated!= &quot;${serviceActivityReport_validate_lineIsBOMGenerated}&quot;) { failureMessage = failureMessage + &quot;Expect lineIsBOMGenerated${serviceActivityReport_validate_lineIsBOMGenerated} but got &quot; + objRequest.serviceActivityReports[0].lineIsBOMGenerated}
+if (&quot;${serviceActivityReport_validate_lineIsUninvoiced}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineIsUninvoiced!= &quot;${serviceActivityReport_validate_lineIsUninvoiced}&quot;) { failureMessage = failureMessage + &quot;Expect lineIsUninvoiced${serviceActivityReport_validate_lineIsUninvoiced} but got &quot; + objRequest.serviceActivityReports[0].lineIsUninvoiced}
+if (&quot;${serviceActivityReport_validate_currencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].currencyCode!= &quot;${serviceActivityReport_validate_currencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCode${serviceActivityReport_validate_currencyCode} but got &quot; + objRequest.serviceActivityReports[0].currencyCode}
+if (&quot;${serviceActivityReport_validate_currencyDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].currencyDescription!= &quot;${serviceActivityReport_validate_currencyDescription}&quot;) { failureMessage = failureMessage + &quot;Expect currencyDescription${serviceActivityReport_validate_currencyDescription} but got &quot; + objRequest.serviceActivityReports[0].currencyDescription}
+if (&quot;${serviceActivityReport_validate_itemSerial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemSerial!= &quot;${serviceActivityReport_validate_itemSerial}&quot;) { failureMessage = failureMessage + &quot;Expect itemSerial${serviceActivityReport_validate_itemSerial} but got &quot; + objRequest.serviceActivityReports[0].itemSerial}
+if (&quot;${serviceActivityReport_validate_itemReference}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemReference!= &quot;${serviceActivityReport_validate_itemReference}&quot;) { failureMessage = failureMessage + &quot;Expect itemReference${serviceActivityReport_validate_itemReference} but got &quot; + objRequest.serviceActivityReports[0].itemReference}
+if (&quot;${serviceActivityReport_validate_itemQuantity}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemQuantity!= &quot;${serviceActivityReport_validate_itemQuantity}&quot;) { failureMessage = failureMessage + &quot;Expect itemQuantity${serviceActivityReport_validate_itemQuantity} but got &quot; + objRequest.serviceActivityReports[0].itemQuantity}
+if (&quot;${serviceActivityReport_validate_itemProductLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemProductLine!= &quot;${serviceActivityReport_validate_itemProductLine}&quot;) { failureMessage = failureMessage + &quot;Expect itemProductLine${serviceActivityReport_validate_itemProductLine} but got &quot; + objRequest.serviceActivityReports[0].itemProductLine}
+if (&quot;${serviceActivityReport_validate_itemProductLineDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemProductLineDescription!= &quot;${serviceActivityReport_validate_itemProductLineDescription}&quot;) { failureMessage = failureMessage + &quot;Expect itemProductLineDescription${serviceActivityReport_validate_itemProductLineDescription} but got &quot; + objRequest.serviceActivityReports[0].itemProductLineDescription}
+if (&quot;${serviceActivityReport_validate_itemServiceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemServiceTypeCode!= &quot;${serviceActivityReport_validate_itemServiceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemServiceTypeCode${serviceActivityReport_validate_itemServiceTypeCode} but got &quot; + objRequest.serviceActivityReports[0].itemServiceTypeCode}
+if (&quot;${serviceActivityReport_validate_itemServiceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].itemServiceTypeDescription!= &quot;${serviceActivityReport_validate_itemServiceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect itemServiceTypeDescription${serviceActivityReport_validate_itemServiceTypeDescription} but got &quot; + objRequest.serviceActivityReports[0].itemServiceTypeDescription}
+if (&quot;${serviceActivityReport_validate_isUpdateISB}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isUpdateISB!= &quot;${serviceActivityReport_validate_isUpdateISB}&quot;) { failureMessage = failureMessage + &quot;Expect isUpdateISB${serviceActivityReport_validate_isUpdateISB} but got &quot; + objRequest.serviceActivityReports[0].isUpdateISB}
+if (&quot;${serviceActivityReport_validate_serviceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceType!= &quot;${serviceActivityReport_validate_serviceType}&quot;) { failureMessage = failureMessage + &quot;Expect serviceType${serviceActivityReport_validate_serviceType} but got &quot; + objRequest.serviceActivityReports[0].serviceType}
+if (&quot;${serviceActivityReport_validate_serviceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceTypeCode!= &quot;${serviceActivityReport_validate_serviceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeCode${serviceActivityReport_validate_serviceTypeCode} but got &quot; + objRequest.serviceActivityReports[0].serviceTypeCode}
+if (&quot;${serviceActivityReport_validate_contractLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractLine!= &quot;${serviceActivityReport_validate_contractLine}&quot;) { failureMessage = failureMessage + &quot;Expect contractLine${serviceActivityReport_validate_contractLine} but got &quot; + objRequest.serviceActivityReports[0].contractLine}
+if (&quot;${serviceActivityReport_validate_contractLineForDisplay}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractLineForDisplay!= &quot;${serviceActivityReport_validate_contractLineForDisplay}&quot;) { failureMessage = failureMessage + &quot;Expect contractLineForDisplay${serviceActivityReport_validate_contractLineForDisplay} but got &quot; + objRequest.serviceActivityReports[0].contractLineForDisplay}
+if (&quot;${serviceActivityReport_validate_contractNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractNumber!= &quot;${serviceActivityReport_validate_contractNumber}&quot;) { failureMessage = failureMessage + &quot;Expect contractNumber${serviceActivityReport_validate_contractNumber} but got &quot; + objRequest.serviceActivityReports[0].contractNumber}
+if (&quot;${serviceActivityReport_validate_contractStartDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractStartDate!= &quot;${serviceActivityReport_validate_contractStartDate}&quot;) { failureMessage = failureMessage + &quot;Expect contractStartDate${serviceActivityReport_validate_contractStartDate} but got &quot; + objRequest.serviceActivityReports[0].contractStartDate}
+if (&quot;${serviceActivityReport_validate_contractEndDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractEndDate!= &quot;${serviceActivityReport_validate_contractEndDate}&quot;) { failureMessage = failureMessage + &quot;Expect contractEndDate${serviceActivityReport_validate_contractEndDate} but got &quot; + objRequest.serviceActivityReports[0].contractEndDate}
+if (&quot;${serviceActivityReport_validate_warrantyStartDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].warrantyStartDate!= &quot;${serviceActivityReport_validate_warrantyStartDate}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyStartDate${serviceActivityReport_validate_warrantyStartDate} but got &quot; + objRequest.serviceActivityReports[0].warrantyStartDate}
+if (&quot;${serviceActivityReport_validate_warrantyEndDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].warrantyEndDate!= &quot;${serviceActivityReport_validate_warrantyEndDate}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyEndDate${serviceActivityReport_validate_warrantyEndDate} but got &quot; + objRequest.serviceActivityReports[0].warrantyEndDate}
+if (&quot;${serviceActivityReport_validate_warrantyServiceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].warrantyServiceTypeCode!= &quot;${serviceActivityReport_validate_warrantyServiceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyServiceTypeCode${serviceActivityReport_validate_warrantyServiceTypeCode} but got &quot; + objRequest.serviceActivityReports[0].warrantyServiceTypeCode}
+if (&quot;${serviceActivityReport_validate_contractServiceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractServiceTypeCode!= &quot;${serviceActivityReport_validate_contractServiceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect contractServiceTypeCode${serviceActivityReport_validate_contractServiceTypeCode} but got &quot; + objRequest.serviceActivityReports[0].contractServiceTypeCode}
+if (&quot;${serviceActivityReport_validate_isCheckCoverage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isCheckCoverage!= &quot;${serviceActivityReport_validate_isCheckCoverage}&quot;) { failureMessage = failureMessage + &quot;Expect isCheckCoverage${serviceActivityReport_validate_isCheckCoverage} but got &quot; + objRequest.serviceActivityReports[0].isCheckCoverage}
+if (&quot;${serviceActivityReport_validate_isCheckContractLimit}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isCheckContractLimit!= &quot;${serviceActivityReport_validate_isCheckContractLimit}&quot;) { failureMessage = failureMessage + &quot;Expect isCheckContractLimit${serviceActivityReport_validate_isCheckContractLimit} but got &quot; + objRequest.serviceActivityReports[0].isCheckContractLimit}
+if (&quot;${serviceActivityReport_validate_contractLimitsSource}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].contractLimitsSource!= &quot;${serviceActivityReport_validate_contractLimitsSource}&quot;) { failureMessage = failureMessage + &quot;Expect contractLimitsSource${serviceActivityReport_validate_contractLimitsSource} but got &quot; + objRequest.serviceActivityReports[0].contractLimitsSource}
+if (&quot;${serviceActivityReport_validate_serviceOrderStatusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderStatusCode!= &quot;${serviceActivityReport_validate_serviceOrderStatusCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderStatusCode${serviceActivityReport_validate_serviceOrderStatusCode} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderStatusCode}
+if (&quot;${serviceActivityReport_validate_serviceOrderStatusDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderStatusDescription!= &quot;${serviceActivityReport_validate_serviceOrderStatusDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderStatusDescription${serviceActivityReport_validate_serviceOrderStatusDescription} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderStatusDescription}
+if (&quot;${serviceActivityReport_validate_serviceOrderCompleteDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderCompleteDateTime!= &quot;${serviceActivityReport_validate_serviceOrderCompleteDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderCompleteDateTime${serviceActivityReport_validate_serviceOrderCompleteDateTime} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderCompleteDateTime}
+if (&quot;${serviceActivityReport_validate_serviceOrderNextStatusDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderNextStatusDateTime!= &quot;${serviceActivityReport_validate_serviceOrderNextStatusDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderNextStatusDateTime${serviceActivityReport_validate_serviceOrderNextStatusDateTime} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderNextStatusDateTime}
+if (&quot;${serviceActivityReport_validate_serviceOrderClosedDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].serviceOrderClosedDateTime!= &quot;${serviceActivityReport_validate_serviceOrderClosedDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderClosedDateTime${serviceActivityReport_validate_serviceOrderClosedDateTime} but got &quot; + objRequest.serviceActivityReports[0].serviceOrderClosedDateTime}
+if (&quot;${serviceActivityReport_validate_lineStartDownDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineStartDownDateTime!= &quot;${serviceActivityReport_validate_lineStartDownDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect lineStartDownDateTime${serviceActivityReport_validate_lineStartDownDateTime} but got &quot; + objRequest.serviceActivityReports[0].lineStartDownDateTime}
+if (&quot;${serviceActivityReport_validate_lineEndDownDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineEndDownDateTime!= &quot;${serviceActivityReport_validate_lineEndDownDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect lineEndDownDateTime${serviceActivityReport_validate_lineEndDownDateTime} but got &quot; + objRequest.serviceActivityReports[0].lineEndDownDateTime}
+if (&quot;${serviceActivityReport_validate_lineJobStartDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineJobStartDateTime!= &quot;${serviceActivityReport_validate_lineJobStartDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect lineJobStartDateTime${serviceActivityReport_validate_lineJobStartDateTime} but got &quot; + objRequest.serviceActivityReports[0].lineJobStartDateTime}
+if (&quot;${serviceActivityReport_validate_lineCompleteDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineCompleteDate!= &quot;${serviceActivityReport_validate_lineCompleteDate}&quot;) { failureMessage = failureMessage + &quot;Expect lineCompleteDate${serviceActivityReport_validate_lineCompleteDate} but got &quot; + objRequest.serviceActivityReports[0].lineCompleteDate}
+if (&quot;${serviceActivityReport_validate_lineIsFixedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineIsFixedPrice!= &quot;${serviceActivityReport_validate_lineIsFixedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect lineIsFixedPrice${serviceActivityReport_validate_lineIsFixedPrice} but got &quot; + objRequest.serviceActivityReports[0].lineIsFixedPrice}
+if (&quot;${serviceActivityReport_validate_lineFixedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].lineFixedPrice!= &quot;${serviceActivityReport_validate_lineFixedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect lineFixedPrice${serviceActivityReport_validate_lineFixedPrice} but got &quot; + objRequest.serviceActivityReports[0].lineFixedPrice}
+if (&quot;${serviceActivityReport_validate_statusMessage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].statusMessage!= &quot;${serviceActivityReport_validate_statusMessage}&quot;) { failureMessage = failureMessage + &quot;Expect statusMessage${serviceActivityReport_validate_statusMessage} but got &quot; + objRequest.serviceActivityReports[0].statusMessage}
+if (&quot;${serviceActivityReport_validate_disallowedActions}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].disallowedActions!= &quot;${serviceActivityReport_validate_disallowedActions}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActions${serviceActivityReport_validate_disallowedActions} but got &quot; + objRequest.serviceActivityReports[0].disallowedActions}
+if (&quot;${serviceActivityReport_validate_disallowedActionsMessage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].disallowedActionsMessage!= &quot;${serviceActivityReport_validate_disallowedActionsMessage}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActionsMessage${serviceActivityReport_validate_disallowedActionsMessage} but got &quot; + objRequest.serviceActivityReports[0].disallowedActionsMessage}
+if (&quot;${serviceActivityReport_validate_woMstrUser1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrUser1!= &quot;${serviceActivityReport_validate_woMstrUser1}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrUser1${serviceActivityReport_validate_woMstrUser1} but got &quot; + objRequest.serviceActivityReports[0].woMstrUser1}
+if (&quot;${serviceActivityReport_validate_woMstrUser2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrUser2!= &quot;${serviceActivityReport_validate_woMstrUser2}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrUser2${serviceActivityReport_validate_woMstrUser2} but got &quot; + objRequest.serviceActivityReports[0].woMstrUser2}
+if (&quot;${serviceActivityReport_validate_woMstrChr01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrChr01!= &quot;${serviceActivityReport_validate_woMstrChr01}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrChr01${serviceActivityReport_validate_woMstrChr01} but got &quot; + objRequest.serviceActivityReports[0].woMstrChr01}
+if (&quot;${serviceActivityReport_validate_woMstrChr02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrChr02!= &quot;${serviceActivityReport_validate_woMstrChr02}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrChr02${serviceActivityReport_validate_woMstrChr02} but got &quot; + objRequest.serviceActivityReports[0].woMstrChr02}
+if (&quot;${serviceActivityReport_validate_woMstrChr03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrChr03!= &quot;${serviceActivityReport_validate_woMstrChr03}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrChr03${serviceActivityReport_validate_woMstrChr03} but got &quot; + objRequest.serviceActivityReports[0].woMstrChr03}
+if (&quot;${serviceActivityReport_validate_woMstrChr04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrChr04!= &quot;${serviceActivityReport_validate_woMstrChr04}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrChr04${serviceActivityReport_validate_woMstrChr04} but got &quot; + objRequest.serviceActivityReports[0].woMstrChr04}
+if (&quot;${serviceActivityReport_validate_woMstrChr05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrChr05!= &quot;${serviceActivityReport_validate_woMstrChr05}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrChr05${serviceActivityReport_validate_woMstrChr05} but got &quot; + objRequest.serviceActivityReports[0].woMstrChr05}
+if (&quot;${serviceActivityReport_validate_woMstrDte01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrDte01!= &quot;${serviceActivityReport_validate_woMstrDte01}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrDte01${serviceActivityReport_validate_woMstrDte01} but got &quot; + objRequest.serviceActivityReports[0].woMstrDte01}
+if (&quot;${serviceActivityReport_validate_woMstrDte02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrDte02!= &quot;${serviceActivityReport_validate_woMstrDte02}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrDte02${serviceActivityReport_validate_woMstrDte02} but got &quot; + objRequest.serviceActivityReports[0].woMstrDte02}
+if (&quot;${serviceActivityReport_validate_woMstrDec01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrDec01!= &quot;${serviceActivityReport_validate_woMstrDec01}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrDec01${serviceActivityReport_validate_woMstrDec01} but got &quot; + objRequest.serviceActivityReports[0].woMstrDec01}
+if (&quot;${serviceActivityReport_validate_woMstrDec02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrDec02!= &quot;${serviceActivityReport_validate_woMstrDec02}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrDec02${serviceActivityReport_validate_woMstrDec02} but got &quot; + objRequest.serviceActivityReports[0].woMstrDec02}
+if (&quot;${serviceActivityReport_validate_woMstrDec03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrDec03!= &quot;${serviceActivityReport_validate_woMstrDec03}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrDec03${serviceActivityReport_validate_woMstrDec03} but got &quot; + objRequest.serviceActivityReports[0].woMstrDec03}
+if (&quot;${serviceActivityReport_validate_woMstrDec04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrDec04!= &quot;${serviceActivityReport_validate_woMstrDec04}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrDec04${serviceActivityReport_validate_woMstrDec04} but got &quot; + objRequest.serviceActivityReports[0].woMstrDec04}
+if (&quot;${serviceActivityReport_validate_woMstrLog01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].woMstrLog01!= &quot;${serviceActivityReport_validate_woMstrLog01}&quot;) { failureMessage = failureMessage + &quot;Expect woMstrLog01${serviceActivityReport_validate_woMstrLog01} but got &quot; + objRequest.serviceActivityReports[0].woMstrLog01}
+if (&quot;${serviceActivityReport_validate_isRequiredToCreateIsb}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isRequiredToCreateIsb!= &quot;${serviceActivityReport_validate_isRequiredToCreateIsb}&quot;) { failureMessage = failureMessage + &quot;Expect isRequiredToCreateIsb${serviceActivityReport_validate_isRequiredToCreateIsb} but got &quot; + objRequest.serviceActivityReports[0].isRequiredToCreateIsb}
+if (&quot;${serviceActivityReport_validate_previousTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].previousTimeZoneCode!= &quot;${serviceActivityReport_validate_previousTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect previousTimeZoneCode${serviceActivityReport_validate_previousTimeZoneCode} but got &quot; + objRequest.serviceActivityReports[0].previousTimeZoneCode}
+if (&quot;${serviceActivityReport_validate_timeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].timeZoneCode!= &quot;${serviceActivityReport_validate_timeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect timeZoneCode${serviceActivityReport_validate_timeZoneCode} but got &quot; + objRequest.serviceActivityReports[0].timeZoneCode}
+if (&quot;${serviceActivityReport_validate_timeZoneDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].timeZoneDescription!= &quot;${serviceActivityReport_validate_timeZoneDescription}&quot;) { failureMessage = failureMessage + &quot;Expect timeZoneDescription${serviceActivityReport_validate_timeZoneDescription} but got &quot; + objRequest.serviceActivityReports[0].timeZoneDescription}
+if (&quot;${serviceActivityReport_validate_defaultTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].defaultTimeZoneCode!= &quot;${serviceActivityReport_validate_defaultTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect defaultTimeZoneCode${serviceActivityReport_validate_defaultTimeZoneCode} but got &quot; + objRequest.serviceActivityReports[0].defaultTimeZoneCode}
+if (&quot;${serviceActivityReport_validate_endUserTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].endUserTimeZoneCode!= &quot;${serviceActivityReport_validate_endUserTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserTimeZoneCode${serviceActivityReport_validate_endUserTimeZoneCode} but got &quot; + objRequest.serviceActivityReports[0].endUserTimeZoneCode}
+if (&quot;${serviceActivityReport_validate_engineerTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].engineerTimeZoneCode!= &quot;${serviceActivityReport_validate_engineerTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerTimeZoneCode${serviceActivityReport_validate_engineerTimeZoneCode} but got &quot; + objRequest.serviceActivityReports[0].engineerTimeZoneCode}
+if (&quot;${serviceActivityReport_validate_currentUserTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].currentUserTimeZoneCode!= &quot;${serviceActivityReport_validate_currentUserTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect currentUserTimeZoneCode${serviceActivityReport_validate_currentUserTimeZoneCode} but got &quot; + objRequest.serviceActivityReports[0].currentUserTimeZoneCode}
+if (&quot;${serviceActivityReport_validate_isMultipleTimeZoneEnabled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isMultipleTimeZoneEnabled!= &quot;${serviceActivityReport_validate_isMultipleTimeZoneEnabled}&quot;) { failureMessage = failureMessage + &quot;Expect isMultipleTimeZoneEnabled${serviceActivityReport_validate_isMultipleTimeZoneEnabled} but got &quot; + objRequest.serviceActivityReports[0].isMultipleTimeZoneEnabled}
+if (&quot;${serviceActivityReport_validate_isMOLineSelectionEnabled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isMOLineSelectionEnabled!= &quot;${serviceActivityReport_validate_isMOLineSelectionEnabled}&quot;) { failureMessage = failureMessage + &quot;Expect isMOLineSelectionEnabled${serviceActivityReport_validate_isMOLineSelectionEnabled} but got &quot; + objRequest.serviceActivityReports[0].isMOLineSelectionEnabled}
+if (&quot;${serviceActivityReport_validate_isWIPProductLineDisabled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].isWIPProductLineDisabled!= &quot;${serviceActivityReport_validate_isWIPProductLineDisabled}&quot;) { failureMessage = failureMessage + &quot;Expect isWIPProductLineDisabled${serviceActivityReport_validate_isWIPProductLineDisabled} but got &quot; + objRequest.serviceActivityReports[0].isWIPProductLineDisabled}
+if (&quot;${serviceActivityReport_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].dataOperation!= &quot;${serviceActivityReport_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${serviceActivityReport_validate_dataOperation} but got &quot; + objRequest.serviceActivityReports[0].dataOperation}
+if (&quot;${serviceActivityReport_validate_workOrderMasterConcurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].workOrderMasterConcurrencyHash!= &quot;${serviceActivityReport_validate_workOrderMasterConcurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect workOrderMasterConcurrencyHash${serviceActivityReport_validate_workOrderMasterConcurrencyHash} but got &quot; + objRequest.serviceActivityReports[0].workOrderMasterConcurrencyHash}
+if (&quot;${serviceActivityReport_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceActivityReports[0].concurrencyHash!= &quot;${serviceActivityReport_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${serviceActivityReport_validate_concurrencyHash} but got &quot; + objRequest.serviceActivityReports[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;serviceActivityReport_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

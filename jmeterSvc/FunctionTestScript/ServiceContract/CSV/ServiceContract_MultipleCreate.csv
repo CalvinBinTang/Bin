@@ -1,0 +1,7 @@
+Case,customerCode,serviceType,siteCode,startDate,endDate,billingCycle,revenueType,isBillArrears,isPeriodBasedBilling,isProratePartialPeriods,discountPercentage,type,line,endUser,currencyCode,supportItem,quantity,netPrice,billingCycle_line,startDate_line,endDate_line,salesAccount,salesSubAccount,costCentre,project,discountAccount,discountSubAccount,discountCostCentre,discountProject,revenueAccount,revenueSubAccount,revenueCostCentre
+1,10c1001,std,10-100,2019-12-01,2020-11-30,MO,3,true,false,false,0,Line,1,10c1001,USD,02002,1,12,MO,2019-12-01,2020-11-30,4010,mech,adm,,4200,mech,,,1450,ho,
+2,10c1001,std,10-100,2019-12-01,2020-11-30,QT,3,true,true,false,10,Line,1,10c1001a,USD,02001,5,25,QT,2019-12-15,2020-11-30,5005,Cons,mfg,P25010,2181,elec,log,P02010,2453,gserv,0000
+3,10-100,std,10-100,2019-12-01,2020-11-30,YR,3,true,true,true,5,Line,1,30c1001,JPY,05001,5,100,QT,2019-12-15,2020-11-30,4010,mech,log,,4200,ho,,,1450,gserv,
+4,10-100,std,10-100,2019-12-01,2020-11-30,YR,3,true,false,true,5,Line,1,30c1001,JPY,05001,11,12.3456,YR,2019-12-15,2020-11-30,4000,mech,,,4200,ho,,,1450,ho,
+5,10-100,std,10-100,2019-12-01,2020-11-30,YR,1,false,false,true,5,Line,1,10c1001,JPY,05001,11,12.3456,YR,2019-12-15,2020-11-30,4000,mech,,,4200,ho,,,1450,ho,
+6,10-100,std,10-100,2019-12-01,2020-11-30,YR,2,false,true,false,5,Line,1,30c1001,JPY,05001,11,12.3456,YR,2019-12-15,2020-11-30,4000,mech,,,4200,ho,,,1450,ho,

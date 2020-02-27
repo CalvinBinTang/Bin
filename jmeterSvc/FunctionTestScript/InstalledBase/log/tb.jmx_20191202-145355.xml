@@ -1,0 +1,3 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1575269635919,21362,Login,Non HTTP response code: java.net.SocketException,,Thread Group 1-1,,false,,2800,0,1,1,null,0,0,0
+1575269635921,21360,Login,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,Thread Group 1-1,text,false,,2800,0,1,1,https://vmlcmsh001.qad.com:22011/qad-central/login,0,0,21360

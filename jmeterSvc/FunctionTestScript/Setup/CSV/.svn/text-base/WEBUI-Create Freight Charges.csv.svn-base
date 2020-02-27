@@ -1,0 +1,2 @@
+freightListCode;freightZoneCode;siteCode;currencyCode;maximumWeight;minimumWeight;freightCharge;freightChargePerUMOverMin
+FRT;10FRTZN;10-100;USD;10000;1;7;0.5

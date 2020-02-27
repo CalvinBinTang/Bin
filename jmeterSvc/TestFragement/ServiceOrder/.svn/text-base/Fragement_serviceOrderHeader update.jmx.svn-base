@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="serviceOrderHeader update">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="update"/>
+      <hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String defaultValue = "[N/A]";
+List varsList = [];
+
+// URL Paremeters
+varsList.add("serviceOrderHeader_url_serviceOrderNumber");
+varsList.add("serviceOrderHeader_url_domainCode");
+
+
+// All the fields in dataset should be configurable here (for input)
+
+
+// All the fields in dataset should be configurable here (for validation)
+
+
+varsList.each {
+if (vars.get("${it}") == null) vars.put("${it}", defaultValue);
+}</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="serviceOrderHeader update">
+		<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/serviceOrderHeaders?serviceOrderNumber=${serviceOrderHeader_url_serviceOrderNumber}&amp;domainCode=${domainCode}</stringProp>
+		<stringProp name="HTTPSampler.method">POST</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager enabled="true" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+		<collectionProp name="HeaderManager.headers">
+			<elementProp elementType="Header" name="Content-Type">
+				<stringProp name="Header.name">Content-Type</stringProp>
+				<stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Language">
+				<stringProp name="Header.name">Accept-Language</stringProp>
+				<stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept">
+				<stringProp name="Header.name">Accept</stringProp>
+				<stringProp name="Header.value">*/*</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Origin">
+				<stringProp name="Header.name">Origin</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="User-Agent">
+				<stringProp name="Header.name">User-Agent</stringProp>
+				<stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="DNT">
+				<stringProp name="Header.name">DNT</stringProp>
+				<stringProp name="Header.value">1</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="X-Requested-With">
+				<stringProp name="Header.name">X-Requested-With</stringProp>
+				<stringProp name="Header.value">XMLHttpRequest</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Referer">
+				<stringProp name="Header.name">Referer</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Encoding">
+				<stringProp name="Header.name">Accept-Encoding</stringProp>
+				<stringProp name="Header.value">gzip, deflate</stringProp>
+			</elementProp>
+		</collectionProp>
+	</HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor enabled="true" guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript">
+		<stringProp name="scriptLanguage">javascript</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if ("${serviceOrderHeader_domainCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].domainCode= "${serviceOrderHeader_domainCode}";
+if ("${serviceOrderHeader_serviceOrderNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceOrderNumber= "${serviceOrderHeader_serviceOrderNumber}";
+if ("${serviceOrderHeader_category}" != "[N/A]") objRequest.serviceOrderHeaders[0].category= "${serviceOrderHeader_category}";
+if ("${serviceOrderHeader_callDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].callDate= "${serviceOrderHeader_callDate}";
+if ("${serviceOrderHeader_nextStatusDateTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].nextStatusDateTime= "${serviceOrderHeader_nextStatusDateTime}";
+if ("${serviceOrderHeader_queueCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].queueCode= "${serviceOrderHeader_queueCode}";
+if ("${serviceOrderHeader_queueDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].queueDescription= "${serviceOrderHeader_queueDescription}";
+if ("${serviceOrderHeader_daybookSetDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].daybookSetDescription= "${serviceOrderHeader_daybookSetDescription}";
+if ("${serviceOrderHeader_responseTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].responseTime= "${serviceOrderHeader_responseTime}";
+if ("${serviceOrderHeader_responseUnitOfMeasureDisplay}" != "[N/A]") objRequest.serviceOrderHeaders[0].responseUnitOfMeasureDisplay= "${serviceOrderHeader_responseUnitOfMeasureDisplay}";
+if ("${serviceOrderHeader_assigned}" != "[N/A]") objRequest.serviceOrderHeaders[0].assigned= "${serviceOrderHeader_assigned}";
+if ("${serviceOrderHeader_assignedDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].assignedDescription= "${serviceOrderHeader_assignedDescription}";
+if ("${serviceOrderHeader_endUserCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserCode= "${serviceOrderHeader_endUserCode}";
+if ("${serviceOrderHeader_endUserAddressField1}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserAddressField1= "${serviceOrderHeader_endUserAddressField1}";
+if ("${serviceOrderHeader_endUserAddressField2}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserAddressField2= "${serviceOrderHeader_endUserAddressField2}";
+if ("${serviceOrderHeader_endUserAddressField3}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserAddressField3= "${serviceOrderHeader_endUserAddressField3}";
+if ("${serviceOrderHeader_endUserAddressField4}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserAddressField4= "${serviceOrderHeader_endUserAddressField4}";
+if ("${serviceOrderHeader_endUserAddressField5}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserAddressField5= "${serviceOrderHeader_endUserAddressField5}";
+if ("${serviceOrderHeader_endUserAddressField6}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserAddressField6= "${serviceOrderHeader_endUserAddressField6}";
+if ("${serviceOrderHeader_enteredBy}" != "[N/A]") objRequest.serviceOrderHeaders[0].enteredBy= "${serviceOrderHeader_enteredBy}";
+if ("${serviceOrderHeader_statusCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].statusCode= "${serviceOrderHeader_statusCode}";
+if ("${serviceOrderHeader_statusCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].statusCodeDescription= "${serviceOrderHeader_statusCodeDescription}";
+if ("${serviceOrderHeader_typeCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].typeCode= "${serviceOrderHeader_typeCode}";
+if ("${serviceOrderHeader_typeCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].typeCodeDescription= "${serviceOrderHeader_typeCodeDescription}";
+if ("${serviceOrderHeader_itemCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].itemCode= "${serviceOrderHeader_itemCode}";
+if ("${serviceOrderHeader_serial}" != "[N/A]") objRequest.serviceOrderHeaders[0].serial= "${serviceOrderHeader_serial}";
+if ("${serviceOrderHeader_nextStatusCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].nextStatusCode= "${serviceOrderHeader_nextStatusCode}";
+if ("${serviceOrderHeader_nextStatusCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].nextStatusCodeDescription= "${serviceOrderHeader_nextStatusCodeDescription}";
+if ("${serviceOrderHeader_salesOrderNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].salesOrderNumber= "${serviceOrderHeader_salesOrderNumber}";
+if ("${serviceOrderHeader_callerName}" != "[N/A]") objRequest.serviceOrderHeaders[0].callerName= "${serviceOrderHeader_callerName}";
+if ("${serviceOrderHeader_phoneNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].phoneNumber= "${serviceOrderHeader_phoneNumber}";
+if ("${serviceOrderHeader_problemSkillCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].problemSkillCode= "${serviceOrderHeader_problemSkillCode}";
+if ("${serviceOrderHeader_resolutionCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].resolutionCode= "${serviceOrderHeader_resolutionCode}";
+if ("${serviceOrderHeader_priority}" != "[N/A]") objRequest.serviceOrderHeaders[0].priority= "${serviceOrderHeader_priority}";
+if ("${serviceOrderHeader_description}" != "[N/A]") objRequest.serviceOrderHeaders[0].description= "${serviceOrderHeader_description}";
+if ("${serviceOrderHeader_eventDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].eventDate= "${serviceOrderHeader_eventDate}";
+if ("${serviceOrderHeader_eventDateTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].eventDateTime= "${serviceOrderHeader_eventDateTime}";
+if ("${serviceOrderHeader_commentIndex}" != "[N/A]") objRequest.serviceOrderHeaders[0].commentIndex= "${serviceOrderHeader_commentIndex}";
+if ("${serviceOrderHeader_travelTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].travelTime= "${serviceOrderHeader_travelTime}";
+if ("${serviceOrderHeader_travelHours}" != "[N/A]") objRequest.serviceOrderHeaders[0].travelHours= "${serviceOrderHeader_travelHours}";
+if ("${serviceOrderHeader_travelMinutes}" != "[N/A]") objRequest.serviceOrderHeaders[0].travelMinutes= "${serviceOrderHeader_travelMinutes}";
+if ("${serviceOrderHeader_travelDistance}" != "[N/A]") objRequest.serviceOrderHeaders[0].travelDistance= "${serviceOrderHeader_travelDistance}";
+if ("${serviceOrderHeader_travelUnitOfMeasure}" != "[N/A]") objRequest.serviceOrderHeaders[0].travelUnitOfMeasure= "${serviceOrderHeader_travelUnitOfMeasure}";
+if ("${serviceOrderHeader_currentTimeZoneCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].currentTimeZoneCode= "${serviceOrderHeader_currentTimeZoneCode}";
+if ("${serviceOrderHeader_currentDateTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].currentDateTime= "${serviceOrderHeader_currentDateTime}";
+if ("${serviceOrderHeader_isDisplayTravelAndEstimatedTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].isDisplayTravelAndEstimatedTime= "${serviceOrderHeader_isDisplayTravelAndEstimatedTime}";
+if ("${serviceOrderHeader_serviceTypeCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceTypeCode= "${serviceOrderHeader_serviceTypeCode}";
+if ("${serviceOrderHeader_serviceTypeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceTypeDescription= "${serviceOrderHeader_serviceTypeDescription}";
+if ("${serviceOrderHeader_fromQueueCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].fromQueueCode= "${serviceOrderHeader_fromQueueCode}";
+if ("${serviceOrderHeader_rMACode}" != "[N/A]") objRequest.serviceOrderHeaders[0].rMACode= "${serviceOrderHeader_rMACode}";
+if ("${serviceOrderHeader_sequenceNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].sequenceNumber= "${serviceOrderHeader_sequenceNumber}";
+if ("${serviceOrderHeader_eventTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].eventTime= "${serviceOrderHeader_eventTime}";
+if ("${serviceOrderHeader_openedDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].openedDate= "${serviceOrderHeader_openedDate}";
+if ("${serviceOrderHeader_openedTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].openedTime= "${serviceOrderHeader_openedTime}";
+if ("${serviceOrderHeader_reference}" != "[N/A]") objRequest.serviceOrderHeaders[0].reference= "${serviceOrderHeader_reference}";
+if ("${serviceOrderHeader_timeSpent}" != "[N/A]") objRequest.serviceOrderHeaders[0].timeSpent= "${serviceOrderHeader_timeSpent}";
+if ("${serviceOrderHeader_timeSpentDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].timeSpentDescription= "${serviceOrderHeader_timeSpentDescription}";
+if ("${serviceOrderHeader_closedDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].closedDate= "${serviceOrderHeader_closedDate}";
+if ("${serviceOrderHeader_closedTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].closedTime= "${serviceOrderHeader_closedTime}";
+if ("${serviceOrderHeader_contractNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].contractNumber= "${serviceOrderHeader_contractNumber}";
+if ("${serviceOrderHeader_severityCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].severityCode= "${serviceOrderHeader_severityCode}";
+if ("${serviceOrderHeader_severityCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].severityCodeDescription= "${serviceOrderHeader_severityCodeDescription}";
+if ("${serviceOrderHeader_contractLine}" != "[N/A]") objRequest.serviceOrderHeaders[0].contractLine= "${serviceOrderHeader_contractLine}";
+if ("${serviceOrderHeader_toQueueCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].toQueueCode= "${serviceOrderHeader_toQueueCode}";
+if ("${serviceOrderHeader_isBilled}" != "[N/A]") objRequest.serviceOrderHeaders[0].isBilled= "${serviceOrderHeader_isBilled}";
+if ("${serviceOrderHeader_serviceRequestCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceRequestCode= "${serviceOrderHeader_serviceRequestCode}";
+if ("${serviceOrderHeader_isActivity}" != "[N/A]") objRequest.serviceOrderHeaders[0].isActivity= "${serviceOrderHeader_isActivity}";
+if ("${serviceOrderHeader_purchaseOrderNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].purchaseOrderNumber= "${serviceOrderHeader_purchaseOrderNumber}";
+if ("${serviceOrderHeader_engineerGroupCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].engineerGroupCode= "${serviceOrderHeader_engineerGroupCode}";
+if ("${serviceOrderHeader_areaCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].areaCode= "${serviceOrderHeader_areaCode}";
+if ("${serviceOrderHeader_areaDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].areaDescription= "${serviceOrderHeader_areaDescription}";
+if ("${serviceOrderHeader_engineerAreaCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].engineerAreaCode= "${serviceOrderHeader_engineerAreaCode}";
+if ("${serviceOrderHeader_workCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].workCode= "${serviceOrderHeader_workCode}";
+if ("${serviceOrderHeader_workCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].workCodeDescription= "${serviceOrderHeader_workCodeDescription}";
+if ("${serviceOrderHeader_createdFrom}" != "[N/A]") objRequest.serviceOrderHeaders[0].createdFrom= "${serviceOrderHeader_createdFrom}";
+if ("${serviceOrderHeader_creationDateStamp}" != "[N/A]") objRequest.serviceOrderHeaders[0].creationDateStamp= "${serviceOrderHeader_creationDateStamp}";
+if ("${serviceOrderHeader_creationTimeStamp}" != "[N/A]") objRequest.serviceOrderHeaders[0].creationTimeStamp= "${serviceOrderHeader_creationTimeStamp}";
+if ("${serviceOrderHeader_estimatedTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].estimatedTime= "${serviceOrderHeader_estimatedTime}";
+if ("${serviceOrderHeader_estimatedHours}" != "[N/A]") objRequest.serviceOrderHeaders[0].estimatedHours= "${serviceOrderHeader_estimatedHours}";
+if ("${serviceOrderHeader_estimatedMinutes}" != "[N/A]") objRequest.serviceOrderHeaders[0].estimatedMinutes= "${serviceOrderHeader_estimatedMinutes}";
+if ("${serviceOrderHeader_endUserDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserDate= "${serviceOrderHeader_endUserDate}";
+if ("${serviceOrderHeader_endUserTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserTime= "${serviceOrderHeader_endUserTime}";
+if ("${serviceOrderHeader_isCommentsModified}" != "[N/A]") objRequest.serviceOrderHeaders[0].isCommentsModified= "${serviceOrderHeader_isCommentsModified}";
+if ("${serviceOrderHeader_revision}" != "[N/A]") objRequest.serviceOrderHeaders[0].revision= "${serviceOrderHeader_revision}";
+if ("${serviceOrderHeader_escalationNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].escalationNumber= "${serviceOrderHeader_escalationNumber}";
+if ("${serviceOrderHeader_escalationSequence}" != "[N/A]") objRequest.serviceOrderHeaders[0].escalationSequence= "${serviceOrderHeader_escalationSequence}";
+if ("${serviceOrderHeader_routingCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].routingCode= "${serviceOrderHeader_routingCode}";
+if ("${serviceOrderHeader_billOfMaterialCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].billOfMaterialCode= "${serviceOrderHeader_billOfMaterialCode}";
+if ("${serviceOrderHeader_siteCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].siteCode= "${serviceOrderHeader_siteCode}";
+if ("${serviceOrderHeader_siteDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].siteDescription= "${serviceOrderHeader_siteDescription}";
+if ("${serviceOrderHeader_isSchedule}" != "[N/A]") objRequest.serviceOrderHeaders[0].isSchedule= "${serviceOrderHeader_isSchedule}";
+if ("${serviceOrderHeader_isThirdPartyService}" != "[N/A]") objRequest.serviceOrderHeaders[0].isThirdPartyService= "${serviceOrderHeader_isThirdPartyService}";
+if ("${serviceOrderHeader_thirdPartyID}" != "[N/A]") objRequest.serviceOrderHeaders[0].thirdPartyID= "${serviceOrderHeader_thirdPartyID}";
+if ("${serviceOrderHeader_isSendAcknowledgementLetter}" != "[N/A]") objRequest.serviceOrderHeaders[0].isSendAcknowledgementLetter= "${serviceOrderHeader_isSendAcknowledgementLetter}";
+if ("${serviceOrderHeader_completeDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].completeDate= "${serviceOrderHeader_completeDate}";
+if ("${serviceOrderHeader_completeTime}" != "[N/A]") objRequest.serviceOrderHeaders[0].completeTime= "${serviceOrderHeader_completeTime}";
+if ("${serviceOrderHeader_creditTermsCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].creditTermsCode= "${serviceOrderHeader_creditTermsCode}";
+if ("${serviceOrderHeader_creditTermsCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].creditTermsCodeDescription= "${serviceOrderHeader_creditTermsCodeDescription}";
+if ("${serviceOrderHeader_currencyCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].currencyCode= "${serviceOrderHeader_currencyCode}";
+if ("${serviceOrderHeader_baseCurrencyCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].baseCurrencyCode= "${serviceOrderHeader_baseCurrencyCode}";
+if ("${serviceOrderHeader_exchangeRate}" != "[N/A]") objRequest.serviceOrderHeaders[0].exchangeRate= "${serviceOrderHeader_exchangeRate}";
+if ("${serviceOrderHeader_exchangeRateDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].exchangeRateDescription= "${serviceOrderHeader_exchangeRateDescription}";
+if ("${serviceOrderHeader_fieldNotificationNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].fieldNotificationNumber= "${serviceOrderHeader_fieldNotificationNumber}";
+if ("${serviceOrderHeader_isIncludedInStatistics}" != "[N/A]") objRequest.serviceOrderHeaders[0].isIncludedInStatistics= "${serviceOrderHeader_isIncludedInStatistics}";
+if ("${serviceOrderHeader_isServiceOrderPrinted}" != "[N/A]") objRequest.serviceOrderHeaders[0].isServiceOrderPrinted= "${serviceOrderHeader_isServiceOrderPrinted}";
+if ("${serviceOrderHeader_priceListCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].priceListCode= "${serviceOrderHeader_priceListCode}";
+if ("${serviceOrderHeader_priceDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].priceDate= "${serviceOrderHeader_priceDate}";
+if ("${serviceOrderHeader_isQuoteRequired}" != "[N/A]") objRequest.serviceOrderHeaders[0].isQuoteRequired= "${serviceOrderHeader_isQuoteRequired}";
+if ("${serviceOrderHeader_quotePrice}" != "[N/A]") objRequest.serviceOrderHeaders[0].quotePrice= "${serviceOrderHeader_quotePrice}";
+if ("${serviceOrderHeader_repairCenterSiteCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].repairCenterSiteCode= "${serviceOrderHeader_repairCenterSiteCode}";
+if ("${serviceOrderHeader_resolutionDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].resolutionDescription= "${serviceOrderHeader_resolutionDescription}";
+if ("${serviceOrderHeader_resolveDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].resolveDescription= "${serviceOrderHeader_resolveDescription}";
+if ("${serviceOrderHeader_shipToCustomerCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].shipToCustomerCode= "${serviceOrderHeader_shipToCustomerCode}";
+if ("${serviceOrderHeader_salesQuoteNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].salesQuoteNumber= "${serviceOrderHeader_salesQuoteNumber}";
+if ("${serviceOrderHeader_isActivitySuspended}" != "[N/A]") objRequest.serviceOrderHeaders[0].isActivitySuspended= "${serviceOrderHeader_isActivitySuspended}";
+if ("${serviceOrderHeader_serviceType}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceType= "${serviceOrderHeader_serviceType}";
+if ("${serviceOrderHeader_isTaxable}" != "[N/A]") objRequest.serviceOrderHeaders[0].isTaxable= "${serviceOrderHeader_isTaxable}";
+if ("${serviceOrderHeader_isTaxIncluded}" != "[N/A]") objRequest.serviceOrderHeaders[0].isTaxIncluded= "${serviceOrderHeader_isTaxIncluded}";
+if ("${serviceOrderHeader_taxClass}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxClass= "${serviceOrderHeader_taxClass}";
+if ("${serviceOrderHeader_taxClassDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxClassDescription= "${serviceOrderHeader_taxClassDescription}";
+if ("${serviceOrderHeader_isAwaitingItems}" != "[N/A]") objRequest.serviceOrderHeaders[0].isAwaitingItems= "${serviceOrderHeader_isAwaitingItems}";
+if ("${serviceOrderHeader_billToCustomerCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToCustomerCode= "${serviceOrderHeader_billToCustomerCode}";
+if ("${serviceOrderHeader_billToAddressField1}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToAddressField1= "${serviceOrderHeader_billToAddressField1}";
+if ("${serviceOrderHeader_billToAddressField2}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToAddressField2= "${serviceOrderHeader_billToAddressField2}";
+if ("${serviceOrderHeader_billToAddressField3}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToAddressField3= "${serviceOrderHeader_billToAddressField3}";
+if ("${serviceOrderHeader_billToAddressField4}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToAddressField4= "${serviceOrderHeader_billToAddressField4}";
+if ("${serviceOrderHeader_billToAddressField5}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToAddressField5= "${serviceOrderHeader_billToAddressField5}";
+if ("${serviceOrderHeader_billToAddressField6}" != "[N/A]") objRequest.serviceOrderHeaders[0].billToAddressField6= "${serviceOrderHeader_billToAddressField6}";
+if ("${serviceOrderHeader_isInvoiceDraftPrinted}" != "[N/A]") objRequest.serviceOrderHeaders[0].isInvoiceDraftPrinted= "${serviceOrderHeader_isInvoiceDraftPrinted}";
+if ("${serviceOrderHeader_isRecorded}" != "[N/A]") objRequest.serviceOrderHeaders[0].isRecorded= "${serviceOrderHeader_isRecorded}";
+if ("${serviceOrderHeader_isRepairCenterCall}" != "[N/A]") objRequest.serviceOrderHeaders[0].isRepairCenterCall= "${serviceOrderHeader_isRepairCenterCall}";
+if ("${serviceOrderHeader_languageCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].languageCode= "${serviceOrderHeader_languageCode}";
+if ("${serviceOrderHeader_languageDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].languageDescription= "${serviceOrderHeader_languageDescription}";
+if ("${serviceOrderHeader_taxDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxDate= "${serviceOrderHeader_taxDate}";
+if ("${serviceOrderHeader_quoteExpireDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].quoteExpireDate= "${serviceOrderHeader_quoteExpireDate}";
+if ("${serviceOrderHeader_repairSequence}" != "[N/A]") objRequest.serviceOrderHeaders[0].repairSequence= "${serviceOrderHeader_repairSequence}";
+if ("${serviceOrderHeader_repairStep}" != "[N/A]") objRequest.serviceOrderHeaders[0].repairStep= "${serviceOrderHeader_repairStep}";
+if ("${serviceOrderHeader_isEndUserChanged}" != "[N/A]") objRequest.serviceOrderHeaders[0].isEndUserChanged= "${serviceOrderHeader_isEndUserChanged}";
+if ("${serviceOrderHeader_lastModifiedUser}" != "[N/A]") objRequest.serviceOrderHeaders[0].lastModifiedUser= "${serviceOrderHeader_lastModifiedUser}";
+if ("${serviceOrderHeader_lastModifiedDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].lastModifiedDate= "${serviceOrderHeader_lastModifiedDate}";
+if ("${serviceOrderHeader_customerCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].customerCode= "${serviceOrderHeader_customerCode}";
+if ("${serviceOrderHeader_taxEnvironment}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxEnvironment= "${serviceOrderHeader_taxEnvironment}";
+if ("${serviceOrderHeader_taxEnvironmentDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxEnvironmentDescription= "${serviceOrderHeader_taxEnvironmentDescription}";
+if ("${serviceOrderHeader_taxUsage}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxUsage= "${serviceOrderHeader_taxUsage}";
+if ("${serviceOrderHeader_taxUsageDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxUsageDescription= "${serviceOrderHeader_taxUsageDescription}";
+if ("${serviceOrderHeader_taxPercentage}" != "[N/A]") objRequest.serviceOrderHeaders[0].taxPercentage= "${serviceOrderHeader_taxPercentage}";
+if ("${serviceOrderHeader_serviceQuoteNumber}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceQuoteNumber= "${serviceOrderHeader_serviceQuoteNumber}";
+if ("${serviceOrderHeader_serviceQuoteDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceQuoteDescription= "${serviceOrderHeader_serviceQuoteDescription}";
+if ("${serviceOrderHeader_enteredExchangeRate}" != "[N/A]") objRequest.serviceOrderHeaders[0].enteredExchangeRate= "${serviceOrderHeader_enteredExchangeRate}";
+if ("${serviceOrderHeader_isFixedRate}" != "[N/A]") objRequest.serviceOrderHeaders[0].isFixedRate= "${serviceOrderHeader_isFixedRate}";
+if ("${serviceOrderHeader_channel}" != "[N/A]") objRequest.serviceOrderHeaders[0].channel= "${serviceOrderHeader_channel}";
+if ("${serviceOrderHeader_channelDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].channelDescription= "${serviceOrderHeader_channelDescription}";
+if ("${serviceOrderHeader_exchangeRate2}" != "[N/A]") objRequest.serviceOrderHeaders[0].exchangeRate2= "${serviceOrderHeader_exchangeRate2}";
+if ("${serviceOrderHeader_exchangeRate2Description}" != "[N/A]") objRequest.serviceOrderHeaders[0].exchangeRate2Description= "${serviceOrderHeader_exchangeRate2Description}";
+if ("${serviceOrderHeader_exchangeRateType}" != "[N/A]") objRequest.serviceOrderHeaders[0].exchangeRateType= "${serviceOrderHeader_exchangeRateType}";
+if ("${serviceOrderHeader_exchangeRateSequence}" != "[N/A]") objRequest.serviceOrderHeaders[0].exchangeRateSequence= "${serviceOrderHeader_exchangeRateSequence}";
+if ("${serviceOrderHeader_endDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].endDate= "${serviceOrderHeader_endDate}";
+if ("${serviceOrderHeader_startDate}" != "[N/A]") objRequest.serviceOrderHeaders[0].startDate= "${serviceOrderHeader_startDate}";
+if ("${serviceOrderHeader_projectCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].projectCode= "${serviceOrderHeader_projectCode}";
+if ("${serviceOrderHeader_projectCodeDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].projectCodeDescription= "${serviceOrderHeader_projectCodeDescription}";
+if ("${serviceOrderHeader_defaultWorksheet}" != "[N/A]") objRequest.serviceOrderHeaders[0].defaultWorksheet= "${serviceOrderHeader_defaultWorksheet}";
+if ("${serviceOrderHeader_isUpdateInstalledBase}" != "[N/A]") objRequest.serviceOrderHeaders[0].isUpdateInstalledBase= "${serviceOrderHeader_isUpdateInstalledBase}";
+if ("${serviceOrderHeader_daybookSet}" != "[N/A]") objRequest.serviceOrderHeaders[0].daybookSet= "${serviceOrderHeader_daybookSet}";
+if ("${serviceOrderHeader_modelCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].modelCode= "${serviceOrderHeader_modelCode}";
+if ("${serviceOrderHeader_serviceGroup}" != "[N/A]") objRequest.serviceOrderHeaders[0].serviceGroup= "${serviceOrderHeader_serviceGroup}";
+if ("${serviceOrderHeader_timeZoneCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].timeZoneCode= "${serviceOrderHeader_timeZoneCode}";
+if ("${serviceOrderHeader_timeZoneDescription}" != "[N/A]") objRequest.serviceOrderHeaders[0].timeZoneDescription= "${serviceOrderHeader_timeZoneDescription}";
+if ("${serviceOrderHeader_defaultTimeZoneCode}" != "[N/A]") objRequest.serviceOrderHeaders[0].defaultTimeZoneCode= "${serviceOrderHeader_defaultTimeZoneCode}";
+if ("${serviceOrderHeader_isMultipleTimeZoneEnabled}" != "[N/A]") objRequest.serviceOrderHeaders[0].isMultipleTimeZoneEnabled= "${serviceOrderHeader_isMultipleTimeZoneEnabled}";
+if ("${serviceOrderHeader_isDepotOrder}" != "[N/A]") objRequest.serviceOrderHeaders[0].isDepotOrder= "${serviceOrderHeader_isDepotOrder}";
+if ("${serviceOrderHeader_endUserMessage}" != "[N/A]") objRequest.serviceOrderHeaders[0].endUserMessage= "${serviceOrderHeader_endUserMessage}";
+if ("${serviceOrderHeader_caMstrUser1}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrUser1= "${serviceOrderHeader_caMstrUser1}";
+if ("${serviceOrderHeader_caMstrUser2}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrUser2= "${serviceOrderHeader_caMstrUser2}";
+if ("${serviceOrderHeader_caMstrChr01}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr01= "${serviceOrderHeader_caMstrChr01}";
+if ("${serviceOrderHeader_caMstrChr02}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr02= "${serviceOrderHeader_caMstrChr02}";
+if ("${serviceOrderHeader_caMstrChr03}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr03= "${serviceOrderHeader_caMstrChr03}";
+if ("${serviceOrderHeader_caMstrChr04}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr04= "${serviceOrderHeader_caMstrChr04}";
+if ("${serviceOrderHeader_caMstrChr05}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr05= "${serviceOrderHeader_caMstrChr05}";
+if ("${serviceOrderHeader_caMstrChr06}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr06= "${serviceOrderHeader_caMstrChr06}";
+if ("${serviceOrderHeader_caMstrChr07}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr07= "${serviceOrderHeader_caMstrChr07}";
+if ("${serviceOrderHeader_caMstrChr08}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr08= "${serviceOrderHeader_caMstrChr08}";
+if ("${serviceOrderHeader_caMstrChr09}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr09= "${serviceOrderHeader_caMstrChr09}";
+if ("${serviceOrderHeader_caMstrChr10}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrChr10= "${serviceOrderHeader_caMstrChr10}";
+if ("${serviceOrderHeader_caMstrDec01}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDec01= "${serviceOrderHeader_caMstrDec01}";
+if ("${serviceOrderHeader_caMstrDec02}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDec02= "${serviceOrderHeader_caMstrDec02}";
+if ("${serviceOrderHeader_caMstrDec03}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDec03= "${serviceOrderHeader_caMstrDec03}";
+if ("${serviceOrderHeader_caMstrDte01}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDte01= "${serviceOrderHeader_caMstrDte01}";
+if ("${serviceOrderHeader_caMstrDte02}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDte02= "${serviceOrderHeader_caMstrDte02}";
+if ("${serviceOrderHeader_caMstrDte03}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDte03= "${serviceOrderHeader_caMstrDte03}";
+if ("${serviceOrderHeader_caMstrDte04}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDte04= "${serviceOrderHeader_caMstrDte04}";
+if ("${serviceOrderHeader_caMstrDte05}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrDte05= "${serviceOrderHeader_caMstrDte05}";
+if ("${serviceOrderHeader_caMstrLog01}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrLog01= "${serviceOrderHeader_caMstrLog01}";
+if ("${serviceOrderHeader_caMstrLog02}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrLog02= "${serviceOrderHeader_caMstrLog02}";
+if ("${serviceOrderHeader_caMstrLog03}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrLog03= "${serviceOrderHeader_caMstrLog03}";
+if ("${serviceOrderHeader_caMstrLog04}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrLog04= "${serviceOrderHeader_caMstrLog04}";
+if ("${serviceOrderHeader_caMstrLog05}" != "[N/A]") objRequest.serviceOrderHeaders[0].caMstrLog05= "${serviceOrderHeader_caMstrLog05}";
+if ("${serviceOrderHeader_dataOperation}" != "[N/A]") objRequest.serviceOrderHeaders[0].dataOperation= "${serviceOrderHeader_dataOperation}";
+if ("${serviceOrderHeader_concurrencyHash}" != "[N/A]") objRequest.serviceOrderHeaders[0].concurrencyHash= "${serviceOrderHeader_concurrencyHash}";
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put("RequestData", strUpdatedRequest);</stringProp>
+	</JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse">
+		<stringProp name="VAR">RequestData</stringProp>
+		<stringProp name="JSONPATH">$.data</stringProp>
+		<stringProp name="DEFAULT">NotFound</stringProp>
+		<stringProp name="VARIABLE"/>
+		<stringProp name="SUBJECT">BODY</stringProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+		<stringProp name="EXPECTED_VALUE">true</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion enabled="true" guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion">
+		<stringProp name="cacheKey"/>
+		<stringProp name="filename"/>
+		<stringProp name="parameters"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+var failureMessage = "";
+
+// All the fields in dataset should be set here
+if ("${serviceOrderHeader_validate_domainCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].domainCode!= "${serviceOrderHeader_validate_domainCode}") { failureMessage = failureMessage + "Expect domainCode${serviceOrderHeader_validate_domainCode} but got " + objRequest.serviceOrderHeaders[0].domainCode}
+if ("${serviceOrderHeader_validate_serviceOrderNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceOrderNumber!= "${serviceOrderHeader_validate_serviceOrderNumber}") { failureMessage = failureMessage + "Expect serviceOrderNumber${serviceOrderHeader_validate_serviceOrderNumber} but got " + objRequest.serviceOrderHeaders[0].serviceOrderNumber}
+if ("${serviceOrderHeader_validate_category}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].category!= "${serviceOrderHeader_validate_category}") { failureMessage = failureMessage + "Expect category${serviceOrderHeader_validate_category} but got " + objRequest.serviceOrderHeaders[0].category}
+if ("${serviceOrderHeader_validate_callDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].callDate!= "${serviceOrderHeader_validate_callDate}") { failureMessage = failureMessage + "Expect callDate${serviceOrderHeader_validate_callDate} but got " + objRequest.serviceOrderHeaders[0].callDate}
+if ("${serviceOrderHeader_validate_nextStatusDateTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].nextStatusDateTime!= "${serviceOrderHeader_validate_nextStatusDateTime}") { failureMessage = failureMessage + "Expect nextStatusDateTime${serviceOrderHeader_validate_nextStatusDateTime} but got " + objRequest.serviceOrderHeaders[0].nextStatusDateTime}
+if ("${serviceOrderHeader_validate_queueCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].queueCode!= "${serviceOrderHeader_validate_queueCode}") { failureMessage = failureMessage + "Expect queueCode${serviceOrderHeader_validate_queueCode} but got " + objRequest.serviceOrderHeaders[0].queueCode}
+if ("${serviceOrderHeader_validate_queueDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].queueDescription!= "${serviceOrderHeader_validate_queueDescription}") { failureMessage = failureMessage + "Expect queueDescription${serviceOrderHeader_validate_queueDescription} but got " + objRequest.serviceOrderHeaders[0].queueDescription}
+if ("${serviceOrderHeader_validate_daybookSetDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].daybookSetDescription!= "${serviceOrderHeader_validate_daybookSetDescription}") { failureMessage = failureMessage + "Expect daybookSetDescription${serviceOrderHeader_validate_daybookSetDescription} but got " + objRequest.serviceOrderHeaders[0].daybookSetDescription}
+if ("${serviceOrderHeader_validate_responseTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].responseTime!= "${serviceOrderHeader_validate_responseTime}") { failureMessage = failureMessage + "Expect responseTime${serviceOrderHeader_validate_responseTime} but got " + objRequest.serviceOrderHeaders[0].responseTime}
+if ("${serviceOrderHeader_validate_responseUnitOfMeasureDisplay}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].responseUnitOfMeasureDisplay!= "${serviceOrderHeader_validate_responseUnitOfMeasureDisplay}") { failureMessage = failureMessage + "Expect responseUnitOfMeasureDisplay${serviceOrderHeader_validate_responseUnitOfMeasureDisplay} but got " + objRequest.serviceOrderHeaders[0].responseUnitOfMeasureDisplay}
+if ("${serviceOrderHeader_validate_assigned}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].assigned!= "${serviceOrderHeader_validate_assigned}") { failureMessage = failureMessage + "Expect assigned${serviceOrderHeader_validate_assigned} but got " + objRequest.serviceOrderHeaders[0].assigned}
+if ("${serviceOrderHeader_validate_assignedDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].assignedDescription!= "${serviceOrderHeader_validate_assignedDescription}") { failureMessage = failureMessage + "Expect assignedDescription${serviceOrderHeader_validate_assignedDescription} but got " + objRequest.serviceOrderHeaders[0].assignedDescription}
+if ("${serviceOrderHeader_validate_endUserCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserCode!= "${serviceOrderHeader_validate_endUserCode}") { failureMessage = failureMessage + "Expect endUserCode${serviceOrderHeader_validate_endUserCode} but got " + objRequest.serviceOrderHeaders[0].endUserCode}
+if ("${serviceOrderHeader_validate_endUserAddressField1}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField1!= "${serviceOrderHeader_validate_endUserAddressField1}") { failureMessage = failureMessage + "Expect endUserAddressField1${serviceOrderHeader_validate_endUserAddressField1} but got " + objRequest.serviceOrderHeaders[0].endUserAddressField1}
+if ("${serviceOrderHeader_validate_endUserAddressField2}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField2!= "${serviceOrderHeader_validate_endUserAddressField2}") { failureMessage = failureMessage + "Expect endUserAddressField2${serviceOrderHeader_validate_endUserAddressField2} but got " + objRequest.serviceOrderHeaders[0].endUserAddressField2}
+if ("${serviceOrderHeader_validate_endUserAddressField3}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField3!= "${serviceOrderHeader_validate_endUserAddressField3}") { failureMessage = failureMessage + "Expect endUserAddressField3${serviceOrderHeader_validate_endUserAddressField3} but got " + objRequest.serviceOrderHeaders[0].endUserAddressField3}
+if ("${serviceOrderHeader_validate_endUserAddressField4}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField4!= "${serviceOrderHeader_validate_endUserAddressField4}") { failureMessage = failureMessage + "Expect endUserAddressField4${serviceOrderHeader_validate_endUserAddressField4} but got " + objRequest.serviceOrderHeaders[0].endUserAddressField4}
+if ("${serviceOrderHeader_validate_endUserAddressField5}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField5!= "${serviceOrderHeader_validate_endUserAddressField5}") { failureMessage = failureMessage + "Expect endUserAddressField5${serviceOrderHeader_validate_endUserAddressField5} but got " + objRequest.serviceOrderHeaders[0].endUserAddressField5}
+if ("${serviceOrderHeader_validate_endUserAddressField6}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField6!= "${serviceOrderHeader_validate_endUserAddressField6}") { failureMessage = failureMessage + "Expect endUserAddressField6${serviceOrderHeader_validate_endUserAddressField6} but got " + objRequest.serviceOrderHeaders[0].endUserAddressField6}
+if ("${serviceOrderHeader_validate_enteredBy}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].enteredBy!= "${serviceOrderHeader_validate_enteredBy}") { failureMessage = failureMessage + "Expect enteredBy${serviceOrderHeader_validate_enteredBy} but got " + objRequest.serviceOrderHeaders[0].enteredBy}
+if ("${serviceOrderHeader_validate_statusCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].statusCode!= "${serviceOrderHeader_validate_statusCode}") { failureMessage = failureMessage + "Expect statusCode${serviceOrderHeader_validate_statusCode} but got " + objRequest.serviceOrderHeaders[0].statusCode}
+if ("${serviceOrderHeader_validate_statusCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].statusCodeDescription!= "${serviceOrderHeader_validate_statusCodeDescription}") { failureMessage = failureMessage + "Expect statusCodeDescription${serviceOrderHeader_validate_statusCodeDescription} but got " + objRequest.serviceOrderHeaders[0].statusCodeDescription}
+if ("${serviceOrderHeader_validate_typeCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].typeCode!= "${serviceOrderHeader_validate_typeCode}") { failureMessage = failureMessage + "Expect typeCode${serviceOrderHeader_validate_typeCode} but got " + objRequest.serviceOrderHeaders[0].typeCode}
+if ("${serviceOrderHeader_validate_typeCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].typeCodeDescription!= "${serviceOrderHeader_validate_typeCodeDescription}") { failureMessage = failureMessage + "Expect typeCodeDescription${serviceOrderHeader_validate_typeCodeDescription} but got " + objRequest.serviceOrderHeaders[0].typeCodeDescription}
+if ("${serviceOrderHeader_validate_itemCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].itemCode!= "${serviceOrderHeader_validate_itemCode}") { failureMessage = failureMessage + "Expect itemCode${serviceOrderHeader_validate_itemCode} but got " + objRequest.serviceOrderHeaders[0].itemCode}
+if ("${serviceOrderHeader_validate_serial}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serial!= "${serviceOrderHeader_validate_serial}") { failureMessage = failureMessage + "Expect serial${serviceOrderHeader_validate_serial} but got " + objRequest.serviceOrderHeaders[0].serial}
+if ("${serviceOrderHeader_validate_nextStatusCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].nextStatusCode!= "${serviceOrderHeader_validate_nextStatusCode}") { failureMessage = failureMessage + "Expect nextStatusCode${serviceOrderHeader_validate_nextStatusCode} but got " + objRequest.serviceOrderHeaders[0].nextStatusCode}
+if ("${serviceOrderHeader_validate_nextStatusCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].nextStatusCodeDescription!= "${serviceOrderHeader_validate_nextStatusCodeDescription}") { failureMessage = failureMessage + "Expect nextStatusCodeDescription${serviceOrderHeader_validate_nextStatusCodeDescription} but got " + objRequest.serviceOrderHeaders[0].nextStatusCodeDescription}
+if ("${serviceOrderHeader_validate_salesOrderNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].salesOrderNumber!= "${serviceOrderHeader_validate_salesOrderNumber}") { failureMessage = failureMessage + "Expect salesOrderNumber${serviceOrderHeader_validate_salesOrderNumber} but got " + objRequest.serviceOrderHeaders[0].salesOrderNumber}
+if ("${serviceOrderHeader_validate_callerName}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].callerName!= "${serviceOrderHeader_validate_callerName}") { failureMessage = failureMessage + "Expect callerName${serviceOrderHeader_validate_callerName} but got " + objRequest.serviceOrderHeaders[0].callerName}
+if ("${serviceOrderHeader_validate_phoneNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].phoneNumber!= "${serviceOrderHeader_validate_phoneNumber}") { failureMessage = failureMessage + "Expect phoneNumber${serviceOrderHeader_validate_phoneNumber} but got " + objRequest.serviceOrderHeaders[0].phoneNumber}
+if ("${serviceOrderHeader_validate_problemSkillCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].problemSkillCode!= "${serviceOrderHeader_validate_problemSkillCode}") { failureMessage = failureMessage + "Expect problemSkillCode${serviceOrderHeader_validate_problemSkillCode} but got " + objRequest.serviceOrderHeaders[0].problemSkillCode}
+if ("${serviceOrderHeader_validate_resolutionCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].resolutionCode!= "${serviceOrderHeader_validate_resolutionCode}") { failureMessage = failureMessage + "Expect resolutionCode${serviceOrderHeader_validate_resolutionCode} but got " + objRequest.serviceOrderHeaders[0].resolutionCode}
+if ("${serviceOrderHeader_validate_priority}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].priority!= "${serviceOrderHeader_validate_priority}") { failureMessage = failureMessage + "Expect priority${serviceOrderHeader_validate_priority} but got " + objRequest.serviceOrderHeaders[0].priority}
+if ("${serviceOrderHeader_validate_description}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].description!= "${serviceOrderHeader_validate_description}") { failureMessage = failureMessage + "Expect description${serviceOrderHeader_validate_description} but got " + objRequest.serviceOrderHeaders[0].description}
+if ("${serviceOrderHeader_validate_eventDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].eventDate!= "${serviceOrderHeader_validate_eventDate}") { failureMessage = failureMessage + "Expect eventDate${serviceOrderHeader_validate_eventDate} but got " + objRequest.serviceOrderHeaders[0].eventDate}
+if ("${serviceOrderHeader_validate_eventDateTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].eventDateTime!= "${serviceOrderHeader_validate_eventDateTime}") { failureMessage = failureMessage + "Expect eventDateTime${serviceOrderHeader_validate_eventDateTime} but got " + objRequest.serviceOrderHeaders[0].eventDateTime}
+if ("${serviceOrderHeader_validate_commentIndex}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].commentIndex!= "${serviceOrderHeader_validate_commentIndex}") { failureMessage = failureMessage + "Expect commentIndex${serviceOrderHeader_validate_commentIndex} but got " + objRequest.serviceOrderHeaders[0].commentIndex}
+if ("${serviceOrderHeader_validate_travelTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].travelTime!= "${serviceOrderHeader_validate_travelTime}") { failureMessage = failureMessage + "Expect travelTime${serviceOrderHeader_validate_travelTime} but got " + objRequest.serviceOrderHeaders[0].travelTime}
+if ("${serviceOrderHeader_validate_travelHours}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].travelHours!= "${serviceOrderHeader_validate_travelHours}") { failureMessage = failureMessage + "Expect travelHours${serviceOrderHeader_validate_travelHours} but got " + objRequest.serviceOrderHeaders[0].travelHours}
+if ("${serviceOrderHeader_validate_travelMinutes}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].travelMinutes!= "${serviceOrderHeader_validate_travelMinutes}") { failureMessage = failureMessage + "Expect travelMinutes${serviceOrderHeader_validate_travelMinutes} but got " + objRequest.serviceOrderHeaders[0].travelMinutes}
+if ("${serviceOrderHeader_validate_travelDistance}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].travelDistance!= "${serviceOrderHeader_validate_travelDistance}") { failureMessage = failureMessage + "Expect travelDistance${serviceOrderHeader_validate_travelDistance} but got " + objRequest.serviceOrderHeaders[0].travelDistance}
+if ("${serviceOrderHeader_validate_travelUnitOfMeasure}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].travelUnitOfMeasure!= "${serviceOrderHeader_validate_travelUnitOfMeasure}") { failureMessage = failureMessage + "Expect travelUnitOfMeasure${serviceOrderHeader_validate_travelUnitOfMeasure} but got " + objRequest.serviceOrderHeaders[0].travelUnitOfMeasure}
+if ("${serviceOrderHeader_validate_currentTimeZoneCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].currentTimeZoneCode!= "${serviceOrderHeader_validate_currentTimeZoneCode}") { failureMessage = failureMessage + "Expect currentTimeZoneCode${serviceOrderHeader_validate_currentTimeZoneCode} but got " + objRequest.serviceOrderHeaders[0].currentTimeZoneCode}
+if ("${serviceOrderHeader_validate_currentDateTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].currentDateTime!= "${serviceOrderHeader_validate_currentDateTime}") { failureMessage = failureMessage + "Expect currentDateTime${serviceOrderHeader_validate_currentDateTime} but got " + objRequest.serviceOrderHeaders[0].currentDateTime}
+if ("${serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isDisplayTravelAndEstimatedTime!= "${serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime}") { failureMessage = failureMessage + "Expect isDisplayTravelAndEstimatedTime${serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime} but got " + objRequest.serviceOrderHeaders[0].isDisplayTravelAndEstimatedTime}
+if ("${serviceOrderHeader_validate_serviceTypeCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceTypeCode!= "${serviceOrderHeader_validate_serviceTypeCode}") { failureMessage = failureMessage + "Expect serviceTypeCode${serviceOrderHeader_validate_serviceTypeCode} but got " + objRequest.serviceOrderHeaders[0].serviceTypeCode}
+if ("${serviceOrderHeader_validate_serviceTypeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceTypeDescription!= "${serviceOrderHeader_validate_serviceTypeDescription}") { failureMessage = failureMessage + "Expect serviceTypeDescription${serviceOrderHeader_validate_serviceTypeDescription} but got " + objRequest.serviceOrderHeaders[0].serviceTypeDescription}
+if ("${serviceOrderHeader_validate_fromQueueCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].fromQueueCode!= "${serviceOrderHeader_validate_fromQueueCode}") { failureMessage = failureMessage + "Expect fromQueueCode${serviceOrderHeader_validate_fromQueueCode} but got " + objRequest.serviceOrderHeaders[0].fromQueueCode}
+if ("${serviceOrderHeader_validate_rMACode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].rMACode!= "${serviceOrderHeader_validate_rMACode}") { failureMessage = failureMessage + "Expect rMACode${serviceOrderHeader_validate_rMACode} but got " + objRequest.serviceOrderHeaders[0].rMACode}
+if ("${serviceOrderHeader_validate_sequenceNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].sequenceNumber!= "${serviceOrderHeader_validate_sequenceNumber}") { failureMessage = failureMessage + "Expect sequenceNumber${serviceOrderHeader_validate_sequenceNumber} but got " + objRequest.serviceOrderHeaders[0].sequenceNumber}
+if ("${serviceOrderHeader_validate_eventTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].eventTime!= "${serviceOrderHeader_validate_eventTime}") { failureMessage = failureMessage + "Expect eventTime${serviceOrderHeader_validate_eventTime} but got " + objRequest.serviceOrderHeaders[0].eventTime}
+if ("${serviceOrderHeader_validate_openedDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].openedDate!= "${serviceOrderHeader_validate_openedDate}") { failureMessage = failureMessage + "Expect openedDate${serviceOrderHeader_validate_openedDate} but got " + objRequest.serviceOrderHeaders[0].openedDate}
+if ("${serviceOrderHeader_validate_openedTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].openedTime!= "${serviceOrderHeader_validate_openedTime}") { failureMessage = failureMessage + "Expect openedTime${serviceOrderHeader_validate_openedTime} but got " + objRequest.serviceOrderHeaders[0].openedTime}
+if ("${serviceOrderHeader_validate_reference}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].reference!= "${serviceOrderHeader_validate_reference}") { failureMessage = failureMessage + "Expect reference${serviceOrderHeader_validate_reference} but got " + objRequest.serviceOrderHeaders[0].reference}
+if ("${serviceOrderHeader_validate_timeSpent}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].timeSpent!= "${serviceOrderHeader_validate_timeSpent}") { failureMessage = failureMessage + "Expect timeSpent${serviceOrderHeader_validate_timeSpent} but got " + objRequest.serviceOrderHeaders[0].timeSpent}
+if ("${serviceOrderHeader_validate_timeSpentDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].timeSpentDescription!= "${serviceOrderHeader_validate_timeSpentDescription}") { failureMessage = failureMessage + "Expect timeSpentDescription${serviceOrderHeader_validate_timeSpentDescription} but got " + objRequest.serviceOrderHeaders[0].timeSpentDescription}
+if ("${serviceOrderHeader_validate_closedDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].closedDate!= "${serviceOrderHeader_validate_closedDate}") { failureMessage = failureMessage + "Expect closedDate${serviceOrderHeader_validate_closedDate} but got " + objRequest.serviceOrderHeaders[0].closedDate}
+if ("${serviceOrderHeader_validate_closedTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].closedTime!= "${serviceOrderHeader_validate_closedTime}") { failureMessage = failureMessage + "Expect closedTime${serviceOrderHeader_validate_closedTime} but got " + objRequest.serviceOrderHeaders[0].closedTime}
+if ("${serviceOrderHeader_validate_contractNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].contractNumber!= "${serviceOrderHeader_validate_contractNumber}") { failureMessage = failureMessage + "Expect contractNumber${serviceOrderHeader_validate_contractNumber} but got " + objRequest.serviceOrderHeaders[0].contractNumber}
+if ("${serviceOrderHeader_validate_severityCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].severityCode!= "${serviceOrderHeader_validate_severityCode}") { failureMessage = failureMessage + "Expect severityCode${serviceOrderHeader_validate_severityCode} but got " + objRequest.serviceOrderHeaders[0].severityCode}
+if ("${serviceOrderHeader_validate_severityCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].severityCodeDescription!= "${serviceOrderHeader_validate_severityCodeDescription}") { failureMessage = failureMessage + "Expect severityCodeDescription${serviceOrderHeader_validate_severityCodeDescription} but got " + objRequest.serviceOrderHeaders[0].severityCodeDescription}
+if ("${serviceOrderHeader_validate_contractLine}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].contractLine!= "${serviceOrderHeader_validate_contractLine}") { failureMessage = failureMessage + "Expect contractLine${serviceOrderHeader_validate_contractLine} but got " + objRequest.serviceOrderHeaders[0].contractLine}
+if ("${serviceOrderHeader_validate_toQueueCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].toQueueCode!= "${serviceOrderHeader_validate_toQueueCode}") { failureMessage = failureMessage + "Expect toQueueCode${serviceOrderHeader_validate_toQueueCode} but got " + objRequest.serviceOrderHeaders[0].toQueueCode}
+if ("${serviceOrderHeader_validate_isBilled}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isBilled!= "${serviceOrderHeader_validate_isBilled}") { failureMessage = failureMessage + "Expect isBilled${serviceOrderHeader_validate_isBilled} but got " + objRequest.serviceOrderHeaders[0].isBilled}
+if ("${serviceOrderHeader_validate_serviceRequestCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceRequestCode!= "${serviceOrderHeader_validate_serviceRequestCode}") { failureMessage = failureMessage + "Expect serviceRequestCode${serviceOrderHeader_validate_serviceRequestCode} but got " + objRequest.serviceOrderHeaders[0].serviceRequestCode}
+if ("${serviceOrderHeader_validate_isActivity}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isActivity!= "${serviceOrderHeader_validate_isActivity}") { failureMessage = failureMessage + "Expect isActivity${serviceOrderHeader_validate_isActivity} but got " + objRequest.serviceOrderHeaders[0].isActivity}
+if ("${serviceOrderHeader_validate_purchaseOrderNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].purchaseOrderNumber!= "${serviceOrderHeader_validate_purchaseOrderNumber}") { failureMessage = failureMessage + "Expect purchaseOrderNumber${serviceOrderHeader_validate_purchaseOrderNumber} but got " + objRequest.serviceOrderHeaders[0].purchaseOrderNumber}
+if ("${serviceOrderHeader_validate_engineerGroupCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].engineerGroupCode!= "${serviceOrderHeader_validate_engineerGroupCode}") { failureMessage = failureMessage + "Expect engineerGroupCode${serviceOrderHeader_validate_engineerGroupCode} but got " + objRequest.serviceOrderHeaders[0].engineerGroupCode}
+if ("${serviceOrderHeader_validate_areaCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].areaCode!= "${serviceOrderHeader_validate_areaCode}") { failureMessage = failureMessage + "Expect areaCode${serviceOrderHeader_validate_areaCode} but got " + objRequest.serviceOrderHeaders[0].areaCode}
+if ("${serviceOrderHeader_validate_areaDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].areaDescription!= "${serviceOrderHeader_validate_areaDescription}") { failureMessage = failureMessage + "Expect areaDescription${serviceOrderHeader_validate_areaDescription} but got " + objRequest.serviceOrderHeaders[0].areaDescription}
+if ("${serviceOrderHeader_validate_engineerAreaCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].engineerAreaCode!= "${serviceOrderHeader_validate_engineerAreaCode}") { failureMessage = failureMessage + "Expect engineerAreaCode${serviceOrderHeader_validate_engineerAreaCode} but got " + objRequest.serviceOrderHeaders[0].engineerAreaCode}
+if ("${serviceOrderHeader_validate_workCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].workCode!= "${serviceOrderHeader_validate_workCode}") { failureMessage = failureMessage + "Expect workCode${serviceOrderHeader_validate_workCode} but got " + objRequest.serviceOrderHeaders[0].workCode}
+if ("${serviceOrderHeader_validate_workCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].workCodeDescription!= "${serviceOrderHeader_validate_workCodeDescription}") { failureMessage = failureMessage + "Expect workCodeDescription${serviceOrderHeader_validate_workCodeDescription} but got " + objRequest.serviceOrderHeaders[0].workCodeDescription}
+if ("${serviceOrderHeader_validate_createdFrom}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].createdFrom!= "${serviceOrderHeader_validate_createdFrom}") { failureMessage = failureMessage + "Expect createdFrom${serviceOrderHeader_validate_createdFrom} but got " + objRequest.serviceOrderHeaders[0].createdFrom}
+if ("${serviceOrderHeader_validate_creationDateStamp}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].creationDateStamp!= "${serviceOrderHeader_validate_creationDateStamp}") { failureMessage = failureMessage + "Expect creationDateStamp${serviceOrderHeader_validate_creationDateStamp} but got " + objRequest.serviceOrderHeaders[0].creationDateStamp}
+if ("${serviceOrderHeader_validate_creationTimeStamp}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].creationTimeStamp!= "${serviceOrderHeader_validate_creationTimeStamp}") { failureMessage = failureMessage + "Expect creationTimeStamp${serviceOrderHeader_validate_creationTimeStamp} but got " + objRequest.serviceOrderHeaders[0].creationTimeStamp}
+if ("${serviceOrderHeader_validate_estimatedTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].estimatedTime!= "${serviceOrderHeader_validate_estimatedTime}") { failureMessage = failureMessage + "Expect estimatedTime${serviceOrderHeader_validate_estimatedTime} but got " + objRequest.serviceOrderHeaders[0].estimatedTime}
+if ("${serviceOrderHeader_validate_estimatedHours}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].estimatedHours!= "${serviceOrderHeader_validate_estimatedHours}") { failureMessage = failureMessage + "Expect estimatedHours${serviceOrderHeader_validate_estimatedHours} but got " + objRequest.serviceOrderHeaders[0].estimatedHours}
+if ("${serviceOrderHeader_validate_estimatedMinutes}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].estimatedMinutes!= "${serviceOrderHeader_validate_estimatedMinutes}") { failureMessage = failureMessage + "Expect estimatedMinutes${serviceOrderHeader_validate_estimatedMinutes} but got " + objRequest.serviceOrderHeaders[0].estimatedMinutes}
+if ("${serviceOrderHeader_validate_endUserDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserDate!= "${serviceOrderHeader_validate_endUserDate}") { failureMessage = failureMessage + "Expect endUserDate${serviceOrderHeader_validate_endUserDate} but got " + objRequest.serviceOrderHeaders[0].endUserDate}
+if ("${serviceOrderHeader_validate_endUserTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserTime!= "${serviceOrderHeader_validate_endUserTime}") { failureMessage = failureMessage + "Expect endUserTime${serviceOrderHeader_validate_endUserTime} but got " + objRequest.serviceOrderHeaders[0].endUserTime}
+if ("${serviceOrderHeader_validate_isCommentsModified}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isCommentsModified!= "${serviceOrderHeader_validate_isCommentsModified}") { failureMessage = failureMessage + "Expect isCommentsModified${serviceOrderHeader_validate_isCommentsModified} but got " + objRequest.serviceOrderHeaders[0].isCommentsModified}
+if ("${serviceOrderHeader_validate_revision}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].revision!= "${serviceOrderHeader_validate_revision}") { failureMessage = failureMessage + "Expect revision${serviceOrderHeader_validate_revision} but got " + objRequest.serviceOrderHeaders[0].revision}
+if ("${serviceOrderHeader_validate_escalationNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].escalationNumber!= "${serviceOrderHeader_validate_escalationNumber}") { failureMessage = failureMessage + "Expect escalationNumber${serviceOrderHeader_validate_escalationNumber} but got " + objRequest.serviceOrderHeaders[0].escalationNumber}
+if ("${serviceOrderHeader_validate_escalationSequence}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].escalationSequence!= "${serviceOrderHeader_validate_escalationSequence}") { failureMessage = failureMessage + "Expect escalationSequence${serviceOrderHeader_validate_escalationSequence} but got " + objRequest.serviceOrderHeaders[0].escalationSequence}
+if ("${serviceOrderHeader_validate_routingCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].routingCode!= "${serviceOrderHeader_validate_routingCode}") { failureMessage = failureMessage + "Expect routingCode${serviceOrderHeader_validate_routingCode} but got " + objRequest.serviceOrderHeaders[0].routingCode}
+if ("${serviceOrderHeader_validate_billOfMaterialCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billOfMaterialCode!= "${serviceOrderHeader_validate_billOfMaterialCode}") { failureMessage = failureMessage + "Expect billOfMaterialCode${serviceOrderHeader_validate_billOfMaterialCode} but got " + objRequest.serviceOrderHeaders[0].billOfMaterialCode}
+if ("${serviceOrderHeader_validate_siteCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].siteCode!= "${serviceOrderHeader_validate_siteCode}") { failureMessage = failureMessage + "Expect siteCode${serviceOrderHeader_validate_siteCode} but got " + objRequest.serviceOrderHeaders[0].siteCode}
+if ("${serviceOrderHeader_validate_siteDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].siteDescription!= "${serviceOrderHeader_validate_siteDescription}") { failureMessage = failureMessage + "Expect siteDescription${serviceOrderHeader_validate_siteDescription} but got " + objRequest.serviceOrderHeaders[0].siteDescription}
+if ("${serviceOrderHeader_validate_isSchedule}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isSchedule!= "${serviceOrderHeader_validate_isSchedule}") { failureMessage = failureMessage + "Expect isSchedule${serviceOrderHeader_validate_isSchedule} but got " + objRequest.serviceOrderHeaders[0].isSchedule}
+if ("${serviceOrderHeader_validate_isThirdPartyService}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isThirdPartyService!= "${serviceOrderHeader_validate_isThirdPartyService}") { failureMessage = failureMessage + "Expect isThirdPartyService${serviceOrderHeader_validate_isThirdPartyService} but got " + objRequest.serviceOrderHeaders[0].isThirdPartyService}
+if ("${serviceOrderHeader_validate_thirdPartyID}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].thirdPartyID!= "${serviceOrderHeader_validate_thirdPartyID}") { failureMessage = failureMessage + "Expect thirdPartyID${serviceOrderHeader_validate_thirdPartyID} but got " + objRequest.serviceOrderHeaders[0].thirdPartyID}
+if ("${serviceOrderHeader_validate_isSendAcknowledgementLetter}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isSendAcknowledgementLetter!= "${serviceOrderHeader_validate_isSendAcknowledgementLetter}") { failureMessage = failureMessage + "Expect isSendAcknowledgementLetter${serviceOrderHeader_validate_isSendAcknowledgementLetter} but got " + objRequest.serviceOrderHeaders[0].isSendAcknowledgementLetter}
+if ("${serviceOrderHeader_validate_completeDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].completeDate!= "${serviceOrderHeader_validate_completeDate}") { failureMessage = failureMessage + "Expect completeDate${serviceOrderHeader_validate_completeDate} but got " + objRequest.serviceOrderHeaders[0].completeDate}
+if ("${serviceOrderHeader_validate_completeTime}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].completeTime!= "${serviceOrderHeader_validate_completeTime}") { failureMessage = failureMessage + "Expect completeTime${serviceOrderHeader_validate_completeTime} but got " + objRequest.serviceOrderHeaders[0].completeTime}
+if ("${serviceOrderHeader_validate_creditTermsCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].creditTermsCode!= "${serviceOrderHeader_validate_creditTermsCode}") { failureMessage = failureMessage + "Expect creditTermsCode${serviceOrderHeader_validate_creditTermsCode} but got " + objRequest.serviceOrderHeaders[0].creditTermsCode}
+if ("${serviceOrderHeader_validate_creditTermsCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].creditTermsCodeDescription!= "${serviceOrderHeader_validate_creditTermsCodeDescription}") { failureMessage = failureMessage + "Expect creditTermsCodeDescription${serviceOrderHeader_validate_creditTermsCodeDescription} but got " + objRequest.serviceOrderHeaders[0].creditTermsCodeDescription}
+if ("${serviceOrderHeader_validate_currencyCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].currencyCode!= "${serviceOrderHeader_validate_currencyCode}") { failureMessage = failureMessage + "Expect currencyCode${serviceOrderHeader_validate_currencyCode} but got " + objRequest.serviceOrderHeaders[0].currencyCode}
+if ("${serviceOrderHeader_validate_baseCurrencyCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].baseCurrencyCode!= "${serviceOrderHeader_validate_baseCurrencyCode}") { failureMessage = failureMessage + "Expect baseCurrencyCode${serviceOrderHeader_validate_baseCurrencyCode} but got " + objRequest.serviceOrderHeaders[0].baseCurrencyCode}
+if ("${serviceOrderHeader_validate_exchangeRate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRate!= "${serviceOrderHeader_validate_exchangeRate}") { failureMessage = failureMessage + "Expect exchangeRate${serviceOrderHeader_validate_exchangeRate} but got " + objRequest.serviceOrderHeaders[0].exchangeRate}
+if ("${serviceOrderHeader_validate_exchangeRateDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRateDescription!= "${serviceOrderHeader_validate_exchangeRateDescription}") { failureMessage = failureMessage + "Expect exchangeRateDescription${serviceOrderHeader_validate_exchangeRateDescription} but got " + objRequest.serviceOrderHeaders[0].exchangeRateDescription}
+if ("${serviceOrderHeader_validate_fieldNotificationNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].fieldNotificationNumber!= "${serviceOrderHeader_validate_fieldNotificationNumber}") { failureMessage = failureMessage + "Expect fieldNotificationNumber${serviceOrderHeader_validate_fieldNotificationNumber} but got " + objRequest.serviceOrderHeaders[0].fieldNotificationNumber}
+if ("${serviceOrderHeader_validate_isIncludedInStatistics}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isIncludedInStatistics!= "${serviceOrderHeader_validate_isIncludedInStatistics}") { failureMessage = failureMessage + "Expect isIncludedInStatistics${serviceOrderHeader_validate_isIncludedInStatistics} but got " + objRequest.serviceOrderHeaders[0].isIncludedInStatistics}
+if ("${serviceOrderHeader_validate_isServiceOrderPrinted}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isServiceOrderPrinted!= "${serviceOrderHeader_validate_isServiceOrderPrinted}") { failureMessage = failureMessage + "Expect isServiceOrderPrinted${serviceOrderHeader_validate_isServiceOrderPrinted} but got " + objRequest.serviceOrderHeaders[0].isServiceOrderPrinted}
+if ("${serviceOrderHeader_validate_priceListCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].priceListCode!= "${serviceOrderHeader_validate_priceListCode}") { failureMessage = failureMessage + "Expect priceListCode${serviceOrderHeader_validate_priceListCode} but got " + objRequest.serviceOrderHeaders[0].priceListCode}
+if ("${serviceOrderHeader_validate_priceDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].priceDate!= "${serviceOrderHeader_validate_priceDate}") { failureMessage = failureMessage + "Expect priceDate${serviceOrderHeader_validate_priceDate} but got " + objRequest.serviceOrderHeaders[0].priceDate}
+if ("${serviceOrderHeader_validate_isQuoteRequired}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isQuoteRequired!= "${serviceOrderHeader_validate_isQuoteRequired}") { failureMessage = failureMessage + "Expect isQuoteRequired${serviceOrderHeader_validate_isQuoteRequired} but got " + objRequest.serviceOrderHeaders[0].isQuoteRequired}
+if ("${serviceOrderHeader_validate_quotePrice}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].quotePrice!= "${serviceOrderHeader_validate_quotePrice}") { failureMessage = failureMessage + "Expect quotePrice${serviceOrderHeader_validate_quotePrice} but got " + objRequest.serviceOrderHeaders[0].quotePrice}
+if ("${serviceOrderHeader_validate_repairCenterSiteCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].repairCenterSiteCode!= "${serviceOrderHeader_validate_repairCenterSiteCode}") { failureMessage = failureMessage + "Expect repairCenterSiteCode${serviceOrderHeader_validate_repairCenterSiteCode} but got " + objRequest.serviceOrderHeaders[0].repairCenterSiteCode}
+if ("${serviceOrderHeader_validate_resolutionDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].resolutionDescription!= "${serviceOrderHeader_validate_resolutionDescription}") { failureMessage = failureMessage + "Expect resolutionDescription${serviceOrderHeader_validate_resolutionDescription} but got " + objRequest.serviceOrderHeaders[0].resolutionDescription}
+if ("${serviceOrderHeader_validate_resolveDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].resolveDescription!= "${serviceOrderHeader_validate_resolveDescription}") { failureMessage = failureMessage + "Expect resolveDescription${serviceOrderHeader_validate_resolveDescription} but got " + objRequest.serviceOrderHeaders[0].resolveDescription}
+if ("${serviceOrderHeader_validate_shipToCustomerCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].shipToCustomerCode!= "${serviceOrderHeader_validate_shipToCustomerCode}") { failureMessage = failureMessage + "Expect shipToCustomerCode${serviceOrderHeader_validate_shipToCustomerCode} but got " + objRequest.serviceOrderHeaders[0].shipToCustomerCode}
+if ("${serviceOrderHeader_validate_salesQuoteNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].salesQuoteNumber!= "${serviceOrderHeader_validate_salesQuoteNumber}") { failureMessage = failureMessage + "Expect salesQuoteNumber${serviceOrderHeader_validate_salesQuoteNumber} but got " + objRequest.serviceOrderHeaders[0].salesQuoteNumber}
+if ("${serviceOrderHeader_validate_isActivitySuspended}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isActivitySuspended!= "${serviceOrderHeader_validate_isActivitySuspended}") { failureMessage = failureMessage + "Expect isActivitySuspended${serviceOrderHeader_validate_isActivitySuspended} but got " + objRequest.serviceOrderHeaders[0].isActivitySuspended}
+if ("${serviceOrderHeader_validate_serviceType}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceType!= "${serviceOrderHeader_validate_serviceType}") { failureMessage = failureMessage + "Expect serviceType${serviceOrderHeader_validate_serviceType} but got " + objRequest.serviceOrderHeaders[0].serviceType}
+if ("${serviceOrderHeader_validate_isTaxable}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isTaxable!= "${serviceOrderHeader_validate_isTaxable}") { failureMessage = failureMessage + "Expect isTaxable${serviceOrderHeader_validate_isTaxable} but got " + objRequest.serviceOrderHeaders[0].isTaxable}
+if ("${serviceOrderHeader_validate_isTaxIncluded}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isTaxIncluded!= "${serviceOrderHeader_validate_isTaxIncluded}") { failureMessage = failureMessage + "Expect isTaxIncluded${serviceOrderHeader_validate_isTaxIncluded} but got " + objRequest.serviceOrderHeaders[0].isTaxIncluded}
+if ("${serviceOrderHeader_validate_taxClass}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxClass!= "${serviceOrderHeader_validate_taxClass}") { failureMessage = failureMessage + "Expect taxClass${serviceOrderHeader_validate_taxClass} but got " + objRequest.serviceOrderHeaders[0].taxClass}
+if ("${serviceOrderHeader_validate_taxClassDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxClassDescription!= "${serviceOrderHeader_validate_taxClassDescription}") { failureMessage = failureMessage + "Expect taxClassDescription${serviceOrderHeader_validate_taxClassDescription} but got " + objRequest.serviceOrderHeaders[0].taxClassDescription}
+if ("${serviceOrderHeader_validate_isAwaitingItems}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isAwaitingItems!= "${serviceOrderHeader_validate_isAwaitingItems}") { failureMessage = failureMessage + "Expect isAwaitingItems${serviceOrderHeader_validate_isAwaitingItems} but got " + objRequest.serviceOrderHeaders[0].isAwaitingItems}
+if ("${serviceOrderHeader_validate_billToCustomerCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToCustomerCode!= "${serviceOrderHeader_validate_billToCustomerCode}") { failureMessage = failureMessage + "Expect billToCustomerCode${serviceOrderHeader_validate_billToCustomerCode} but got " + objRequest.serviceOrderHeaders[0].billToCustomerCode}
+if ("${serviceOrderHeader_validate_billToAddressField1}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField1!= "${serviceOrderHeader_validate_billToAddressField1}") { failureMessage = failureMessage + "Expect billToAddressField1${serviceOrderHeader_validate_billToAddressField1} but got " + objRequest.serviceOrderHeaders[0].billToAddressField1}
+if ("${serviceOrderHeader_validate_billToAddressField2}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField2!= "${serviceOrderHeader_validate_billToAddressField2}") { failureMessage = failureMessage + "Expect billToAddressField2${serviceOrderHeader_validate_billToAddressField2} but got " + objRequest.serviceOrderHeaders[0].billToAddressField2}
+if ("${serviceOrderHeader_validate_billToAddressField3}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField3!= "${serviceOrderHeader_validate_billToAddressField3}") { failureMessage = failureMessage + "Expect billToAddressField3${serviceOrderHeader_validate_billToAddressField3} but got " + objRequest.serviceOrderHeaders[0].billToAddressField3}
+if ("${serviceOrderHeader_validate_billToAddressField4}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField4!= "${serviceOrderHeader_validate_billToAddressField4}") { failureMessage = failureMessage + "Expect billToAddressField4${serviceOrderHeader_validate_billToAddressField4} but got " + objRequest.serviceOrderHeaders[0].billToAddressField4}
+if ("${serviceOrderHeader_validate_billToAddressField5}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField5!= "${serviceOrderHeader_validate_billToAddressField5}") { failureMessage = failureMessage + "Expect billToAddressField5${serviceOrderHeader_validate_billToAddressField5} but got " + objRequest.serviceOrderHeaders[0].billToAddressField5}
+if ("${serviceOrderHeader_validate_billToAddressField6}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField6!= "${serviceOrderHeader_validate_billToAddressField6}") { failureMessage = failureMessage + "Expect billToAddressField6${serviceOrderHeader_validate_billToAddressField6} but got " + objRequest.serviceOrderHeaders[0].billToAddressField6}
+if ("${serviceOrderHeader_validate_isInvoiceDraftPrinted}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isInvoiceDraftPrinted!= "${serviceOrderHeader_validate_isInvoiceDraftPrinted}") { failureMessage = failureMessage + "Expect isInvoiceDraftPrinted${serviceOrderHeader_validate_isInvoiceDraftPrinted} but got " + objRequest.serviceOrderHeaders[0].isInvoiceDraftPrinted}
+if ("${serviceOrderHeader_validate_isRecorded}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isRecorded!= "${serviceOrderHeader_validate_isRecorded}") { failureMessage = failureMessage + "Expect isRecorded${serviceOrderHeader_validate_isRecorded} but got " + objRequest.serviceOrderHeaders[0].isRecorded}
+if ("${serviceOrderHeader_validate_isRepairCenterCall}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isRepairCenterCall!= "${serviceOrderHeader_validate_isRepairCenterCall}") { failureMessage = failureMessage + "Expect isRepairCenterCall${serviceOrderHeader_validate_isRepairCenterCall} but got " + objRequest.serviceOrderHeaders[0].isRepairCenterCall}
+if ("${serviceOrderHeader_validate_languageCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].languageCode!= "${serviceOrderHeader_validate_languageCode}") { failureMessage = failureMessage + "Expect languageCode${serviceOrderHeader_validate_languageCode} but got " + objRequest.serviceOrderHeaders[0].languageCode}
+if ("${serviceOrderHeader_validate_languageDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].languageDescription!= "${serviceOrderHeader_validate_languageDescription}") { failureMessage = failureMessage + "Expect languageDescription${serviceOrderHeader_validate_languageDescription} but got " + objRequest.serviceOrderHeaders[0].languageDescription}
+if ("${serviceOrderHeader_validate_taxDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxDate!= "${serviceOrderHeader_validate_taxDate}") { failureMessage = failureMessage + "Expect taxDate${serviceOrderHeader_validate_taxDate} but got " + objRequest.serviceOrderHeaders[0].taxDate}
+if ("${serviceOrderHeader_validate_quoteExpireDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].quoteExpireDate!= "${serviceOrderHeader_validate_quoteExpireDate}") { failureMessage = failureMessage + "Expect quoteExpireDate${serviceOrderHeader_validate_quoteExpireDate} but got " + objRequest.serviceOrderHeaders[0].quoteExpireDate}
+if ("${serviceOrderHeader_validate_repairSequence}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].repairSequence!= "${serviceOrderHeader_validate_repairSequence}") { failureMessage = failureMessage + "Expect repairSequence${serviceOrderHeader_validate_repairSequence} but got " + objRequest.serviceOrderHeaders[0].repairSequence}
+if ("${serviceOrderHeader_validate_repairStep}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].repairStep!= "${serviceOrderHeader_validate_repairStep}") { failureMessage = failureMessage + "Expect repairStep${serviceOrderHeader_validate_repairStep} but got " + objRequest.serviceOrderHeaders[0].repairStep}
+if ("${serviceOrderHeader_validate_isEndUserChanged}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isEndUserChanged!= "${serviceOrderHeader_validate_isEndUserChanged}") { failureMessage = failureMessage + "Expect isEndUserChanged${serviceOrderHeader_validate_isEndUserChanged} but got " + objRequest.serviceOrderHeaders[0].isEndUserChanged}
+if ("${serviceOrderHeader_validate_lastModifiedUser}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].lastModifiedUser!= "${serviceOrderHeader_validate_lastModifiedUser}") { failureMessage = failureMessage + "Expect lastModifiedUser${serviceOrderHeader_validate_lastModifiedUser} but got " + objRequest.serviceOrderHeaders[0].lastModifiedUser}
+if ("${serviceOrderHeader_validate_lastModifiedDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].lastModifiedDate!= "${serviceOrderHeader_validate_lastModifiedDate}") { failureMessage = failureMessage + "Expect lastModifiedDate${serviceOrderHeader_validate_lastModifiedDate} but got " + objRequest.serviceOrderHeaders[0].lastModifiedDate}
+if ("${serviceOrderHeader_validate_customerCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].customerCode!= "${serviceOrderHeader_validate_customerCode}") { failureMessage = failureMessage + "Expect customerCode${serviceOrderHeader_validate_customerCode} but got " + objRequest.serviceOrderHeaders[0].customerCode}
+if ("${serviceOrderHeader_validate_taxEnvironment}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxEnvironment!= "${serviceOrderHeader_validate_taxEnvironment}") { failureMessage = failureMessage + "Expect taxEnvironment${serviceOrderHeader_validate_taxEnvironment} but got " + objRequest.serviceOrderHeaders[0].taxEnvironment}
+if ("${serviceOrderHeader_validate_taxEnvironmentDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxEnvironmentDescription!= "${serviceOrderHeader_validate_taxEnvironmentDescription}") { failureMessage = failureMessage + "Expect taxEnvironmentDescription${serviceOrderHeader_validate_taxEnvironmentDescription} but got " + objRequest.serviceOrderHeaders[0].taxEnvironmentDescription}
+if ("${serviceOrderHeader_validate_taxUsage}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxUsage!= "${serviceOrderHeader_validate_taxUsage}") { failureMessage = failureMessage + "Expect taxUsage${serviceOrderHeader_validate_taxUsage} but got " + objRequest.serviceOrderHeaders[0].taxUsage}
+if ("${serviceOrderHeader_validate_taxUsageDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxUsageDescription!= "${serviceOrderHeader_validate_taxUsageDescription}") { failureMessage = failureMessage + "Expect taxUsageDescription${serviceOrderHeader_validate_taxUsageDescription} but got " + objRequest.serviceOrderHeaders[0].taxUsageDescription}
+if ("${serviceOrderHeader_validate_taxPercentage}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].taxPercentage!= "${serviceOrderHeader_validate_taxPercentage}") { failureMessage = failureMessage + "Expect taxPercentage${serviceOrderHeader_validate_taxPercentage} but got " + objRequest.serviceOrderHeaders[0].taxPercentage}
+if ("${serviceOrderHeader_validate_serviceQuoteNumber}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceQuoteNumber!= "${serviceOrderHeader_validate_serviceQuoteNumber}") { failureMessage = failureMessage + "Expect serviceQuoteNumber${serviceOrderHeader_validate_serviceQuoteNumber} but got " + objRequest.serviceOrderHeaders[0].serviceQuoteNumber}
+if ("${serviceOrderHeader_validate_serviceQuoteDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceQuoteDescription!= "${serviceOrderHeader_validate_serviceQuoteDescription}") { failureMessage = failureMessage + "Expect serviceQuoteDescription${serviceOrderHeader_validate_serviceQuoteDescription} but got " + objRequest.serviceOrderHeaders[0].serviceQuoteDescription}
+if ("${serviceOrderHeader_validate_enteredExchangeRate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].enteredExchangeRate!= "${serviceOrderHeader_validate_enteredExchangeRate}") { failureMessage = failureMessage + "Expect enteredExchangeRate${serviceOrderHeader_validate_enteredExchangeRate} but got " + objRequest.serviceOrderHeaders[0].enteredExchangeRate}
+if ("${serviceOrderHeader_validate_isFixedRate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isFixedRate!= "${serviceOrderHeader_validate_isFixedRate}") { failureMessage = failureMessage + "Expect isFixedRate${serviceOrderHeader_validate_isFixedRate} but got " + objRequest.serviceOrderHeaders[0].isFixedRate}
+if ("${serviceOrderHeader_validate_channel}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].channel!= "${serviceOrderHeader_validate_channel}") { failureMessage = failureMessage + "Expect channel${serviceOrderHeader_validate_channel} but got " + objRequest.serviceOrderHeaders[0].channel}
+if ("${serviceOrderHeader_validate_channelDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].channelDescription!= "${serviceOrderHeader_validate_channelDescription}") { failureMessage = failureMessage + "Expect channelDescription${serviceOrderHeader_validate_channelDescription} but got " + objRequest.serviceOrderHeaders[0].channelDescription}
+if ("${serviceOrderHeader_validate_exchangeRate2}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRate2!= "${serviceOrderHeader_validate_exchangeRate2}") { failureMessage = failureMessage + "Expect exchangeRate2${serviceOrderHeader_validate_exchangeRate2} but got " + objRequest.serviceOrderHeaders[0].exchangeRate2}
+if ("${serviceOrderHeader_validate_exchangeRate2Description}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRate2Description!= "${serviceOrderHeader_validate_exchangeRate2Description}") { failureMessage = failureMessage + "Expect exchangeRate2Description${serviceOrderHeader_validate_exchangeRate2Description} but got " + objRequest.serviceOrderHeaders[0].exchangeRate2Description}
+if ("${serviceOrderHeader_validate_exchangeRateType}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRateType!= "${serviceOrderHeader_validate_exchangeRateType}") { failureMessage = failureMessage + "Expect exchangeRateType${serviceOrderHeader_validate_exchangeRateType} but got " + objRequest.serviceOrderHeaders[0].exchangeRateType}
+if ("${serviceOrderHeader_validate_exchangeRateSequence}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRateSequence!= "${serviceOrderHeader_validate_exchangeRateSequence}") { failureMessage = failureMessage + "Expect exchangeRateSequence${serviceOrderHeader_validate_exchangeRateSequence} but got " + objRequest.serviceOrderHeaders[0].exchangeRateSequence}
+if ("${serviceOrderHeader_validate_endDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endDate!= "${serviceOrderHeader_validate_endDate}") { failureMessage = failureMessage + "Expect endDate${serviceOrderHeader_validate_endDate} but got " + objRequest.serviceOrderHeaders[0].endDate}
+if ("${serviceOrderHeader_validate_startDate}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].startDate!= "${serviceOrderHeader_validate_startDate}") { failureMessage = failureMessage + "Expect startDate${serviceOrderHeader_validate_startDate} but got " + objRequest.serviceOrderHeaders[0].startDate}
+if ("${serviceOrderHeader_validate_projectCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].projectCode!= "${serviceOrderHeader_validate_projectCode}") { failureMessage = failureMessage + "Expect projectCode${serviceOrderHeader_validate_projectCode} but got " + objRequest.serviceOrderHeaders[0].projectCode}
+if ("${serviceOrderHeader_validate_projectCodeDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].projectCodeDescription!= "${serviceOrderHeader_validate_projectCodeDescription}") { failureMessage = failureMessage + "Expect projectCodeDescription${serviceOrderHeader_validate_projectCodeDescription} but got " + objRequest.serviceOrderHeaders[0].projectCodeDescription}
+if ("${serviceOrderHeader_validate_defaultWorksheet}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].defaultWorksheet!= "${serviceOrderHeader_validate_defaultWorksheet}") { failureMessage = failureMessage + "Expect defaultWorksheet${serviceOrderHeader_validate_defaultWorksheet} but got " + objRequest.serviceOrderHeaders[0].defaultWorksheet}
+if ("${serviceOrderHeader_validate_isUpdateInstalledBase}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isUpdateInstalledBase!= "${serviceOrderHeader_validate_isUpdateInstalledBase}") { failureMessage = failureMessage + "Expect isUpdateInstalledBase${serviceOrderHeader_validate_isUpdateInstalledBase} but got " + objRequest.serviceOrderHeaders[0].isUpdateInstalledBase}
+if ("${serviceOrderHeader_validate_daybookSet}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].daybookSet!= "${serviceOrderHeader_validate_daybookSet}") { failureMessage = failureMessage + "Expect daybookSet${serviceOrderHeader_validate_daybookSet} but got " + objRequest.serviceOrderHeaders[0].daybookSet}
+if ("${serviceOrderHeader_validate_modelCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].modelCode!= "${serviceOrderHeader_validate_modelCode}") { failureMessage = failureMessage + "Expect modelCode${serviceOrderHeader_validate_modelCode} but got " + objRequest.serviceOrderHeaders[0].modelCode}
+if ("${serviceOrderHeader_validate_serviceGroup}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].serviceGroup!= "${serviceOrderHeader_validate_serviceGroup}") { failureMessage = failureMessage + "Expect serviceGroup${serviceOrderHeader_validate_serviceGroup} but got " + objRequest.serviceOrderHeaders[0].serviceGroup}
+if ("${serviceOrderHeader_validate_timeZoneCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].timeZoneCode!= "${serviceOrderHeader_validate_timeZoneCode}") { failureMessage = failureMessage + "Expect timeZoneCode${serviceOrderHeader_validate_timeZoneCode} but got " + objRequest.serviceOrderHeaders[0].timeZoneCode}
+if ("${serviceOrderHeader_validate_timeZoneDescription}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].timeZoneDescription!= "${serviceOrderHeader_validate_timeZoneDescription}") { failureMessage = failureMessage + "Expect timeZoneDescription${serviceOrderHeader_validate_timeZoneDescription} but got " + objRequest.serviceOrderHeaders[0].timeZoneDescription}
+if ("${serviceOrderHeader_validate_defaultTimeZoneCode}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].defaultTimeZoneCode!= "${serviceOrderHeader_validate_defaultTimeZoneCode}") { failureMessage = failureMessage + "Expect defaultTimeZoneCode${serviceOrderHeader_validate_defaultTimeZoneCode} but got " + objRequest.serviceOrderHeaders[0].defaultTimeZoneCode}
+if ("${serviceOrderHeader_validate_isMultipleTimeZoneEnabled}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isMultipleTimeZoneEnabled!= "${serviceOrderHeader_validate_isMultipleTimeZoneEnabled}") { failureMessage = failureMessage + "Expect isMultipleTimeZoneEnabled${serviceOrderHeader_validate_isMultipleTimeZoneEnabled} but got " + objRequest.serviceOrderHeaders[0].isMultipleTimeZoneEnabled}
+if ("${serviceOrderHeader_validate_isDepotOrder}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].isDepotOrder!= "${serviceOrderHeader_validate_isDepotOrder}") { failureMessage = failureMessage + "Expect isDepotOrder${serviceOrderHeader_validate_isDepotOrder} but got " + objRequest.serviceOrderHeaders[0].isDepotOrder}
+if ("${serviceOrderHeader_validate_endUserMessage}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].endUserMessage!= "${serviceOrderHeader_validate_endUserMessage}") { failureMessage = failureMessage + "Expect endUserMessage${serviceOrderHeader_validate_endUserMessage} but got " + objRequest.serviceOrderHeaders[0].endUserMessage}
+if ("${serviceOrderHeader_validate_caMstrUser1}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrUser1!= "${serviceOrderHeader_validate_caMstrUser1}") { failureMessage = failureMessage + "Expect caMstrUser1${serviceOrderHeader_validate_caMstrUser1} but got " + objRequest.serviceOrderHeaders[0].caMstrUser1}
+if ("${serviceOrderHeader_validate_caMstrUser2}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrUser2!= "${serviceOrderHeader_validate_caMstrUser2}") { failureMessage = failureMessage + "Expect caMstrUser2${serviceOrderHeader_validate_caMstrUser2} but got " + objRequest.serviceOrderHeaders[0].caMstrUser2}
+if ("${serviceOrderHeader_validate_caMstrChr01}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr01!= "${serviceOrderHeader_validate_caMstrChr01}") { failureMessage = failureMessage + "Expect caMstrChr01${serviceOrderHeader_validate_caMstrChr01} but got " + objRequest.serviceOrderHeaders[0].caMstrChr01}
+if ("${serviceOrderHeader_validate_caMstrChr02}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr02!= "${serviceOrderHeader_validate_caMstrChr02}") { failureMessage = failureMessage + "Expect caMstrChr02${serviceOrderHeader_validate_caMstrChr02} but got " + objRequest.serviceOrderHeaders[0].caMstrChr02}
+if ("${serviceOrderHeader_validate_caMstrChr03}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr03!= "${serviceOrderHeader_validate_caMstrChr03}") { failureMessage = failureMessage + "Expect caMstrChr03${serviceOrderHeader_validate_caMstrChr03} but got " + objRequest.serviceOrderHeaders[0].caMstrChr03}
+if ("${serviceOrderHeader_validate_caMstrChr04}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr04!= "${serviceOrderHeader_validate_caMstrChr04}") { failureMessage = failureMessage + "Expect caMstrChr04${serviceOrderHeader_validate_caMstrChr04} but got " + objRequest.serviceOrderHeaders[0].caMstrChr04}
+if ("${serviceOrderHeader_validate_caMstrChr05}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr05!= "${serviceOrderHeader_validate_caMstrChr05}") { failureMessage = failureMessage + "Expect caMstrChr05${serviceOrderHeader_validate_caMstrChr05} but got " + objRequest.serviceOrderHeaders[0].caMstrChr05}
+if ("${serviceOrderHeader_validate_caMstrChr06}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr06!= "${serviceOrderHeader_validate_caMstrChr06}") { failureMessage = failureMessage + "Expect caMstrChr06${serviceOrderHeader_validate_caMstrChr06} but got " + objRequest.serviceOrderHeaders[0].caMstrChr06}
+if ("${serviceOrderHeader_validate_caMstrChr07}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr07!= "${serviceOrderHeader_validate_caMstrChr07}") { failureMessage = failureMessage + "Expect caMstrChr07${serviceOrderHeader_validate_caMstrChr07} but got " + objRequest.serviceOrderHeaders[0].caMstrChr07}
+if ("${serviceOrderHeader_validate_caMstrChr08}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr08!= "${serviceOrderHeader_validate_caMstrChr08}") { failureMessage = failureMessage + "Expect caMstrChr08${serviceOrderHeader_validate_caMstrChr08} but got " + objRequest.serviceOrderHeaders[0].caMstrChr08}
+if ("${serviceOrderHeader_validate_caMstrChr09}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr09!= "${serviceOrderHeader_validate_caMstrChr09}") { failureMessage = failureMessage + "Expect caMstrChr09${serviceOrderHeader_validate_caMstrChr09} but got " + objRequest.serviceOrderHeaders[0].caMstrChr09}
+if ("${serviceOrderHeader_validate_caMstrChr10}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr10!= "${serviceOrderHeader_validate_caMstrChr10}") { failureMessage = failureMessage + "Expect caMstrChr10${serviceOrderHeader_validate_caMstrChr10} but got " + objRequest.serviceOrderHeaders[0].caMstrChr10}
+if ("${serviceOrderHeader_validate_caMstrDec01}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDec01!= "${serviceOrderHeader_validate_caMstrDec01}") { failureMessage = failureMessage + "Expect caMstrDec01${serviceOrderHeader_validate_caMstrDec01} but got " + objRequest.serviceOrderHeaders[0].caMstrDec01}
+if ("${serviceOrderHeader_validate_caMstrDec02}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDec02!= "${serviceOrderHeader_validate_caMstrDec02}") { failureMessage = failureMessage + "Expect caMstrDec02${serviceOrderHeader_validate_caMstrDec02} but got " + objRequest.serviceOrderHeaders[0].caMstrDec02}
+if ("${serviceOrderHeader_validate_caMstrDec03}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDec03!= "${serviceOrderHeader_validate_caMstrDec03}") { failureMessage = failureMessage + "Expect caMstrDec03${serviceOrderHeader_validate_caMstrDec03} but got " + objRequest.serviceOrderHeaders[0].caMstrDec03}
+if ("${serviceOrderHeader_validate_caMstrDte01}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte01!= "${serviceOrderHeader_validate_caMstrDte01}") { failureMessage = failureMessage + "Expect caMstrDte01${serviceOrderHeader_validate_caMstrDte01} but got " + objRequest.serviceOrderHeaders[0].caMstrDte01}
+if ("${serviceOrderHeader_validate_caMstrDte02}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte02!= "${serviceOrderHeader_validate_caMstrDte02}") { failureMessage = failureMessage + "Expect caMstrDte02${serviceOrderHeader_validate_caMstrDte02} but got " + objRequest.serviceOrderHeaders[0].caMstrDte02}
+if ("${serviceOrderHeader_validate_caMstrDte03}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte03!= "${serviceOrderHeader_validate_caMstrDte03}") { failureMessage = failureMessage + "Expect caMstrDte03${serviceOrderHeader_validate_caMstrDte03} but got " + objRequest.serviceOrderHeaders[0].caMstrDte03}
+if ("${serviceOrderHeader_validate_caMstrDte04}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte04!= "${serviceOrderHeader_validate_caMstrDte04}") { failureMessage = failureMessage + "Expect caMstrDte04${serviceOrderHeader_validate_caMstrDte04} but got " + objRequest.serviceOrderHeaders[0].caMstrDte04}
+if ("${serviceOrderHeader_validate_caMstrDte05}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte05!= "${serviceOrderHeader_validate_caMstrDte05}") { failureMessage = failureMessage + "Expect caMstrDte05${serviceOrderHeader_validate_caMstrDte05} but got " + objRequest.serviceOrderHeaders[0].caMstrDte05}
+if ("${serviceOrderHeader_validate_caMstrLog01}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog01!= "${serviceOrderHeader_validate_caMstrLog01}") { failureMessage = failureMessage + "Expect caMstrLog01${serviceOrderHeader_validate_caMstrLog01} but got " + objRequest.serviceOrderHeaders[0].caMstrLog01}
+if ("${serviceOrderHeader_validate_caMstrLog02}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog02!= "${serviceOrderHeader_validate_caMstrLog02}") { failureMessage = failureMessage + "Expect caMstrLog02${serviceOrderHeader_validate_caMstrLog02} but got " + objRequest.serviceOrderHeaders[0].caMstrLog02}
+if ("${serviceOrderHeader_validate_caMstrLog03}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog03!= "${serviceOrderHeader_validate_caMstrLog03}") { failureMessage = failureMessage + "Expect caMstrLog03${serviceOrderHeader_validate_caMstrLog03} but got " + objRequest.serviceOrderHeaders[0].caMstrLog03}
+if ("${serviceOrderHeader_validate_caMstrLog04}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog04!= "${serviceOrderHeader_validate_caMstrLog04}") { failureMessage = failureMessage + "Expect caMstrLog04${serviceOrderHeader_validate_caMstrLog04} but got " + objRequest.serviceOrderHeaders[0].caMstrLog04}
+if ("${serviceOrderHeader_validate_caMstrLog05}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog05!= "${serviceOrderHeader_validate_caMstrLog05}") { failureMessage = failureMessage + "Expect caMstrLog05${serviceOrderHeader_validate_caMstrLog05} but got " + objRequest.serviceOrderHeaders[0].caMstrLog05}
+if ("${serviceOrderHeader_validate_dataOperation}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].dataOperation!= "${serviceOrderHeader_validate_dataOperation}") { failureMessage = failureMessage + "Expect dataOperation${serviceOrderHeader_validate_dataOperation} but got " + objRequest.serviceOrderHeaders[0].dataOperation}
+if ("${serviceOrderHeader_validate_concurrencyHash}" != "[N/A]" &amp;&amp; objRequest.serviceOrderHeaders[0].concurrencyHash!= "${serviceOrderHeader_validate_concurrencyHash}") { failureMessage = failureMessage + "Expect concurrencyHash${serviceOrderHeader_validate_concurrencyHash} but got " + objRequest.serviceOrderHeaders[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != "");
+</stringProp>
+		<stringProp name="scriptLanguage">javascript</stringProp>
+	</JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String prefix = "serviceOrderHeader_"
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, "[N/A]");
+}
+}
+</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

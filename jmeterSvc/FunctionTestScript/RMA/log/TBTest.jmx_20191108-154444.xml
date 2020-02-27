@@ -1,0 +1,7 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573199085013,531, Login,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,12671,1089,1,1,null,0,6,0
+1573199085018,531,Login-001-login,200,OK,Thread Group 1-1,text,true,,12671,1089,1,1,https://vmlcmsh001.qad.com:22011/qad-central/,493,0,15
+1573199085565,5,SoapUI - IRmaAllocation - GetFieldDescription,Non HTTP response code: org.apache.http.client.ClientProtocolException,"Number of samples in transaction : 2, number of failing samples : 2",Thread Group 1-1,,false,,5996,0,1,1,null,0,3,0
+1573199085566,3,Setup - IRmaAllocation : GetFieldDescription,Non HTTP response code: org.apache.http.client.ClientProtocolException,Non HTTP response message: null,Thread Group 1-1,text,false,,3735,0,1,1,http://vmlcmsh001.qad.com:22011/wsa/wsa1/wsdl,0,0,1
+1573199085570,2,Call GetFieldDescription,Non HTTP response code: org.apache.http.client.ClientProtocolException,Non HTTP response message: null,Thread Group 1-1,text,false,"Content is not allowed in prolog.
+See log file for further details.",2261,0,1,1,http://vmlcmsh001.qad.com:22011/wsa/wsa1,0,0,1

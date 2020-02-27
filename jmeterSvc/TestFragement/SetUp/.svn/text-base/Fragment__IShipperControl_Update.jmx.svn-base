@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Fragment - :IShipperControl - Update" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname=":IShipperControl - Update" enabled="false"/>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${Line}&quot; != &quot;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Request Data" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">/CSV/ContainerShipperControl.csv</stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.group</stringProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="variableNames"></stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="TestPlan.comments">Check if variable from CSV is &lt;EOF&gt;</stringProp>
+            <stringProp name="IfController.condition">&quot;${Line}&quot; != &quot;&quot;&amp;&amp;&quot;${Line}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SoapUI - IShipperControl - Fetch" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Setup - :IShipperControl : Fetch" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${netUIport}</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">wsa/wsa1/wsdl</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Current Interface" enabled="true">
+                  <stringProp name="TestPlan.comments">Test the current Interface and get its response</stringProp>
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">currentInterface</stringProp>
+                  <stringProp name="RegexExtractor.regex">targetURI=urn:services-qad-com:service:IShipperControl:(.+?)&quot;</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">none</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+                <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySamplerProperties">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Call Fetch" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:urn=&quot;urn:services-qad-com:logistics:IShipperControl:2015-12-16:IShipperControl&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;urn:Fetch&gt;&#xd;
+         &lt;urn:ServiceContext&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;urn:ServiceProperty&gt;&#xd;
+               &lt;urn:PropertyName&gt;username&lt;/urn:PropertyName&gt;&#xd;
+               &lt;urn:PropertyValue&gt;${username}&lt;/urn:PropertyValue&gt;&#xd;
+            &lt;/urn:ServiceProperty&gt;&#xd;
+         &lt;/urn:ServiceContext&gt;&#xd;
+         &lt;urn:domainCode&gt;${domainCode}&lt;/urn:domainCode&gt;&#xd;
+      &lt;/urn:Fetch&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${netUIport}</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">wsa/wsa1</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value"> text/xml</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">SOAPAction</stringProp>
+                      <stringProp name="Header.value"> &quot;&quot;</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">Result</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//Result</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion Result" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="48">0</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">8</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable">Result</stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsMaintainTrailerAmounts</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsMaintainTrailerAmounts</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsDeleteFilesAfterArchiving</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsDeleteFilesAfterArchiving</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsAllowPrintingWithErrors</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsAllowPrintingWithErrors</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsMaintainTrailerAmounts</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsMaintainTrailerAmounts</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsCheckShipmentsPendingForPost</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsCheckShipmentsPendingForPost</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default">0</stringProp>
+                  <stringProp name="XPathExtractor.refname">CreateShipper</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//CreateShipper</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">NextContainer</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//NextContainer</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">MaxLinesOnPreShipper</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//MaxLinesOnPreShipperMaxLinesOnPreShipper</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsAutoInvoicePost</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsAutoInvoicePost</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsPrintInvoice</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsPrintInvoice</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsSumHistoryItems</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsSumHistoryItems</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">IsSumHistoryContainers</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsSumHistoryContainers</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor Result" enabled="true">
+                  <stringProp name="XPathExtractor.default">false</stringProp>
+                  <stringProp name="XPathExtractor.refname">IsFirmRequirementsOnly</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//IsFirmRequirementsOnly</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="SoapUI - :ShipperControl - Update" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Setup - IShipperControl : Update" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                  <collectionProp name="Arguments.arguments"/>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${netUIport}</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">wsa/wsa1/wsdl</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Current Interface" enabled="true">
+                  <stringProp name="TestPlan.comments">Test the current Interface and get its response</stringProp>
+                  <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+                  <stringProp name="RegexExtractor.refname">currentInterface</stringProp>
+                  <stringProp name="RegexExtractor.regex">targetURI=urn:services-qad-com:service:IShipperControl:(.+?)&quot;</stringProp>
+                  <stringProp name="RegexExtractor.template">$1$</stringProp>
+                  <stringProp name="RegexExtractor.default">none</stringProp>
+                  <stringProp name="RegexExtractor.match_number">1</stringProp>
+                </RegexExtractor>
+                <hashTree/>
+                <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
+                  <boolProp name="displayJMeterProperties">false</boolProp>
+                  <boolProp name="displayJMeterVariables">true</boolProp>
+                  <boolProp name="displaySamplerProperties">true</boolProp>
+                  <boolProp name="displaySystemProperties">false</boolProp>
+                </DebugPostProcessor>
+                <hashTree/>
+              </hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Call Update" enabled="true">
+                <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:urn=&quot;urn:services-qad-com:logistics:IShipperControl:2015-12-16:IShipperControl&quot;&gt;&#xd;
+   &lt;soapenv:Header/&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;urn:Update&gt;&#xd;
+         &lt;urn:ServiceContext&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;urn:ServiceProperty&gt;&#xd;
+               &lt;urn:PropertyName&gt;username&lt;/urn:PropertyName&gt;&#xd;
+               &lt;urn:PropertyValue&gt;${username}&lt;/urn:PropertyValue&gt;&#xd;
+            &lt;/urn:ServiceProperty&gt;&#xd;
+         &lt;/urn:ServiceContext&gt;&#xd;
+         &lt;urn:ShipperControls&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;urn:ShipperControl&gt;&#xd;
+               &lt;urn:DomainCode&gt;${domainCode}&lt;/urn:DomainCode&gt;&#xd;
+               &lt;urn:PreShipperSequenceID&gt;${PreShipperSequenceID}&lt;/urn:PreShipperSequenceID&gt;&#xd;
+               &lt;urn:PreShipperSequenceDescription&gt;&lt;/urn:PreShipperSequenceDescription&gt;&#xd;
+               &lt;urn:ShipperSequenceID&gt;${ShipperSequenceID}&lt;/urn:ShipperSequenceID&gt;&#xd;
+               &lt;urn:ShipperSequenceDescription&gt;&lt;/urn:ShipperSequenceDescription&gt;&#xd;
+               &lt;urn:MasterBillSequenceID&gt;${MasterBillSequenceID}&lt;/urn:MasterBillSequenceID&gt;&#xd;
+               &lt;urn:MasterBillSequenceDescription&gt;&lt;/urn:MasterBillSequenceDescription&gt;&#xd;
+               &lt;urn:IsRequireInventoryMovementCodes&gt;${IsRequireInventoryMovementCodes}&lt;/urn:IsRequireInventoryMovementCodes&gt;&#xd;
+               &lt;urn:IsMaintainTrailerAmounts&gt;${IsMaintainTrailerAmounts}&lt;/urn:IsMaintainTrailerAmounts&gt;&#xd;
+               &lt;urn:Ufld1&gt;&lt;/urn:Ufld1&gt;&#xd;
+               &lt;urn:Ufld2&gt;&lt;/urn:Ufld2&gt;&#xd;
+               &lt;urn:DocumentFormat&gt;${DocumentFormat}&lt;/urn:DocumentFormat&gt;&#xd;
+               &lt;urn:DocumentFormatDescription&gt;&lt;/urn:DocumentFormatDescription&gt;&#xd;
+               &lt;urn:IsShipmentInfoForReceipts&gt;${IsShipmentInfoForReceipts}&lt;/urn:IsShipmentInfoForReceipts&gt;&#xd;
+               &lt;urn:RSSCalendarOption&gt;${RSSCalendarOption}&lt;/urn:RSSCalendarOption&gt;&#xd;
+               &lt;urn:RSSCalendarOptionDescription&gt;&lt;/urn:RSSCalendarOptionDescription&gt;&#xd;
+               &lt;urn:DefaultImportDirectory/&gt;&#xd;
+               &lt;urn:DefaultSourceDirectory/&gt;&#xd;
+               &lt;urn:DefaultArchiveDirectory/&gt;&#xd;
+               &lt;urn:IsDeleteFilesAfterArchiving&gt;true&lt;/urn:IsDeleteFilesAfterArchiving&gt;&#xd;
+               &lt;urn:IsAllowPrintingWithErrors&gt;true&lt;/urn:IsAllowPrintingWithErrors&gt;&#xd;
+               &lt;urn:IsCheckShipmentsPendingForPost&gt;${IsCheckShipmentsPendingForPost}&lt;/urn:IsCheckShipmentsPendingForPost&gt;&#xd;
+               &lt;urn:IsUseProofOfDelivery&gt;${IsUseProofOfDelivery}&lt;/urn:IsUseProofOfDelivery&gt;&#xd;
+               &lt;urn:IsProofOfDeliveryOrders&gt;${IsProofOfDeliveryOrders}&lt;/urn:IsProofOfDeliveryOrders&gt;&#xd;
+               &lt;urn:CreateShipper&gt;${CreateShipper}&lt;/urn:CreateShipper&gt;&#xd;
+               &lt;urn:MethodCheckingShipmentsPending&gt;0&lt;/MethodCheckingShipmentsPending&gt;&#xd;
+               &lt;urn:NextContainer&gt;${NextContainer}&lt;/urn:NextContainer&gt;&#xd;
+               &lt;urn:MasterBillDocumentFormat&gt;${MasterBillDocumentFormat}&lt;/urn:MasterBillDocumentFormat&gt;&#xd;
+               &lt;urn:MasterBillDocumentFormatDesc&gt;&lt;/urn:MasterBillDocumentFormatDesc&gt;&#xd;
+               &lt;urn:MaxLinesOnPreShipper&gt;${MaxLinesOnPreShipper}&lt;/urn:MaxLinesOnPreShipper&gt;&#xd;
+               &lt;urn:MixedLoadLabel&gt;${MixedLoadLabel}&lt;/urn:MixedLoadLabel&gt;&#xd;
+               &lt;urn:MasterLoadLabel&gt;${MasterLoadLabel}&lt;/urn:MasterLoadLabel&gt;&#xd;
+               &lt;urn:SingleLoadLabel&gt;${SingleLoadLabel}&lt;/urn:SingleLoadLabel&gt;&#xd;
+               &lt;urn:IsAutomaticCumPegging&gt;${IsAutomaticCumPegging}&lt;/urn:IsAutomaticCumPegging&gt;&#xd;
+               &lt;urn:IsUseShipPlanPCR&gt;${IsUseShipPlanPCR}&lt;/urn:IsUseShipPlanPCR&gt;&#xd;
+               &lt;urn:IsCustomerRefIsCustomerItem&gt;${IsCustomerRefIsCustomerItem}&lt;/urn:IsCustomerRefIsCustomerItem&gt;&#xd;
+               &lt;urn:IsReallocate&gt;${IsReallocate}&lt;/urn:IsReallocate&gt;&#xd;
+               &lt;urn:ShcCtrlUser1&gt;&lt;/urn:ShcCtrlUser1&gt;&#xd;
+               &lt;urn:ShcCtrlUser2&gt;&lt;/urn:ShcCtrlUser2&gt;&#xd;
+               &lt;urn:InTransitLocation&gt;${InTransitLocation}&lt;/urn:InTransitLocation&gt;&#xd;
+               &lt;urn:InTransitLocationDescription&gt;&lt;/urn:InTransitLocationDescription&gt;&#xd;
+               &lt;urn:IsAutoInvoicePost&gt;${IsAutoInvoicePost}&lt;/urn:IsAutoInvoicePost&gt;&#xd;
+               &lt;urn:IsConsolidateInvoices&gt;${IsConsolidateInvoices}&lt;/urn:IsConsolidateInvoices&gt;&#xd;
+               &lt;urn:IsPrintInvoice&gt;${IsPrintInvoice}&lt;/urn:IsPrintInvoice&gt;&#xd;
+               &lt;urn:IsSumHistoryItems&gt;${IsSumHistoryItems}&lt;/urn:IsSumHistoryItems&gt;&#xd;
+               &lt;urn:IsSumHistoryContainers&gt;${IsSumHistoryContainers}&lt;/urn:IsSumHistoryContainers&gt;&#xd;
+               &lt;urn:IsFirmRequirementsOnly&gt;${IsFirmRequirementsOnly}&lt;/urn:IsFirmRequirementsOnly&gt;&#xd;
+            &lt;/urn:ShipperControl&gt;&#xd;
+            &lt;!--Zero or more repetitions:--&gt;&#xd;
+            &lt;urn:ShipperControlDetail&gt;&#xd;
+               &lt;urn:DomainCode&gt;${domainCode}&lt;/urn:DomainCode&gt;&#xd;
+               &lt;urn:ExportFileDirectory&gt;?&lt;/urn:ExportFileDirectory&gt;&#xd;
+               &lt;urn:LastModifiedDate&gt;&lt;/urn:LastModifiedDate&gt;&#xd;
+               &lt;urn:LastModifiedUser&gt;&lt;/urn:LastModifiedUser&gt;&#xd;
+               &lt;urn:DataOperation&gt;&lt;/urn:DataOperation&gt;&#xd;
+            &lt;/urn:ShipperControlDetail&gt;&#xd;
+         &lt;/urn:ShipperControls&gt;&#xd;
+      &lt;/urn:Update&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${netUIport}</stringProp>
+                <stringProp name="HTTPSampler.protocol">http</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                <stringProp name="HTTPSampler.path">wsa/wsa1</stringProp>
+                <stringProp name="HTTPSampler.method">POST</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value"> text/xml</stringProp>
+                    </elementProp>
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">SOAPAction</stringProp>
+                      <stringProp name="Header.value"> &quot;&quot;</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor " enabled="true">
+                  <stringProp name="XPathExtractor.default"></stringProp>
+                  <stringProp name="XPathExtractor.refname">errorMessage</stringProp>
+                  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+                  <stringProp name="XPathExtractor.xpathQuery">//errorMessage</stringProp>
+                  <boolProp name="XPathExtractor.validate">false</boolProp>
+                  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                  <boolProp name="XPathExtractor.namespace">false</boolProp>
+                </XPathExtractor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Assertion " enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="97196323">false</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">8</intProp>
+                  <stringProp name="Assertion.scope">variable</stringProp>
+                  <stringProp name="Scope.variable"></stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

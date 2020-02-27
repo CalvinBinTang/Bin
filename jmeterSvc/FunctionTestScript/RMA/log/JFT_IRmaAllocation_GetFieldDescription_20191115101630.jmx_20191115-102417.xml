@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573784657600,653, Login,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,12671,1089,1,1,null,0,13,0
+1573784657613,653,Login-001-login,200,OK,Thread Group 1-1,text,true,,12671,1089,1,1,https://vmlcmsh001.qad.com:22011/qad-central/,616,0,16
+1573784658277,165,SoapUI - IRmaAllocation - GetFieldDescription,200,"Number of samples in transaction : 2, number of failing samples : 0",Thread Group 1-1,,true,,316568,1091,1,1,null,0,3,0
+1573784658277,40,Setup - IRmaAllocation : GetFieldDescription,200,OK,Thread Group 1-1,text,true,,315593,141,1,1,http://vmlcmsh001.qad.com:22000/wsa/wsa1/wsdl,13,0,1
+1573784658317,125,Call GetFieldDescription,200,OK,Thread Group 1-1,text,true,,975,950,1,1,http://vmlcmsh001.qad.com:22000/wsa/wsa1,125,0,0

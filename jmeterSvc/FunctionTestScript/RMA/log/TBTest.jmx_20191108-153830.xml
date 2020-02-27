@@ -1,0 +1,8 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573198710484,599, Login,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,12671,1089,1,1,null,0,12,0
+1573198710496,599,Login-001-login,200,OK,Thread Group 1-1,text,true,,12671,1089,1,1,https://vmlcmsh001.qad.com:22011/qad-central/,541,0,36
+1573198711096,51, Logout-001-logout,200,OK,Thread Group 1-1,text,true,,9786,957,1,1,https://vmlcmsh001.qad.com:22011/qad-central/resources/login.jsp?logged_out=true,43,0,0
+1573198711096,43, Logout-001-logout-0,302,Found,Thread Group 1-1,,true,,280,464,1,1,https://vmlcmsh001.qad.com:22011/qad-central/logout,43,0,0
+1573198711140,7, Logout-001-logout-1,200,OK,Thread Group 1-1,text,true,,9506,493,1,1,https://vmlcmsh001.qad.com:22011/qad-central/resources/login.jsp?logged_out=true,6,0,0
+1573198711095,51,Logout,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,9786,957,1,1,null,43,1,0
+1573198710484,650,IRmaAllocation - GetFieldDescription,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,22457,2046,1,1,null,43,14,0

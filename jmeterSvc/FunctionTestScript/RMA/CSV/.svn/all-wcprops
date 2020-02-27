@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/qadmodule_repository/!svn/ver/231798/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/CSV
+END
+JFT_RMA_001_Bulk_Action_Confirmation_validation.csv
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/qadmodule_repository/!svn/ver/230866/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/CSV/JFT_RMA_001_Bulk_Action_Confirmation_validation.csv
+END
+JFT_RMA_002_Bulk_Create.csv
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/qadmodule_repository/!svn/ver/231798/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/CSV/JFT_RMA_002_Bulk_Create.csv
+END
+IRmaAllocationsubmitRmaAllocationRequest.csv
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/qadmodule_repository/!svn/ver/231798/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/CSV/IRmaAllocationsubmitRmaAllocationRequest.csv
+END
+JFT_RMA_001_Bulk_Action_Confirmation.csv
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/qadmodule_repository/!svn/ver/230813/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/RMA/CSV/JFT_RMA_001_Bulk_Action_Confirmation.csv
+END

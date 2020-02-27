@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="quickServiceOrder fieldChange">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange"/>
+      <hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String defaultValue = "[N/A]";
+List varsList = [];
+
+// URL Paremeters
+varsList.add("quickServiceOrder_url_fieldName");
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add("quickServiceOrder_domainCode");
+varsList.add("quickServiceOrder_serviceOrderNumber");
+varsList.add("quickServiceOrder_category");
+varsList.add("quickServiceOrder_itemCode");
+varsList.add("quickServiceOrder_itemDescription");
+varsList.add("quickServiceOrder_itemDescription2");
+varsList.add("quickServiceOrder_serial");
+varsList.add("quickServiceOrder_reference");
+varsList.add("quickServiceOrder_workCode");
+varsList.add("quickServiceOrder_workCodeDescription");
+varsList.add("quickServiceOrder_modelCode");
+varsList.add("quickServiceOrder_modelCodeDescription");
+varsList.add("quickServiceOrder_serviceGroup");
+varsList.add("quickServiceOrder_serviceGroupDescription");
+varsList.add("quickServiceOrder_endUserCode");
+varsList.add("quickServiceOrder_endUserAddressField1");
+varsList.add("quickServiceOrder_endUserAddressField2");
+varsList.add("quickServiceOrder_endUserAddressField3");
+varsList.add("quickServiceOrder_endUserAddressField4");
+varsList.add("quickServiceOrder_endUserAddressField5");
+varsList.add("quickServiceOrder_endUserAddressField6");
+varsList.add("quickServiceOrder_billToCustomerCode");
+varsList.add("quickServiceOrder_billToAddressField1");
+varsList.add("quickServiceOrder_billToAddressField2");
+varsList.add("quickServiceOrder_billToAddressField3");
+varsList.add("quickServiceOrder_billToAddressField4");
+varsList.add("quickServiceOrder_billToAddressField5");
+varsList.add("quickServiceOrder_billToAddressField6");
+varsList.add("quickServiceOrder_currencyCode");
+varsList.add("quickServiceOrder_isCheckCoverage");
+varsList.add("quickServiceOrder_currencyCodeDescription");
+varsList.add("quickServiceOrder_dataOperation");
+varsList.add("quickServiceOrder_concurrencyHash");
+varsList.add("quickServiceOrder_contractNumber");
+varsList.add("quickServiceOrder_contractLine");
+varsList.add("quickServiceOrder_serviceType");
+varsList.add("quickServiceOrder_contractServiceTypeCode");
+varsList.add("quickServiceOrder_warrantyServiceTypeCode");
+varsList.add("quickServiceOrder_contractStartDate");
+varsList.add("quickServiceOrder_contractEndDate");
+varsList.add("quickServiceOrder_warrantyStartDate");
+varsList.add("quickServiceOrder_warrantyEndDate");
+varsList.add("quickServiceOrder_serviceTypeCode");
+varsList.add("quickServiceOrder_serviceTypeDescription");
+varsList.add("quickServiceOrder_salesProject");
+varsList.add("quickServiceOrder_discountProject");
+varsList.add("quickServiceOrder_callDate");
+varsList.add("quickServiceOrder_baseCurrencyCode");
+varsList.add("quickServiceOrder_exchangeRate");
+varsList.add("quickServiceOrder_exchangeRateDescription");
+varsList.add("quickServiceOrder_exchangeRate2");
+varsList.add("quickServiceOrder_exchangeRate2Description");
+varsList.add("quickServiceOrder_isFixedRate");
+varsList.add("quickServiceOrder_isISBExistForOtherEndUser");
+varsList.add("quickServiceOrder_oldEndUserCode");
+varsList.add("quickServiceOrder_isInstalledBaseItemExist");
+varsList.add("quickServiceOrder_timeZoneCode");
+varsList.add("quickServiceOrder_timeZoneDescription");
+varsList.add("quickServiceOrder_defaultTimeZoneCode");
+varsList.add("quickServiceOrder_isMultipleTimeZoneEnabled");
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add("quickServiceOrder_validate_domainCode");
+varsList.add("quickServiceOrder_validate_serviceOrderNumber");
+varsList.add("quickServiceOrder_validate_category");
+varsList.add("quickServiceOrder_validate_itemCode");
+varsList.add("quickServiceOrder_validate_itemDescription");
+varsList.add("quickServiceOrder_validate_itemDescription2");
+varsList.add("quickServiceOrder_validate_serial");
+varsList.add("quickServiceOrder_validate_reference");
+varsList.add("quickServiceOrder_validate_workCode");
+varsList.add("quickServiceOrder_validate_workCodeDescription");
+varsList.add("quickServiceOrder_validate_modelCode");
+varsList.add("quickServiceOrder_validate_modelCodeDescription");
+varsList.add("quickServiceOrder_validate_serviceGroup");
+varsList.add("quickServiceOrder_validate_serviceGroupDescription");
+varsList.add("quickServiceOrder_validate_endUserCode");
+varsList.add("quickServiceOrder_validate_endUserAddressField1");
+varsList.add("quickServiceOrder_validate_endUserAddressField2");
+varsList.add("quickServiceOrder_validate_endUserAddressField3");
+varsList.add("quickServiceOrder_validate_endUserAddressField4");
+varsList.add("quickServiceOrder_validate_endUserAddressField5");
+varsList.add("quickServiceOrder_validate_endUserAddressField6");
+varsList.add("quickServiceOrder_validate_billToCustomerCode");
+varsList.add("quickServiceOrder_validate_billToAddressField1");
+varsList.add("quickServiceOrder_validate_billToAddressField2");
+varsList.add("quickServiceOrder_validate_billToAddressField3");
+varsList.add("quickServiceOrder_validate_billToAddressField4");
+varsList.add("quickServiceOrder_validate_billToAddressField5");
+varsList.add("quickServiceOrder_validate_billToAddressField6");
+varsList.add("quickServiceOrder_validate_currencyCode");
+varsList.add("quickServiceOrder_validate_isCheckCoverage");
+varsList.add("quickServiceOrder_validate_currencyCodeDescription");
+varsList.add("quickServiceOrder_validate_dataOperation");
+varsList.add("quickServiceOrder_validate_concurrencyHash");
+varsList.add("quickServiceOrder_validate_contractNumber");
+varsList.add("quickServiceOrder_validate_contractLine");
+varsList.add("quickServiceOrder_validate_serviceType");
+varsList.add("quickServiceOrder_validate_contractServiceTypeCode");
+varsList.add("quickServiceOrder_validate_warrantyServiceTypeCode");
+varsList.add("quickServiceOrder_validate_contractStartDate");
+varsList.add("quickServiceOrder_validate_contractEndDate");
+varsList.add("quickServiceOrder_validate_warrantyStartDate");
+varsList.add("quickServiceOrder_validate_warrantyEndDate");
+varsList.add("quickServiceOrder_validate_serviceTypeCode");
+varsList.add("quickServiceOrder_validate_serviceTypeDescription");
+varsList.add("quickServiceOrder_validate_salesProject");
+varsList.add("quickServiceOrder_validate_discountProject");
+varsList.add("quickServiceOrder_validate_callDate");
+varsList.add("quickServiceOrder_validate_baseCurrencyCode");
+varsList.add("quickServiceOrder_validate_exchangeRate");
+varsList.add("quickServiceOrder_validate_exchangeRateDescription");
+varsList.add("quickServiceOrder_validate_exchangeRate2");
+varsList.add("quickServiceOrder_validate_exchangeRate2Description");
+varsList.add("quickServiceOrder_validate_isFixedRate");
+varsList.add("quickServiceOrder_validate_isISBExistForOtherEndUser");
+varsList.add("quickServiceOrder_validate_oldEndUserCode");
+varsList.add("quickServiceOrder_validate_isInstalledBaseItemExist");
+varsList.add("quickServiceOrder_validate_timeZoneCode");
+varsList.add("quickServiceOrder_validate_timeZoneDescription");
+varsList.add("quickServiceOrder_validate_defaultTimeZoneCode");
+varsList.add("quickServiceOrder_validate_isMultipleTimeZoneEnabled");
+
+
+varsList.each {
+if (vars.get("${it}") == null) vars.put("${it}", defaultValue);
+}</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="quickServiceOrder fieldChange">
+		<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/quickServiceOrders/fieldChange?fieldName=${quickServiceOrder_url_fieldName}</stringProp>
+		<stringProp name="HTTPSampler.method">POST</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager enabled="true" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+		<collectionProp name="HeaderManager.headers">
+			<elementProp elementType="Header" name="Content-Type">
+				<stringProp name="Header.name">Content-Type</stringProp>
+				<stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Language">
+				<stringProp name="Header.name">Accept-Language</stringProp>
+				<stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept">
+				<stringProp name="Header.name">Accept</stringProp>
+				<stringProp name="Header.value">*/*</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Origin">
+				<stringProp name="Header.name">Origin</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="User-Agent">
+				<stringProp name="Header.name">User-Agent</stringProp>
+				<stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="DNT">
+				<stringProp name="Header.name">DNT</stringProp>
+				<stringProp name="Header.value">1</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="X-Requested-With">
+				<stringProp name="Header.name">X-Requested-With</stringProp>
+				<stringProp name="Header.value">XMLHttpRequest</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Referer">
+				<stringProp name="Header.name">Referer</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Encoding">
+				<stringProp name="Header.name">Accept-Encoding</stringProp>
+				<stringProp name="Header.value">gzip, deflate</stringProp>
+			</elementProp>
+		</collectionProp>
+	</HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor enabled="true" guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript">
+		<stringProp name="scriptLanguage">javascript</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if ("${quickServiceOrder_domainCode}" != "[N/A]") objRequest.quickServiceOrders[0].domainCode= "${quickServiceOrder_domainCode}";
+if ("${quickServiceOrder_serviceOrderNumber}" != "[N/A]") objRequest.quickServiceOrders[0].serviceOrderNumber= "${quickServiceOrder_serviceOrderNumber}";
+if ("${quickServiceOrder_category}" != "[N/A]") objRequest.quickServiceOrders[0].category= "${quickServiceOrder_category}";
+if ("${quickServiceOrder_itemCode}" != "[N/A]") objRequest.quickServiceOrders[0].itemCode= "${quickServiceOrder_itemCode}";
+if ("${quickServiceOrder_itemDescription}" != "[N/A]") objRequest.quickServiceOrders[0].itemDescription= "${quickServiceOrder_itemDescription}";
+if ("${quickServiceOrder_itemDescription2}" != "[N/A]") objRequest.quickServiceOrders[0].itemDescription2= "${quickServiceOrder_itemDescription2}";
+if ("${quickServiceOrder_serial}" != "[N/A]") objRequest.quickServiceOrders[0].serial= "${quickServiceOrder_serial}";
+if ("${quickServiceOrder_reference}" != "[N/A]") objRequest.quickServiceOrders[0].reference= "${quickServiceOrder_reference}";
+if ("${quickServiceOrder_workCode}" != "[N/A]") objRequest.quickServiceOrders[0].workCode= "${quickServiceOrder_workCode}";
+if ("${quickServiceOrder_workCodeDescription}" != "[N/A]") objRequest.quickServiceOrders[0].workCodeDescription= "${quickServiceOrder_workCodeDescription}";
+if ("${quickServiceOrder_modelCode}" != "[N/A]") objRequest.quickServiceOrders[0].modelCode= "${quickServiceOrder_modelCode}";
+if ("${quickServiceOrder_modelCodeDescription}" != "[N/A]") objRequest.quickServiceOrders[0].modelCodeDescription= "${quickServiceOrder_modelCodeDescription}";
+if ("${quickServiceOrder_serviceGroup}" != "[N/A]") objRequest.quickServiceOrders[0].serviceGroup= "${quickServiceOrder_serviceGroup}";
+if ("${quickServiceOrder_serviceGroupDescription}" != "[N/A]") objRequest.quickServiceOrders[0].serviceGroupDescription= "${quickServiceOrder_serviceGroupDescription}";
+if ("${quickServiceOrder_endUserCode}" != "[N/A]") objRequest.quickServiceOrders[0].endUserCode= "${quickServiceOrder_endUserCode}";
+if ("${quickServiceOrder_endUserAddressField1}" != "[N/A]") objRequest.quickServiceOrders[0].endUserAddressField1= "${quickServiceOrder_endUserAddressField1}";
+if ("${quickServiceOrder_endUserAddressField2}" != "[N/A]") objRequest.quickServiceOrders[0].endUserAddressField2= "${quickServiceOrder_endUserAddressField2}";
+if ("${quickServiceOrder_endUserAddressField3}" != "[N/A]") objRequest.quickServiceOrders[0].endUserAddressField3= "${quickServiceOrder_endUserAddressField3}";
+if ("${quickServiceOrder_endUserAddressField4}" != "[N/A]") objRequest.quickServiceOrders[0].endUserAddressField4= "${quickServiceOrder_endUserAddressField4}";
+if ("${quickServiceOrder_endUserAddressField5}" != "[N/A]") objRequest.quickServiceOrders[0].endUserAddressField5= "${quickServiceOrder_endUserAddressField5}";
+if ("${quickServiceOrder_endUserAddressField6}" != "[N/A]") objRequest.quickServiceOrders[0].endUserAddressField6= "${quickServiceOrder_endUserAddressField6}";
+if ("${quickServiceOrder_billToCustomerCode}" != "[N/A]") objRequest.quickServiceOrders[0].billToCustomerCode= "${quickServiceOrder_billToCustomerCode}";
+if ("${quickServiceOrder_billToAddressField1}" != "[N/A]") objRequest.quickServiceOrders[0].billToAddressField1= "${quickServiceOrder_billToAddressField1}";
+if ("${quickServiceOrder_billToAddressField2}" != "[N/A]") objRequest.quickServiceOrders[0].billToAddressField2= "${quickServiceOrder_billToAddressField2}";
+if ("${quickServiceOrder_billToAddressField3}" != "[N/A]") objRequest.quickServiceOrders[0].billToAddressField3= "${quickServiceOrder_billToAddressField3}";
+if ("${quickServiceOrder_billToAddressField4}" != "[N/A]") objRequest.quickServiceOrders[0].billToAddressField4= "${quickServiceOrder_billToAddressField4}";
+if ("${quickServiceOrder_billToAddressField5}" != "[N/A]") objRequest.quickServiceOrders[0].billToAddressField5= "${quickServiceOrder_billToAddressField5}";
+if ("${quickServiceOrder_billToAddressField6}" != "[N/A]") objRequest.quickServiceOrders[0].billToAddressField6= "${quickServiceOrder_billToAddressField6}";
+if ("${quickServiceOrder_currencyCode}" != "[N/A]") objRequest.quickServiceOrders[0].currencyCode= "${quickServiceOrder_currencyCode}";
+if ("${quickServiceOrder_isCheckCoverage}" != "[N/A]") objRequest.quickServiceOrders[0].isCheckCoverage= "${quickServiceOrder_isCheckCoverage}";
+if ("${quickServiceOrder_currencyCodeDescription}" != "[N/A]") objRequest.quickServiceOrders[0].currencyCodeDescription= "${quickServiceOrder_currencyCodeDescription}";
+if ("${quickServiceOrder_dataOperation}" != "[N/A]") objRequest.quickServiceOrders[0].dataOperation= "${quickServiceOrder_dataOperation}";
+if ("${quickServiceOrder_concurrencyHash}" != "[N/A]") objRequest.quickServiceOrders[0].concurrencyHash= "${quickServiceOrder_concurrencyHash}";
+if ("${quickServiceOrder_contractNumber}" != "[N/A]") objRequest.quickServiceOrders[0].contractNumber= "${quickServiceOrder_contractNumber}";
+if ("${quickServiceOrder_contractLine}" != "[N/A]") objRequest.quickServiceOrders[0].contractLine= "${quickServiceOrder_contractLine}";
+if ("${quickServiceOrder_serviceType}" != "[N/A]") objRequest.quickServiceOrders[0].serviceType= "${quickServiceOrder_serviceType}";
+if ("${quickServiceOrder_contractServiceTypeCode}" != "[N/A]") objRequest.quickServiceOrders[0].contractServiceTypeCode= "${quickServiceOrder_contractServiceTypeCode}";
+if ("${quickServiceOrder_warrantyServiceTypeCode}" != "[N/A]") objRequest.quickServiceOrders[0].warrantyServiceTypeCode= "${quickServiceOrder_warrantyServiceTypeCode}";
+if ("${quickServiceOrder_contractStartDate}" != "[N/A]") objRequest.quickServiceOrders[0].contractStartDate= "${quickServiceOrder_contractStartDate}";
+if ("${quickServiceOrder_contractEndDate}" != "[N/A]") objRequest.quickServiceOrders[0].contractEndDate= "${quickServiceOrder_contractEndDate}";
+if ("${quickServiceOrder_warrantyStartDate}" != "[N/A]") objRequest.quickServiceOrders[0].warrantyStartDate= "${quickServiceOrder_warrantyStartDate}";
+if ("${quickServiceOrder_warrantyEndDate}" != "[N/A]") objRequest.quickServiceOrders[0].warrantyEndDate= "${quickServiceOrder_warrantyEndDate}";
+if ("${quickServiceOrder_serviceTypeCode}" != "[N/A]") objRequest.quickServiceOrders[0].serviceTypeCode= "${quickServiceOrder_serviceTypeCode}";
+if ("${quickServiceOrder_serviceTypeDescription}" != "[N/A]") objRequest.quickServiceOrders[0].serviceTypeDescription= "${quickServiceOrder_serviceTypeDescription}";
+if ("${quickServiceOrder_salesProject}" != "[N/A]") objRequest.quickServiceOrders[0].salesProject= "${quickServiceOrder_salesProject}";
+if ("${quickServiceOrder_discountProject}" != "[N/A]") objRequest.quickServiceOrders[0].discountProject= "${quickServiceOrder_discountProject}";
+if ("${quickServiceOrder_callDate}" != "[N/A]") objRequest.quickServiceOrders[0].callDate= "${quickServiceOrder_callDate}";
+if ("${quickServiceOrder_baseCurrencyCode}" != "[N/A]") objRequest.quickServiceOrders[0].baseCurrencyCode= "${quickServiceOrder_baseCurrencyCode}";
+if ("${quickServiceOrder_exchangeRate}" != "[N/A]") objRequest.quickServiceOrders[0].exchangeRate= "${quickServiceOrder_exchangeRate}";
+if ("${quickServiceOrder_exchangeRateDescription}" != "[N/A]") objRequest.quickServiceOrders[0].exchangeRateDescription= "${quickServiceOrder_exchangeRateDescription}";
+if ("${quickServiceOrder_exchangeRate2}" != "[N/A]") objRequest.quickServiceOrders[0].exchangeRate2= "${quickServiceOrder_exchangeRate2}";
+if ("${quickServiceOrder_exchangeRate2Description}" != "[N/A]") objRequest.quickServiceOrders[0].exchangeRate2Description= "${quickServiceOrder_exchangeRate2Description}";
+if ("${quickServiceOrder_isFixedRate}" != "[N/A]") objRequest.quickServiceOrders[0].isFixedRate= "${quickServiceOrder_isFixedRate}";
+if ("${quickServiceOrder_isISBExistForOtherEndUser}" != "[N/A]") objRequest.quickServiceOrders[0].isISBExistForOtherEndUser= "${quickServiceOrder_isISBExistForOtherEndUser}";
+if ("${quickServiceOrder_oldEndUserCode}" != "[N/A]") objRequest.quickServiceOrders[0].oldEndUserCode= "${quickServiceOrder_oldEndUserCode}";
+if ("${quickServiceOrder_isInstalledBaseItemExist}" != "[N/A]") objRequest.quickServiceOrders[0].isInstalledBaseItemExist= "${quickServiceOrder_isInstalledBaseItemExist}";
+if ("${quickServiceOrder_timeZoneCode}" != "[N/A]") objRequest.quickServiceOrders[0].timeZoneCode= "${quickServiceOrder_timeZoneCode}";
+if ("${quickServiceOrder_timeZoneDescription}" != "[N/A]") objRequest.quickServiceOrders[0].timeZoneDescription= "${quickServiceOrder_timeZoneDescription}";
+if ("${quickServiceOrder_defaultTimeZoneCode}" != "[N/A]") objRequest.quickServiceOrders[0].defaultTimeZoneCode= "${quickServiceOrder_defaultTimeZoneCode}";
+if ("${quickServiceOrder_isMultipleTimeZoneEnabled}" != "[N/A]") objRequest.quickServiceOrders[0].isMultipleTimeZoneEnabled= "${quickServiceOrder_isMultipleTimeZoneEnabled}";
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put("RequestData", strUpdatedRequest);</stringProp>
+	</JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse">
+		<stringProp name="VAR">RequestData</stringProp>
+		<stringProp name="JSONPATH">$.data</stringProp>
+		<stringProp name="DEFAULT">NotFound</stringProp>
+		<stringProp name="VARIABLE"/>
+		<stringProp name="SUBJECT">BODY</stringProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+		<stringProp name="EXPECTED_VALUE">true</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion enabled="true" guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion">
+		<stringProp name="cacheKey"/>
+		<stringProp name="filename"/>
+		<stringProp name="parameters"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+var failureMessage = "";
+
+// All the fields in dataset should be set here
+if ("${quickServiceOrder_validate_domainCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].domainCode!= "${quickServiceOrder_validate_domainCode}") { failureMessage = failureMessage + "Expect domainCode${quickServiceOrder_validate_domainCode} but got " + objRequest.quickServiceOrders[0].domainCode}
+if ("${quickServiceOrder_validate_serviceOrderNumber}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serviceOrderNumber!= "${quickServiceOrder_validate_serviceOrderNumber}") { failureMessage = failureMessage + "Expect serviceOrderNumber${quickServiceOrder_validate_serviceOrderNumber} but got " + objRequest.quickServiceOrders[0].serviceOrderNumber}
+if ("${quickServiceOrder_validate_category}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].category!= "${quickServiceOrder_validate_category}") { failureMessage = failureMessage + "Expect category${quickServiceOrder_validate_category} but got " + objRequest.quickServiceOrders[0].category}
+if ("${quickServiceOrder_validate_itemCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].itemCode!= "${quickServiceOrder_validate_itemCode}") { failureMessage = failureMessage + "Expect itemCode${quickServiceOrder_validate_itemCode} but got " + objRequest.quickServiceOrders[0].itemCode}
+if ("${quickServiceOrder_validate_itemDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].itemDescription!= "${quickServiceOrder_validate_itemDescription}") { failureMessage = failureMessage + "Expect itemDescription${quickServiceOrder_validate_itemDescription} but got " + objRequest.quickServiceOrders[0].itemDescription}
+if ("${quickServiceOrder_validate_itemDescription2}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].itemDescription2!= "${quickServiceOrder_validate_itemDescription2}") { failureMessage = failureMessage + "Expect itemDescription2${quickServiceOrder_validate_itemDescription2} but got " + objRequest.quickServiceOrders[0].itemDescription2}
+if ("${quickServiceOrder_validate_serial}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serial!= "${quickServiceOrder_validate_serial}") { failureMessage = failureMessage + "Expect serial${quickServiceOrder_validate_serial} but got " + objRequest.quickServiceOrders[0].serial}
+if ("${quickServiceOrder_validate_reference}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].reference!= "${quickServiceOrder_validate_reference}") { failureMessage = failureMessage + "Expect reference${quickServiceOrder_validate_reference} but got " + objRequest.quickServiceOrders[0].reference}
+if ("${quickServiceOrder_validate_workCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].workCode!= "${quickServiceOrder_validate_workCode}") { failureMessage = failureMessage + "Expect workCode${quickServiceOrder_validate_workCode} but got " + objRequest.quickServiceOrders[0].workCode}
+if ("${quickServiceOrder_validate_workCodeDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].workCodeDescription!= "${quickServiceOrder_validate_workCodeDescription}") { failureMessage = failureMessage + "Expect workCodeDescription${quickServiceOrder_validate_workCodeDescription} but got " + objRequest.quickServiceOrders[0].workCodeDescription}
+if ("${quickServiceOrder_validate_modelCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].modelCode!= "${quickServiceOrder_validate_modelCode}") { failureMessage = failureMessage + "Expect modelCode${quickServiceOrder_validate_modelCode} but got " + objRequest.quickServiceOrders[0].modelCode}
+if ("${quickServiceOrder_validate_modelCodeDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].modelCodeDescription!= "${quickServiceOrder_validate_modelCodeDescription}") { failureMessage = failureMessage + "Expect modelCodeDescription${quickServiceOrder_validate_modelCodeDescription} but got " + objRequest.quickServiceOrders[0].modelCodeDescription}
+if ("${quickServiceOrder_validate_serviceGroup}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serviceGroup!= "${quickServiceOrder_validate_serviceGroup}") { failureMessage = failureMessage + "Expect serviceGroup${quickServiceOrder_validate_serviceGroup} but got " + objRequest.quickServiceOrders[0].serviceGroup}
+if ("${quickServiceOrder_validate_serviceGroupDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serviceGroupDescription!= "${quickServiceOrder_validate_serviceGroupDescription}") { failureMessage = failureMessage + "Expect serviceGroupDescription${quickServiceOrder_validate_serviceGroupDescription} but got " + objRequest.quickServiceOrders[0].serviceGroupDescription}
+if ("${quickServiceOrder_validate_endUserCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserCode!= "${quickServiceOrder_validate_endUserCode}") { failureMessage = failureMessage + "Expect endUserCode${quickServiceOrder_validate_endUserCode} but got " + objRequest.quickServiceOrders[0].endUserCode}
+if ("${quickServiceOrder_validate_endUserAddressField1}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserAddressField1!= "${quickServiceOrder_validate_endUserAddressField1}") { failureMessage = failureMessage + "Expect endUserAddressField1${quickServiceOrder_validate_endUserAddressField1} but got " + objRequest.quickServiceOrders[0].endUserAddressField1}
+if ("${quickServiceOrder_validate_endUserAddressField2}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserAddressField2!= "${quickServiceOrder_validate_endUserAddressField2}") { failureMessage = failureMessage + "Expect endUserAddressField2${quickServiceOrder_validate_endUserAddressField2} but got " + objRequest.quickServiceOrders[0].endUserAddressField2}
+if ("${quickServiceOrder_validate_endUserAddressField3}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserAddressField3!= "${quickServiceOrder_validate_endUserAddressField3}") { failureMessage = failureMessage + "Expect endUserAddressField3${quickServiceOrder_validate_endUserAddressField3} but got " + objRequest.quickServiceOrders[0].endUserAddressField3}
+if ("${quickServiceOrder_validate_endUserAddressField4}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserAddressField4!= "${quickServiceOrder_validate_endUserAddressField4}") { failureMessage = failureMessage + "Expect endUserAddressField4${quickServiceOrder_validate_endUserAddressField4} but got " + objRequest.quickServiceOrders[0].endUserAddressField4}
+if ("${quickServiceOrder_validate_endUserAddressField5}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserAddressField5!= "${quickServiceOrder_validate_endUserAddressField5}") { failureMessage = failureMessage + "Expect endUserAddressField5${quickServiceOrder_validate_endUserAddressField5} but got " + objRequest.quickServiceOrders[0].endUserAddressField5}
+if ("${quickServiceOrder_validate_endUserAddressField6}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].endUserAddressField6!= "${quickServiceOrder_validate_endUserAddressField6}") { failureMessage = failureMessage + "Expect endUserAddressField6${quickServiceOrder_validate_endUserAddressField6} but got " + objRequest.quickServiceOrders[0].endUserAddressField6}
+if ("${quickServiceOrder_validate_billToCustomerCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToCustomerCode!= "${quickServiceOrder_validate_billToCustomerCode}") { failureMessage = failureMessage + "Expect billToCustomerCode${quickServiceOrder_validate_billToCustomerCode} but got " + objRequest.quickServiceOrders[0].billToCustomerCode}
+if ("${quickServiceOrder_validate_billToAddressField1}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToAddressField1!= "${quickServiceOrder_validate_billToAddressField1}") { failureMessage = failureMessage + "Expect billToAddressField1${quickServiceOrder_validate_billToAddressField1} but got " + objRequest.quickServiceOrders[0].billToAddressField1}
+if ("${quickServiceOrder_validate_billToAddressField2}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToAddressField2!= "${quickServiceOrder_validate_billToAddressField2}") { failureMessage = failureMessage + "Expect billToAddressField2${quickServiceOrder_validate_billToAddressField2} but got " + objRequest.quickServiceOrders[0].billToAddressField2}
+if ("${quickServiceOrder_validate_billToAddressField3}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToAddressField3!= "${quickServiceOrder_validate_billToAddressField3}") { failureMessage = failureMessage + "Expect billToAddressField3${quickServiceOrder_validate_billToAddressField3} but got " + objRequest.quickServiceOrders[0].billToAddressField3}
+if ("${quickServiceOrder_validate_billToAddressField4}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToAddressField4!= "${quickServiceOrder_validate_billToAddressField4}") { failureMessage = failureMessage + "Expect billToAddressField4${quickServiceOrder_validate_billToAddressField4} but got " + objRequest.quickServiceOrders[0].billToAddressField4}
+if ("${quickServiceOrder_validate_billToAddressField5}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToAddressField5!= "${quickServiceOrder_validate_billToAddressField5}") { failureMessage = failureMessage + "Expect billToAddressField5${quickServiceOrder_validate_billToAddressField5} but got " + objRequest.quickServiceOrders[0].billToAddressField5}
+if ("${quickServiceOrder_validate_billToAddressField6}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].billToAddressField6!= "${quickServiceOrder_validate_billToAddressField6}") { failureMessage = failureMessage + "Expect billToAddressField6${quickServiceOrder_validate_billToAddressField6} but got " + objRequest.quickServiceOrders[0].billToAddressField6}
+if ("${quickServiceOrder_validate_currencyCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].currencyCode!= "${quickServiceOrder_validate_currencyCode}") { failureMessage = failureMessage + "Expect currencyCode${quickServiceOrder_validate_currencyCode} but got " + objRequest.quickServiceOrders[0].currencyCode}
+if ("${quickServiceOrder_validate_isCheckCoverage}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].isCheckCoverage!= "${quickServiceOrder_validate_isCheckCoverage}") { failureMessage = failureMessage + "Expect isCheckCoverage${quickServiceOrder_validate_isCheckCoverage} but got " + objRequest.quickServiceOrders[0].isCheckCoverage}
+if ("${quickServiceOrder_validate_currencyCodeDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].currencyCodeDescription!= "${quickServiceOrder_validate_currencyCodeDescription}") { failureMessage = failureMessage + "Expect currencyCodeDescription${quickServiceOrder_validate_currencyCodeDescription} but got " + objRequest.quickServiceOrders[0].currencyCodeDescription}
+if ("${quickServiceOrder_validate_dataOperation}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].dataOperation!= "${quickServiceOrder_validate_dataOperation}") { failureMessage = failureMessage + "Expect dataOperation${quickServiceOrder_validate_dataOperation} but got " + objRequest.quickServiceOrders[0].dataOperation}
+if ("${quickServiceOrder_validate_concurrencyHash}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].concurrencyHash!= "${quickServiceOrder_validate_concurrencyHash}") { failureMessage = failureMessage + "Expect concurrencyHash${quickServiceOrder_validate_concurrencyHash} but got " + objRequest.quickServiceOrders[0].concurrencyHash}
+if ("${quickServiceOrder_validate_contractNumber}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].contractNumber!= "${quickServiceOrder_validate_contractNumber}") { failureMessage = failureMessage + "Expect contractNumber${quickServiceOrder_validate_contractNumber} but got " + objRequest.quickServiceOrders[0].contractNumber}
+if ("${quickServiceOrder_validate_contractLine}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].contractLine!= "${quickServiceOrder_validate_contractLine}") { failureMessage = failureMessage + "Expect contractLine${quickServiceOrder_validate_contractLine} but got " + objRequest.quickServiceOrders[0].contractLine}
+if ("${quickServiceOrder_validate_serviceType}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serviceType!= "${quickServiceOrder_validate_serviceType}") { failureMessage = failureMessage + "Expect serviceType${quickServiceOrder_validate_serviceType} but got " + objRequest.quickServiceOrders[0].serviceType}
+if ("${quickServiceOrder_validate_contractServiceTypeCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].contractServiceTypeCode!= "${quickServiceOrder_validate_contractServiceTypeCode}") { failureMessage = failureMessage + "Expect contractServiceTypeCode${quickServiceOrder_validate_contractServiceTypeCode} but got " + objRequest.quickServiceOrders[0].contractServiceTypeCode}
+if ("${quickServiceOrder_validate_warrantyServiceTypeCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].warrantyServiceTypeCode!= "${quickServiceOrder_validate_warrantyServiceTypeCode}") { failureMessage = failureMessage + "Expect warrantyServiceTypeCode${quickServiceOrder_validate_warrantyServiceTypeCode} but got " + objRequest.quickServiceOrders[0].warrantyServiceTypeCode}
+if ("${quickServiceOrder_validate_contractStartDate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].contractStartDate!= "${quickServiceOrder_validate_contractStartDate}") { failureMessage = failureMessage + "Expect contractStartDate${quickServiceOrder_validate_contractStartDate} but got " + objRequest.quickServiceOrders[0].contractStartDate}
+if ("${quickServiceOrder_validate_contractEndDate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].contractEndDate!= "${quickServiceOrder_validate_contractEndDate}") { failureMessage = failureMessage + "Expect contractEndDate${quickServiceOrder_validate_contractEndDate} but got " + objRequest.quickServiceOrders[0].contractEndDate}
+if ("${quickServiceOrder_validate_warrantyStartDate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].warrantyStartDate!= "${quickServiceOrder_validate_warrantyStartDate}") { failureMessage = failureMessage + "Expect warrantyStartDate${quickServiceOrder_validate_warrantyStartDate} but got " + objRequest.quickServiceOrders[0].warrantyStartDate}
+if ("${quickServiceOrder_validate_warrantyEndDate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].warrantyEndDate!= "${quickServiceOrder_validate_warrantyEndDate}") { failureMessage = failureMessage + "Expect warrantyEndDate${quickServiceOrder_validate_warrantyEndDate} but got " + objRequest.quickServiceOrders[0].warrantyEndDate}
+if ("${quickServiceOrder_validate_serviceTypeCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serviceTypeCode!= "${quickServiceOrder_validate_serviceTypeCode}") { failureMessage = failureMessage + "Expect serviceTypeCode${quickServiceOrder_validate_serviceTypeCode} but got " + objRequest.quickServiceOrders[0].serviceTypeCode}
+if ("${quickServiceOrder_validate_serviceTypeDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].serviceTypeDescription!= "${quickServiceOrder_validate_serviceTypeDescription}") { failureMessage = failureMessage + "Expect serviceTypeDescription${quickServiceOrder_validate_serviceTypeDescription} but got " + objRequest.quickServiceOrders[0].serviceTypeDescription}
+if ("${quickServiceOrder_validate_salesProject}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].salesProject!= "${quickServiceOrder_validate_salesProject}") { failureMessage = failureMessage + "Expect salesProject${quickServiceOrder_validate_salesProject} but got " + objRequest.quickServiceOrders[0].salesProject}
+if ("${quickServiceOrder_validate_discountProject}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].discountProject!= "${quickServiceOrder_validate_discountProject}") { failureMessage = failureMessage + "Expect discountProject${quickServiceOrder_validate_discountProject} but got " + objRequest.quickServiceOrders[0].discountProject}
+if ("${quickServiceOrder_validate_callDate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].callDate!= "${quickServiceOrder_validate_callDate}") { failureMessage = failureMessage + "Expect callDate${quickServiceOrder_validate_callDate} but got " + objRequest.quickServiceOrders[0].callDate}
+if ("${quickServiceOrder_validate_baseCurrencyCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].baseCurrencyCode!= "${quickServiceOrder_validate_baseCurrencyCode}") { failureMessage = failureMessage + "Expect baseCurrencyCode${quickServiceOrder_validate_baseCurrencyCode} but got " + objRequest.quickServiceOrders[0].baseCurrencyCode}
+if ("${quickServiceOrder_validate_exchangeRate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].exchangeRate!= "${quickServiceOrder_validate_exchangeRate}") { failureMessage = failureMessage + "Expect exchangeRate${quickServiceOrder_validate_exchangeRate} but got " + objRequest.quickServiceOrders[0].exchangeRate}
+if ("${quickServiceOrder_validate_exchangeRateDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].exchangeRateDescription!= "${quickServiceOrder_validate_exchangeRateDescription}") { failureMessage = failureMessage + "Expect exchangeRateDescription${quickServiceOrder_validate_exchangeRateDescription} but got " + objRequest.quickServiceOrders[0].exchangeRateDescription}
+if ("${quickServiceOrder_validate_exchangeRate2}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].exchangeRate2!= "${quickServiceOrder_validate_exchangeRate2}") { failureMessage = failureMessage + "Expect exchangeRate2${quickServiceOrder_validate_exchangeRate2} but got " + objRequest.quickServiceOrders[0].exchangeRate2}
+if ("${quickServiceOrder_validate_exchangeRate2Description}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].exchangeRate2Description!= "${quickServiceOrder_validate_exchangeRate2Description}") { failureMessage = failureMessage + "Expect exchangeRate2Description${quickServiceOrder_validate_exchangeRate2Description} but got " + objRequest.quickServiceOrders[0].exchangeRate2Description}
+if ("${quickServiceOrder_validate_isFixedRate}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].isFixedRate!= "${quickServiceOrder_validate_isFixedRate}") { failureMessage = failureMessage + "Expect isFixedRate${quickServiceOrder_validate_isFixedRate} but got " + objRequest.quickServiceOrders[0].isFixedRate}
+if ("${quickServiceOrder_validate_isISBExistForOtherEndUser}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].isISBExistForOtherEndUser!= "${quickServiceOrder_validate_isISBExistForOtherEndUser}") { failureMessage = failureMessage + "Expect isISBExistForOtherEndUser${quickServiceOrder_validate_isISBExistForOtherEndUser} but got " + objRequest.quickServiceOrders[0].isISBExistForOtherEndUser}
+if ("${quickServiceOrder_validate_oldEndUserCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].oldEndUserCode!= "${quickServiceOrder_validate_oldEndUserCode}") { failureMessage = failureMessage + "Expect oldEndUserCode${quickServiceOrder_validate_oldEndUserCode} but got " + objRequest.quickServiceOrders[0].oldEndUserCode}
+if ("${quickServiceOrder_validate_isInstalledBaseItemExist}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].isInstalledBaseItemExist!= "${quickServiceOrder_validate_isInstalledBaseItemExist}") { failureMessage = failureMessage + "Expect isInstalledBaseItemExist${quickServiceOrder_validate_isInstalledBaseItemExist} but got " + objRequest.quickServiceOrders[0].isInstalledBaseItemExist}
+if ("${quickServiceOrder_validate_timeZoneCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].timeZoneCode!= "${quickServiceOrder_validate_timeZoneCode}") { failureMessage = failureMessage + "Expect timeZoneCode${quickServiceOrder_validate_timeZoneCode} but got " + objRequest.quickServiceOrders[0].timeZoneCode}
+if ("${quickServiceOrder_validate_timeZoneDescription}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].timeZoneDescription!= "${quickServiceOrder_validate_timeZoneDescription}") { failureMessage = failureMessage + "Expect timeZoneDescription${quickServiceOrder_validate_timeZoneDescription} but got " + objRequest.quickServiceOrders[0].timeZoneDescription}
+if ("${quickServiceOrder_validate_defaultTimeZoneCode}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].defaultTimeZoneCode!= "${quickServiceOrder_validate_defaultTimeZoneCode}") { failureMessage = failureMessage + "Expect defaultTimeZoneCode${quickServiceOrder_validate_defaultTimeZoneCode} but got " + objRequest.quickServiceOrders[0].defaultTimeZoneCode}
+if ("${quickServiceOrder_validate_isMultipleTimeZoneEnabled}" != "[N/A]" &amp;&amp; objRequest.quickServiceOrders[0].isMultipleTimeZoneEnabled!= "${quickServiceOrder_validate_isMultipleTimeZoneEnabled}") { failureMessage = failureMessage + "Expect isMultipleTimeZoneEnabled${quickServiceOrder_validate_isMultipleTimeZoneEnabled} but got " + objRequest.quickServiceOrders[0].isMultipleTimeZoneEnabled}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != "");
+</stringProp>
+		<stringProp name="scriptLanguage">javascript</stringProp>
+	</JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String prefix = "quickServiceOrder_"
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, "[N/A]");
+}
+}
+</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

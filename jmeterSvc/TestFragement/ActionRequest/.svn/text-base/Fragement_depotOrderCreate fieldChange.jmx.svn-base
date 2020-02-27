@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="depotOrderCreate fieldChange" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;depotOrderCreate_url_fieldName&quot;);
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;depotOrderCreate_domainCode&quot;);
+varsList.add(&quot;depotOrderCreate_depotOrderNumber&quot;);
+varsList.add(&quot;depotOrderCreate_documentType&quot;);
+varsList.add(&quot;depotOrderCreate_documentNumber&quot;);
+varsList.add(&quot;depotOrderCreate_itemCode&quot;);
+varsList.add(&quot;depotOrderCreate_itemDescription&quot;);
+varsList.add(&quot;depotOrderCreate_lotSerial&quot;);
+varsList.add(&quot;depotOrderCreate_reference&quot;);
+varsList.add(&quot;depotOrderCreate_endUserCode&quot;);
+varsList.add(&quot;depotOrderCreate_endUserAddressField1&quot;);
+varsList.add(&quot;depotOrderCreate_endUserAddressField2&quot;);
+varsList.add(&quot;depotOrderCreate_endUserAddressField3&quot;);
+varsList.add(&quot;depotOrderCreate_endUserAddressField4&quot;);
+varsList.add(&quot;depotOrderCreate_endUserAddressField5&quot;);
+varsList.add(&quot;depotOrderCreate_endUserAddressField6&quot;);
+varsList.add(&quot;depotOrderCreate_quantity&quot;);
+varsList.add(&quot;depotOrderCreate_unitOfMeasure&quot;);
+varsList.add(&quot;depotOrderCreate_billToCustomerCode&quot;);
+varsList.add(&quot;depotOrderCreate_billToAddressField1&quot;);
+varsList.add(&quot;depotOrderCreate_billToAddressField2&quot;);
+varsList.add(&quot;depotOrderCreate_billToAddressField3&quot;);
+varsList.add(&quot;depotOrderCreate_billToAddressField4&quot;);
+varsList.add(&quot;depotOrderCreate_billToAddressField5&quot;);
+varsList.add(&quot;depotOrderCreate_billToAddressField6&quot;);
+varsList.add(&quot;depotOrderCreate_currencyCode&quot;);
+varsList.add(&quot;depotOrderCreate_currencyCodeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_isConfirmed&quot;);
+varsList.add(&quot;depotOrderCreate_repairType&quot;);
+varsList.add(&quot;depotOrderCreate_repairTypeDisplayValue&quot;);
+varsList.add(&quot;depotOrderCreate_repairTypeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_workCode&quot;);
+varsList.add(&quot;depotOrderCreate_workCodeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_modelCode&quot;);
+varsList.add(&quot;depotOrderCreate_modelCodeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_serviceGroup&quot;);
+varsList.add(&quot;depotOrderCreate_serviceGroupDescription&quot;);
+varsList.add(&quot;depotOrderCreate_alternateItem&quot;);
+varsList.add(&quot;depotOrderCreate_callDate&quot;);
+varsList.add(&quot;depotOrderCreate_timeZoneCode&quot;);
+varsList.add(&quot;depotOrderCreate_timeZoneDescription&quot;);
+varsList.add(&quot;depotOrderCreate_defaultTimeZoneCode&quot;);
+varsList.add(&quot;depotOrderCreate_isMultipleTimeZoneEnabled&quot;);
+varsList.add(&quot;depotOrderCreate_purchaseOrderNumber&quot;);
+varsList.add(&quot;depotOrderCreate_replacementItemCode&quot;);
+varsList.add(&quot;depotOrderCreate_replacementItemDescription&quot;);
+varsList.add(&quot;depotOrderCreate_replacementLotSerial&quot;);
+varsList.add(&quot;depotOrderCreate_replacementQuantity&quot;);
+varsList.add(&quot;depotOrderCreate_replacementUnitOfMeasure&quot;);
+varsList.add(&quot;depotOrderCreate_replacementAlternateItem&quot;);
+varsList.add(&quot;depotOrderCreate_dataOperation&quot;);
+varsList.add(&quot;depotOrderCreate_concurrencyHash&quot;);
+varsList.add(&quot;depotOrderCreate_isCheckCoverage&quot;);
+varsList.add(&quot;depotOrderCreate_contractNumber&quot;);
+varsList.add(&quot;depotOrderCreate_contractLine&quot;);
+varsList.add(&quot;depotOrderCreate_serviceType&quot;);
+varsList.add(&quot;depotOrderCreate_contractServiceTypeCode&quot;);
+varsList.add(&quot;depotOrderCreate_warrantyServiceTypeCode&quot;);
+varsList.add(&quot;depotOrderCreate_contractStartDate&quot;);
+varsList.add(&quot;depotOrderCreate_contractEndDate&quot;);
+varsList.add(&quot;depotOrderCreate_warrantyStartDate&quot;);
+varsList.add(&quot;depotOrderCreate_warrantyEndDate&quot;);
+varsList.add(&quot;depotOrderCreate_serviceTypeCode&quot;);
+varsList.add(&quot;depotOrderCreate_serviceTypeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_salesProject&quot;);
+varsList.add(&quot;depotOrderCreate_discountProject&quot;);
+varsList.add(&quot;depotOrderCreate_baseCurrencyCode&quot;);
+varsList.add(&quot;depotOrderCreate_exchangeRate&quot;);
+varsList.add(&quot;depotOrderCreate_exchangeRateDescription&quot;);
+varsList.add(&quot;depotOrderCreate_exchangeRate2&quot;);
+varsList.add(&quot;depotOrderCreate_exchangeRate2Description&quot;);
+varsList.add(&quot;depotOrderCreate_isFixedRate&quot;);
+varsList.add(&quot;depotOrderCreate_isISBExistForOtherEndUser&quot;);
+varsList.add(&quot;depotOrderCreate_oldEndUserCode&quot;);
+varsList.add(&quot;depotOrderCreate_isInstalledBaseItemExist&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;depotOrderCreate_validate_domainCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_depotOrderNumber&quot;);
+varsList.add(&quot;depotOrderCreate_validate_documentType&quot;);
+varsList.add(&quot;depotOrderCreate_validate_documentNumber&quot;);
+varsList.add(&quot;depotOrderCreate_validate_itemCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_itemDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_lotSerial&quot;);
+varsList.add(&quot;depotOrderCreate_validate_reference&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserAddressField1&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserAddressField2&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserAddressField3&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserAddressField4&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserAddressField5&quot;);
+varsList.add(&quot;depotOrderCreate_validate_endUserAddressField6&quot;);
+varsList.add(&quot;depotOrderCreate_validate_quantity&quot;);
+varsList.add(&quot;depotOrderCreate_validate_unitOfMeasure&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToCustomerCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToAddressField1&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToAddressField2&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToAddressField3&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToAddressField4&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToAddressField5&quot;);
+varsList.add(&quot;depotOrderCreate_validate_billToAddressField6&quot;);
+varsList.add(&quot;depotOrderCreate_validate_currencyCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_currencyCodeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_isConfirmed&quot;);
+varsList.add(&quot;depotOrderCreate_validate_repairType&quot;);
+varsList.add(&quot;depotOrderCreate_validate_repairTypeDisplayValue&quot;);
+varsList.add(&quot;depotOrderCreate_validate_repairTypeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_workCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_workCodeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_modelCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_modelCodeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_serviceGroup&quot;);
+varsList.add(&quot;depotOrderCreate_validate_serviceGroupDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_alternateItem&quot;);
+varsList.add(&quot;depotOrderCreate_validate_callDate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_timeZoneCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_timeZoneDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_defaultTimeZoneCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_isMultipleTimeZoneEnabled&quot;);
+varsList.add(&quot;depotOrderCreate_validate_purchaseOrderNumber&quot;);
+varsList.add(&quot;depotOrderCreate_validate_replacementItemCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_replacementItemDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_replacementLotSerial&quot;);
+varsList.add(&quot;depotOrderCreate_validate_replacementQuantity&quot;);
+varsList.add(&quot;depotOrderCreate_validate_replacementUnitOfMeasure&quot;);
+varsList.add(&quot;depotOrderCreate_validate_replacementAlternateItem&quot;);
+varsList.add(&quot;depotOrderCreate_validate_dataOperation&quot;);
+varsList.add(&quot;depotOrderCreate_validate_concurrencyHash&quot;);
+varsList.add(&quot;depotOrderCreate_validate_isCheckCoverage&quot;);
+varsList.add(&quot;depotOrderCreate_validate_contractNumber&quot;);
+varsList.add(&quot;depotOrderCreate_validate_contractLine&quot;);
+varsList.add(&quot;depotOrderCreate_validate_serviceType&quot;);
+varsList.add(&quot;depotOrderCreate_validate_contractServiceTypeCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_warrantyServiceTypeCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_contractStartDate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_contractEndDate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_warrantyStartDate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_warrantyEndDate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_serviceTypeCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_serviceTypeDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_salesProject&quot;);
+varsList.add(&quot;depotOrderCreate_validate_discountProject&quot;);
+varsList.add(&quot;depotOrderCreate_validate_baseCurrencyCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_exchangeRate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_exchangeRateDescription&quot;);
+varsList.add(&quot;depotOrderCreate_validate_exchangeRate2&quot;);
+varsList.add(&quot;depotOrderCreate_validate_exchangeRate2Description&quot;);
+varsList.add(&quot;depotOrderCreate_validate_isFixedRate&quot;);
+varsList.add(&quot;depotOrderCreate_validate_isISBExistForOtherEndUser&quot;);
+varsList.add(&quot;depotOrderCreate_validate_oldEndUserCode&quot;);
+varsList.add(&quot;depotOrderCreate_validate_isInstalledBaseItemExist&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="depotOrderCreate fieldChange" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/depotOrderCreates/fieldChange?fieldName=${depotOrderCreate_url_fieldName}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${depotOrderCreate_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].domainCode= &quot;${depotOrderCreate_domainCode}&quot;;
+if (&quot;${depotOrderCreate_depotOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].depotOrderNumber= &quot;${depotOrderCreate_depotOrderNumber}&quot;;
+if (&quot;${depotOrderCreate_documentType}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].documentType= &quot;${depotOrderCreate_documentType}&quot;;
+if (&quot;${depotOrderCreate_documentNumber}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].documentNumber= &quot;${depotOrderCreate_documentNumber}&quot;;
+if (&quot;${depotOrderCreate_itemCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].itemCode= &quot;${depotOrderCreate_itemCode}&quot;;
+if (&quot;${depotOrderCreate_itemDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].itemDescription= &quot;${depotOrderCreate_itemDescription}&quot;;
+if (&quot;${depotOrderCreate_lotSerial}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].lotSerial= &quot;${depotOrderCreate_lotSerial}&quot;;
+if (&quot;${depotOrderCreate_reference}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].reference= &quot;${depotOrderCreate_reference}&quot;;
+if (&quot;${depotOrderCreate_endUserCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserCode= &quot;${depotOrderCreate_endUserCode}&quot;;
+if (&quot;${depotOrderCreate_endUserAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserAddressField1= &quot;${depotOrderCreate_endUserAddressField1}&quot;;
+if (&quot;${depotOrderCreate_endUserAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserAddressField2= &quot;${depotOrderCreate_endUserAddressField2}&quot;;
+if (&quot;${depotOrderCreate_endUserAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserAddressField3= &quot;${depotOrderCreate_endUserAddressField3}&quot;;
+if (&quot;${depotOrderCreate_endUserAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserAddressField4= &quot;${depotOrderCreate_endUserAddressField4}&quot;;
+if (&quot;${depotOrderCreate_endUserAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserAddressField5= &quot;${depotOrderCreate_endUserAddressField5}&quot;;
+if (&quot;${depotOrderCreate_endUserAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].endUserAddressField6= &quot;${depotOrderCreate_endUserAddressField6}&quot;;
+if (&quot;${depotOrderCreate_quantity}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].quantity= &quot;${depotOrderCreate_quantity}&quot;;
+if (&quot;${depotOrderCreate_unitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].unitOfMeasure= &quot;${depotOrderCreate_unitOfMeasure}&quot;;
+if (&quot;${depotOrderCreate_billToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToCustomerCode= &quot;${depotOrderCreate_billToCustomerCode}&quot;;
+if (&quot;${depotOrderCreate_billToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToAddressField1= &quot;${depotOrderCreate_billToAddressField1}&quot;;
+if (&quot;${depotOrderCreate_billToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToAddressField2= &quot;${depotOrderCreate_billToAddressField2}&quot;;
+if (&quot;${depotOrderCreate_billToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToAddressField3= &quot;${depotOrderCreate_billToAddressField3}&quot;;
+if (&quot;${depotOrderCreate_billToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToAddressField4= &quot;${depotOrderCreate_billToAddressField4}&quot;;
+if (&quot;${depotOrderCreate_billToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToAddressField5= &quot;${depotOrderCreate_billToAddressField5}&quot;;
+if (&quot;${depotOrderCreate_billToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].billToAddressField6= &quot;${depotOrderCreate_billToAddressField6}&quot;;
+if (&quot;${depotOrderCreate_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].currencyCode= &quot;${depotOrderCreate_currencyCode}&quot;;
+if (&quot;${depotOrderCreate_currencyCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].currencyCodeDescription= &quot;${depotOrderCreate_currencyCodeDescription}&quot;;
+if (&quot;${depotOrderCreate_isConfirmed}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].isConfirmed= &quot;${depotOrderCreate_isConfirmed}&quot;;
+if (&quot;${depotOrderCreate_repairType}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].repairType= &quot;${depotOrderCreate_repairType}&quot;;
+if (&quot;${depotOrderCreate_repairTypeDisplayValue}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].repairTypeDisplayValue= &quot;${depotOrderCreate_repairTypeDisplayValue}&quot;;
+if (&quot;${depotOrderCreate_repairTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].repairTypeDescription= &quot;${depotOrderCreate_repairTypeDescription}&quot;;
+if (&quot;${depotOrderCreate_workCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].workCode= &quot;${depotOrderCreate_workCode}&quot;;
+if (&quot;${depotOrderCreate_workCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].workCodeDescription= &quot;${depotOrderCreate_workCodeDescription}&quot;;
+if (&quot;${depotOrderCreate_modelCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].modelCode= &quot;${depotOrderCreate_modelCode}&quot;;
+if (&quot;${depotOrderCreate_modelCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].modelCodeDescription= &quot;${depotOrderCreate_modelCodeDescription}&quot;;
+if (&quot;${depotOrderCreate_serviceGroup}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].serviceGroup= &quot;${depotOrderCreate_serviceGroup}&quot;;
+if (&quot;${depotOrderCreate_serviceGroupDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].serviceGroupDescription= &quot;${depotOrderCreate_serviceGroupDescription}&quot;;
+if (&quot;${depotOrderCreate_alternateItem}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].alternateItem= &quot;${depotOrderCreate_alternateItem}&quot;;
+if (&quot;${depotOrderCreate_callDate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].callDate= &quot;${depotOrderCreate_callDate}&quot;;
+if (&quot;${depotOrderCreate_timeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].timeZoneCode= &quot;${depotOrderCreate_timeZoneCode}&quot;;
+if (&quot;${depotOrderCreate_timeZoneDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].timeZoneDescription= &quot;${depotOrderCreate_timeZoneDescription}&quot;;
+if (&quot;${depotOrderCreate_defaultTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].defaultTimeZoneCode= &quot;${depotOrderCreate_defaultTimeZoneCode}&quot;;
+if (&quot;${depotOrderCreate_isMultipleTimeZoneEnabled}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].isMultipleTimeZoneEnabled= &quot;${depotOrderCreate_isMultipleTimeZoneEnabled}&quot;;
+if (&quot;${depotOrderCreate_purchaseOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].purchaseOrderNumber= &quot;${depotOrderCreate_purchaseOrderNumber}&quot;;
+if (&quot;${depotOrderCreate_replacementItemCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].replacementItemCode= &quot;${depotOrderCreate_replacementItemCode}&quot;;
+if (&quot;${depotOrderCreate_replacementItemDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].replacementItemDescription= &quot;${depotOrderCreate_replacementItemDescription}&quot;;
+if (&quot;${depotOrderCreate_replacementLotSerial}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].replacementLotSerial= &quot;${depotOrderCreate_replacementLotSerial}&quot;;
+if (&quot;${depotOrderCreate_replacementQuantity}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].replacementQuantity= &quot;${depotOrderCreate_replacementQuantity}&quot;;
+if (&quot;${depotOrderCreate_replacementUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].replacementUnitOfMeasure= &quot;${depotOrderCreate_replacementUnitOfMeasure}&quot;;
+if (&quot;${depotOrderCreate_replacementAlternateItem}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].replacementAlternateItem= &quot;${depotOrderCreate_replacementAlternateItem}&quot;;
+if (&quot;${depotOrderCreate_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].dataOperation= &quot;${depotOrderCreate_dataOperation}&quot;;
+if (&quot;${depotOrderCreate_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].concurrencyHash= &quot;${depotOrderCreate_concurrencyHash}&quot;;
+if (&quot;${depotOrderCreate_isCheckCoverage}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].isCheckCoverage= &quot;${depotOrderCreate_isCheckCoverage}&quot;;
+if (&quot;${depotOrderCreate_contractNumber}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].contractNumber= &quot;${depotOrderCreate_contractNumber}&quot;;
+if (&quot;${depotOrderCreate_contractLine}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].contractLine= &quot;${depotOrderCreate_contractLine}&quot;;
+if (&quot;${depotOrderCreate_serviceType}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].serviceType= &quot;${depotOrderCreate_serviceType}&quot;;
+if (&quot;${depotOrderCreate_contractServiceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].contractServiceTypeCode= &quot;${depotOrderCreate_contractServiceTypeCode}&quot;;
+if (&quot;${depotOrderCreate_warrantyServiceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].warrantyServiceTypeCode= &quot;${depotOrderCreate_warrantyServiceTypeCode}&quot;;
+if (&quot;${depotOrderCreate_contractStartDate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].contractStartDate= &quot;${depotOrderCreate_contractStartDate}&quot;;
+if (&quot;${depotOrderCreate_contractEndDate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].contractEndDate= &quot;${depotOrderCreate_contractEndDate}&quot;;
+if (&quot;${depotOrderCreate_warrantyStartDate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].warrantyStartDate= &quot;${depotOrderCreate_warrantyStartDate}&quot;;
+if (&quot;${depotOrderCreate_warrantyEndDate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].warrantyEndDate= &quot;${depotOrderCreate_warrantyEndDate}&quot;;
+if (&quot;${depotOrderCreate_serviceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].serviceTypeCode= &quot;${depotOrderCreate_serviceTypeCode}&quot;;
+if (&quot;${depotOrderCreate_serviceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].serviceTypeDescription= &quot;${depotOrderCreate_serviceTypeDescription}&quot;;
+if (&quot;${depotOrderCreate_salesProject}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].salesProject= &quot;${depotOrderCreate_salesProject}&quot;;
+if (&quot;${depotOrderCreate_discountProject}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].discountProject= &quot;${depotOrderCreate_discountProject}&quot;;
+if (&quot;${depotOrderCreate_baseCurrencyCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].baseCurrencyCode= &quot;${depotOrderCreate_baseCurrencyCode}&quot;;
+if (&quot;${depotOrderCreate_exchangeRate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].exchangeRate= &quot;${depotOrderCreate_exchangeRate}&quot;;
+if (&quot;${depotOrderCreate_exchangeRateDescription}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].exchangeRateDescription= &quot;${depotOrderCreate_exchangeRateDescription}&quot;;
+if (&quot;${depotOrderCreate_exchangeRate2}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].exchangeRate2= &quot;${depotOrderCreate_exchangeRate2}&quot;;
+if (&quot;${depotOrderCreate_exchangeRate2Description}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].exchangeRate2Description= &quot;${depotOrderCreate_exchangeRate2Description}&quot;;
+if (&quot;${depotOrderCreate_isFixedRate}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].isFixedRate= &quot;${depotOrderCreate_isFixedRate}&quot;;
+if (&quot;${depotOrderCreate_isISBExistForOtherEndUser}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].isISBExistForOtherEndUser= &quot;${depotOrderCreate_isISBExistForOtherEndUser}&quot;;
+if (&quot;${depotOrderCreate_oldEndUserCode}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].oldEndUserCode= &quot;${depotOrderCreate_oldEndUserCode}&quot;;
+if (&quot;${depotOrderCreate_isInstalledBaseItemExist}&quot; != &quot;[N/A]&quot;) objRequest.depotOrderCreates[0].isInstalledBaseItemExist= &quot;${depotOrderCreate_isInstalledBaseItemExist}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="VAR">RequestData</stringProp>
+            <stringProp name="JSONPATH">$.data</stringProp>
+            <stringProp name="DEFAULT">NotFound</stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+
+// All the fields in dataset should be set here
+if (&quot;${depotOrderCreate_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].domainCode!= &quot;${depotOrderCreate_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${depotOrderCreate_validate_domainCode} but got &quot; + objRequest.depotOrderCreates[0].domainCode}
+if (&quot;${depotOrderCreate_validate_depotOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].depotOrderNumber!= &quot;${depotOrderCreate_validate_depotOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect depotOrderNumber${depotOrderCreate_validate_depotOrderNumber} but got &quot; + objRequest.depotOrderCreates[0].depotOrderNumber}
+if (&quot;${depotOrderCreate_validate_documentType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].documentType!= &quot;${depotOrderCreate_validate_documentType}&quot;) { failureMessage = failureMessage + &quot;Expect documentType${depotOrderCreate_validate_documentType} but got &quot; + objRequest.depotOrderCreates[0].documentType}
+if (&quot;${depotOrderCreate_validate_documentNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].documentNumber!= &quot;${depotOrderCreate_validate_documentNumber}&quot;) { failureMessage = failureMessage + &quot;Expect documentNumber${depotOrderCreate_validate_documentNumber} but got &quot; + objRequest.depotOrderCreates[0].documentNumber}
+if (&quot;${depotOrderCreate_validate_itemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].itemCode!= &quot;${depotOrderCreate_validate_itemCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemCode${depotOrderCreate_validate_itemCode} but got &quot; + objRequest.depotOrderCreates[0].itemCode}
+if (&quot;${depotOrderCreate_validate_itemDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].itemDescription!= &quot;${depotOrderCreate_validate_itemDescription}&quot;) { failureMessage = failureMessage + &quot;Expect itemDescription${depotOrderCreate_validate_itemDescription} but got &quot; + objRequest.depotOrderCreates[0].itemDescription}
+if (&quot;${depotOrderCreate_validate_lotSerial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].lotSerial!= &quot;${depotOrderCreate_validate_lotSerial}&quot;) { failureMessage = failureMessage + &quot;Expect lotSerial${depotOrderCreate_validate_lotSerial} but got &quot; + objRequest.depotOrderCreates[0].lotSerial}
+if (&quot;${depotOrderCreate_validate_reference}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].reference!= &quot;${depotOrderCreate_validate_reference}&quot;) { failureMessage = failureMessage + &quot;Expect reference${depotOrderCreate_validate_reference} but got &quot; + objRequest.depotOrderCreates[0].reference}
+if (&quot;${depotOrderCreate_validate_endUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserCode!= &quot;${depotOrderCreate_validate_endUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCode${depotOrderCreate_validate_endUserCode} but got &quot; + objRequest.depotOrderCreates[0].endUserCode}
+if (&quot;${depotOrderCreate_validate_endUserAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserAddressField1!= &quot;${depotOrderCreate_validate_endUserAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField1${depotOrderCreate_validate_endUserAddressField1} but got &quot; + objRequest.depotOrderCreates[0].endUserAddressField1}
+if (&quot;${depotOrderCreate_validate_endUserAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserAddressField2!= &quot;${depotOrderCreate_validate_endUserAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField2${depotOrderCreate_validate_endUserAddressField2} but got &quot; + objRequest.depotOrderCreates[0].endUserAddressField2}
+if (&quot;${depotOrderCreate_validate_endUserAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserAddressField3!= &quot;${depotOrderCreate_validate_endUserAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField3${depotOrderCreate_validate_endUserAddressField3} but got &quot; + objRequest.depotOrderCreates[0].endUserAddressField3}
+if (&quot;${depotOrderCreate_validate_endUserAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserAddressField4!= &quot;${depotOrderCreate_validate_endUserAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField4${depotOrderCreate_validate_endUserAddressField4} but got &quot; + objRequest.depotOrderCreates[0].endUserAddressField4}
+if (&quot;${depotOrderCreate_validate_endUserAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserAddressField5!= &quot;${depotOrderCreate_validate_endUserAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField5${depotOrderCreate_validate_endUserAddressField5} but got &quot; + objRequest.depotOrderCreates[0].endUserAddressField5}
+if (&quot;${depotOrderCreate_validate_endUserAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].endUserAddressField6!= &quot;${depotOrderCreate_validate_endUserAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField6${depotOrderCreate_validate_endUserAddressField6} but got &quot; + objRequest.depotOrderCreates[0].endUserAddressField6}
+if (&quot;${depotOrderCreate_validate_quantity}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].quantity!= &quot;${depotOrderCreate_validate_quantity}&quot;) { failureMessage = failureMessage + &quot;Expect quantity${depotOrderCreate_validate_quantity} but got &quot; + objRequest.depotOrderCreates[0].quantity}
+if (&quot;${depotOrderCreate_validate_unitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].unitOfMeasure!= &quot;${depotOrderCreate_validate_unitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect unitOfMeasure${depotOrderCreate_validate_unitOfMeasure} but got &quot; + objRequest.depotOrderCreates[0].unitOfMeasure}
+if (&quot;${depotOrderCreate_validate_billToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToCustomerCode!= &quot;${depotOrderCreate_validate_billToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect billToCustomerCode${depotOrderCreate_validate_billToCustomerCode} but got &quot; + objRequest.depotOrderCreates[0].billToCustomerCode}
+if (&quot;${depotOrderCreate_validate_billToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToAddressField1!= &quot;${depotOrderCreate_validate_billToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField1${depotOrderCreate_validate_billToAddressField1} but got &quot; + objRequest.depotOrderCreates[0].billToAddressField1}
+if (&quot;${depotOrderCreate_validate_billToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToAddressField2!= &quot;${depotOrderCreate_validate_billToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField2${depotOrderCreate_validate_billToAddressField2} but got &quot; + objRequest.depotOrderCreates[0].billToAddressField2}
+if (&quot;${depotOrderCreate_validate_billToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToAddressField3!= &quot;${depotOrderCreate_validate_billToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField3${depotOrderCreate_validate_billToAddressField3} but got &quot; + objRequest.depotOrderCreates[0].billToAddressField3}
+if (&quot;${depotOrderCreate_validate_billToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToAddressField4!= &quot;${depotOrderCreate_validate_billToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField4${depotOrderCreate_validate_billToAddressField4} but got &quot; + objRequest.depotOrderCreates[0].billToAddressField4}
+if (&quot;${depotOrderCreate_validate_billToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToAddressField5!= &quot;${depotOrderCreate_validate_billToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField5${depotOrderCreate_validate_billToAddressField5} but got &quot; + objRequest.depotOrderCreates[0].billToAddressField5}
+if (&quot;${depotOrderCreate_validate_billToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].billToAddressField6!= &quot;${depotOrderCreate_validate_billToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField6${depotOrderCreate_validate_billToAddressField6} but got &quot; + objRequest.depotOrderCreates[0].billToAddressField6}
+if (&quot;${depotOrderCreate_validate_currencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].currencyCode!= &quot;${depotOrderCreate_validate_currencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCode${depotOrderCreate_validate_currencyCode} but got &quot; + objRequest.depotOrderCreates[0].currencyCode}
+if (&quot;${depotOrderCreate_validate_currencyCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].currencyCodeDescription!= &quot;${depotOrderCreate_validate_currencyCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCodeDescription${depotOrderCreate_validate_currencyCodeDescription} but got &quot; + objRequest.depotOrderCreates[0].currencyCodeDescription}
+if (&quot;${depotOrderCreate_validate_isConfirmed}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].isConfirmed!= &quot;${depotOrderCreate_validate_isConfirmed}&quot;) { failureMessage = failureMessage + &quot;Expect isConfirmed${depotOrderCreate_validate_isConfirmed} but got &quot; + objRequest.depotOrderCreates[0].isConfirmed}
+if (&quot;${depotOrderCreate_validate_repairType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].repairType!= &quot;${depotOrderCreate_validate_repairType}&quot;) { failureMessage = failureMessage + &quot;Expect repairType${depotOrderCreate_validate_repairType} but got &quot; + objRequest.depotOrderCreates[0].repairType}
+if (&quot;${depotOrderCreate_validate_repairTypeDisplayValue}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].repairTypeDisplayValue!= &quot;${depotOrderCreate_validate_repairTypeDisplayValue}&quot;) { failureMessage = failureMessage + &quot;Expect repairTypeDisplayValue${depotOrderCreate_validate_repairTypeDisplayValue} but got &quot; + objRequest.depotOrderCreates[0].repairTypeDisplayValue}
+if (&quot;${depotOrderCreate_validate_repairTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].repairTypeDescription!= &quot;${depotOrderCreate_validate_repairTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect repairTypeDescription${depotOrderCreate_validate_repairTypeDescription} but got &quot; + objRequest.depotOrderCreates[0].repairTypeDescription}
+if (&quot;${depotOrderCreate_validate_workCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].workCode!= &quot;${depotOrderCreate_validate_workCode}&quot;) { failureMessage = failureMessage + &quot;Expect workCode${depotOrderCreate_validate_workCode} but got &quot; + objRequest.depotOrderCreates[0].workCode}
+if (&quot;${depotOrderCreate_validate_workCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].workCodeDescription!= &quot;${depotOrderCreate_validate_workCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect workCodeDescription${depotOrderCreate_validate_workCodeDescription} but got &quot; + objRequest.depotOrderCreates[0].workCodeDescription}
+if (&quot;${depotOrderCreate_validate_modelCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].modelCode!= &quot;${depotOrderCreate_validate_modelCode}&quot;) { failureMessage = failureMessage + &quot;Expect modelCode${depotOrderCreate_validate_modelCode} but got &quot; + objRequest.depotOrderCreates[0].modelCode}
+if (&quot;${depotOrderCreate_validate_modelCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].modelCodeDescription!= &quot;${depotOrderCreate_validate_modelCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect modelCodeDescription${depotOrderCreate_validate_modelCodeDescription} but got &quot; + objRequest.depotOrderCreates[0].modelCodeDescription}
+if (&quot;${depotOrderCreate_validate_serviceGroup}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].serviceGroup!= &quot;${depotOrderCreate_validate_serviceGroup}&quot;) { failureMessage = failureMessage + &quot;Expect serviceGroup${depotOrderCreate_validate_serviceGroup} but got &quot; + objRequest.depotOrderCreates[0].serviceGroup}
+if (&quot;${depotOrderCreate_validate_serviceGroupDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].serviceGroupDescription!= &quot;${depotOrderCreate_validate_serviceGroupDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceGroupDescription${depotOrderCreate_validate_serviceGroupDescription} but got &quot; + objRequest.depotOrderCreates[0].serviceGroupDescription}
+if (&quot;${depotOrderCreate_validate_alternateItem}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].alternateItem!= &quot;${depotOrderCreate_validate_alternateItem}&quot;) { failureMessage = failureMessage + &quot;Expect alternateItem${depotOrderCreate_validate_alternateItem} but got &quot; + objRequest.depotOrderCreates[0].alternateItem}
+if (&quot;${depotOrderCreate_validate_callDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].callDate!= &quot;${depotOrderCreate_validate_callDate}&quot;) { failureMessage = failureMessage + &quot;Expect callDate${depotOrderCreate_validate_callDate} but got &quot; + objRequest.depotOrderCreates[0].callDate}
+if (&quot;${depotOrderCreate_validate_timeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].timeZoneCode!= &quot;${depotOrderCreate_validate_timeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect timeZoneCode${depotOrderCreate_validate_timeZoneCode} but got &quot; + objRequest.depotOrderCreates[0].timeZoneCode}
+if (&quot;${depotOrderCreate_validate_timeZoneDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].timeZoneDescription!= &quot;${depotOrderCreate_validate_timeZoneDescription}&quot;) { failureMessage = failureMessage + &quot;Expect timeZoneDescription${depotOrderCreate_validate_timeZoneDescription} but got &quot; + objRequest.depotOrderCreates[0].timeZoneDescription}
+if (&quot;${depotOrderCreate_validate_defaultTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].defaultTimeZoneCode!= &quot;${depotOrderCreate_validate_defaultTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect defaultTimeZoneCode${depotOrderCreate_validate_defaultTimeZoneCode} but got &quot; + objRequest.depotOrderCreates[0].defaultTimeZoneCode}
+if (&quot;${depotOrderCreate_validate_isMultipleTimeZoneEnabled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].isMultipleTimeZoneEnabled!= &quot;${depotOrderCreate_validate_isMultipleTimeZoneEnabled}&quot;) { failureMessage = failureMessage + &quot;Expect isMultipleTimeZoneEnabled${depotOrderCreate_validate_isMultipleTimeZoneEnabled} but got &quot; + objRequest.depotOrderCreates[0].isMultipleTimeZoneEnabled}
+if (&quot;${depotOrderCreate_validate_purchaseOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].purchaseOrderNumber!= &quot;${depotOrderCreate_validate_purchaseOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect purchaseOrderNumber${depotOrderCreate_validate_purchaseOrderNumber} but got &quot; + objRequest.depotOrderCreates[0].purchaseOrderNumber}
+if (&quot;${depotOrderCreate_validate_replacementItemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].replacementItemCode!= &quot;${depotOrderCreate_validate_replacementItemCode}&quot;) { failureMessage = failureMessage + &quot;Expect replacementItemCode${depotOrderCreate_validate_replacementItemCode} but got &quot; + objRequest.depotOrderCreates[0].replacementItemCode}
+if (&quot;${depotOrderCreate_validate_replacementItemDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].replacementItemDescription!= &quot;${depotOrderCreate_validate_replacementItemDescription}&quot;) { failureMessage = failureMessage + &quot;Expect replacementItemDescription${depotOrderCreate_validate_replacementItemDescription} but got &quot; + objRequest.depotOrderCreates[0].replacementItemDescription}
+if (&quot;${depotOrderCreate_validate_replacementLotSerial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].replacementLotSerial!= &quot;${depotOrderCreate_validate_replacementLotSerial}&quot;) { failureMessage = failureMessage + &quot;Expect replacementLotSerial${depotOrderCreate_validate_replacementLotSerial} but got &quot; + objRequest.depotOrderCreates[0].replacementLotSerial}
+if (&quot;${depotOrderCreate_validate_replacementQuantity}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].replacementQuantity!= &quot;${depotOrderCreate_validate_replacementQuantity}&quot;) { failureMessage = failureMessage + &quot;Expect replacementQuantity${depotOrderCreate_validate_replacementQuantity} but got &quot; + objRequest.depotOrderCreates[0].replacementQuantity}
+if (&quot;${depotOrderCreate_validate_replacementUnitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].replacementUnitOfMeasure!= &quot;${depotOrderCreate_validate_replacementUnitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect replacementUnitOfMeasure${depotOrderCreate_validate_replacementUnitOfMeasure} but got &quot; + objRequest.depotOrderCreates[0].replacementUnitOfMeasure}
+if (&quot;${depotOrderCreate_validate_replacementAlternateItem}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].replacementAlternateItem!= &quot;${depotOrderCreate_validate_replacementAlternateItem}&quot;) { failureMessage = failureMessage + &quot;Expect replacementAlternateItem${depotOrderCreate_validate_replacementAlternateItem} but got &quot; + objRequest.depotOrderCreates[0].replacementAlternateItem}
+if (&quot;${depotOrderCreate_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].dataOperation!= &quot;${depotOrderCreate_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${depotOrderCreate_validate_dataOperation} but got &quot; + objRequest.depotOrderCreates[0].dataOperation}
+if (&quot;${depotOrderCreate_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].concurrencyHash!= &quot;${depotOrderCreate_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${depotOrderCreate_validate_concurrencyHash} but got &quot; + objRequest.depotOrderCreates[0].concurrencyHash}
+if (&quot;${depotOrderCreate_validate_isCheckCoverage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].isCheckCoverage!= &quot;${depotOrderCreate_validate_isCheckCoverage}&quot;) { failureMessage = failureMessage + &quot;Expect isCheckCoverage${depotOrderCreate_validate_isCheckCoverage} but got &quot; + objRequest.depotOrderCreates[0].isCheckCoverage}
+if (&quot;${depotOrderCreate_validate_contractNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].contractNumber!= &quot;${depotOrderCreate_validate_contractNumber}&quot;) { failureMessage = failureMessage + &quot;Expect contractNumber${depotOrderCreate_validate_contractNumber} but got &quot; + objRequest.depotOrderCreates[0].contractNumber}
+if (&quot;${depotOrderCreate_validate_contractLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].contractLine!= &quot;${depotOrderCreate_validate_contractLine}&quot;) { failureMessage = failureMessage + &quot;Expect contractLine${depotOrderCreate_validate_contractLine} but got &quot; + objRequest.depotOrderCreates[0].contractLine}
+if (&quot;${depotOrderCreate_validate_serviceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].serviceType!= &quot;${depotOrderCreate_validate_serviceType}&quot;) { failureMessage = failureMessage + &quot;Expect serviceType${depotOrderCreate_validate_serviceType} but got &quot; + objRequest.depotOrderCreates[0].serviceType}
+if (&quot;${depotOrderCreate_validate_contractServiceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].contractServiceTypeCode!= &quot;${depotOrderCreate_validate_contractServiceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect contractServiceTypeCode${depotOrderCreate_validate_contractServiceTypeCode} but got &quot; + objRequest.depotOrderCreates[0].contractServiceTypeCode}
+if (&quot;${depotOrderCreate_validate_warrantyServiceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].warrantyServiceTypeCode!= &quot;${depotOrderCreate_validate_warrantyServiceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyServiceTypeCode${depotOrderCreate_validate_warrantyServiceTypeCode} but got &quot; + objRequest.depotOrderCreates[0].warrantyServiceTypeCode}
+if (&quot;${depotOrderCreate_validate_contractStartDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].contractStartDate!= &quot;${depotOrderCreate_validate_contractStartDate}&quot;) { failureMessage = failureMessage + &quot;Expect contractStartDate${depotOrderCreate_validate_contractStartDate} but got &quot; + objRequest.depotOrderCreates[0].contractStartDate}
+if (&quot;${depotOrderCreate_validate_contractEndDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].contractEndDate!= &quot;${depotOrderCreate_validate_contractEndDate}&quot;) { failureMessage = failureMessage + &quot;Expect contractEndDate${depotOrderCreate_validate_contractEndDate} but got &quot; + objRequest.depotOrderCreates[0].contractEndDate}
+if (&quot;${depotOrderCreate_validate_warrantyStartDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].warrantyStartDate!= &quot;${depotOrderCreate_validate_warrantyStartDate}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyStartDate${depotOrderCreate_validate_warrantyStartDate} but got &quot; + objRequest.depotOrderCreates[0].warrantyStartDate}
+if (&quot;${depotOrderCreate_validate_warrantyEndDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].warrantyEndDate!= &quot;${depotOrderCreate_validate_warrantyEndDate}&quot;) { failureMessage = failureMessage + &quot;Expect warrantyEndDate${depotOrderCreate_validate_warrantyEndDate} but got &quot; + objRequest.depotOrderCreates[0].warrantyEndDate}
+if (&quot;${depotOrderCreate_validate_serviceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].serviceTypeCode!= &quot;${depotOrderCreate_validate_serviceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeCode${depotOrderCreate_validate_serviceTypeCode} but got &quot; + objRequest.depotOrderCreates[0].serviceTypeCode}
+if (&quot;${depotOrderCreate_validate_serviceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].serviceTypeDescription!= &quot;${depotOrderCreate_validate_serviceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeDescription${depotOrderCreate_validate_serviceTypeDescription} but got &quot; + objRequest.depotOrderCreates[0].serviceTypeDescription}
+if (&quot;${depotOrderCreate_validate_salesProject}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].salesProject!= &quot;${depotOrderCreate_validate_salesProject}&quot;) { failureMessage = failureMessage + &quot;Expect salesProject${depotOrderCreate_validate_salesProject} but got &quot; + objRequest.depotOrderCreates[0].salesProject}
+if (&quot;${depotOrderCreate_validate_discountProject}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].discountProject!= &quot;${depotOrderCreate_validate_discountProject}&quot;) { failureMessage = failureMessage + &quot;Expect discountProject${depotOrderCreate_validate_discountProject} but got &quot; + objRequest.depotOrderCreates[0].discountProject}
+if (&quot;${depotOrderCreate_validate_baseCurrencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].baseCurrencyCode!= &quot;${depotOrderCreate_validate_baseCurrencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect baseCurrencyCode${depotOrderCreate_validate_baseCurrencyCode} but got &quot; + objRequest.depotOrderCreates[0].baseCurrencyCode}
+if (&quot;${depotOrderCreate_validate_exchangeRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].exchangeRate!= &quot;${depotOrderCreate_validate_exchangeRate}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate${depotOrderCreate_validate_exchangeRate} but got &quot; + objRequest.depotOrderCreates[0].exchangeRate}
+if (&quot;${depotOrderCreate_validate_exchangeRateDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].exchangeRateDescription!= &quot;${depotOrderCreate_validate_exchangeRateDescription}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRateDescription${depotOrderCreate_validate_exchangeRateDescription} but got &quot; + objRequest.depotOrderCreates[0].exchangeRateDescription}
+if (&quot;${depotOrderCreate_validate_exchangeRate2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].exchangeRate2!= &quot;${depotOrderCreate_validate_exchangeRate2}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate2${depotOrderCreate_validate_exchangeRate2} but got &quot; + objRequest.depotOrderCreates[0].exchangeRate2}
+if (&quot;${depotOrderCreate_validate_exchangeRate2Description}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].exchangeRate2Description!= &quot;${depotOrderCreate_validate_exchangeRate2Description}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate2Description${depotOrderCreate_validate_exchangeRate2Description} but got &quot; + objRequest.depotOrderCreates[0].exchangeRate2Description}
+if (&quot;${depotOrderCreate_validate_isFixedRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].isFixedRate!= &quot;${depotOrderCreate_validate_isFixedRate}&quot;) { failureMessage = failureMessage + &quot;Expect isFixedRate${depotOrderCreate_validate_isFixedRate} but got &quot; + objRequest.depotOrderCreates[0].isFixedRate}
+if (&quot;${depotOrderCreate_validate_isISBExistForOtherEndUser}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].isISBExistForOtherEndUser!= &quot;${depotOrderCreate_validate_isISBExistForOtherEndUser}&quot;) { failureMessage = failureMessage + &quot;Expect isISBExistForOtherEndUser${depotOrderCreate_validate_isISBExistForOtherEndUser} but got &quot; + objRequest.depotOrderCreates[0].isISBExistForOtherEndUser}
+if (&quot;${depotOrderCreate_validate_oldEndUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].oldEndUserCode!= &quot;${depotOrderCreate_validate_oldEndUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect oldEndUserCode${depotOrderCreate_validate_oldEndUserCode} but got &quot; + objRequest.depotOrderCreates[0].oldEndUserCode}
+if (&quot;${depotOrderCreate_validate_isInstalledBaseItemExist}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.depotOrderCreates[0].isInstalledBaseItemExist!= &quot;${depotOrderCreate_validate_isInstalledBaseItemExist}&quot;) { failureMessage = failureMessage + &quot;Expect isInstalledBaseItemExist${depotOrderCreate_validate_isInstalledBaseItemExist} but got &quot; + objRequest.depotOrderCreates[0].isInstalledBaseItemExist}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;depotOrderCreate_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

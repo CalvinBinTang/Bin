@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3.20180111">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="materialOrderHeader fetch" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fetch" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;materialOrderHeader_url_materialOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_url_domainCode&quot;);
+varsList.add(&quot;materialOrderHeader_url_initialize&quot;);
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;materialOrderHeader_domainCode&quot;);
+varsList.add(&quot;materialOrderHeader_materialOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_numberFormat&quot;);
+varsList.add(&quot;materialOrderHeader_sequenceID&quot;);
+varsList.add(&quot;materialOrderHeader_numberFormatDescription&quot;);
+varsList.add(&quot;materialOrderHeader_soldToCustomerCode&quot;);
+varsList.add(&quot;materialOrderHeader_billToCustomerCode&quot;);
+varsList.add(&quot;materialOrderHeader_shipToCustomerCode&quot;);
+varsList.add(&quot;materialOrderHeader_creditTermsCode&quot;);
+varsList.add(&quot;materialOrderHeader_creditTermsDescription&quot;);
+varsList.add(&quot;materialOrderHeader_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;materialOrderHeader_soldToAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_soldToAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_soldToAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_soldToAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_soldToAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_soldToAddressField6&quot;);
+varsList.add(&quot;materialOrderHeader_billToAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_billToAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_billToAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_billToAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_billToAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_billToAddressField6&quot;);
+varsList.add(&quot;materialOrderHeader_shipToAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_shipToAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_shipToAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_shipToAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_shipToAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_shipToAddressField6&quot;);
+varsList.add(&quot;materialOrderHeader_isCreditReviewed&quot;);
+varsList.add(&quot;materialOrderHeader_remarks&quot;);
+varsList.add(&quot;materialOrderHeader_languageCode&quot;);
+varsList.add(&quot;materialOrderHeader_languageDescription&quot;);
+varsList.add(&quot;materialOrderHeader_isConfirmed&quot;);
+varsList.add(&quot;materialOrderHeader_confirmedDate&quot;);
+varsList.add(&quot;materialOrderHeader_purchaseOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_salesQuoteNumber&quot;);
+varsList.add(&quot;materialOrderHeader_orderDate&quot;);
+varsList.add(&quot;materialOrderHeader_requiredDate&quot;);
+varsList.add(&quot;materialOrderHeader_promiseDate&quot;);
+varsList.add(&quot;materialOrderHeader_dueDate&quot;);
+varsList.add(&quot;materialOrderHeader_performanceDate&quot;);
+varsList.add(&quot;materialOrderHeader_siteCode&quot;);
+varsList.add(&quot;materialOrderHeader_siteDescription&quot;);
+varsList.add(&quot;materialOrderHeader_isForecastConsumed&quot;);
+varsList.add(&quot;materialOrderHeader_isDetailAllocations&quot;);
+varsList.add(&quot;materialOrderHeader_allocateDays&quot;);
+varsList.add(&quot;materialOrderHeader_pricedDate&quot;);
+varsList.add(&quot;materialOrderHeader_pricingDate&quot;);
+varsList.add(&quot;materialOrderHeader_isLinePricing&quot;);
+varsList.add(&quot;materialOrderHeader_manual&quot;);
+varsList.add(&quot;materialOrderHeader_manualPriceListDescription&quot;);
+varsList.add(&quot;materialOrderHeader_isFixedPrice&quot;);
+varsList.add(&quot;materialOrderHeader_isReprice&quot;);
+varsList.add(&quot;materialOrderHeader_channel&quot;);
+varsList.add(&quot;materialOrderHeader_channelDescription&quot;);
+varsList.add(&quot;materialOrderHeader_projectCode&quot;);
+varsList.add(&quot;materialOrderHeader_projectDescription&quot;);
+varsList.add(&quot;materialOrderHeader_creatingUser&quot;);
+varsList.add(&quot;materialOrderHeader_creatingUserName&quot;);
+varsList.add(&quot;materialOrderHeader_currencyCode&quot;);
+varsList.add(&quot;materialOrderHeader_currencyDescription&quot;);
+varsList.add(&quot;materialOrderHeader_baseCurrencyCode&quot;);
+varsList.add(&quot;materialOrderHeader_exchangeRate&quot;);
+varsList.add(&quot;materialOrderHeader_exchangeRate2&quot;);
+varsList.add(&quot;materialOrderHeader_isFixedRate&quot;);
+varsList.add(&quot;materialOrderHeader_freightTermsCode&quot;);
+varsList.add(&quot;materialOrderHeader_freightTermsDescription&quot;);
+varsList.add(&quot;materialOrderHeader_isManualFreightTerms&quot;);
+varsList.add(&quot;materialOrderHeader_freightListCode&quot;);
+varsList.add(&quot;materialOrderHeader_freightListDescription&quot;);
+varsList.add(&quot;materialOrderHeader_freightMinimumWeight&quot;);
+varsList.add(&quot;materialOrderHeader_isCalculateFreight&quot;);
+varsList.add(&quot;materialOrderHeader_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;materialOrderHeader_exchangeRateType&quot;);
+varsList.add(&quot;materialOrderHeader_taxUsage&quot;);
+varsList.add(&quot;materialOrderHeader_taxUsageDescription&quot;);
+varsList.add(&quot;materialOrderHeader_taxEnvironment&quot;);
+varsList.add(&quot;materialOrderHeader_taxEnvironmentDescription&quot;);
+varsList.add(&quot;materialOrderHeader_taxClass&quot;);
+varsList.add(&quot;materialOrderHeader_taxClassDescription&quot;);
+varsList.add(&quot;materialOrderHeader_hasTradeSalesContract&quot;);
+varsList.add(&quot;materialOrderHeader_isTaxable&quot;);
+varsList.add(&quot;materialOrderHeader_isTaxIncluded&quot;);
+varsList.add(&quot;materialOrderHeader_taxDate&quot;);
+varsList.add(&quot;materialOrderHeader_isProvincialSalesTax&quot;);
+varsList.add(&quot;materialOrderHeader_provincialSalesTaxID&quot;);
+varsList.add(&quot;materialOrderHeader_federalSalesTaxID&quot;);
+varsList.add(&quot;materialOrderHeader_isImportExport&quot;);
+varsList.add(&quot;materialOrderHeader_daybookSetCode&quot;);
+varsList.add(&quot;materialOrderHeader_daybookSetDescription&quot;);
+varsList.add(&quot;materialOrderHeader_creditInitials&quot;);
+varsList.add(&quot;materialOrderHeader_creditInitialsDescription&quot;);
+varsList.add(&quot;materialOrderHeader_creditCard&quot;);
+varsList.add(&quot;materialOrderHeader_creditCardDescription&quot;);
+varsList.add(&quot;materialOrderHeader_actionStatus&quot;);
+varsList.add(&quot;materialOrderHeader_isActionStatusFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_actionStatusDescription&quot;);
+varsList.add(&quot;materialOrderHeader_revision&quot;);
+varsList.add(&quot;materialOrderHeader_prepaidAmount&quot;);
+varsList.add(&quot;materialOrderHeader_freeOnBoardPoint&quot;);
+varsList.add(&quot;materialOrderHeader_freeOnBoardPointDescription&quot;);
+varsList.add(&quot;materialOrderHeader_shipVia&quot;);
+varsList.add(&quot;materialOrderHeader_shipViaDescription&quot;);
+varsList.add(&quot;materialOrderHeader_billOfLading&quot;);
+varsList.add(&quot;materialOrderHeader_isPartialOK&quot;);
+varsList.add(&quot;materialOrderHeader_isPrintSalesOrder&quot;);
+varsList.add(&quot;materialOrderHeader_isPrintPackList&quot;);
+varsList.add(&quot;materialOrderHeader_isEDIPurchaseOrderAck&quot;);
+varsList.add(&quot;materialOrderHeader_isEDIInvoiceHistory&quot;);
+varsList.add(&quot;materialOrderHeader_isPrintInvoiceHistory&quot;);
+varsList.add(&quot;materialOrderHeader_lineTotal&quot;);
+varsList.add(&quot;materialOrderHeader_discountPercent&quot;);
+varsList.add(&quot;materialOrderHeader_discountAmount&quot;);
+varsList.add(&quot;materialOrderHeader_trailerCode1&quot;);
+varsList.add(&quot;materialOrderHeader_trailerCodeDescription1&quot;);
+varsList.add(&quot;materialOrderHeader_trailerAmount1&quot;);
+varsList.add(&quot;materialOrderHeader_trailerCode2&quot;);
+varsList.add(&quot;materialOrderHeader_trailerCodeDescription2&quot;);
+varsList.add(&quot;materialOrderHeader_trailerAmount2&quot;);
+varsList.add(&quot;materialOrderHeader_trailerCode3&quot;);
+varsList.add(&quot;materialOrderHeader_trailerCodeDescription3&quot;);
+varsList.add(&quot;materialOrderHeader_trailerAmount3&quot;);
+varsList.add(&quot;materialOrderHeader_totalTax&quot;);
+varsList.add(&quot;materialOrderHeader_totalContainerCharges&quot;);
+varsList.add(&quot;materialOrderHeader_totalLineCharges&quot;);
+varsList.add(&quot;materialOrderHeader_totalTrailerCharges&quot;);
+varsList.add(&quot;materialOrderHeader_initialTotalAmount&quot;);
+varsList.add(&quot;materialOrderHeader_totalAmount&quot;);
+varsList.add(&quot;materialOrderHeader_taxableAmount&quot;);
+varsList.add(&quot;materialOrderHeader_nonTaxableAmount&quot;);
+varsList.add(&quot;materialOrderHeader_isManualDiscountPercent&quot;);
+varsList.add(&quot;materialOrderHeader_isIntrastatActive&quot;);
+varsList.add(&quot;materialOrderHeader_isIntrastatUsed&quot;);
+varsList.add(&quot;materialOrderHeader_freightWeight&quot;);
+varsList.add(&quot;materialOrderHeader_siteEntityCode&quot;);
+varsList.add(&quot;materialOrderHeader_siteEntityDescription&quot;);
+varsList.add(&quot;materialOrderHeader_completeStatus&quot;);
+varsList.add(&quot;materialOrderHeader_statusDate&quot;);
+varsList.add(&quot;materialOrderHeader_isPrimarySO&quot;);
+varsList.add(&quot;materialOrderHeader_isSecondarySO&quot;);
+varsList.add(&quot;materialOrderHeader_endCustomerPO&quot;);
+varsList.add(&quot;materialOrderHeader_shipToPO&quot;);
+varsList.add(&quot;materialOrderHeader_transactionType&quot;);
+varsList.add(&quot;materialOrderHeader_isConsignment&quot;);
+varsList.add(&quot;materialOrderHeader_isCorrectionInvoice&quot;);
+varsList.add(&quot;materialOrderHeader_commentIndex&quot;);
+varsList.add(&quot;materialOrderHeader_isUsingConsignmentInventory&quot;);
+varsList.add(&quot;materialOrderHeader_consignmentLocationCode&quot;);
+varsList.add(&quot;materialOrderHeader_inTransitLocationCode&quot;);
+varsList.add(&quot;materialOrderHeader_maximumAgingDays&quot;);
+varsList.add(&quot;materialOrderHeader_isProcessOrderSummary&quot;);
+varsList.add(&quot;materialOrderHeader_isProcessPostTrailer&quot;);
+varsList.add(&quot;materialOrderHeader_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;materialOrderHeader_isMaintainLogisticsAcctCharge&quot;);
+varsList.add(&quot;materialOrderHeader_isNumberFormatFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_isPurchaseOrderFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_isSoldToFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_shipDate&quot;);
+varsList.add(&quot;materialOrderHeader_isReadyToInvoice&quot;);
+varsList.add(&quot;materialOrderHeader_isTamEnabled&quot;);
+varsList.add(&quot;materialOrderHeader_orderAction&quot;);
+varsList.add(&quot;materialOrderHeader_disallowedActions&quot;);
+varsList.add(&quot;materialOrderHeader_disallowedActionsMessage&quot;);
+varsList.add(&quot;materialOrderHeader_isScheduledOrder&quot;);
+varsList.add(&quot;materialOrderHeader_lastModifiedDate&quot;);
+varsList.add(&quot;materialOrderHeader_lastModifiedUser&quot;);
+varsList.add(&quot;materialOrderHeader_dataOperation&quot;);
+varsList.add(&quot;materialOrderHeader_salesOrderConcurrencyHash&quot;);
+varsList.add(&quot;materialOrderHeader_concurrencyHash&quot;);
+varsList.add(&quot;materialOrderHeader_invoiceNumber&quot;);
+varsList.add(&quot;materialOrderHeader_invoiceDate&quot;);
+varsList.add(&quot;materialOrderHeader_hasShippingTransaction&quot;);
+varsList.add(&quot;materialOrderHeader_hasQuantityToInvoice&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrUser1&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrUser2&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr01&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr02&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr03&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr04&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr05&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr06&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr07&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr08&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr09&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrChr10&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrDte01&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrDte02&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrDec01&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrDec02&quot;);
+varsList.add(&quot;materialOrderHeader_soMstrLog01&quot;);
+varsList.add(&quot;materialOrderHeader_serviceOrderType&quot;);
+varsList.add(&quot;materialOrderHeader_orderType&quot;);
+varsList.add(&quot;materialOrderHeader_serviceOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_engineerCode&quot;);
+varsList.add(&quot;materialOrderHeader_engineerName&quot;);
+varsList.add(&quot;materialOrderHeader_chargeCode&quot;);
+varsList.add(&quot;materialOrderHeader_chargeCodeDescription&quot;);
+varsList.add(&quot;materialOrderHeader_isShipToEngineer&quot;);
+varsList.add(&quot;materialOrderHeader_requiredTime&quot;);
+varsList.add(&quot;materialOrderHeader_requiredDateTime&quot;);
+varsList.add(&quot;materialOrderHeader_endUserCode&quot;);
+varsList.add(&quot;materialOrderHeader_endUserAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_endUserAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_endUserAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_endUserAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_endUserAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_endUserAddressField6&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;materialOrderHeader_validate_domainCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_materialOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_validate_numberFormat&quot;);
+varsList.add(&quot;materialOrderHeader_validate_sequenceID&quot;);
+varsList.add(&quot;materialOrderHeader_validate_numberFormatDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToCustomerCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToCustomerCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToCustomerCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditTermsCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditTermsDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soldToAddressField6&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billToAddressField6&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToAddressField6&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isCreditReviewed&quot;);
+varsList.add(&quot;materialOrderHeader_validate_remarks&quot;);
+varsList.add(&quot;materialOrderHeader_validate_languageCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_languageDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isConfirmed&quot;);
+varsList.add(&quot;materialOrderHeader_validate_confirmedDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_purchaseOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_validate_salesQuoteNumber&quot;);
+varsList.add(&quot;materialOrderHeader_validate_orderDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_requiredDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_promiseDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_dueDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_performanceDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_siteCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_siteDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isForecastConsumed&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isDetailAllocations&quot;);
+varsList.add(&quot;materialOrderHeader_validate_allocateDays&quot;);
+varsList.add(&quot;materialOrderHeader_validate_pricedDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_pricingDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isLinePricing&quot;);
+varsList.add(&quot;materialOrderHeader_validate_manual&quot;);
+varsList.add(&quot;materialOrderHeader_validate_manualPriceListDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isFixedPrice&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isReprice&quot;);
+varsList.add(&quot;materialOrderHeader_validate_channel&quot;);
+varsList.add(&quot;materialOrderHeader_validate_channelDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_projectCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_projectDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creatingUser&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creatingUserName&quot;);
+varsList.add(&quot;materialOrderHeader_validate_currencyCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_currencyDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_baseCurrencyCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_exchangeRate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_exchangeRate2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isFixedRate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightTermsCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightTermsDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isManualFreightTerms&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightListCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightListDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightMinimumWeight&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isCalculateFreight&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;materialOrderHeader_validate_exchangeRateType&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxUsage&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxUsageDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxEnvironment&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxEnvironmentDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxClass&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxClassDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_hasTradeSalesContract&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isTaxable&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isTaxIncluded&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isProvincialSalesTax&quot;);
+varsList.add(&quot;materialOrderHeader_validate_provincialSalesTaxID&quot;);
+varsList.add(&quot;materialOrderHeader_validate_federalSalesTaxID&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isImportExport&quot;);
+varsList.add(&quot;materialOrderHeader_validate_daybookSetCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_daybookSetDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditInitials&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditInitialsDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditCard&quot;);
+varsList.add(&quot;materialOrderHeader_validate_creditCardDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_actionStatus&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isActionStatusFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_validate_actionStatusDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_revision&quot;);
+varsList.add(&quot;materialOrderHeader_validate_prepaidAmount&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freeOnBoardPoint&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freeOnBoardPointDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipVia&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipViaDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_billOfLading&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isPartialOK&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isPrintSalesOrder&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isPrintPackList&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isEDIPurchaseOrderAck&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isEDIInvoiceHistory&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isPrintInvoiceHistory&quot;);
+varsList.add(&quot;materialOrderHeader_validate_lineTotal&quot;);
+varsList.add(&quot;materialOrderHeader_validate_discountPercent&quot;);
+varsList.add(&quot;materialOrderHeader_validate_discountAmount&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerCode1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerCodeDescription1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerAmount1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerCode2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerCodeDescription2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerAmount2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerCode3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerCodeDescription3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_trailerAmount3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_totalTax&quot;);
+varsList.add(&quot;materialOrderHeader_validate_totalContainerCharges&quot;);
+varsList.add(&quot;materialOrderHeader_validate_totalLineCharges&quot;);
+varsList.add(&quot;materialOrderHeader_validate_totalTrailerCharges&quot;);
+varsList.add(&quot;materialOrderHeader_validate_initialTotalAmount&quot;);
+varsList.add(&quot;materialOrderHeader_validate_totalAmount&quot;);
+varsList.add(&quot;materialOrderHeader_validate_taxableAmount&quot;);
+varsList.add(&quot;materialOrderHeader_validate_nonTaxableAmount&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isManualDiscountPercent&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isIntrastatActive&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isIntrastatUsed&quot;);
+varsList.add(&quot;materialOrderHeader_validate_freightWeight&quot;);
+varsList.add(&quot;materialOrderHeader_validate_siteEntityCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_siteEntityDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_completeStatus&quot;);
+varsList.add(&quot;materialOrderHeader_validate_statusDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isPrimarySO&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isSecondarySO&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endCustomerPO&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipToPO&quot;);
+varsList.add(&quot;materialOrderHeader_validate_transactionType&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isConsignment&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isCorrectionInvoice&quot;);
+varsList.add(&quot;materialOrderHeader_validate_commentIndex&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isUsingConsignmentInventory&quot;);
+varsList.add(&quot;materialOrderHeader_validate_consignmentLocationCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_inTransitLocationCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_maximumAgingDays&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isProcessOrderSummary&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isProcessPostTrailer&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isMaintainLogisticsAcctCharge&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isNumberFormatFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isPurchaseOrderFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isSoldToFieldReadOnly&quot;);
+varsList.add(&quot;materialOrderHeader_validate_shipDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isReadyToInvoice&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isTamEnabled&quot;);
+varsList.add(&quot;materialOrderHeader_validate_orderAction&quot;);
+varsList.add(&quot;materialOrderHeader_validate_disallowedActions&quot;);
+varsList.add(&quot;materialOrderHeader_validate_disallowedActionsMessage&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isScheduledOrder&quot;);
+varsList.add(&quot;materialOrderHeader_validate_lastModifiedDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_lastModifiedUser&quot;);
+varsList.add(&quot;materialOrderHeader_validate_dataOperation&quot;);
+varsList.add(&quot;materialOrderHeader_validate_salesOrderConcurrencyHash&quot;);
+varsList.add(&quot;materialOrderHeader_validate_concurrencyHash&quot;);
+varsList.add(&quot;materialOrderHeader_validate_invoiceNumber&quot;);
+varsList.add(&quot;materialOrderHeader_validate_invoiceDate&quot;);
+varsList.add(&quot;materialOrderHeader_validate_hasShippingTransaction&quot;);
+varsList.add(&quot;materialOrderHeader_validate_hasQuantityToInvoice&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrUser1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrUser2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr01&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr02&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr03&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr04&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr05&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr06&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr07&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr08&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr09&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrChr10&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrDte01&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrDte02&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrDec01&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrDec02&quot;);
+varsList.add(&quot;materialOrderHeader_validate_soMstrLog01&quot;);
+varsList.add(&quot;materialOrderHeader_validate_serviceOrderType&quot;);
+varsList.add(&quot;materialOrderHeader_validate_orderType&quot;);
+varsList.add(&quot;materialOrderHeader_validate_serviceOrderNumber&quot;);
+varsList.add(&quot;materialOrderHeader_validate_engineerCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_engineerName&quot;);
+varsList.add(&quot;materialOrderHeader_validate_chargeCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_chargeCodeDescription&quot;);
+varsList.add(&quot;materialOrderHeader_validate_isShipToEngineer&quot;);
+varsList.add(&quot;materialOrderHeader_validate_requiredTime&quot;);
+varsList.add(&quot;materialOrderHeader_validate_requiredDateTime&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserCode&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserAddressField1&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserAddressField2&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserAddressField3&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserAddressField4&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserAddressField5&quot;);
+varsList.add(&quot;materialOrderHeader_validate_endUserAddressField6&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="materialOrderHeader fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="materialOrderNumber" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">materialOrderNumber</stringProp>
+                <stringProp name="Argument.value">${materialOrderHeader_url_materialOrderNumber}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/materialOrderHeaders</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${materialOrderHeader_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].domainCode= &quot;${materialOrderHeader_domainCode}&quot;;
+if (&quot;${materialOrderHeader_materialOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].materialOrderNumber= &quot;${materialOrderHeader_materialOrderNumber}&quot;;
+if (&quot;${materialOrderHeader_numberFormat}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].numberFormat= &quot;${materialOrderHeader_numberFormat}&quot;;
+if (&quot;${materialOrderHeader_sequenceID}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].sequenceID= &quot;${materialOrderHeader_sequenceID}&quot;;
+if (&quot;${materialOrderHeader_numberFormatDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].numberFormatDescription= &quot;${materialOrderHeader_numberFormatDescription}&quot;;
+if (&quot;${materialOrderHeader_soldToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToCustomerCode= &quot;${materialOrderHeader_soldToCustomerCode}&quot;;
+if (&quot;${materialOrderHeader_billToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToCustomerCode= &quot;${materialOrderHeader_billToCustomerCode}&quot;;
+if (&quot;${materialOrderHeader_shipToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToCustomerCode= &quot;${materialOrderHeader_shipToCustomerCode}&quot;;
+if (&quot;${materialOrderHeader_creditTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditTermsCode= &quot;${materialOrderHeader_creditTermsCode}&quot;;
+if (&quot;${materialOrderHeader_creditTermsDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditTermsDescription= &quot;${materialOrderHeader_creditTermsDescription}&quot;;
+if (&quot;${materialOrderHeader_creditTermsInterestPercentage}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditTermsInterestPercentage= &quot;${materialOrderHeader_creditTermsInterestPercentage}&quot;;
+if (&quot;${materialOrderHeader_soldToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToAddressField1= &quot;${materialOrderHeader_soldToAddressField1}&quot;;
+if (&quot;${materialOrderHeader_soldToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToAddressField2= &quot;${materialOrderHeader_soldToAddressField2}&quot;;
+if (&quot;${materialOrderHeader_soldToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToAddressField3= &quot;${materialOrderHeader_soldToAddressField3}&quot;;
+if (&quot;${materialOrderHeader_soldToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToAddressField4= &quot;${materialOrderHeader_soldToAddressField4}&quot;;
+if (&quot;${materialOrderHeader_soldToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToAddressField5= &quot;${materialOrderHeader_soldToAddressField5}&quot;;
+if (&quot;${materialOrderHeader_soldToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soldToAddressField6= &quot;${materialOrderHeader_soldToAddressField6}&quot;;
+if (&quot;${materialOrderHeader_billToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToAddressField1= &quot;${materialOrderHeader_billToAddressField1}&quot;;
+if (&quot;${materialOrderHeader_billToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToAddressField2= &quot;${materialOrderHeader_billToAddressField2}&quot;;
+if (&quot;${materialOrderHeader_billToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToAddressField3= &quot;${materialOrderHeader_billToAddressField3}&quot;;
+if (&quot;${materialOrderHeader_billToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToAddressField4= &quot;${materialOrderHeader_billToAddressField4}&quot;;
+if (&quot;${materialOrderHeader_billToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToAddressField5= &quot;${materialOrderHeader_billToAddressField5}&quot;;
+if (&quot;${materialOrderHeader_billToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billToAddressField6= &quot;${materialOrderHeader_billToAddressField6}&quot;;
+if (&quot;${materialOrderHeader_shipToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToAddressField1= &quot;${materialOrderHeader_shipToAddressField1}&quot;;
+if (&quot;${materialOrderHeader_shipToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToAddressField2= &quot;${materialOrderHeader_shipToAddressField2}&quot;;
+if (&quot;${materialOrderHeader_shipToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToAddressField3= &quot;${materialOrderHeader_shipToAddressField3}&quot;;
+if (&quot;${materialOrderHeader_shipToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToAddressField4= &quot;${materialOrderHeader_shipToAddressField4}&quot;;
+if (&quot;${materialOrderHeader_shipToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToAddressField5= &quot;${materialOrderHeader_shipToAddressField5}&quot;;
+if (&quot;${materialOrderHeader_shipToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToAddressField6= &quot;${materialOrderHeader_shipToAddressField6}&quot;;
+if (&quot;${materialOrderHeader_isCreditReviewed}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isCreditReviewed= &quot;${materialOrderHeader_isCreditReviewed}&quot;;
+if (&quot;${materialOrderHeader_remarks}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].remarks= &quot;${materialOrderHeader_remarks}&quot;;
+if (&quot;${materialOrderHeader_languageCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].languageCode= &quot;${materialOrderHeader_languageCode}&quot;;
+if (&quot;${materialOrderHeader_languageDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].languageDescription= &quot;${materialOrderHeader_languageDescription}&quot;;
+if (&quot;${materialOrderHeader_isConfirmed}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isConfirmed= &quot;${materialOrderHeader_isConfirmed}&quot;;
+if (&quot;${materialOrderHeader_confirmedDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].confirmedDate= &quot;${materialOrderHeader_confirmedDate}&quot;;
+if (&quot;${materialOrderHeader_purchaseOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].purchaseOrderNumber= &quot;${materialOrderHeader_purchaseOrderNumber}&quot;;
+if (&quot;${materialOrderHeader_salesQuoteNumber}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].salesQuoteNumber= &quot;${materialOrderHeader_salesQuoteNumber}&quot;;
+if (&quot;${materialOrderHeader_orderDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].orderDate= &quot;${materialOrderHeader_orderDate}&quot;;
+if (&quot;${materialOrderHeader_requiredDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].requiredDate= &quot;${materialOrderHeader_requiredDate}&quot;;
+if (&quot;${materialOrderHeader_promiseDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].promiseDate= &quot;${materialOrderHeader_promiseDate}&quot;;
+if (&quot;${materialOrderHeader_dueDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].dueDate= &quot;${materialOrderHeader_dueDate}&quot;;
+if (&quot;${materialOrderHeader_performanceDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].performanceDate= &quot;${materialOrderHeader_performanceDate}&quot;;
+if (&quot;${materialOrderHeader_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].siteCode= &quot;${materialOrderHeader_siteCode}&quot;;
+if (&quot;${materialOrderHeader_siteDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].siteDescription= &quot;${materialOrderHeader_siteDescription}&quot;;
+if (&quot;${materialOrderHeader_isForecastConsumed}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isForecastConsumed= &quot;${materialOrderHeader_isForecastConsumed}&quot;;
+if (&quot;${materialOrderHeader_isDetailAllocations}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isDetailAllocations= &quot;${materialOrderHeader_isDetailAllocations}&quot;;
+if (&quot;${materialOrderHeader_allocateDays}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].allocateDays= &quot;${materialOrderHeader_allocateDays}&quot;;
+if (&quot;${materialOrderHeader_pricedDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].pricedDate= &quot;${materialOrderHeader_pricedDate}&quot;;
+if (&quot;${materialOrderHeader_pricingDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].pricingDate= &quot;${materialOrderHeader_pricingDate}&quot;;
+if (&quot;${materialOrderHeader_isLinePricing}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isLinePricing= &quot;${materialOrderHeader_isLinePricing}&quot;;
+if (&quot;${materialOrderHeader_manual}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].manual= &quot;${materialOrderHeader_manual}&quot;;
+if (&quot;${materialOrderHeader_manualPriceListDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].manualPriceListDescription= &quot;${materialOrderHeader_manualPriceListDescription}&quot;;
+if (&quot;${materialOrderHeader_isFixedPrice}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isFixedPrice= &quot;${materialOrderHeader_isFixedPrice}&quot;;
+if (&quot;${materialOrderHeader_isReprice}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isReprice= &quot;${materialOrderHeader_isReprice}&quot;;
+if (&quot;${materialOrderHeader_channel}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].channel= &quot;${materialOrderHeader_channel}&quot;;
+if (&quot;${materialOrderHeader_channelDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].channelDescription= &quot;${materialOrderHeader_channelDescription}&quot;;
+if (&quot;${materialOrderHeader_projectCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].projectCode= &quot;${materialOrderHeader_projectCode}&quot;;
+if (&quot;${materialOrderHeader_projectDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].projectDescription= &quot;${materialOrderHeader_projectDescription}&quot;;
+if (&quot;${materialOrderHeader_creatingUser}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creatingUser= &quot;${materialOrderHeader_creatingUser}&quot;;
+if (&quot;${materialOrderHeader_creatingUserName}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creatingUserName= &quot;${materialOrderHeader_creatingUserName}&quot;;
+if (&quot;${materialOrderHeader_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].currencyCode= &quot;${materialOrderHeader_currencyCode}&quot;;
+if (&quot;${materialOrderHeader_currencyDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].currencyDescription= &quot;${materialOrderHeader_currencyDescription}&quot;;
+if (&quot;${materialOrderHeader_baseCurrencyCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].baseCurrencyCode= &quot;${materialOrderHeader_baseCurrencyCode}&quot;;
+if (&quot;${materialOrderHeader_exchangeRate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].exchangeRate= &quot;${materialOrderHeader_exchangeRate}&quot;;
+if (&quot;${materialOrderHeader_exchangeRate2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].exchangeRate2= &quot;${materialOrderHeader_exchangeRate2}&quot;;
+if (&quot;${materialOrderHeader_isFixedRate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isFixedRate= &quot;${materialOrderHeader_isFixedRate}&quot;;
+if (&quot;${materialOrderHeader_freightTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightTermsCode= &quot;${materialOrderHeader_freightTermsCode}&quot;;
+if (&quot;${materialOrderHeader_freightTermsDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightTermsDescription= &quot;${materialOrderHeader_freightTermsDescription}&quot;;
+if (&quot;${materialOrderHeader_isManualFreightTerms}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isManualFreightTerms= &quot;${materialOrderHeader_isManualFreightTerms}&quot;;
+if (&quot;${materialOrderHeader_freightListCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightListCode= &quot;${materialOrderHeader_freightListCode}&quot;;
+if (&quot;${materialOrderHeader_freightListDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightListDescription= &quot;${materialOrderHeader_freightListDescription}&quot;;
+if (&quot;${materialOrderHeader_freightMinimumWeight}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightMinimumWeight= &quot;${materialOrderHeader_freightMinimumWeight}&quot;;
+if (&quot;${materialOrderHeader_isCalculateFreight}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isCalculateFreight= &quot;${materialOrderHeader_isCalculateFreight}&quot;;
+if (&quot;${materialOrderHeader_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightWeightUnitOfMeasure= &quot;${materialOrderHeader_freightWeightUnitOfMeasure}&quot;;
+if (&quot;${materialOrderHeader_exchangeRateType}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].exchangeRateType= &quot;${materialOrderHeader_exchangeRateType}&quot;;
+if (&quot;${materialOrderHeader_taxUsage}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxUsage= &quot;${materialOrderHeader_taxUsage}&quot;;
+if (&quot;${materialOrderHeader_taxUsageDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxUsageDescription= &quot;${materialOrderHeader_taxUsageDescription}&quot;;
+if (&quot;${materialOrderHeader_taxEnvironment}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxEnvironment= &quot;${materialOrderHeader_taxEnvironment}&quot;;
+if (&quot;${materialOrderHeader_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxEnvironmentDescription= &quot;${materialOrderHeader_taxEnvironmentDescription}&quot;;
+if (&quot;${materialOrderHeader_taxClass}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxClass= &quot;${materialOrderHeader_taxClass}&quot;;
+if (&quot;${materialOrderHeader_taxClassDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxClassDescription= &quot;${materialOrderHeader_taxClassDescription}&quot;;
+if (&quot;${materialOrderHeader_hasTradeSalesContract}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].hasTradeSalesContract= &quot;${materialOrderHeader_hasTradeSalesContract}&quot;;
+if (&quot;${materialOrderHeader_isTaxable}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isTaxable= &quot;${materialOrderHeader_isTaxable}&quot;;
+if (&quot;${materialOrderHeader_isTaxIncluded}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isTaxIncluded= &quot;${materialOrderHeader_isTaxIncluded}&quot;;
+if (&quot;${materialOrderHeader_taxDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxDate= &quot;${materialOrderHeader_taxDate}&quot;;
+if (&quot;${materialOrderHeader_isProvincialSalesTax}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isProvincialSalesTax= &quot;${materialOrderHeader_isProvincialSalesTax}&quot;;
+if (&quot;${materialOrderHeader_provincialSalesTaxID}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].provincialSalesTaxID= &quot;${materialOrderHeader_provincialSalesTaxID}&quot;;
+if (&quot;${materialOrderHeader_federalSalesTaxID}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].federalSalesTaxID= &quot;${materialOrderHeader_federalSalesTaxID}&quot;;
+if (&quot;${materialOrderHeader_isImportExport}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isImportExport= &quot;${materialOrderHeader_isImportExport}&quot;;
+if (&quot;${materialOrderHeader_daybookSetCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].daybookSetCode= &quot;${materialOrderHeader_daybookSetCode}&quot;;
+if (&quot;${materialOrderHeader_daybookSetDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].daybookSetDescription= &quot;${materialOrderHeader_daybookSetDescription}&quot;;
+if (&quot;${materialOrderHeader_creditInitials}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditInitials= &quot;${materialOrderHeader_creditInitials}&quot;;
+if (&quot;${materialOrderHeader_creditInitialsDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditInitialsDescription= &quot;${materialOrderHeader_creditInitialsDescription}&quot;;
+if (&quot;${materialOrderHeader_creditCard}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditCard= &quot;${materialOrderHeader_creditCard}&quot;;
+if (&quot;${materialOrderHeader_creditCardDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].creditCardDescription= &quot;${materialOrderHeader_creditCardDescription}&quot;;
+if (&quot;${materialOrderHeader_actionStatus}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].actionStatus= &quot;${materialOrderHeader_actionStatus}&quot;;
+if (&quot;${materialOrderHeader_isActionStatusFieldReadOnly}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isActionStatusFieldReadOnly= &quot;${materialOrderHeader_isActionStatusFieldReadOnly}&quot;;
+if (&quot;${materialOrderHeader_actionStatusDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].actionStatusDescription= &quot;${materialOrderHeader_actionStatusDescription}&quot;;
+if (&quot;${materialOrderHeader_revision}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].revision= &quot;${materialOrderHeader_revision}&quot;;
+if (&quot;${materialOrderHeader_prepaidAmount}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].prepaidAmount= &quot;${materialOrderHeader_prepaidAmount}&quot;;
+if (&quot;${materialOrderHeader_freeOnBoardPoint}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freeOnBoardPoint= &quot;${materialOrderHeader_freeOnBoardPoint}&quot;;
+if (&quot;${materialOrderHeader_freeOnBoardPointDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freeOnBoardPointDescription= &quot;${materialOrderHeader_freeOnBoardPointDescription}&quot;;
+if (&quot;${materialOrderHeader_shipVia}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipVia= &quot;${materialOrderHeader_shipVia}&quot;;
+if (&quot;${materialOrderHeader_shipViaDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipViaDescription= &quot;${materialOrderHeader_shipViaDescription}&quot;;
+if (&quot;${materialOrderHeader_billOfLading}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].billOfLading= &quot;${materialOrderHeader_billOfLading}&quot;;
+if (&quot;${materialOrderHeader_isPartialOK}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isPartialOK= &quot;${materialOrderHeader_isPartialOK}&quot;;
+if (&quot;${materialOrderHeader_isPrintSalesOrder}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isPrintSalesOrder= &quot;${materialOrderHeader_isPrintSalesOrder}&quot;;
+if (&quot;${materialOrderHeader_isPrintPackList}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isPrintPackList= &quot;${materialOrderHeader_isPrintPackList}&quot;;
+if (&quot;${materialOrderHeader_isEDIPurchaseOrderAck}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isEDIPurchaseOrderAck= &quot;${materialOrderHeader_isEDIPurchaseOrderAck}&quot;;
+if (&quot;${materialOrderHeader_isEDIInvoiceHistory}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isEDIInvoiceHistory= &quot;${materialOrderHeader_isEDIInvoiceHistory}&quot;;
+if (&quot;${materialOrderHeader_isPrintInvoiceHistory}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isPrintInvoiceHistory= &quot;${materialOrderHeader_isPrintInvoiceHistory}&quot;;
+if (&quot;${materialOrderHeader_lineTotal}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].lineTotal= &quot;${materialOrderHeader_lineTotal}&quot;;
+if (&quot;${materialOrderHeader_discountPercent}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].discountPercent= &quot;${materialOrderHeader_discountPercent}&quot;;
+if (&quot;${materialOrderHeader_discountAmount}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].discountAmount= &quot;${materialOrderHeader_discountAmount}&quot;;
+if (&quot;${materialOrderHeader_trailerCode1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerCode1= &quot;${materialOrderHeader_trailerCode1}&quot;;
+if (&quot;${materialOrderHeader_trailerCodeDescription1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerCodeDescription1= &quot;${materialOrderHeader_trailerCodeDescription1}&quot;;
+if (&quot;${materialOrderHeader_trailerAmount1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerAmount1= &quot;${materialOrderHeader_trailerAmount1}&quot;;
+if (&quot;${materialOrderHeader_trailerCode2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerCode2= &quot;${materialOrderHeader_trailerCode2}&quot;;
+if (&quot;${materialOrderHeader_trailerCodeDescription2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerCodeDescription2= &quot;${materialOrderHeader_trailerCodeDescription2}&quot;;
+if (&quot;${materialOrderHeader_trailerAmount2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerAmount2= &quot;${materialOrderHeader_trailerAmount2}&quot;;
+if (&quot;${materialOrderHeader_trailerCode3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerCode3= &quot;${materialOrderHeader_trailerCode3}&quot;;
+if (&quot;${materialOrderHeader_trailerCodeDescription3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerCodeDescription3= &quot;${materialOrderHeader_trailerCodeDescription3}&quot;;
+if (&quot;${materialOrderHeader_trailerAmount3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].trailerAmount3= &quot;${materialOrderHeader_trailerAmount3}&quot;;
+if (&quot;${materialOrderHeader_totalTax}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].totalTax= &quot;${materialOrderHeader_totalTax}&quot;;
+if (&quot;${materialOrderHeader_totalContainerCharges}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].totalContainerCharges= &quot;${materialOrderHeader_totalContainerCharges}&quot;;
+if (&quot;${materialOrderHeader_totalLineCharges}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].totalLineCharges= &quot;${materialOrderHeader_totalLineCharges}&quot;;
+if (&quot;${materialOrderHeader_totalTrailerCharges}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].totalTrailerCharges= &quot;${materialOrderHeader_totalTrailerCharges}&quot;;
+if (&quot;${materialOrderHeader_initialTotalAmount}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].initialTotalAmount= &quot;${materialOrderHeader_initialTotalAmount}&quot;;
+if (&quot;${materialOrderHeader_totalAmount}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].totalAmount= &quot;${materialOrderHeader_totalAmount}&quot;;
+if (&quot;${materialOrderHeader_taxableAmount}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].taxableAmount= &quot;${materialOrderHeader_taxableAmount}&quot;;
+if (&quot;${materialOrderHeader_nonTaxableAmount}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].nonTaxableAmount= &quot;${materialOrderHeader_nonTaxableAmount}&quot;;
+if (&quot;${materialOrderHeader_isManualDiscountPercent}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isManualDiscountPercent= &quot;${materialOrderHeader_isManualDiscountPercent}&quot;;
+if (&quot;${materialOrderHeader_isIntrastatActive}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isIntrastatActive= &quot;${materialOrderHeader_isIntrastatActive}&quot;;
+if (&quot;${materialOrderHeader_isIntrastatUsed}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isIntrastatUsed= &quot;${materialOrderHeader_isIntrastatUsed}&quot;;
+if (&quot;${materialOrderHeader_freightWeight}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].freightWeight= &quot;${materialOrderHeader_freightWeight}&quot;;
+if (&quot;${materialOrderHeader_siteEntityCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].siteEntityCode= &quot;${materialOrderHeader_siteEntityCode}&quot;;
+if (&quot;${materialOrderHeader_siteEntityDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].siteEntityDescription= &quot;${materialOrderHeader_siteEntityDescription}&quot;;
+if (&quot;${materialOrderHeader_completeStatus}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].completeStatus= &quot;${materialOrderHeader_completeStatus}&quot;;
+if (&quot;${materialOrderHeader_statusDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].statusDate= &quot;${materialOrderHeader_statusDate}&quot;;
+if (&quot;${materialOrderHeader_isPrimarySO}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isPrimarySO= &quot;${materialOrderHeader_isPrimarySO}&quot;;
+if (&quot;${materialOrderHeader_isSecondarySO}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isSecondarySO= &quot;${materialOrderHeader_isSecondarySO}&quot;;
+if (&quot;${materialOrderHeader_endCustomerPO}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endCustomerPO= &quot;${materialOrderHeader_endCustomerPO}&quot;;
+if (&quot;${materialOrderHeader_shipToPO}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipToPO= &quot;${materialOrderHeader_shipToPO}&quot;;
+if (&quot;${materialOrderHeader_transactionType}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].transactionType= &quot;${materialOrderHeader_transactionType}&quot;;
+if (&quot;${materialOrderHeader_isConsignment}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isConsignment= &quot;${materialOrderHeader_isConsignment}&quot;;
+if (&quot;${materialOrderHeader_isCorrectionInvoice}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isCorrectionInvoice= &quot;${materialOrderHeader_isCorrectionInvoice}&quot;;
+if (&quot;${materialOrderHeader_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].commentIndex= &quot;${materialOrderHeader_commentIndex}&quot;;
+if (&quot;${materialOrderHeader_isUsingConsignmentInventory}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isUsingConsignmentInventory= &quot;${materialOrderHeader_isUsingConsignmentInventory}&quot;;
+if (&quot;${materialOrderHeader_consignmentLocationCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].consignmentLocationCode= &quot;${materialOrderHeader_consignmentLocationCode}&quot;;
+if (&quot;${materialOrderHeader_inTransitLocationCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].inTransitLocationCode= &quot;${materialOrderHeader_inTransitLocationCode}&quot;;
+if (&quot;${materialOrderHeader_maximumAgingDays}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].maximumAgingDays= &quot;${materialOrderHeader_maximumAgingDays}&quot;;
+if (&quot;${materialOrderHeader_isProcessOrderSummary}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isProcessOrderSummary= &quot;${materialOrderHeader_isProcessOrderSummary}&quot;;
+if (&quot;${materialOrderHeader_isProcessPostTrailer}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isProcessPostTrailer= &quot;${materialOrderHeader_isProcessPostTrailer}&quot;;
+if (&quot;${materialOrderHeader_isDisplayTaxAmounts}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isDisplayTaxAmounts= &quot;${materialOrderHeader_isDisplayTaxAmounts}&quot;;
+if (&quot;${materialOrderHeader_isMaintainLogisticsAcctCharge}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isMaintainLogisticsAcctCharge= &quot;${materialOrderHeader_isMaintainLogisticsAcctCharge}&quot;;
+if (&quot;${materialOrderHeader_isNumberFormatFieldReadOnly}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isNumberFormatFieldReadOnly= &quot;${materialOrderHeader_isNumberFormatFieldReadOnly}&quot;;
+if (&quot;${materialOrderHeader_isPurchaseOrderFieldReadOnly}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isPurchaseOrderFieldReadOnly= &quot;${materialOrderHeader_isPurchaseOrderFieldReadOnly}&quot;;
+if (&quot;${materialOrderHeader_isSoldToFieldReadOnly}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isSoldToFieldReadOnly= &quot;${materialOrderHeader_isSoldToFieldReadOnly}&quot;;
+if (&quot;${materialOrderHeader_shipDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].shipDate= &quot;${materialOrderHeader_shipDate}&quot;;
+if (&quot;${materialOrderHeader_isReadyToInvoice}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isReadyToInvoice= &quot;${materialOrderHeader_isReadyToInvoice}&quot;;
+if (&quot;${materialOrderHeader_isTamEnabled}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isTamEnabled= &quot;${materialOrderHeader_isTamEnabled}&quot;;
+if (&quot;${materialOrderHeader_orderAction}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].orderAction= &quot;${materialOrderHeader_orderAction}&quot;;
+if (&quot;${materialOrderHeader_disallowedActions}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].disallowedActions= &quot;${materialOrderHeader_disallowedActions}&quot;;
+if (&quot;${materialOrderHeader_disallowedActionsMessage}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].disallowedActionsMessage= &quot;${materialOrderHeader_disallowedActionsMessage}&quot;;
+if (&quot;${materialOrderHeader_isScheduledOrder}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isScheduledOrder= &quot;${materialOrderHeader_isScheduledOrder}&quot;;
+if (&quot;${materialOrderHeader_lastModifiedDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].lastModifiedDate= &quot;${materialOrderHeader_lastModifiedDate}&quot;;
+if (&quot;${materialOrderHeader_lastModifiedUser}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].lastModifiedUser= &quot;${materialOrderHeader_lastModifiedUser}&quot;;
+if (&quot;${materialOrderHeader_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].dataOperation= &quot;${materialOrderHeader_dataOperation}&quot;;
+if (&quot;${materialOrderHeader_salesOrderConcurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].salesOrderConcurrencyHash= &quot;${materialOrderHeader_salesOrderConcurrencyHash}&quot;;
+if (&quot;${materialOrderHeader_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].concurrencyHash= &quot;${materialOrderHeader_concurrencyHash}&quot;;
+if (&quot;${materialOrderHeader_invoiceNumber}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].invoiceNumber= &quot;${materialOrderHeader_invoiceNumber}&quot;;
+if (&quot;${materialOrderHeader_invoiceDate}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].invoiceDate= &quot;${materialOrderHeader_invoiceDate}&quot;;
+if (&quot;${materialOrderHeader_hasShippingTransaction}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].hasShippingTransaction= &quot;${materialOrderHeader_hasShippingTransaction}&quot;;
+if (&quot;${materialOrderHeader_hasQuantityToInvoice}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].hasQuantityToInvoice= &quot;${materialOrderHeader_hasQuantityToInvoice}&quot;;
+if (&quot;${materialOrderHeader_soMstrUser1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrUser1= &quot;${materialOrderHeader_soMstrUser1}&quot;;
+if (&quot;${materialOrderHeader_soMstrUser2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrUser2= &quot;${materialOrderHeader_soMstrUser2}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr01}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr01= &quot;${materialOrderHeader_soMstrChr01}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr02}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr02= &quot;${materialOrderHeader_soMstrChr02}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr03}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr03= &quot;${materialOrderHeader_soMstrChr03}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr04}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr04= &quot;${materialOrderHeader_soMstrChr04}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr05}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr05= &quot;${materialOrderHeader_soMstrChr05}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr06}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr06= &quot;${materialOrderHeader_soMstrChr06}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr07}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr07= &quot;${materialOrderHeader_soMstrChr07}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr08}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr08= &quot;${materialOrderHeader_soMstrChr08}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr09}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr09= &quot;${materialOrderHeader_soMstrChr09}&quot;;
+if (&quot;${materialOrderHeader_soMstrChr10}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrChr10= &quot;${materialOrderHeader_soMstrChr10}&quot;;
+if (&quot;${materialOrderHeader_soMstrDte01}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrDte01= &quot;${materialOrderHeader_soMstrDte01}&quot;;
+if (&quot;${materialOrderHeader_soMstrDte02}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrDte02= &quot;${materialOrderHeader_soMstrDte02}&quot;;
+if (&quot;${materialOrderHeader_soMstrDec01}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrDec01= &quot;${materialOrderHeader_soMstrDec01}&quot;;
+if (&quot;${materialOrderHeader_soMstrDec02}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrDec02= &quot;${materialOrderHeader_soMstrDec02}&quot;;
+if (&quot;${materialOrderHeader_soMstrLog01}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].soMstrLog01= &quot;${materialOrderHeader_soMstrLog01}&quot;;
+if (&quot;${materialOrderHeader_serviceOrderType}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].serviceOrderType= &quot;${materialOrderHeader_serviceOrderType}&quot;;
+if (&quot;${materialOrderHeader_orderType}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].orderType= &quot;${materialOrderHeader_orderType}&quot;;
+if (&quot;${materialOrderHeader_serviceOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].serviceOrderNumber= &quot;${materialOrderHeader_serviceOrderNumber}&quot;;
+if (&quot;${materialOrderHeader_engineerCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].engineerCode= &quot;${materialOrderHeader_engineerCode}&quot;;
+if (&quot;${materialOrderHeader_engineerName}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].engineerName= &quot;${materialOrderHeader_engineerName}&quot;;
+if (&quot;${materialOrderHeader_chargeCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].chargeCode= &quot;${materialOrderHeader_chargeCode}&quot;;
+if (&quot;${materialOrderHeader_chargeCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].chargeCodeDescription= &quot;${materialOrderHeader_chargeCodeDescription}&quot;;
+if (&quot;${materialOrderHeader_isShipToEngineer}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].isShipToEngineer= &quot;${materialOrderHeader_isShipToEngineer}&quot;;
+if (&quot;${materialOrderHeader_requiredTime}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].requiredTime= &quot;${materialOrderHeader_requiredTime}&quot;;
+if (&quot;${materialOrderHeader_requiredDateTime}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].requiredDateTime= &quot;${materialOrderHeader_requiredDateTime}&quot;;
+if (&quot;${materialOrderHeader_endUserCode}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserCode= &quot;${materialOrderHeader_endUserCode}&quot;;
+if (&quot;${materialOrderHeader_endUserAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserAddressField1= &quot;${materialOrderHeader_endUserAddressField1}&quot;;
+if (&quot;${materialOrderHeader_endUserAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserAddressField2= &quot;${materialOrderHeader_endUserAddressField2}&quot;;
+if (&quot;${materialOrderHeader_endUserAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserAddressField3= &quot;${materialOrderHeader_endUserAddressField3}&quot;;
+if (&quot;${materialOrderHeader_endUserAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserAddressField4= &quot;${materialOrderHeader_endUserAddressField4}&quot;;
+if (&quot;${materialOrderHeader_endUserAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserAddressField5= &quot;${materialOrderHeader_endUserAddressField5}&quot;;
+if (&quot;${materialOrderHeader_endUserAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.materialOrderHeaders[0].endUserAddressField6= &quot;${materialOrderHeader_endUserAddressField6}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="VAR">RequestData</stringProp>
+            <stringProp name="JSONPATH">$.data</stringProp>
+            <stringProp name="DEFAULT">NotFound</stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+
+// All the fields in dataset should be set here
+if (&quot;${materialOrderHeader_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].domainCode!= &quot;${materialOrderHeader_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${materialOrderHeader_validate_domainCode} but got &quot; + objRequest.materialOrderHeaders[0].domainCode}
+if (&quot;${materialOrderHeader_validate_materialOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].materialOrderNumber!= &quot;${materialOrderHeader_validate_materialOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect materialOrderNumber${materialOrderHeader_validate_materialOrderNumber} but got &quot; + objRequest.materialOrderHeaders[0].materialOrderNumber}
+if (&quot;${materialOrderHeader_validate_numberFormat}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].numberFormat!= &quot;${materialOrderHeader_validate_numberFormat}&quot;) { failureMessage = failureMessage + &quot;Expect numberFormat${materialOrderHeader_validate_numberFormat} but got &quot; + objRequest.materialOrderHeaders[0].numberFormat}
+if (&quot;${materialOrderHeader_validate_sequenceID}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].sequenceID!= &quot;${materialOrderHeader_validate_sequenceID}&quot;) { failureMessage = failureMessage + &quot;Expect sequenceID${materialOrderHeader_validate_sequenceID} but got &quot; + objRequest.materialOrderHeaders[0].sequenceID}
+if (&quot;${materialOrderHeader_validate_numberFormatDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].numberFormatDescription!= &quot;${materialOrderHeader_validate_numberFormatDescription}&quot;) { failureMessage = failureMessage + &quot;Expect numberFormatDescription${materialOrderHeader_validate_numberFormatDescription} but got &quot; + objRequest.materialOrderHeaders[0].numberFormatDescription}
+if (&quot;${materialOrderHeader_validate_soldToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToCustomerCode!= &quot;${materialOrderHeader_validate_soldToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect soldToCustomerCode${materialOrderHeader_validate_soldToCustomerCode} but got &quot; + objRequest.materialOrderHeaders[0].soldToCustomerCode}
+if (&quot;${materialOrderHeader_validate_billToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToCustomerCode!= &quot;${materialOrderHeader_validate_billToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect billToCustomerCode${materialOrderHeader_validate_billToCustomerCode} but got &quot; + objRequest.materialOrderHeaders[0].billToCustomerCode}
+if (&quot;${materialOrderHeader_validate_shipToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToCustomerCode!= &quot;${materialOrderHeader_validate_shipToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect shipToCustomerCode${materialOrderHeader_validate_shipToCustomerCode} but got &quot; + objRequest.materialOrderHeaders[0].shipToCustomerCode}
+if (&quot;${materialOrderHeader_validate_creditTermsCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditTermsCode!= &quot;${materialOrderHeader_validate_creditTermsCode}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsCode${materialOrderHeader_validate_creditTermsCode} but got &quot; + objRequest.materialOrderHeaders[0].creditTermsCode}
+if (&quot;${materialOrderHeader_validate_creditTermsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditTermsDescription!= &quot;${materialOrderHeader_validate_creditTermsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsDescription${materialOrderHeader_validate_creditTermsDescription} but got &quot; + objRequest.materialOrderHeaders[0].creditTermsDescription}
+if (&quot;${materialOrderHeader_validate_creditTermsInterestPercentage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditTermsInterestPercentage!= &quot;${materialOrderHeader_validate_creditTermsInterestPercentage}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsInterestPercentage${materialOrderHeader_validate_creditTermsInterestPercentage} but got &quot; + objRequest.materialOrderHeaders[0].creditTermsInterestPercentage}
+if (&quot;${materialOrderHeader_validate_soldToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToAddressField1!= &quot;${materialOrderHeader_validate_soldToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField1${materialOrderHeader_validate_soldToAddressField1} but got &quot; + objRequest.materialOrderHeaders[0].soldToAddressField1}
+if (&quot;${materialOrderHeader_validate_soldToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToAddressField2!= &quot;${materialOrderHeader_validate_soldToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField2${materialOrderHeader_validate_soldToAddressField2} but got &quot; + objRequest.materialOrderHeaders[0].soldToAddressField2}
+if (&quot;${materialOrderHeader_validate_soldToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToAddressField3!= &quot;${materialOrderHeader_validate_soldToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField3${materialOrderHeader_validate_soldToAddressField3} but got &quot; + objRequest.materialOrderHeaders[0].soldToAddressField3}
+if (&quot;${materialOrderHeader_validate_soldToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToAddressField4!= &quot;${materialOrderHeader_validate_soldToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField4${materialOrderHeader_validate_soldToAddressField4} but got &quot; + objRequest.materialOrderHeaders[0].soldToAddressField4}
+if (&quot;${materialOrderHeader_validate_soldToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToAddressField5!= &quot;${materialOrderHeader_validate_soldToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField5${materialOrderHeader_validate_soldToAddressField5} but got &quot; + objRequest.materialOrderHeaders[0].soldToAddressField5}
+if (&quot;${materialOrderHeader_validate_soldToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soldToAddressField6!= &quot;${materialOrderHeader_validate_soldToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField6${materialOrderHeader_validate_soldToAddressField6} but got &quot; + objRequest.materialOrderHeaders[0].soldToAddressField6}
+if (&quot;${materialOrderHeader_validate_billToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToAddressField1!= &quot;${materialOrderHeader_validate_billToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField1${materialOrderHeader_validate_billToAddressField1} but got &quot; + objRequest.materialOrderHeaders[0].billToAddressField1}
+if (&quot;${materialOrderHeader_validate_billToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToAddressField2!= &quot;${materialOrderHeader_validate_billToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField2${materialOrderHeader_validate_billToAddressField2} but got &quot; + objRequest.materialOrderHeaders[0].billToAddressField2}
+if (&quot;${materialOrderHeader_validate_billToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToAddressField3!= &quot;${materialOrderHeader_validate_billToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField3${materialOrderHeader_validate_billToAddressField3} but got &quot; + objRequest.materialOrderHeaders[0].billToAddressField3}
+if (&quot;${materialOrderHeader_validate_billToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToAddressField4!= &quot;${materialOrderHeader_validate_billToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField4${materialOrderHeader_validate_billToAddressField4} but got &quot; + objRequest.materialOrderHeaders[0].billToAddressField4}
+if (&quot;${materialOrderHeader_validate_billToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToAddressField5!= &quot;${materialOrderHeader_validate_billToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField5${materialOrderHeader_validate_billToAddressField5} but got &quot; + objRequest.materialOrderHeaders[0].billToAddressField5}
+if (&quot;${materialOrderHeader_validate_billToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billToAddressField6!= &quot;${materialOrderHeader_validate_billToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField6${materialOrderHeader_validate_billToAddressField6} but got &quot; + objRequest.materialOrderHeaders[0].billToAddressField6}
+if (&quot;${materialOrderHeader_validate_shipToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToAddressField1!= &quot;${materialOrderHeader_validate_shipToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField1${materialOrderHeader_validate_shipToAddressField1} but got &quot; + objRequest.materialOrderHeaders[0].shipToAddressField1}
+if (&quot;${materialOrderHeader_validate_shipToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToAddressField2!= &quot;${materialOrderHeader_validate_shipToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField2${materialOrderHeader_validate_shipToAddressField2} but got &quot; + objRequest.materialOrderHeaders[0].shipToAddressField2}
+if (&quot;${materialOrderHeader_validate_shipToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToAddressField3!= &quot;${materialOrderHeader_validate_shipToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField3${materialOrderHeader_validate_shipToAddressField3} but got &quot; + objRequest.materialOrderHeaders[0].shipToAddressField3}
+if (&quot;${materialOrderHeader_validate_shipToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToAddressField4!= &quot;${materialOrderHeader_validate_shipToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField4${materialOrderHeader_validate_shipToAddressField4} but got &quot; + objRequest.materialOrderHeaders[0].shipToAddressField4}
+if (&quot;${materialOrderHeader_validate_shipToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToAddressField5!= &quot;${materialOrderHeader_validate_shipToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField5${materialOrderHeader_validate_shipToAddressField5} but got &quot; + objRequest.materialOrderHeaders[0].shipToAddressField5}
+if (&quot;${materialOrderHeader_validate_shipToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToAddressField6!= &quot;${materialOrderHeader_validate_shipToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField6${materialOrderHeader_validate_shipToAddressField6} but got &quot; + objRequest.materialOrderHeaders[0].shipToAddressField6}
+if (&quot;${materialOrderHeader_validate_isCreditReviewed}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isCreditReviewed!= &quot;${materialOrderHeader_validate_isCreditReviewed}&quot;) { failureMessage = failureMessage + &quot;Expect isCreditReviewed${materialOrderHeader_validate_isCreditReviewed} but got &quot; + objRequest.materialOrderHeaders[0].isCreditReviewed}
+if (&quot;${materialOrderHeader_validate_remarks}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].remarks!= &quot;${materialOrderHeader_validate_remarks}&quot;) { failureMessage = failureMessage + &quot;Expect remarks${materialOrderHeader_validate_remarks} but got &quot; + objRequest.materialOrderHeaders[0].remarks}
+if (&quot;${materialOrderHeader_validate_languageCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].languageCode!= &quot;${materialOrderHeader_validate_languageCode}&quot;) { failureMessage = failureMessage + &quot;Expect languageCode${materialOrderHeader_validate_languageCode} but got &quot; + objRequest.materialOrderHeaders[0].languageCode}
+if (&quot;${materialOrderHeader_validate_languageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].languageDescription!= &quot;${materialOrderHeader_validate_languageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect languageDescription${materialOrderHeader_validate_languageDescription} but got &quot; + objRequest.materialOrderHeaders[0].languageDescription}
+if (&quot;${materialOrderHeader_validate_isConfirmed}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isConfirmed!= &quot;${materialOrderHeader_validate_isConfirmed}&quot;) { failureMessage = failureMessage + &quot;Expect isConfirmed${materialOrderHeader_validate_isConfirmed} but got &quot; + objRequest.materialOrderHeaders[0].isConfirmed}
+if (&quot;${materialOrderHeader_validate_confirmedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].confirmedDate!= &quot;${materialOrderHeader_validate_confirmedDate}&quot;) { failureMessage = failureMessage + &quot;Expect confirmedDate${materialOrderHeader_validate_confirmedDate} but got &quot; + objRequest.materialOrderHeaders[0].confirmedDate}
+if (&quot;${materialOrderHeader_validate_purchaseOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].purchaseOrderNumber!= &quot;${materialOrderHeader_validate_purchaseOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect purchaseOrderNumber${materialOrderHeader_validate_purchaseOrderNumber} but got &quot; + objRequest.materialOrderHeaders[0].purchaseOrderNumber}
+if (&quot;${materialOrderHeader_validate_salesQuoteNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].salesQuoteNumber!= &quot;${materialOrderHeader_validate_salesQuoteNumber}&quot;) { failureMessage = failureMessage + &quot;Expect salesQuoteNumber${materialOrderHeader_validate_salesQuoteNumber} but got &quot; + objRequest.materialOrderHeaders[0].salesQuoteNumber}
+if (&quot;${materialOrderHeader_validate_orderDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].orderDate!= &quot;${materialOrderHeader_validate_orderDate}&quot;) { failureMessage = failureMessage + &quot;Expect orderDate${materialOrderHeader_validate_orderDate} but got &quot; + objRequest.materialOrderHeaders[0].orderDate}
+if (&quot;${materialOrderHeader_validate_requiredDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].requiredDate!= &quot;${materialOrderHeader_validate_requiredDate}&quot;) { failureMessage = failureMessage + &quot;Expect requiredDate${materialOrderHeader_validate_requiredDate} but got &quot; + objRequest.materialOrderHeaders[0].requiredDate}
+if (&quot;${materialOrderHeader_validate_promiseDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].promiseDate!= &quot;${materialOrderHeader_validate_promiseDate}&quot;) { failureMessage = failureMessage + &quot;Expect promiseDate${materialOrderHeader_validate_promiseDate} but got &quot; + objRequest.materialOrderHeaders[0].promiseDate}
+if (&quot;${materialOrderHeader_validate_dueDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].dueDate!= &quot;${materialOrderHeader_validate_dueDate}&quot;) { failureMessage = failureMessage + &quot;Expect dueDate${materialOrderHeader_validate_dueDate} but got &quot; + objRequest.materialOrderHeaders[0].dueDate}
+if (&quot;${materialOrderHeader_validate_performanceDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].performanceDate!= &quot;${materialOrderHeader_validate_performanceDate}&quot;) { failureMessage = failureMessage + &quot;Expect performanceDate${materialOrderHeader_validate_performanceDate} but got &quot; + objRequest.materialOrderHeaders[0].performanceDate}
+if (&quot;${materialOrderHeader_validate_siteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].siteCode!= &quot;${materialOrderHeader_validate_siteCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteCode${materialOrderHeader_validate_siteCode} but got &quot; + objRequest.materialOrderHeaders[0].siteCode}
+if (&quot;${materialOrderHeader_validate_siteDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].siteDescription!= &quot;${materialOrderHeader_validate_siteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteDescription${materialOrderHeader_validate_siteDescription} but got &quot; + objRequest.materialOrderHeaders[0].siteDescription}
+if (&quot;${materialOrderHeader_validate_isForecastConsumed}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isForecastConsumed!= &quot;${materialOrderHeader_validate_isForecastConsumed}&quot;) { failureMessage = failureMessage + &quot;Expect isForecastConsumed${materialOrderHeader_validate_isForecastConsumed} but got &quot; + objRequest.materialOrderHeaders[0].isForecastConsumed}
+if (&quot;${materialOrderHeader_validate_isDetailAllocations}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isDetailAllocations!= &quot;${materialOrderHeader_validate_isDetailAllocations}&quot;) { failureMessage = failureMessage + &quot;Expect isDetailAllocations${materialOrderHeader_validate_isDetailAllocations} but got &quot; + objRequest.materialOrderHeaders[0].isDetailAllocations}
+if (&quot;${materialOrderHeader_validate_allocateDays}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].allocateDays!= &quot;${materialOrderHeader_validate_allocateDays}&quot;) { failureMessage = failureMessage + &quot;Expect allocateDays${materialOrderHeader_validate_allocateDays} but got &quot; + objRequest.materialOrderHeaders[0].allocateDays}
+if (&quot;${materialOrderHeader_validate_pricedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].pricedDate!= &quot;${materialOrderHeader_validate_pricedDate}&quot;) { failureMessage = failureMessage + &quot;Expect pricedDate${materialOrderHeader_validate_pricedDate} but got &quot; + objRequest.materialOrderHeaders[0].pricedDate}
+if (&quot;${materialOrderHeader_validate_pricingDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].pricingDate!= &quot;${materialOrderHeader_validate_pricingDate}&quot;) { failureMessage = failureMessage + &quot;Expect pricingDate${materialOrderHeader_validate_pricingDate} but got &quot; + objRequest.materialOrderHeaders[0].pricingDate}
+if (&quot;${materialOrderHeader_validate_isLinePricing}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isLinePricing!= &quot;${materialOrderHeader_validate_isLinePricing}&quot;) { failureMessage = failureMessage + &quot;Expect isLinePricing${materialOrderHeader_validate_isLinePricing} but got &quot; + objRequest.materialOrderHeaders[0].isLinePricing}
+if (&quot;${materialOrderHeader_validate_manual}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].manual!= &quot;${materialOrderHeader_validate_manual}&quot;) { failureMessage = failureMessage + &quot;Expect manual${materialOrderHeader_validate_manual} but got &quot; + objRequest.materialOrderHeaders[0].manual}
+if (&quot;${materialOrderHeader_validate_manualPriceListDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].manualPriceListDescription!= &quot;${materialOrderHeader_validate_manualPriceListDescription}&quot;) { failureMessage = failureMessage + &quot;Expect manualPriceListDescription${materialOrderHeader_validate_manualPriceListDescription} but got &quot; + objRequest.materialOrderHeaders[0].manualPriceListDescription}
+if (&quot;${materialOrderHeader_validate_isFixedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isFixedPrice!= &quot;${materialOrderHeader_validate_isFixedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect isFixedPrice${materialOrderHeader_validate_isFixedPrice} but got &quot; + objRequest.materialOrderHeaders[0].isFixedPrice}
+if (&quot;${materialOrderHeader_validate_isReprice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isReprice!= &quot;${materialOrderHeader_validate_isReprice}&quot;) { failureMessage = failureMessage + &quot;Expect isReprice${materialOrderHeader_validate_isReprice} but got &quot; + objRequest.materialOrderHeaders[0].isReprice}
+if (&quot;${materialOrderHeader_validate_channel}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].channel!= &quot;${materialOrderHeader_validate_channel}&quot;) { failureMessage = failureMessage + &quot;Expect channel${materialOrderHeader_validate_channel} but got &quot; + objRequest.materialOrderHeaders[0].channel}
+if (&quot;${materialOrderHeader_validate_channelDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].channelDescription!= &quot;${materialOrderHeader_validate_channelDescription}&quot;) { failureMessage = failureMessage + &quot;Expect channelDescription${materialOrderHeader_validate_channelDescription} but got &quot; + objRequest.materialOrderHeaders[0].channelDescription}
+if (&quot;${materialOrderHeader_validate_projectCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].projectCode!= &quot;${materialOrderHeader_validate_projectCode}&quot;) { failureMessage = failureMessage + &quot;Expect projectCode${materialOrderHeader_validate_projectCode} but got &quot; + objRequest.materialOrderHeaders[0].projectCode}
+if (&quot;${materialOrderHeader_validate_projectDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].projectDescription!= &quot;${materialOrderHeader_validate_projectDescription}&quot;) { failureMessage = failureMessage + &quot;Expect projectDescription${materialOrderHeader_validate_projectDescription} but got &quot; + objRequest.materialOrderHeaders[0].projectDescription}
+if (&quot;${materialOrderHeader_validate_creatingUser}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creatingUser!= &quot;${materialOrderHeader_validate_creatingUser}&quot;) { failureMessage = failureMessage + &quot;Expect creatingUser${materialOrderHeader_validate_creatingUser} but got &quot; + objRequest.materialOrderHeaders[0].creatingUser}
+if (&quot;${materialOrderHeader_validate_creatingUserName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creatingUserName!= &quot;${materialOrderHeader_validate_creatingUserName}&quot;) { failureMessage = failureMessage + &quot;Expect creatingUserName${materialOrderHeader_validate_creatingUserName} but got &quot; + objRequest.materialOrderHeaders[0].creatingUserName}
+if (&quot;${materialOrderHeader_validate_currencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].currencyCode!= &quot;${materialOrderHeader_validate_currencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCode${materialOrderHeader_validate_currencyCode} but got &quot; + objRequest.materialOrderHeaders[0].currencyCode}
+if (&quot;${materialOrderHeader_validate_currencyDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].currencyDescription!= &quot;${materialOrderHeader_validate_currencyDescription}&quot;) { failureMessage = failureMessage + &quot;Expect currencyDescription${materialOrderHeader_validate_currencyDescription} but got &quot; + objRequest.materialOrderHeaders[0].currencyDescription}
+if (&quot;${materialOrderHeader_validate_baseCurrencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].baseCurrencyCode!= &quot;${materialOrderHeader_validate_baseCurrencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect baseCurrencyCode${materialOrderHeader_validate_baseCurrencyCode} but got &quot; + objRequest.materialOrderHeaders[0].baseCurrencyCode}
+if (&quot;${materialOrderHeader_validate_exchangeRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].exchangeRate!= &quot;${materialOrderHeader_validate_exchangeRate}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate${materialOrderHeader_validate_exchangeRate} but got &quot; + objRequest.materialOrderHeaders[0].exchangeRate}
+if (&quot;${materialOrderHeader_validate_exchangeRate2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].exchangeRate2!= &quot;${materialOrderHeader_validate_exchangeRate2}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate2${materialOrderHeader_validate_exchangeRate2} but got &quot; + objRequest.materialOrderHeaders[0].exchangeRate2}
+if (&quot;${materialOrderHeader_validate_isFixedRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isFixedRate!= &quot;${materialOrderHeader_validate_isFixedRate}&quot;) { failureMessage = failureMessage + &quot;Expect isFixedRate${materialOrderHeader_validate_isFixedRate} but got &quot; + objRequest.materialOrderHeaders[0].isFixedRate}
+if (&quot;${materialOrderHeader_validate_freightTermsCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightTermsCode!= &quot;${materialOrderHeader_validate_freightTermsCode}&quot;) { failureMessage = failureMessage + &quot;Expect freightTermsCode${materialOrderHeader_validate_freightTermsCode} but got &quot; + objRequest.materialOrderHeaders[0].freightTermsCode}
+if (&quot;${materialOrderHeader_validate_freightTermsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightTermsDescription!= &quot;${materialOrderHeader_validate_freightTermsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freightTermsDescription${materialOrderHeader_validate_freightTermsDescription} but got &quot; + objRequest.materialOrderHeaders[0].freightTermsDescription}
+if (&quot;${materialOrderHeader_validate_isManualFreightTerms}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isManualFreightTerms!= &quot;${materialOrderHeader_validate_isManualFreightTerms}&quot;) { failureMessage = failureMessage + &quot;Expect isManualFreightTerms${materialOrderHeader_validate_isManualFreightTerms} but got &quot; + objRequest.materialOrderHeaders[0].isManualFreightTerms}
+if (&quot;${materialOrderHeader_validate_freightListCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightListCode!= &quot;${materialOrderHeader_validate_freightListCode}&quot;) { failureMessage = failureMessage + &quot;Expect freightListCode${materialOrderHeader_validate_freightListCode} but got &quot; + objRequest.materialOrderHeaders[0].freightListCode}
+if (&quot;${materialOrderHeader_validate_freightListDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightListDescription!= &quot;${materialOrderHeader_validate_freightListDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freightListDescription${materialOrderHeader_validate_freightListDescription} but got &quot; + objRequest.materialOrderHeaders[0].freightListDescription}
+if (&quot;${materialOrderHeader_validate_freightMinimumWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightMinimumWeight!= &quot;${materialOrderHeader_validate_freightMinimumWeight}&quot;) { failureMessage = failureMessage + &quot;Expect freightMinimumWeight${materialOrderHeader_validate_freightMinimumWeight} but got &quot; + objRequest.materialOrderHeaders[0].freightMinimumWeight}
+if (&quot;${materialOrderHeader_validate_isCalculateFreight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isCalculateFreight!= &quot;${materialOrderHeader_validate_isCalculateFreight}&quot;) { failureMessage = failureMessage + &quot;Expect isCalculateFreight${materialOrderHeader_validate_isCalculateFreight} but got &quot; + objRequest.materialOrderHeaders[0].isCalculateFreight}
+if (&quot;${materialOrderHeader_validate_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightWeightUnitOfMeasure!= &quot;${materialOrderHeader_validate_freightWeightUnitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeightUnitOfMeasure${materialOrderHeader_validate_freightWeightUnitOfMeasure} but got &quot; + objRequest.materialOrderHeaders[0].freightWeightUnitOfMeasure}
+if (&quot;${materialOrderHeader_validate_exchangeRateType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].exchangeRateType!= &quot;${materialOrderHeader_validate_exchangeRateType}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRateType${materialOrderHeader_validate_exchangeRateType} but got &quot; + objRequest.materialOrderHeaders[0].exchangeRateType}
+if (&quot;${materialOrderHeader_validate_taxUsage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxUsage!= &quot;${materialOrderHeader_validate_taxUsage}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsage${materialOrderHeader_validate_taxUsage} but got &quot; + objRequest.materialOrderHeaders[0].taxUsage}
+if (&quot;${materialOrderHeader_validate_taxUsageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxUsageDescription!= &quot;${materialOrderHeader_validate_taxUsageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsageDescription${materialOrderHeader_validate_taxUsageDescription} but got &quot; + objRequest.materialOrderHeaders[0].taxUsageDescription}
+if (&quot;${materialOrderHeader_validate_taxEnvironment}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxEnvironment!= &quot;${materialOrderHeader_validate_taxEnvironment}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironment${materialOrderHeader_validate_taxEnvironment} but got &quot; + objRequest.materialOrderHeaders[0].taxEnvironment}
+if (&quot;${materialOrderHeader_validate_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxEnvironmentDescription!= &quot;${materialOrderHeader_validate_taxEnvironmentDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironmentDescription${materialOrderHeader_validate_taxEnvironmentDescription} but got &quot; + objRequest.materialOrderHeaders[0].taxEnvironmentDescription}
+if (&quot;${materialOrderHeader_validate_taxClass}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxClass!= &quot;${materialOrderHeader_validate_taxClass}&quot;) { failureMessage = failureMessage + &quot;Expect taxClass${materialOrderHeader_validate_taxClass} but got &quot; + objRequest.materialOrderHeaders[0].taxClass}
+if (&quot;${materialOrderHeader_validate_taxClassDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxClassDescription!= &quot;${materialOrderHeader_validate_taxClassDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxClassDescription${materialOrderHeader_validate_taxClassDescription} but got &quot; + objRequest.materialOrderHeaders[0].taxClassDescription}
+if (&quot;${materialOrderHeader_validate_hasTradeSalesContract}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].hasTradeSalesContract!= &quot;${materialOrderHeader_validate_hasTradeSalesContract}&quot;) { failureMessage = failureMessage + &quot;Expect hasTradeSalesContract${materialOrderHeader_validate_hasTradeSalesContract} but got &quot; + objRequest.materialOrderHeaders[0].hasTradeSalesContract}
+if (&quot;${materialOrderHeader_validate_isTaxable}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isTaxable!= &quot;${materialOrderHeader_validate_isTaxable}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxable${materialOrderHeader_validate_isTaxable} but got &quot; + objRequest.materialOrderHeaders[0].isTaxable}
+if (&quot;${materialOrderHeader_validate_isTaxIncluded}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isTaxIncluded!= &quot;${materialOrderHeader_validate_isTaxIncluded}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxIncluded${materialOrderHeader_validate_isTaxIncluded} but got &quot; + objRequest.materialOrderHeaders[0].isTaxIncluded}
+if (&quot;${materialOrderHeader_validate_taxDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxDate!= &quot;${materialOrderHeader_validate_taxDate}&quot;) { failureMessage = failureMessage + &quot;Expect taxDate${materialOrderHeader_validate_taxDate} but got &quot; + objRequest.materialOrderHeaders[0].taxDate}
+if (&quot;${materialOrderHeader_validate_isProvincialSalesTax}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isProvincialSalesTax!= &quot;${materialOrderHeader_validate_isProvincialSalesTax}&quot;) { failureMessage = failureMessage + &quot;Expect isProvincialSalesTax${materialOrderHeader_validate_isProvincialSalesTax} but got &quot; + objRequest.materialOrderHeaders[0].isProvincialSalesTax}
+if (&quot;${materialOrderHeader_validate_provincialSalesTaxID}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].provincialSalesTaxID!= &quot;${materialOrderHeader_validate_provincialSalesTaxID}&quot;) { failureMessage = failureMessage + &quot;Expect provincialSalesTaxID${materialOrderHeader_validate_provincialSalesTaxID} but got &quot; + objRequest.materialOrderHeaders[0].provincialSalesTaxID}
+if (&quot;${materialOrderHeader_validate_federalSalesTaxID}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].federalSalesTaxID!= &quot;${materialOrderHeader_validate_federalSalesTaxID}&quot;) { failureMessage = failureMessage + &quot;Expect federalSalesTaxID${materialOrderHeader_validate_federalSalesTaxID} but got &quot; + objRequest.materialOrderHeaders[0].federalSalesTaxID}
+if (&quot;${materialOrderHeader_validate_isImportExport}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isImportExport!= &quot;${materialOrderHeader_validate_isImportExport}&quot;) { failureMessage = failureMessage + &quot;Expect isImportExport${materialOrderHeader_validate_isImportExport} but got &quot; + objRequest.materialOrderHeaders[0].isImportExport}
+if (&quot;${materialOrderHeader_validate_daybookSetCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].daybookSetCode!= &quot;${materialOrderHeader_validate_daybookSetCode}&quot;) { failureMessage = failureMessage + &quot;Expect daybookSetCode${materialOrderHeader_validate_daybookSetCode} but got &quot; + objRequest.materialOrderHeaders[0].daybookSetCode}
+if (&quot;${materialOrderHeader_validate_daybookSetDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].daybookSetDescription!= &quot;${materialOrderHeader_validate_daybookSetDescription}&quot;) { failureMessage = failureMessage + &quot;Expect daybookSetDescription${materialOrderHeader_validate_daybookSetDescription} but got &quot; + objRequest.materialOrderHeaders[0].daybookSetDescription}
+if (&quot;${materialOrderHeader_validate_creditInitials}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditInitials!= &quot;${materialOrderHeader_validate_creditInitials}&quot;) { failureMessage = failureMessage + &quot;Expect creditInitials${materialOrderHeader_validate_creditInitials} but got &quot; + objRequest.materialOrderHeaders[0].creditInitials}
+if (&quot;${materialOrderHeader_validate_creditInitialsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditInitialsDescription!= &quot;${materialOrderHeader_validate_creditInitialsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditInitialsDescription${materialOrderHeader_validate_creditInitialsDescription} but got &quot; + objRequest.materialOrderHeaders[0].creditInitialsDescription}
+if (&quot;${materialOrderHeader_validate_creditCard}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditCard!= &quot;${materialOrderHeader_validate_creditCard}&quot;) { failureMessage = failureMessage + &quot;Expect creditCard${materialOrderHeader_validate_creditCard} but got &quot; + objRequest.materialOrderHeaders[0].creditCard}
+if (&quot;${materialOrderHeader_validate_creditCardDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].creditCardDescription!= &quot;${materialOrderHeader_validate_creditCardDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditCardDescription${materialOrderHeader_validate_creditCardDescription} but got &quot; + objRequest.materialOrderHeaders[0].creditCardDescription}
+if (&quot;${materialOrderHeader_validate_actionStatus}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].actionStatus!= &quot;${materialOrderHeader_validate_actionStatus}&quot;) { failureMessage = failureMessage + &quot;Expect actionStatus${materialOrderHeader_validate_actionStatus} but got &quot; + objRequest.materialOrderHeaders[0].actionStatus}
+if (&quot;${materialOrderHeader_validate_isActionStatusFieldReadOnly}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isActionStatusFieldReadOnly!= &quot;${materialOrderHeader_validate_isActionStatusFieldReadOnly}&quot;) { failureMessage = failureMessage + &quot;Expect isActionStatusFieldReadOnly${materialOrderHeader_validate_isActionStatusFieldReadOnly} but got &quot; + objRequest.materialOrderHeaders[0].isActionStatusFieldReadOnly}
+if (&quot;${materialOrderHeader_validate_actionStatusDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].actionStatusDescription!= &quot;${materialOrderHeader_validate_actionStatusDescription}&quot;) { failureMessage = failureMessage + &quot;Expect actionStatusDescription${materialOrderHeader_validate_actionStatusDescription} but got &quot; + objRequest.materialOrderHeaders[0].actionStatusDescription}
+if (&quot;${materialOrderHeader_validate_revision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].revision!= &quot;${materialOrderHeader_validate_revision}&quot;) { failureMessage = failureMessage + &quot;Expect revision${materialOrderHeader_validate_revision} but got &quot; + objRequest.materialOrderHeaders[0].revision}
+if (&quot;${materialOrderHeader_validate_prepaidAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].prepaidAmount!= &quot;${materialOrderHeader_validate_prepaidAmount}&quot;) { failureMessage = failureMessage + &quot;Expect prepaidAmount${materialOrderHeader_validate_prepaidAmount} but got &quot; + objRequest.materialOrderHeaders[0].prepaidAmount}
+if (&quot;${materialOrderHeader_validate_freeOnBoardPoint}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freeOnBoardPoint!= &quot;${materialOrderHeader_validate_freeOnBoardPoint}&quot;) { failureMessage = failureMessage + &quot;Expect freeOnBoardPoint${materialOrderHeader_validate_freeOnBoardPoint} but got &quot; + objRequest.materialOrderHeaders[0].freeOnBoardPoint}
+if (&quot;${materialOrderHeader_validate_freeOnBoardPointDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freeOnBoardPointDescription!= &quot;${materialOrderHeader_validate_freeOnBoardPointDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freeOnBoardPointDescription${materialOrderHeader_validate_freeOnBoardPointDescription} but got &quot; + objRequest.materialOrderHeaders[0].freeOnBoardPointDescription}
+if (&quot;${materialOrderHeader_validate_shipVia}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipVia!= &quot;${materialOrderHeader_validate_shipVia}&quot;) { failureMessage = failureMessage + &quot;Expect shipVia${materialOrderHeader_validate_shipVia} but got &quot; + objRequest.materialOrderHeaders[0].shipVia}
+if (&quot;${materialOrderHeader_validate_shipViaDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipViaDescription!= &quot;${materialOrderHeader_validate_shipViaDescription}&quot;) { failureMessage = failureMessage + &quot;Expect shipViaDescription${materialOrderHeader_validate_shipViaDescription} but got &quot; + objRequest.materialOrderHeaders[0].shipViaDescription}
+if (&quot;${materialOrderHeader_validate_billOfLading}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].billOfLading!= &quot;${materialOrderHeader_validate_billOfLading}&quot;) { failureMessage = failureMessage + &quot;Expect billOfLading${materialOrderHeader_validate_billOfLading} but got &quot; + objRequest.materialOrderHeaders[0].billOfLading}
+if (&quot;${materialOrderHeader_validate_isPartialOK}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isPartialOK!= &quot;${materialOrderHeader_validate_isPartialOK}&quot;) { failureMessage = failureMessage + &quot;Expect isPartialOK${materialOrderHeader_validate_isPartialOK} but got &quot; + objRequest.materialOrderHeaders[0].isPartialOK}
+if (&quot;${materialOrderHeader_validate_isPrintSalesOrder}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isPrintSalesOrder!= &quot;${materialOrderHeader_validate_isPrintSalesOrder}&quot;) { failureMessage = failureMessage + &quot;Expect isPrintSalesOrder${materialOrderHeader_validate_isPrintSalesOrder} but got &quot; + objRequest.materialOrderHeaders[0].isPrintSalesOrder}
+if (&quot;${materialOrderHeader_validate_isPrintPackList}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isPrintPackList!= &quot;${materialOrderHeader_validate_isPrintPackList}&quot;) { failureMessage = failureMessage + &quot;Expect isPrintPackList${materialOrderHeader_validate_isPrintPackList} but got &quot; + objRequest.materialOrderHeaders[0].isPrintPackList}
+if (&quot;${materialOrderHeader_validate_isEDIPurchaseOrderAck}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isEDIPurchaseOrderAck!= &quot;${materialOrderHeader_validate_isEDIPurchaseOrderAck}&quot;) { failureMessage = failureMessage + &quot;Expect isEDIPurchaseOrderAck${materialOrderHeader_validate_isEDIPurchaseOrderAck} but got &quot; + objRequest.materialOrderHeaders[0].isEDIPurchaseOrderAck}
+if (&quot;${materialOrderHeader_validate_isEDIInvoiceHistory}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isEDIInvoiceHistory!= &quot;${materialOrderHeader_validate_isEDIInvoiceHistory}&quot;) { failureMessage = failureMessage + &quot;Expect isEDIInvoiceHistory${materialOrderHeader_validate_isEDIInvoiceHistory} but got &quot; + objRequest.materialOrderHeaders[0].isEDIInvoiceHistory}
+if (&quot;${materialOrderHeader_validate_isPrintInvoiceHistory}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isPrintInvoiceHistory!= &quot;${materialOrderHeader_validate_isPrintInvoiceHistory}&quot;) { failureMessage = failureMessage + &quot;Expect isPrintInvoiceHistory${materialOrderHeader_validate_isPrintInvoiceHistory} but got &quot; + objRequest.materialOrderHeaders[0].isPrintInvoiceHistory}
+if (&quot;${materialOrderHeader_validate_lineTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].lineTotal!= &quot;${materialOrderHeader_validate_lineTotal}&quot;) { failureMessage = failureMessage + &quot;Expect lineTotal${materialOrderHeader_validate_lineTotal} but got &quot; + objRequest.materialOrderHeaders[0].lineTotal}
+if (&quot;${materialOrderHeader_validate_discountPercent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].discountPercent!= &quot;${materialOrderHeader_validate_discountPercent}&quot;) { failureMessage = failureMessage + &quot;Expect discountPercent${materialOrderHeader_validate_discountPercent} but got &quot; + objRequest.materialOrderHeaders[0].discountPercent}
+if (&quot;${materialOrderHeader_validate_discountAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].discountAmount!= &quot;${materialOrderHeader_validate_discountAmount}&quot;) { failureMessage = failureMessage + &quot;Expect discountAmount${materialOrderHeader_validate_discountAmount} but got &quot; + objRequest.materialOrderHeaders[0].discountAmount}
+if (&quot;${materialOrderHeader_validate_trailerCode1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerCode1!= &quot;${materialOrderHeader_validate_trailerCode1}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCode1${materialOrderHeader_validate_trailerCode1} but got &quot; + objRequest.materialOrderHeaders[0].trailerCode1}
+if (&quot;${materialOrderHeader_validate_trailerCodeDescription1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerCodeDescription1!= &quot;${materialOrderHeader_validate_trailerCodeDescription1}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCodeDescription1${materialOrderHeader_validate_trailerCodeDescription1} but got &quot; + objRequest.materialOrderHeaders[0].trailerCodeDescription1}
+if (&quot;${materialOrderHeader_validate_trailerAmount1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerAmount1!= &quot;${materialOrderHeader_validate_trailerAmount1}&quot;) { failureMessage = failureMessage + &quot;Expect trailerAmount1${materialOrderHeader_validate_trailerAmount1} but got &quot; + objRequest.materialOrderHeaders[0].trailerAmount1}
+if (&quot;${materialOrderHeader_validate_trailerCode2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerCode2!= &quot;${materialOrderHeader_validate_trailerCode2}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCode2${materialOrderHeader_validate_trailerCode2} but got &quot; + objRequest.materialOrderHeaders[0].trailerCode2}
+if (&quot;${materialOrderHeader_validate_trailerCodeDescription2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerCodeDescription2!= &quot;${materialOrderHeader_validate_trailerCodeDescription2}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCodeDescription2${materialOrderHeader_validate_trailerCodeDescription2} but got &quot; + objRequest.materialOrderHeaders[0].trailerCodeDescription2}
+if (&quot;${materialOrderHeader_validate_trailerAmount2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerAmount2!= &quot;${materialOrderHeader_validate_trailerAmount2}&quot;) { failureMessage = failureMessage + &quot;Expect trailerAmount2${materialOrderHeader_validate_trailerAmount2} but got &quot; + objRequest.materialOrderHeaders[0].trailerAmount2}
+if (&quot;${materialOrderHeader_validate_trailerCode3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerCode3!= &quot;${materialOrderHeader_validate_trailerCode3}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCode3${materialOrderHeader_validate_trailerCode3} but got &quot; + objRequest.materialOrderHeaders[0].trailerCode3}
+if (&quot;${materialOrderHeader_validate_trailerCodeDescription3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerCodeDescription3!= &quot;${materialOrderHeader_validate_trailerCodeDescription3}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCodeDescription3${materialOrderHeader_validate_trailerCodeDescription3} but got &quot; + objRequest.materialOrderHeaders[0].trailerCodeDescription3}
+if (&quot;${materialOrderHeader_validate_trailerAmount3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].trailerAmount3!= &quot;${materialOrderHeader_validate_trailerAmount3}&quot;) { failureMessage = failureMessage + &quot;Expect trailerAmount3${materialOrderHeader_validate_trailerAmount3} but got &quot; + objRequest.materialOrderHeaders[0].trailerAmount3}
+if (&quot;${materialOrderHeader_validate_totalTax}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].totalTax!= &quot;${materialOrderHeader_validate_totalTax}&quot;) { failureMessage = failureMessage + &quot;Expect totalTax${materialOrderHeader_validate_totalTax} but got &quot; + objRequest.materialOrderHeaders[0].totalTax}
+if (&quot;${materialOrderHeader_validate_totalContainerCharges}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].totalContainerCharges!= &quot;${materialOrderHeader_validate_totalContainerCharges}&quot;) { failureMessage = failureMessage + &quot;Expect totalContainerCharges${materialOrderHeader_validate_totalContainerCharges} but got &quot; + objRequest.materialOrderHeaders[0].totalContainerCharges}
+if (&quot;${materialOrderHeader_validate_totalLineCharges}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].totalLineCharges!= &quot;${materialOrderHeader_validate_totalLineCharges}&quot;) { failureMessage = failureMessage + &quot;Expect totalLineCharges${materialOrderHeader_validate_totalLineCharges} but got &quot; + objRequest.materialOrderHeaders[0].totalLineCharges}
+if (&quot;${materialOrderHeader_validate_totalTrailerCharges}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].totalTrailerCharges!= &quot;${materialOrderHeader_validate_totalTrailerCharges}&quot;) { failureMessage = failureMessage + &quot;Expect totalTrailerCharges${materialOrderHeader_validate_totalTrailerCharges} but got &quot; + objRequest.materialOrderHeaders[0].totalTrailerCharges}
+if (&quot;${materialOrderHeader_validate_initialTotalAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].initialTotalAmount!= &quot;${materialOrderHeader_validate_initialTotalAmount}&quot;) { failureMessage = failureMessage + &quot;Expect initialTotalAmount${materialOrderHeader_validate_initialTotalAmount} but got &quot; + objRequest.materialOrderHeaders[0].initialTotalAmount}
+if (&quot;${materialOrderHeader_validate_totalAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].totalAmount!= &quot;${materialOrderHeader_validate_totalAmount}&quot;) { failureMessage = failureMessage + &quot;Expect totalAmount${materialOrderHeader_validate_totalAmount} but got &quot; + objRequest.materialOrderHeaders[0].totalAmount}
+if (&quot;${materialOrderHeader_validate_taxableAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].taxableAmount!= &quot;${materialOrderHeader_validate_taxableAmount}&quot;) { failureMessage = failureMessage + &quot;Expect taxableAmount${materialOrderHeader_validate_taxableAmount} but got &quot; + objRequest.materialOrderHeaders[0].taxableAmount}
+if (&quot;${materialOrderHeader_validate_nonTaxableAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].nonTaxableAmount!= &quot;${materialOrderHeader_validate_nonTaxableAmount}&quot;) { failureMessage = failureMessage + &quot;Expect nonTaxableAmount${materialOrderHeader_validate_nonTaxableAmount} but got &quot; + objRequest.materialOrderHeaders[0].nonTaxableAmount}
+if (&quot;${materialOrderHeader_validate_isManualDiscountPercent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isManualDiscountPercent!= &quot;${materialOrderHeader_validate_isManualDiscountPercent}&quot;) { failureMessage = failureMessage + &quot;Expect isManualDiscountPercent${materialOrderHeader_validate_isManualDiscountPercent} but got &quot; + objRequest.materialOrderHeaders[0].isManualDiscountPercent}
+if (&quot;${materialOrderHeader_validate_isIntrastatActive}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isIntrastatActive!= &quot;${materialOrderHeader_validate_isIntrastatActive}&quot;) { failureMessage = failureMessage + &quot;Expect isIntrastatActive${materialOrderHeader_validate_isIntrastatActive} but got &quot; + objRequest.materialOrderHeaders[0].isIntrastatActive}
+if (&quot;${materialOrderHeader_validate_isIntrastatUsed}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isIntrastatUsed!= &quot;${materialOrderHeader_validate_isIntrastatUsed}&quot;) { failureMessage = failureMessage + &quot;Expect isIntrastatUsed${materialOrderHeader_validate_isIntrastatUsed} but got &quot; + objRequest.materialOrderHeaders[0].isIntrastatUsed}
+if (&quot;${materialOrderHeader_validate_freightWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].freightWeight!= &quot;${materialOrderHeader_validate_freightWeight}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeight${materialOrderHeader_validate_freightWeight} but got &quot; + objRequest.materialOrderHeaders[0].freightWeight}
+if (&quot;${materialOrderHeader_validate_siteEntityCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].siteEntityCode!= &quot;${materialOrderHeader_validate_siteEntityCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteEntityCode${materialOrderHeader_validate_siteEntityCode} but got &quot; + objRequest.materialOrderHeaders[0].siteEntityCode}
+if (&quot;${materialOrderHeader_validate_siteEntityDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].siteEntityDescription!= &quot;${materialOrderHeader_validate_siteEntityDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteEntityDescription${materialOrderHeader_validate_siteEntityDescription} but got &quot; + objRequest.materialOrderHeaders[0].siteEntityDescription}
+if (&quot;${materialOrderHeader_validate_completeStatus}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].completeStatus!= &quot;${materialOrderHeader_validate_completeStatus}&quot;) { failureMessage = failureMessage + &quot;Expect completeStatus${materialOrderHeader_validate_completeStatus} but got &quot; + objRequest.materialOrderHeaders[0].completeStatus}
+if (&quot;${materialOrderHeader_validate_statusDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].statusDate!= &quot;${materialOrderHeader_validate_statusDate}&quot;) { failureMessage = failureMessage + &quot;Expect statusDate${materialOrderHeader_validate_statusDate} but got &quot; + objRequest.materialOrderHeaders[0].statusDate}
+if (&quot;${materialOrderHeader_validate_isPrimarySO}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isPrimarySO!= &quot;${materialOrderHeader_validate_isPrimarySO}&quot;) { failureMessage = failureMessage + &quot;Expect isPrimarySO${materialOrderHeader_validate_isPrimarySO} but got &quot; + objRequest.materialOrderHeaders[0].isPrimarySO}
+if (&quot;${materialOrderHeader_validate_isSecondarySO}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isSecondarySO!= &quot;${materialOrderHeader_validate_isSecondarySO}&quot;) { failureMessage = failureMessage + &quot;Expect isSecondarySO${materialOrderHeader_validate_isSecondarySO} but got &quot; + objRequest.materialOrderHeaders[0].isSecondarySO}
+if (&quot;${materialOrderHeader_validate_endCustomerPO}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endCustomerPO!= &quot;${materialOrderHeader_validate_endCustomerPO}&quot;) { failureMessage = failureMessage + &quot;Expect endCustomerPO${materialOrderHeader_validate_endCustomerPO} but got &quot; + objRequest.materialOrderHeaders[0].endCustomerPO}
+if (&quot;${materialOrderHeader_validate_shipToPO}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipToPO!= &quot;${materialOrderHeader_validate_shipToPO}&quot;) { failureMessage = failureMessage + &quot;Expect shipToPO${materialOrderHeader_validate_shipToPO} but got &quot; + objRequest.materialOrderHeaders[0].shipToPO}
+if (&quot;${materialOrderHeader_validate_transactionType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].transactionType!= &quot;${materialOrderHeader_validate_transactionType}&quot;) { failureMessage = failureMessage + &quot;Expect transactionType${materialOrderHeader_validate_transactionType} but got &quot; + objRequest.materialOrderHeaders[0].transactionType}
+if (&quot;${materialOrderHeader_validate_isConsignment}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isConsignment!= &quot;${materialOrderHeader_validate_isConsignment}&quot;) { failureMessage = failureMessage + &quot;Expect isConsignment${materialOrderHeader_validate_isConsignment} but got &quot; + objRequest.materialOrderHeaders[0].isConsignment}
+if (&quot;${materialOrderHeader_validate_isCorrectionInvoice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isCorrectionInvoice!= &quot;${materialOrderHeader_validate_isCorrectionInvoice}&quot;) { failureMessage = failureMessage + &quot;Expect isCorrectionInvoice${materialOrderHeader_validate_isCorrectionInvoice} but got &quot; + objRequest.materialOrderHeaders[0].isCorrectionInvoice}
+if (&quot;${materialOrderHeader_validate_commentIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].commentIndex!= &quot;${materialOrderHeader_validate_commentIndex}&quot;) { failureMessage = failureMessage + &quot;Expect commentIndex${materialOrderHeader_validate_commentIndex} but got &quot; + objRequest.materialOrderHeaders[0].commentIndex}
+if (&quot;${materialOrderHeader_validate_isUsingConsignmentInventory}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isUsingConsignmentInventory!= &quot;${materialOrderHeader_validate_isUsingConsignmentInventory}&quot;) { failureMessage = failureMessage + &quot;Expect isUsingConsignmentInventory${materialOrderHeader_validate_isUsingConsignmentInventory} but got &quot; + objRequest.materialOrderHeaders[0].isUsingConsignmentInventory}
+if (&quot;${materialOrderHeader_validate_consignmentLocationCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].consignmentLocationCode!= &quot;${materialOrderHeader_validate_consignmentLocationCode}&quot;) { failureMessage = failureMessage + &quot;Expect consignmentLocationCode${materialOrderHeader_validate_consignmentLocationCode} but got &quot; + objRequest.materialOrderHeaders[0].consignmentLocationCode}
+if (&quot;${materialOrderHeader_validate_inTransitLocationCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].inTransitLocationCode!= &quot;${materialOrderHeader_validate_inTransitLocationCode}&quot;) { failureMessage = failureMessage + &quot;Expect inTransitLocationCode${materialOrderHeader_validate_inTransitLocationCode} but got &quot; + objRequest.materialOrderHeaders[0].inTransitLocationCode}
+if (&quot;${materialOrderHeader_validate_maximumAgingDays}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].maximumAgingDays!= &quot;${materialOrderHeader_validate_maximumAgingDays}&quot;) { failureMessage = failureMessage + &quot;Expect maximumAgingDays${materialOrderHeader_validate_maximumAgingDays} but got &quot; + objRequest.materialOrderHeaders[0].maximumAgingDays}
+if (&quot;${materialOrderHeader_validate_isProcessOrderSummary}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isProcessOrderSummary!= &quot;${materialOrderHeader_validate_isProcessOrderSummary}&quot;) { failureMessage = failureMessage + &quot;Expect isProcessOrderSummary${materialOrderHeader_validate_isProcessOrderSummary} but got &quot; + objRequest.materialOrderHeaders[0].isProcessOrderSummary}
+if (&quot;${materialOrderHeader_validate_isProcessPostTrailer}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isProcessPostTrailer!= &quot;${materialOrderHeader_validate_isProcessPostTrailer}&quot;) { failureMessage = failureMessage + &quot;Expect isProcessPostTrailer${materialOrderHeader_validate_isProcessPostTrailer} but got &quot; + objRequest.materialOrderHeaders[0].isProcessPostTrailer}
+if (&quot;${materialOrderHeader_validate_isDisplayTaxAmounts}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isDisplayTaxAmounts!= &quot;${materialOrderHeader_validate_isDisplayTaxAmounts}&quot;) { failureMessage = failureMessage + &quot;Expect isDisplayTaxAmounts${materialOrderHeader_validate_isDisplayTaxAmounts} but got &quot; + objRequest.materialOrderHeaders[0].isDisplayTaxAmounts}
+if (&quot;${materialOrderHeader_validate_isMaintainLogisticsAcctCharge}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isMaintainLogisticsAcctCharge!= &quot;${materialOrderHeader_validate_isMaintainLogisticsAcctCharge}&quot;) { failureMessage = failureMessage + &quot;Expect isMaintainLogisticsAcctCharge${materialOrderHeader_validate_isMaintainLogisticsAcctCharge} but got &quot; + objRequest.materialOrderHeaders[0].isMaintainLogisticsAcctCharge}
+if (&quot;${materialOrderHeader_validate_isNumberFormatFieldReadOnly}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isNumberFormatFieldReadOnly!= &quot;${materialOrderHeader_validate_isNumberFormatFieldReadOnly}&quot;) { failureMessage = failureMessage + &quot;Expect isNumberFormatFieldReadOnly${materialOrderHeader_validate_isNumberFormatFieldReadOnly} but got &quot; + objRequest.materialOrderHeaders[0].isNumberFormatFieldReadOnly}
+if (&quot;${materialOrderHeader_validate_isPurchaseOrderFieldReadOnly}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isPurchaseOrderFieldReadOnly!= &quot;${materialOrderHeader_validate_isPurchaseOrderFieldReadOnly}&quot;) { failureMessage = failureMessage + &quot;Expect isPurchaseOrderFieldReadOnly${materialOrderHeader_validate_isPurchaseOrderFieldReadOnly} but got &quot; + objRequest.materialOrderHeaders[0].isPurchaseOrderFieldReadOnly}
+if (&quot;${materialOrderHeader_validate_isSoldToFieldReadOnly}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isSoldToFieldReadOnly!= &quot;${materialOrderHeader_validate_isSoldToFieldReadOnly}&quot;) { failureMessage = failureMessage + &quot;Expect isSoldToFieldReadOnly${materialOrderHeader_validate_isSoldToFieldReadOnly} but got &quot; + objRequest.materialOrderHeaders[0].isSoldToFieldReadOnly}
+if (&quot;${materialOrderHeader_validate_shipDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].shipDate!= &quot;${materialOrderHeader_validate_shipDate}&quot;) { failureMessage = failureMessage + &quot;Expect shipDate${materialOrderHeader_validate_shipDate} but got &quot; + objRequest.materialOrderHeaders[0].shipDate}
+if (&quot;${materialOrderHeader_validate_isReadyToInvoice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isReadyToInvoice!= &quot;${materialOrderHeader_validate_isReadyToInvoice}&quot;) { failureMessage = failureMessage + &quot;Expect isReadyToInvoice${materialOrderHeader_validate_isReadyToInvoice} but got &quot; + objRequest.materialOrderHeaders[0].isReadyToInvoice}
+if (&quot;${materialOrderHeader_validate_isTamEnabled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isTamEnabled!= &quot;${materialOrderHeader_validate_isTamEnabled}&quot;) { failureMessage = failureMessage + &quot;Expect isTamEnabled${materialOrderHeader_validate_isTamEnabled} but got &quot; + objRequest.materialOrderHeaders[0].isTamEnabled}
+if (&quot;${materialOrderHeader_validate_orderAction}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].orderAction!= &quot;${materialOrderHeader_validate_orderAction}&quot;) { failureMessage = failureMessage + &quot;Expect orderAction${materialOrderHeader_validate_orderAction} but got &quot; + objRequest.materialOrderHeaders[0].orderAction}
+if (&quot;${materialOrderHeader_validate_disallowedActions}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].disallowedActions!= &quot;${materialOrderHeader_validate_disallowedActions}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActions${materialOrderHeader_validate_disallowedActions} but got &quot; + objRequest.materialOrderHeaders[0].disallowedActions}
+if (&quot;${materialOrderHeader_validate_disallowedActionsMessage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].disallowedActionsMessage!= &quot;${materialOrderHeader_validate_disallowedActionsMessage}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActionsMessage${materialOrderHeader_validate_disallowedActionsMessage} but got &quot; + objRequest.materialOrderHeaders[0].disallowedActionsMessage}
+if (&quot;${materialOrderHeader_validate_isScheduledOrder}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isScheduledOrder!= &quot;${materialOrderHeader_validate_isScheduledOrder}&quot;) { failureMessage = failureMessage + &quot;Expect isScheduledOrder${materialOrderHeader_validate_isScheduledOrder} but got &quot; + objRequest.materialOrderHeaders[0].isScheduledOrder}
+if (&quot;${materialOrderHeader_validate_lastModifiedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].lastModifiedDate!= &quot;${materialOrderHeader_validate_lastModifiedDate}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedDate${materialOrderHeader_validate_lastModifiedDate} but got &quot; + objRequest.materialOrderHeaders[0].lastModifiedDate}
+if (&quot;${materialOrderHeader_validate_lastModifiedUser}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].lastModifiedUser!= &quot;${materialOrderHeader_validate_lastModifiedUser}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedUser${materialOrderHeader_validate_lastModifiedUser} but got &quot; + objRequest.materialOrderHeaders[0].lastModifiedUser}
+if (&quot;${materialOrderHeader_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].dataOperation!= &quot;${materialOrderHeader_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${materialOrderHeader_validate_dataOperation} but got &quot; + objRequest.materialOrderHeaders[0].dataOperation}
+if (&quot;${materialOrderHeader_validate_salesOrderConcurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].salesOrderConcurrencyHash!= &quot;${materialOrderHeader_validate_salesOrderConcurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect salesOrderConcurrencyHash${materialOrderHeader_validate_salesOrderConcurrencyHash} but got &quot; + objRequest.materialOrderHeaders[0].salesOrderConcurrencyHash}
+if (&quot;${materialOrderHeader_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].concurrencyHash!= &quot;${materialOrderHeader_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${materialOrderHeader_validate_concurrencyHash} but got &quot; + objRequest.materialOrderHeaders[0].concurrencyHash}
+if (&quot;${materialOrderHeader_validate_invoiceNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].invoiceNumber!= &quot;${materialOrderHeader_validate_invoiceNumber}&quot;) { failureMessage = failureMessage + &quot;Expect invoiceNumber${materialOrderHeader_validate_invoiceNumber} but got &quot; + objRequest.materialOrderHeaders[0].invoiceNumber}
+if (&quot;${materialOrderHeader_validate_invoiceDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].invoiceDate!= &quot;${materialOrderHeader_validate_invoiceDate}&quot;) { failureMessage = failureMessage + &quot;Expect invoiceDate${materialOrderHeader_validate_invoiceDate} but got &quot; + objRequest.materialOrderHeaders[0].invoiceDate}
+if (&quot;${materialOrderHeader_validate_hasShippingTransaction}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].hasShippingTransaction!= &quot;${materialOrderHeader_validate_hasShippingTransaction}&quot;) { failureMessage = failureMessage + &quot;Expect hasShippingTransaction${materialOrderHeader_validate_hasShippingTransaction} but got &quot; + objRequest.materialOrderHeaders[0].hasShippingTransaction}
+if (&quot;${materialOrderHeader_validate_hasQuantityToInvoice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].hasQuantityToInvoice!= &quot;${materialOrderHeader_validate_hasQuantityToInvoice}&quot;) { failureMessage = failureMessage + &quot;Expect hasQuantityToInvoice${materialOrderHeader_validate_hasQuantityToInvoice} but got &quot; + objRequest.materialOrderHeaders[0].hasQuantityToInvoice}
+if (&quot;${materialOrderHeader_validate_soMstrUser1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrUser1!= &quot;${materialOrderHeader_validate_soMstrUser1}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrUser1${materialOrderHeader_validate_soMstrUser1} but got &quot; + objRequest.materialOrderHeaders[0].soMstrUser1}
+if (&quot;${materialOrderHeader_validate_soMstrUser2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrUser2!= &quot;${materialOrderHeader_validate_soMstrUser2}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrUser2${materialOrderHeader_validate_soMstrUser2} but got &quot; + objRequest.materialOrderHeaders[0].soMstrUser2}
+if (&quot;${materialOrderHeader_validate_soMstrChr01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr01!= &quot;${materialOrderHeader_validate_soMstrChr01}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr01${materialOrderHeader_validate_soMstrChr01} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr01}
+if (&quot;${materialOrderHeader_validate_soMstrChr02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr02!= &quot;${materialOrderHeader_validate_soMstrChr02}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr02${materialOrderHeader_validate_soMstrChr02} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr02}
+if (&quot;${materialOrderHeader_validate_soMstrChr03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr03!= &quot;${materialOrderHeader_validate_soMstrChr03}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr03${materialOrderHeader_validate_soMstrChr03} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr03}
+if (&quot;${materialOrderHeader_validate_soMstrChr04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr04!= &quot;${materialOrderHeader_validate_soMstrChr04}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr04${materialOrderHeader_validate_soMstrChr04} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr04}
+if (&quot;${materialOrderHeader_validate_soMstrChr05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr05!= &quot;${materialOrderHeader_validate_soMstrChr05}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr05${materialOrderHeader_validate_soMstrChr05} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr05}
+if (&quot;${materialOrderHeader_validate_soMstrChr06}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr06!= &quot;${materialOrderHeader_validate_soMstrChr06}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr06${materialOrderHeader_validate_soMstrChr06} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr06}
+if (&quot;${materialOrderHeader_validate_soMstrChr07}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr07!= &quot;${materialOrderHeader_validate_soMstrChr07}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr07${materialOrderHeader_validate_soMstrChr07} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr07}
+if (&quot;${materialOrderHeader_validate_soMstrChr08}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr08!= &quot;${materialOrderHeader_validate_soMstrChr08}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr08${materialOrderHeader_validate_soMstrChr08} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr08}
+if (&quot;${materialOrderHeader_validate_soMstrChr09}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr09!= &quot;${materialOrderHeader_validate_soMstrChr09}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr09${materialOrderHeader_validate_soMstrChr09} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr09}
+if (&quot;${materialOrderHeader_validate_soMstrChr10}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrChr10!= &quot;${materialOrderHeader_validate_soMstrChr10}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrChr10${materialOrderHeader_validate_soMstrChr10} but got &quot; + objRequest.materialOrderHeaders[0].soMstrChr10}
+if (&quot;${materialOrderHeader_validate_soMstrDte01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrDte01!= &quot;${materialOrderHeader_validate_soMstrDte01}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrDte01${materialOrderHeader_validate_soMstrDte01} but got &quot; + objRequest.materialOrderHeaders[0].soMstrDte01}
+if (&quot;${materialOrderHeader_validate_soMstrDte02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrDte02!= &quot;${materialOrderHeader_validate_soMstrDte02}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrDte02${materialOrderHeader_validate_soMstrDte02} but got &quot; + objRequest.materialOrderHeaders[0].soMstrDte02}
+if (&quot;${materialOrderHeader_validate_soMstrDec01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrDec01!= &quot;${materialOrderHeader_validate_soMstrDec01}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrDec01${materialOrderHeader_validate_soMstrDec01} but got &quot; + objRequest.materialOrderHeaders[0].soMstrDec01}
+if (&quot;${materialOrderHeader_validate_soMstrDec02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrDec02!= &quot;${materialOrderHeader_validate_soMstrDec02}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrDec02${materialOrderHeader_validate_soMstrDec02} but got &quot; + objRequest.materialOrderHeaders[0].soMstrDec02}
+if (&quot;${materialOrderHeader_validate_soMstrLog01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].soMstrLog01!= &quot;${materialOrderHeader_validate_soMstrLog01}&quot;) { failureMessage = failureMessage + &quot;Expect soMstrLog01${materialOrderHeader_validate_soMstrLog01} but got &quot; + objRequest.materialOrderHeaders[0].soMstrLog01}
+if (&quot;${materialOrderHeader_validate_serviceOrderType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].serviceOrderType!= &quot;${materialOrderHeader_validate_serviceOrderType}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderType${materialOrderHeader_validate_serviceOrderType} but got &quot; + objRequest.materialOrderHeaders[0].serviceOrderType}
+if (&quot;${materialOrderHeader_validate_orderType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].orderType!= &quot;${materialOrderHeader_validate_orderType}&quot;) { failureMessage = failureMessage + &quot;Expect orderType${materialOrderHeader_validate_orderType} but got &quot; + objRequest.materialOrderHeaders[0].orderType}
+if (&quot;${materialOrderHeader_validate_serviceOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].serviceOrderNumber!= &quot;${materialOrderHeader_validate_serviceOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderNumber${materialOrderHeader_validate_serviceOrderNumber} but got &quot; + objRequest.materialOrderHeaders[0].serviceOrderNumber}
+if (&quot;${materialOrderHeader_validate_engineerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].engineerCode!= &quot;${materialOrderHeader_validate_engineerCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerCode${materialOrderHeader_validate_engineerCode} but got &quot; + objRequest.materialOrderHeaders[0].engineerCode}
+if (&quot;${materialOrderHeader_validate_engineerName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].engineerName!= &quot;${materialOrderHeader_validate_engineerName}&quot;) { failureMessage = failureMessage + &quot;Expect engineerName${materialOrderHeader_validate_engineerName} but got &quot; + objRequest.materialOrderHeaders[0].engineerName}
+if (&quot;${materialOrderHeader_validate_chargeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].chargeCode!= &quot;${materialOrderHeader_validate_chargeCode}&quot;) { failureMessage = failureMessage + &quot;Expect chargeCode${materialOrderHeader_validate_chargeCode} but got &quot; + objRequest.materialOrderHeaders[0].chargeCode}
+if (&quot;${materialOrderHeader_validate_chargeCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].chargeCodeDescription!= &quot;${materialOrderHeader_validate_chargeCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect chargeCodeDescription${materialOrderHeader_validate_chargeCodeDescription} but got &quot; + objRequest.materialOrderHeaders[0].chargeCodeDescription}
+if (&quot;${materialOrderHeader_validate_isShipToEngineer}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].isShipToEngineer!= &quot;${materialOrderHeader_validate_isShipToEngineer}&quot;) { failureMessage = failureMessage + &quot;Expect isShipToEngineer${materialOrderHeader_validate_isShipToEngineer} but got &quot; + objRequest.materialOrderHeaders[0].isShipToEngineer}
+if (&quot;${materialOrderHeader_validate_requiredTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].requiredTime!= &quot;${materialOrderHeader_validate_requiredTime}&quot;) { failureMessage = failureMessage + &quot;Expect requiredTime${materialOrderHeader_validate_requiredTime} but got &quot; + objRequest.materialOrderHeaders[0].requiredTime}
+if (&quot;${materialOrderHeader_validate_requiredDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].requiredDateTime!= &quot;${materialOrderHeader_validate_requiredDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect requiredDateTime${materialOrderHeader_validate_requiredDateTime} but got &quot; + objRequest.materialOrderHeaders[0].requiredDateTime}
+if (&quot;${materialOrderHeader_validate_endUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserCode!= &quot;${materialOrderHeader_validate_endUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCode${materialOrderHeader_validate_endUserCode} but got &quot; + objRequest.materialOrderHeaders[0].endUserCode}
+if (&quot;${materialOrderHeader_validate_endUserAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserAddressField1!= &quot;${materialOrderHeader_validate_endUserAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField1${materialOrderHeader_validate_endUserAddressField1} but got &quot; + objRequest.materialOrderHeaders[0].endUserAddressField1}
+if (&quot;${materialOrderHeader_validate_endUserAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserAddressField2!= &quot;${materialOrderHeader_validate_endUserAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField2${materialOrderHeader_validate_endUserAddressField2} but got &quot; + objRequest.materialOrderHeaders[0].endUserAddressField2}
+if (&quot;${materialOrderHeader_validate_endUserAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserAddressField3!= &quot;${materialOrderHeader_validate_endUserAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField3${materialOrderHeader_validate_endUserAddressField3} but got &quot; + objRequest.materialOrderHeaders[0].endUserAddressField3}
+if (&quot;${materialOrderHeader_validate_endUserAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserAddressField4!= &quot;${materialOrderHeader_validate_endUserAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField4${materialOrderHeader_validate_endUserAddressField4} but got &quot; + objRequest.materialOrderHeaders[0].endUserAddressField4}
+if (&quot;${materialOrderHeader_validate_endUserAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserAddressField5!= &quot;${materialOrderHeader_validate_endUserAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField5${materialOrderHeader_validate_endUserAddressField5} but got &quot; + objRequest.materialOrderHeaders[0].endUserAddressField5}
+if (&quot;${materialOrderHeader_validate_endUserAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.materialOrderHeaders[0].endUserAddressField6!= &quot;${materialOrderHeader_validate_endUserAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField6${materialOrderHeader_validate_endUserAddressField6} but got &quot; + objRequest.materialOrderHeaders[0].endUserAddressField6}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;materialOrderHeader_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

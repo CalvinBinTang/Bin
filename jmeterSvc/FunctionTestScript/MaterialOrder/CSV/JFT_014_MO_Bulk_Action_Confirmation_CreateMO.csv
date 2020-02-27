@@ -1,0 +1,4 @@
+MO,serviceOrderNumber,Engineer,ShipTo,OrderDate,DueDate,AllocDays,Confirmed,Site,ShipVia,ChargeCode,ActionStatus,languageCode,DetailAlloc,Line,SrvLine,LineItem,LineSite,Loc,QtyOrdered,QtyAlloc,LineConfirmed,LineDetailAllc,LineDueDate,EMTType,EMTSupplier
+BulkC01,,10-ENG02,10-ENG02,2019-10-03T00:00:00.000Z,2019-10-11T00:00:00.000Z,10,false,10-100,UPS,,,us,false,1,,01010,10-100,,10,0,false,false,2019-10-11T00:00:00.000Z,,
+BulkC02,,10-ENG02,10-ENG02,2019-10-03T00:00:00.000Z,2019-10-11T00:00:00.000Z,10,false,10-100,UPS,,,us,false,1,,01010,10-100,,10,0,false,false,2019-10-11T00:00:00.000Z,,
+BulkC03,,10-ENG02,10C1001,2019-10-03T00:00:00.000Z,2019-10-21T00:00:00.000Z,10,false,10-100,UPS,,,us,false,1,,01010,10-100,,100,0,false,false,2019-10-21T00:00:00.000Z,,

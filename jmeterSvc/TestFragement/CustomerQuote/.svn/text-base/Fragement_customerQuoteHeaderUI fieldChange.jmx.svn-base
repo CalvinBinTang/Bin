@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="customerQuoteHeaderUI fieldChange" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;customerQuoteHeaderUI_url_fieldName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_message&quot;);
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;customerQuoteHeaderUI_domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_saveOptionKey&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_saveOptionValue&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_customerQuoteID&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_printRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_originalDocumentType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_originalDocumentNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isCombineDocument&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_statusCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_contact&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_email&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isReadyToSentEmail&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isUpdateOrderRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_phoneNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_purchaseOrderNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_quoteDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_requiredDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_promiseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_followUpDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_acceptedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isTaxable&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_remarks&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isReadyToRelease&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isPrintQuote&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_remindersSent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_remindersUpTo&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_releaseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_reasonLost&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_languageCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creatingUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_createdDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lastModifiedDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lastModifiedUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_siteCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_dueDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipVia&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isCalculateFreight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightListCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_incoterms&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_currencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_daybookSetCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_channel&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_projectCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_discountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_pricingDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_pricedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_actionStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_prepaidAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditInitials&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditCard&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxClass&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxUsage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_exchangeRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_exchangeRate2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isFixedRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_exchangeRateType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_baseCurrencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCode1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerAmount1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCode2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerAmount2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCode3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerAmount3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_nonTaxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lineTotal&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_discountAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_totalTrailerCharges&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_totalTax&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_totalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_commentIndex&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isManualDiscountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_initialTotalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isProcessQuoteSummary&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_completeStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isProcessPostTrailer&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isDoneLines&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_revision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_printRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_originalDocumentType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_originalDocumentNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_statusCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_statusCodeDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_contact&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_email&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isReadyToSentEmail&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isUpdateOrderRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_phoneNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_purchaseOrderNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_quoteDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_requiredDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_promiseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_followUpDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_acceptedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isTaxable&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_remarks&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isReadyToRelease&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isPrintQuote&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_remindersSent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_remindersUpTo&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_releaseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_reasonLost&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_reasonLostDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_languageCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_languageDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creatingUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creatingUserName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lastModifiedUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lastModifiedUserName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_createdDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lastModifiedDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_siteCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_siteDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_siteEntityCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_siteEntityDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_dueDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipVia&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipViaDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isCalculateFreight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightListCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightListDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightTermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_incoterms&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_incotermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_daybookSetCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_daybookSetDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_channel&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_channelDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_projectCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_projectDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_discountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_pricingDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_pricedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditTermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_actionStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_actionStatusDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_prepaidAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditInitials&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditInitialsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditCard&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditCardDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxClass&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxClassDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxEnvironmentDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxUsage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxUsageDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_exchangeRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_exchangeRate2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isFixedRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_exchangeRateType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_baseCurrencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCode1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCodeDescription1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerAmount1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCode2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCodeDescription2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerAmount2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCode3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerCodeDescription3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_trailerAmount3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_taxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_nonTaxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_lineTotal&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_discountAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_totalTrailerCharges&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_totalTax&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_totalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_commentIndex&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isManualDiscountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_initialTotalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isProcessQuoteSummary&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_completeStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isProcessPostTrailer&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isDoneLines&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_disallowedActions&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_disallowedActionsMessage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_dataOperation&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_concurrencyHash&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;customerQuoteHeaderUI_validate_domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_revision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_printRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_originalDocumentType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_originalDocumentNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isCombineDocument&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_statusCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_statusCodeDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_contact&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_email&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isReadyToSentEmail&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isUpdateOrderRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_phoneNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_purchaseOrderNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_quoteDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_requiredDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_promiseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_followUpDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_acceptedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isTaxable&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remarks&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isReadyToRelease&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isPrintQuote&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remindersSent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remindersUpTo&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_releaseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_reasonLost&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_reasonLostDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_languageCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_languageDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creatingUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creatingUserName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lastModifiedUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lastModifiedUserName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_createdDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lastModifiedDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteEntityCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteEntityDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_dueDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipVia&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipViaDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isCalculateFreight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightListCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightListDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightTermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_incoterms&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_incotermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_daybookSetCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_daybookSetDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_channel&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_channelDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_projectCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_projectDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_discountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_pricingDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_pricedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_actionStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_actionStatusDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_prepaidAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditInitials&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditInitialsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditCard&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditCardDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxClass&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxClassDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxEnvironmentDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxUsage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxUsageDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRate2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isFixedRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRateType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_baseCurrencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCodeDescription1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCodeDescription2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCodeDescription3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_nonTaxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lineTotal&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_discountAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalTrailerCharges&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalTax&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_commentIndex&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isManualDiscountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_initialTotalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isProcessQuoteSummary&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_completeStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isProcessPostTrailer&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isDoneLines&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_disallowedActions&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_disallowedActionsMessage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_dataOperation&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_concurrencyHash&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="customerQuoteHeaderUI fieldChange" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders/fieldChange?fieldName=${customerQuoteHeaderUI_url_fieldName}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${customerQuoteHeaderUI_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].domainCode= &quot;${customerQuoteHeaderUI_domainCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_quoteNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].quoteNumber= &quot;${customerQuoteHeaderUI_quoteNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_saveOptionKey}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].saveOptionKey= &quot;${customerQuoteHeaderUI_saveOptionKey}&quot;;
+if (&quot;${customerQuoteHeaderUI_saveOptionValue}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].saveOptionValue= &quot;${customerQuoteHeaderUI_saveOptionValue}&quot;;
+if (&quot;${customerQuoteHeaderUI_customerQuoteID}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].customerQuoteID= &quot;${customerQuoteHeaderUI_customerQuoteID}&quot;;
+if (&quot;${customerQuoteHeaderUI_printRevision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].printRevision= &quot;${customerQuoteHeaderUI_printRevision}&quot;;
+if (&quot;${customerQuoteHeaderUI_originalDocumentType}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].originalDocumentType= &quot;${customerQuoteHeaderUI_originalDocumentType}&quot;;
+if (&quot;${customerQuoteHeaderUI_originalDocumentNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].originalDocumentNumber= &quot;${customerQuoteHeaderUI_originalDocumentNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_isCombineDocument}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isCombineDocument= &quot;${customerQuoteHeaderUI_isCombineDocument}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToCustomerCode= &quot;${customerQuoteHeaderUI_soldToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].statusCode= &quot;${customerQuoteHeaderUI_statusCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_contact}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].contact= &quot;${customerQuoteHeaderUI_contact}&quot;;
+if (&quot;${customerQuoteHeaderUI_email}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].email= &quot;${customerQuoteHeaderUI_email}&quot;;
+if (&quot;${customerQuoteHeaderUI_isReadyToSentEmail}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isReadyToSentEmail= &quot;${customerQuoteHeaderUI_isReadyToSentEmail}&quot;;
+if (&quot;${customerQuoteHeaderUI_isUpdateOrderRevision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isUpdateOrderRevision= &quot;${customerQuoteHeaderUI_isUpdateOrderRevision}&quot;;
+if (&quot;${customerQuoteHeaderUI_phoneNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].phoneNumber= &quot;${customerQuoteHeaderUI_phoneNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_purchaseOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].purchaseOrderNumber= &quot;${customerQuoteHeaderUI_purchaseOrderNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_quoteDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].quoteDate= &quot;${customerQuoteHeaderUI_quoteDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_requiredDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].requiredDate= &quot;${customerQuoteHeaderUI_requiredDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_promiseDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].promiseDate= &quot;${customerQuoteHeaderUI_promiseDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_followUpDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].followUpDate= &quot;${customerQuoteHeaderUI_followUpDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_acceptedDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].acceptedDate= &quot;${customerQuoteHeaderUI_acceptedDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_isTaxable}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isTaxable= &quot;${customerQuoteHeaderUI_isTaxable}&quot;;
+if (&quot;${customerQuoteHeaderUI_remarks}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].remarks= &quot;${customerQuoteHeaderUI_remarks}&quot;;
+if (&quot;${customerQuoteHeaderUI_isReadyToRelease}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isReadyToRelease= &quot;${customerQuoteHeaderUI_isReadyToRelease}&quot;;
+if (&quot;${customerQuoteHeaderUI_isPrintQuote}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isPrintQuote= &quot;${customerQuoteHeaderUI_isPrintQuote}&quot;;
+if (&quot;${customerQuoteHeaderUI_remindersSent}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].remindersSent= &quot;${customerQuoteHeaderUI_remindersSent}&quot;;
+if (&quot;${customerQuoteHeaderUI_remindersUpTo}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].remindersUpTo= &quot;${customerQuoteHeaderUI_remindersUpTo}&quot;;
+if (&quot;${customerQuoteHeaderUI_releaseDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].releaseDate= &quot;${customerQuoteHeaderUI_releaseDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_reasonLost}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].reasonLost= &quot;${customerQuoteHeaderUI_reasonLost}&quot;;
+if (&quot;${customerQuoteHeaderUI_languageCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].languageCode= &quot;${customerQuoteHeaderUI_languageCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_creatingUser}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creatingUser= &quot;${customerQuoteHeaderUI_creatingUser}&quot;;
+if (&quot;${customerQuoteHeaderUI_createdDateTime}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].createdDateTime= &quot;${customerQuoteHeaderUI_createdDateTime}&quot;;
+if (&quot;${customerQuoteHeaderUI_lastModifiedDateTime}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lastModifiedDateTime= &quot;${customerQuoteHeaderUI_lastModifiedDateTime}&quot;;
+if (&quot;${customerQuoteHeaderUI_lastModifiedUser}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lastModifiedUser= &quot;${customerQuoteHeaderUI_lastModifiedUser}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToCustomerCode= &quot;${customerQuoteHeaderUI_shipToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].siteCode= &quot;${customerQuoteHeaderUI_siteCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_dueDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].dueDate= &quot;${customerQuoteHeaderUI_dueDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipVia}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipVia= &quot;${customerQuoteHeaderUI_shipVia}&quot;;
+if (&quot;${customerQuoteHeaderUI_isCalculateFreight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isCalculateFreight= &quot;${customerQuoteHeaderUI_isCalculateFreight}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightListCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightListCode= &quot;${customerQuoteHeaderUI_freightListCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightMinimumWeight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightMinimumWeight= &quot;${customerQuoteHeaderUI_freightMinimumWeight}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightWeightUnitOfMeasure= &quot;${customerQuoteHeaderUI_freightWeightUnitOfMeasure}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightTermsCode= &quot;${customerQuoteHeaderUI_freightTermsCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_incoterms}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].incoterms= &quot;${customerQuoteHeaderUI_incoterms}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToCustomerCode= &quot;${customerQuoteHeaderUI_billToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].currencyCode= &quot;${customerQuoteHeaderUI_currencyCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_daybookSetCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].daybookSetCode= &quot;${customerQuoteHeaderUI_daybookSetCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_channel}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].channel= &quot;${customerQuoteHeaderUI_channel}&quot;;
+if (&quot;${customerQuoteHeaderUI_projectCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].projectCode= &quot;${customerQuoteHeaderUI_projectCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_discountPercent}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].discountPercent= &quot;${customerQuoteHeaderUI_discountPercent}&quot;;
+if (&quot;${customerQuoteHeaderUI_pricingDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].pricingDate= &quot;${customerQuoteHeaderUI_pricingDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_pricedDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].pricedDate= &quot;${customerQuoteHeaderUI_pricedDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditTermsCode= &quot;${customerQuoteHeaderUI_creditTermsCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditTermsInterestPercentage}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditTermsInterestPercentage= &quot;${customerQuoteHeaderUI_creditTermsInterestPercentage}&quot;;
+if (&quot;${customerQuoteHeaderUI_actionStatus}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].actionStatus= &quot;${customerQuoteHeaderUI_actionStatus}&quot;;
+if (&quot;${customerQuoteHeaderUI_prepaidAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].prepaidAmount= &quot;${customerQuoteHeaderUI_prepaidAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditInitials}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditInitials= &quot;${customerQuoteHeaderUI_creditInitials}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditCard}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditCard= &quot;${customerQuoteHeaderUI_creditCard}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxClass}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxClass= &quot;${customerQuoteHeaderUI_taxClass}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxEnvironment}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxEnvironment= &quot;${customerQuoteHeaderUI_taxEnvironment}&quot;;
+if (&quot;${customerQuoteHeaderUI_isTaxIncluded}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isTaxIncluded= &quot;${customerQuoteHeaderUI_isTaxIncluded}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxUsage}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxUsage= &quot;${customerQuoteHeaderUI_taxUsage}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxDate= &quot;${customerQuoteHeaderUI_taxDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_exchangeRate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].exchangeRate= &quot;${customerQuoteHeaderUI_exchangeRate}&quot;;
+if (&quot;${customerQuoteHeaderUI_exchangeRate2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].exchangeRate2= &quot;${customerQuoteHeaderUI_exchangeRate2}&quot;;
+if (&quot;${customerQuoteHeaderUI_isFixedRate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isFixedRate= &quot;${customerQuoteHeaderUI_isFixedRate}&quot;;
+if (&quot;${customerQuoteHeaderUI_exchangeRateType}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].exchangeRateType= &quot;${customerQuoteHeaderUI_exchangeRateType}&quot;;
+if (&quot;${customerQuoteHeaderUI_baseCurrencyCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].baseCurrencyCode= &quot;${customerQuoteHeaderUI_baseCurrencyCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCode1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCode1= &quot;${customerQuoteHeaderUI_trailerCode1}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerAmount1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerAmount1= &quot;${customerQuoteHeaderUI_trailerAmount1}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCode2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCode2= &quot;${customerQuoteHeaderUI_trailerCode2}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerAmount2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerAmount2= &quot;${customerQuoteHeaderUI_trailerAmount2}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCode3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCode3= &quot;${customerQuoteHeaderUI_trailerCode3}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerAmount3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerAmount3= &quot;${customerQuoteHeaderUI_trailerAmount3}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxableAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxableAmount= &quot;${customerQuoteHeaderUI_taxableAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_nonTaxableAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].nonTaxableAmount= &quot;${customerQuoteHeaderUI_nonTaxableAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_lineTotal}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lineTotal= &quot;${customerQuoteHeaderUI_lineTotal}&quot;;
+if (&quot;${customerQuoteHeaderUI_discountAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].discountAmount= &quot;${customerQuoteHeaderUI_discountAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_totalTrailerCharges}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].totalTrailerCharges= &quot;${customerQuoteHeaderUI_totalTrailerCharges}&quot;;
+if (&quot;${customerQuoteHeaderUI_totalTax}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].totalTax= &quot;${customerQuoteHeaderUI_totalTax}&quot;;
+if (&quot;${customerQuoteHeaderUI_totalAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].totalAmount= &quot;${customerQuoteHeaderUI_totalAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].commentIndex= &quot;${customerQuoteHeaderUI_commentIndex}&quot;;
+if (&quot;${customerQuoteHeaderUI_isManualDiscountPercent}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isManualDiscountPercent= &quot;${customerQuoteHeaderUI_isManualDiscountPercent}&quot;;
+if (&quot;${customerQuoteHeaderUI_isDisplayTaxAmounts}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isDisplayTaxAmounts= &quot;${customerQuoteHeaderUI_isDisplayTaxAmounts}&quot;;
+if (&quot;${customerQuoteHeaderUI_initialTotalAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].initialTotalAmount= &quot;${customerQuoteHeaderUI_initialTotalAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_isProcessQuoteSummary}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isProcessQuoteSummary= &quot;${customerQuoteHeaderUI_isProcessQuoteSummary}&quot;;
+if (&quot;${customerQuoteHeaderUI_completeStatus}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].completeStatus= &quot;${customerQuoteHeaderUI_completeStatus}&quot;;
+if (&quot;${customerQuoteHeaderUI_isProcessPostTrailer}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isProcessPostTrailer= &quot;${customerQuoteHeaderUI_isProcessPostTrailer}&quot;;
+if (&quot;${customerQuoteHeaderUI_isDoneLines}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isDoneLines= &quot;${customerQuoteHeaderUI_isDoneLines}&quot;;
+if (&quot;${customerQuoteHeaderUI_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].domainCode= &quot;${customerQuoteHeaderUI_domainCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_quoteNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].quoteNumber= &quot;${customerQuoteHeaderUI_quoteNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_revision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].revision= &quot;${customerQuoteHeaderUI_revision}&quot;;
+if (&quot;${customerQuoteHeaderUI_printRevision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].printRevision= &quot;${customerQuoteHeaderUI_printRevision}&quot;;
+if (&quot;${customerQuoteHeaderUI_originalDocumentType}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].originalDocumentType= &quot;${customerQuoteHeaderUI_originalDocumentType}&quot;;
+if (&quot;${customerQuoteHeaderUI_originalDocumentNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].originalDocumentNumber= &quot;${customerQuoteHeaderUI_originalDocumentNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToCustomerCode= &quot;${customerQuoteHeaderUI_soldToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToAddressField1= &quot;${customerQuoteHeaderUI_soldToAddressField1}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToAddressField2= &quot;${customerQuoteHeaderUI_soldToAddressField2}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToAddressField3= &quot;${customerQuoteHeaderUI_soldToAddressField3}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToAddressField4= &quot;${customerQuoteHeaderUI_soldToAddressField4}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToAddressField5= &quot;${customerQuoteHeaderUI_soldToAddressField5}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToAddressField6= &quot;${customerQuoteHeaderUI_soldToAddressField6}&quot;;
+if (&quot;${customerQuoteHeaderUI_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].statusCode= &quot;${customerQuoteHeaderUI_statusCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_statusCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].statusCodeDescription= &quot;${customerQuoteHeaderUI_statusCodeDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_contact}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].contact= &quot;${customerQuoteHeaderUI_contact}&quot;;
+if (&quot;${customerQuoteHeaderUI_email}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].email= &quot;${customerQuoteHeaderUI_email}&quot;;
+if (&quot;${customerQuoteHeaderUI_isReadyToSentEmail}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isReadyToSentEmail= &quot;${customerQuoteHeaderUI_isReadyToSentEmail}&quot;;
+if (&quot;${customerQuoteHeaderUI_isUpdateOrderRevision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isUpdateOrderRevision= &quot;${customerQuoteHeaderUI_isUpdateOrderRevision}&quot;;
+if (&quot;${customerQuoteHeaderUI_phoneNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].phoneNumber= &quot;${customerQuoteHeaderUI_phoneNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_purchaseOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].purchaseOrderNumber= &quot;${customerQuoteHeaderUI_purchaseOrderNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_quoteDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].quoteDate= &quot;${customerQuoteHeaderUI_quoteDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_requiredDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].requiredDate= &quot;${customerQuoteHeaderUI_requiredDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_promiseDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].promiseDate= &quot;${customerQuoteHeaderUI_promiseDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_followUpDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].followUpDate= &quot;${customerQuoteHeaderUI_followUpDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_acceptedDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].acceptedDate= &quot;${customerQuoteHeaderUI_acceptedDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_isTaxable}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isTaxable= &quot;${customerQuoteHeaderUI_isTaxable}&quot;;
+if (&quot;${customerQuoteHeaderUI_remarks}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].remarks= &quot;${customerQuoteHeaderUI_remarks}&quot;;
+if (&quot;${customerQuoteHeaderUI_isReadyToRelease}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isReadyToRelease= &quot;${customerQuoteHeaderUI_isReadyToRelease}&quot;;
+if (&quot;${customerQuoteHeaderUI_isPrintQuote}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isPrintQuote= &quot;${customerQuoteHeaderUI_isPrintQuote}&quot;;
+if (&quot;${customerQuoteHeaderUI_remindersSent}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].remindersSent= &quot;${customerQuoteHeaderUI_remindersSent}&quot;;
+if (&quot;${customerQuoteHeaderUI_remindersUpTo}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].remindersUpTo= &quot;${customerQuoteHeaderUI_remindersUpTo}&quot;;
+if (&quot;${customerQuoteHeaderUI_releaseDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].releaseDate= &quot;${customerQuoteHeaderUI_releaseDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_reasonLost}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].reasonLost= &quot;${customerQuoteHeaderUI_reasonLost}&quot;;
+if (&quot;${customerQuoteHeaderUI_reasonLostDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].reasonLostDescription= &quot;${customerQuoteHeaderUI_reasonLostDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_languageCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].languageCode= &quot;${customerQuoteHeaderUI_languageCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_languageDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].languageDescription= &quot;${customerQuoteHeaderUI_languageDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_creatingUser}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creatingUser= &quot;${customerQuoteHeaderUI_creatingUser}&quot;;
+if (&quot;${customerQuoteHeaderUI_creatingUserName}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creatingUserName= &quot;${customerQuoteHeaderUI_creatingUserName}&quot;;
+if (&quot;${customerQuoteHeaderUI_lastModifiedUser}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lastModifiedUser= &quot;${customerQuoteHeaderUI_lastModifiedUser}&quot;;
+if (&quot;${customerQuoteHeaderUI_lastModifiedUserName}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lastModifiedUserName= &quot;${customerQuoteHeaderUI_lastModifiedUserName}&quot;;
+if (&quot;${customerQuoteHeaderUI_createdDateTime}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].createdDateTime= &quot;${customerQuoteHeaderUI_createdDateTime}&quot;;
+if (&quot;${customerQuoteHeaderUI_lastModifiedDateTime}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lastModifiedDateTime= &quot;${customerQuoteHeaderUI_lastModifiedDateTime}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToCustomerCode= &quot;${customerQuoteHeaderUI_shipToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToAddressField1= &quot;${customerQuoteHeaderUI_shipToAddressField1}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToAddressField2= &quot;${customerQuoteHeaderUI_shipToAddressField2}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToAddressField3= &quot;${customerQuoteHeaderUI_shipToAddressField3}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToAddressField4= &quot;${customerQuoteHeaderUI_shipToAddressField4}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToAddressField5= &quot;${customerQuoteHeaderUI_shipToAddressField5}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToAddressField6= &quot;${customerQuoteHeaderUI_shipToAddressField6}&quot;;
+if (&quot;${customerQuoteHeaderUI_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].siteCode= &quot;${customerQuoteHeaderUI_siteCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_siteDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].siteDescription= &quot;${customerQuoteHeaderUI_siteDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_siteEntityCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].siteEntityCode= &quot;${customerQuoteHeaderUI_siteEntityCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_siteEntityDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].siteEntityDescription= &quot;${customerQuoteHeaderUI_siteEntityDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_dueDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].dueDate= &quot;${customerQuoteHeaderUI_dueDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipVia}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipVia= &quot;${customerQuoteHeaderUI_shipVia}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipViaDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipViaDescription= &quot;${customerQuoteHeaderUI_shipViaDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_isCalculateFreight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isCalculateFreight= &quot;${customerQuoteHeaderUI_isCalculateFreight}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightListCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightListCode= &quot;${customerQuoteHeaderUI_freightListCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightListDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightListDescription= &quot;${customerQuoteHeaderUI_freightListDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightMinimumWeight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightMinimumWeight= &quot;${customerQuoteHeaderUI_freightMinimumWeight}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightWeight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightWeight= &quot;${customerQuoteHeaderUI_freightWeight}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightWeightUnitOfMeasure= &quot;${customerQuoteHeaderUI_freightWeightUnitOfMeasure}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightTermsCode= &quot;${customerQuoteHeaderUI_freightTermsCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightTermsDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightTermsDescription= &quot;${customerQuoteHeaderUI_freightTermsDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_incoterms}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].incoterms= &quot;${customerQuoteHeaderUI_incoterms}&quot;;
+if (&quot;${customerQuoteHeaderUI_incotermsDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].incotermsDescription= &quot;${customerQuoteHeaderUI_incotermsDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToCustomerCode= &quot;${customerQuoteHeaderUI_billToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToAddressField1= &quot;${customerQuoteHeaderUI_billToAddressField1}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToAddressField2= &quot;${customerQuoteHeaderUI_billToAddressField2}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToAddressField3= &quot;${customerQuoteHeaderUI_billToAddressField3}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToAddressField4= &quot;${customerQuoteHeaderUI_billToAddressField4}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToAddressField5= &quot;${customerQuoteHeaderUI_billToAddressField5}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToAddressField6= &quot;${customerQuoteHeaderUI_billToAddressField6}&quot;;
+if (&quot;${customerQuoteHeaderUI_daybookSetCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].daybookSetCode= &quot;${customerQuoteHeaderUI_daybookSetCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_daybookSetDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].daybookSetDescription= &quot;${customerQuoteHeaderUI_daybookSetDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_channel}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].channel= &quot;${customerQuoteHeaderUI_channel}&quot;;
+if (&quot;${customerQuoteHeaderUI_channelDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].channelDescription= &quot;${customerQuoteHeaderUI_channelDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_projectCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].projectCode= &quot;${customerQuoteHeaderUI_projectCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_projectDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].projectDescription= &quot;${customerQuoteHeaderUI_projectDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_discountPercent}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].discountPercent= &quot;${customerQuoteHeaderUI_discountPercent}&quot;;
+if (&quot;${customerQuoteHeaderUI_pricingDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].pricingDate= &quot;${customerQuoteHeaderUI_pricingDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_pricedDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].pricedDate= &quot;${customerQuoteHeaderUI_pricedDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditTermsCode= &quot;${customerQuoteHeaderUI_creditTermsCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditTermsDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditTermsDescription= &quot;${customerQuoteHeaderUI_creditTermsDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditTermsInterestPercentage}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditTermsInterestPercentage= &quot;${customerQuoteHeaderUI_creditTermsInterestPercentage}&quot;;
+if (&quot;${customerQuoteHeaderUI_actionStatus}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].actionStatus= &quot;${customerQuoteHeaderUI_actionStatus}&quot;;
+if (&quot;${customerQuoteHeaderUI_actionStatusDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].actionStatusDescription= &quot;${customerQuoteHeaderUI_actionStatusDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_prepaidAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].prepaidAmount= &quot;${customerQuoteHeaderUI_prepaidAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditInitials}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditInitials= &quot;${customerQuoteHeaderUI_creditInitials}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditInitialsDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditInitialsDescription= &quot;${customerQuoteHeaderUI_creditInitialsDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditCard}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditCard= &quot;${customerQuoteHeaderUI_creditCard}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditCardDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].creditCardDescription= &quot;${customerQuoteHeaderUI_creditCardDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxClass}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxClass= &quot;${customerQuoteHeaderUI_taxClass}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxClassDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxClassDescription= &quot;${customerQuoteHeaderUI_taxClassDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxEnvironment}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxEnvironment= &quot;${customerQuoteHeaderUI_taxEnvironment}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxEnvironmentDescription= &quot;${customerQuoteHeaderUI_taxEnvironmentDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_isTaxIncluded}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isTaxIncluded= &quot;${customerQuoteHeaderUI_isTaxIncluded}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxUsage}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxUsage= &quot;${customerQuoteHeaderUI_taxUsage}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxUsageDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxUsageDescription= &quot;${customerQuoteHeaderUI_taxUsageDescription}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxDate= &quot;${customerQuoteHeaderUI_taxDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_exchangeRate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].exchangeRate= &quot;${customerQuoteHeaderUI_exchangeRate}&quot;;
+if (&quot;${customerQuoteHeaderUI_exchangeRate2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].exchangeRate2= &quot;${customerQuoteHeaderUI_exchangeRate2}&quot;;
+if (&quot;${customerQuoteHeaderUI_isFixedRate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isFixedRate= &quot;${customerQuoteHeaderUI_isFixedRate}&quot;;
+if (&quot;${customerQuoteHeaderUI_exchangeRateType}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].exchangeRateType= &quot;${customerQuoteHeaderUI_exchangeRateType}&quot;;
+if (&quot;${customerQuoteHeaderUI_baseCurrencyCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].baseCurrencyCode= &quot;${customerQuoteHeaderUI_baseCurrencyCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCode1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCode1= &quot;${customerQuoteHeaderUI_trailerCode1}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCodeDescription1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription1= &quot;${customerQuoteHeaderUI_trailerCodeDescription1}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerAmount1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerAmount1= &quot;${customerQuoteHeaderUI_trailerAmount1}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCode2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCode2= &quot;${customerQuoteHeaderUI_trailerCode2}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCodeDescription2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription2= &quot;${customerQuoteHeaderUI_trailerCodeDescription2}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerAmount2}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerAmount2= &quot;${customerQuoteHeaderUI_trailerAmount2}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCode3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCode3= &quot;${customerQuoteHeaderUI_trailerCode3}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerCodeDescription3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription3= &quot;${customerQuoteHeaderUI_trailerCodeDescription3}&quot;;
+if (&quot;${customerQuoteHeaderUI_trailerAmount3}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].trailerAmount3= &quot;${customerQuoteHeaderUI_trailerAmount3}&quot;;
+if (&quot;${customerQuoteHeaderUI_taxableAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].taxableAmount= &quot;${customerQuoteHeaderUI_taxableAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_nonTaxableAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].nonTaxableAmount= &quot;${customerQuoteHeaderUI_nonTaxableAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_lineTotal}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].lineTotal= &quot;${customerQuoteHeaderUI_lineTotal}&quot;;
+if (&quot;${customerQuoteHeaderUI_discountAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].discountAmount= &quot;${customerQuoteHeaderUI_discountAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_totalTrailerCharges}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].totalTrailerCharges= &quot;${customerQuoteHeaderUI_totalTrailerCharges}&quot;;
+if (&quot;${customerQuoteHeaderUI_totalTax}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].totalTax= &quot;${customerQuoteHeaderUI_totalTax}&quot;;
+if (&quot;${customerQuoteHeaderUI_totalAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].totalAmount= &quot;${customerQuoteHeaderUI_totalAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].commentIndex= &quot;${customerQuoteHeaderUI_commentIndex}&quot;;
+if (&quot;${customerQuoteHeaderUI_isManualDiscountPercent}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isManualDiscountPercent= &quot;${customerQuoteHeaderUI_isManualDiscountPercent}&quot;;
+if (&quot;${customerQuoteHeaderUI_isDisplayTaxAmounts}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isDisplayTaxAmounts= &quot;${customerQuoteHeaderUI_isDisplayTaxAmounts}&quot;;
+if (&quot;${customerQuoteHeaderUI_initialTotalAmount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].initialTotalAmount= &quot;${customerQuoteHeaderUI_initialTotalAmount}&quot;;
+if (&quot;${customerQuoteHeaderUI_isProcessQuoteSummary}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isProcessQuoteSummary= &quot;${customerQuoteHeaderUI_isProcessQuoteSummary}&quot;;
+if (&quot;${customerQuoteHeaderUI_completeStatus}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].completeStatus= &quot;${customerQuoteHeaderUI_completeStatus}&quot;;
+if (&quot;${customerQuoteHeaderUI_isProcessPostTrailer}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isProcessPostTrailer= &quot;${customerQuoteHeaderUI_isProcessPostTrailer}&quot;;
+if (&quot;${customerQuoteHeaderUI_isDoneLines}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isDoneLines= &quot;${customerQuoteHeaderUI_isDoneLines}&quot;;
+if (&quot;${customerQuoteHeaderUI_disallowedActions}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].disallowedActions= &quot;${customerQuoteHeaderUI_disallowedActions}&quot;;
+if (&quot;${customerQuoteHeaderUI_disallowedActionsMessage}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].disallowedActionsMessage= &quot;${customerQuoteHeaderUI_disallowedActionsMessage}&quot;;
+if (&quot;${customerQuoteHeaderUI_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].dataOperation= &quot;${customerQuoteHeaderUI_dataOperation}&quot;;
+if (&quot;${customerQuoteHeaderUI_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].concurrencyHash= &quot;${customerQuoteHeaderUI_concurrencyHash}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var failureMessage = &quot;&quot;;
+var temp = prev.getResponseDataAsString();
+vars.put(&quot;temp&quot;, temp);
+var errormessage = JSON.parse(temp);
+var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+if (&quot;${customerQuoteHeaderUI_validate_message}&quot; != &quot;[N/A]&quot;) 
+{ 
+	
+	if(&quot;${customerQuoteHeaderUI_validate_message}&quot;!=errormessage.submitResult.errors[0].message)
+	{
+		failureMessage = failureMessage + &quot;Expect customer quote header message ${customerQuoteHeaderUI_validate_message} but got &quot;+errormessage.submitResult.errors[0].message;
+	}
+}
+// All the fields in dataset should be set here
+if (&quot;${customerQuoteHeaderUI_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].domainCode!= &quot;${customerQuoteHeaderUI_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${customerQuoteHeaderUI_validate_domainCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].domainCode}
+if (&quot;${customerQuoteHeaderUI_validate_quoteNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].quoteNumber!= &quot;${customerQuoteHeaderUI_validate_quoteNumber}&quot;) { failureMessage = failureMessage + &quot;Expect quoteNumber${customerQuoteHeaderUI_validate_quoteNumber} but got &quot; + objRequest.customerQuoteHeaderUIs[0].quoteNumber}
+if (&quot;${customerQuoteHeaderUI_validate_revision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].revision!= &quot;${customerQuoteHeaderUI_validate_revision}&quot;) { failureMessage = failureMessage + &quot;Expect revision${customerQuoteHeaderUI_validate_revision} but got &quot; + objRequest.customerQuoteHeaderUIs[0].revision}
+if (&quot;${customerQuoteHeaderUI_validate_printRevision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].printRevision!= &quot;${customerQuoteHeaderUI_validate_printRevision}&quot;) { failureMessage = failureMessage + &quot;Expect printRevision${customerQuoteHeaderUI_validate_printRevision} but got &quot; + objRequest.customerQuoteHeaderUIs[0].printRevision}
+if (&quot;${customerQuoteHeaderUI_validate_originalDocumentType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].originalDocumentType!= &quot;${customerQuoteHeaderUI_validate_originalDocumentType}&quot;) { failureMessage = failureMessage + &quot;Expect originalDocumentType${customerQuoteHeaderUI_validate_originalDocumentType} but got &quot; + objRequest.customerQuoteHeaderUIs[0].originalDocumentType}
+if (&quot;${customerQuoteHeaderUI_validate_originalDocumentNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].originalDocumentNumber!= &quot;${customerQuoteHeaderUI_validate_originalDocumentNumber}&quot;) { failureMessage = failureMessage + &quot;Expect originalDocumentNumber${customerQuoteHeaderUI_validate_originalDocumentNumber} but got &quot; + objRequest.customerQuoteHeaderUIs[0].originalDocumentNumber}
+if (&quot;${customerQuoteHeaderUI_validate_isCombineDocument}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isCombineDocument!= &quot;${customerQuoteHeaderUI_validate_isCombineDocument}&quot;) { failureMessage = failureMessage + &quot;Expect isCombineDocument{customerQuoteHeaderUI_validate_isCombineDocument} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isCombineDocument}
+if (&quot;${customerQuoteHeaderUI_validate_soldToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToCustomerCode!= &quot;${customerQuoteHeaderUI_validate_soldToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect soldToCustomerCode${customerQuoteHeaderUI_validate_soldToCustomerCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToCustomerCode}
+if (&quot;${customerQuoteHeaderUI_validate_soldToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToAddressField1!= &quot;${customerQuoteHeaderUI_validate_soldToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField1${customerQuoteHeaderUI_validate_soldToAddressField1} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToAddressField1}
+if (&quot;${customerQuoteHeaderUI_validate_soldToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToAddressField2!= &quot;${customerQuoteHeaderUI_validate_soldToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField2${customerQuoteHeaderUI_validate_soldToAddressField2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToAddressField2}
+if (&quot;${customerQuoteHeaderUI_validate_soldToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToAddressField3!= &quot;${customerQuoteHeaderUI_validate_soldToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField3${customerQuoteHeaderUI_validate_soldToAddressField3} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToAddressField3}
+if (&quot;${customerQuoteHeaderUI_validate_soldToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToAddressField4!= &quot;${customerQuoteHeaderUI_validate_soldToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField4${customerQuoteHeaderUI_validate_soldToAddressField4} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToAddressField4}
+if (&quot;${customerQuoteHeaderUI_validate_soldToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToAddressField5!= &quot;${customerQuoteHeaderUI_validate_soldToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField5${customerQuoteHeaderUI_validate_soldToAddressField5} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToAddressField5}
+if (&quot;${customerQuoteHeaderUI_validate_soldToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].soldToAddressField6!= &quot;${customerQuoteHeaderUI_validate_soldToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect soldToAddressField6${customerQuoteHeaderUI_validate_soldToAddressField6} but got &quot; + objRequest.customerQuoteHeaderUIs[0].soldToAddressField6}
+if (&quot;${customerQuoteHeaderUI_validate_statusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].statusCode!= &quot;${customerQuoteHeaderUI_validate_statusCode}&quot;) { failureMessage = failureMessage + &quot;Expect statusCode${customerQuoteHeaderUI_validate_statusCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].statusCode}
+if (&quot;${customerQuoteHeaderUI_validate_statusCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].statusCodeDescription!= &quot;${customerQuoteHeaderUI_validate_statusCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect statusCodeDescription${customerQuoteHeaderUI_validate_statusCodeDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].statusCodeDescription}
+if (&quot;${customerQuoteHeaderUI_validate_contact}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].contact!= &quot;${customerQuoteHeaderUI_validate_contact}&quot;) { failureMessage = failureMessage + &quot;Expect contact${customerQuoteHeaderUI_validate_contact} but got &quot; + objRequest.customerQuoteHeaderUIs[0].contact}
+if (&quot;${customerQuoteHeaderUI_validate_email}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].email!= &quot;${customerQuoteHeaderUI_validate_email}&quot;) { failureMessage = failureMessage + &quot;Expect email${customerQuoteHeaderUI_validate_email} but got &quot; + objRequest.customerQuoteHeaderUIs[0].email}
+if (&quot;${customerQuoteHeaderUI_validate_isReadyToSentEmail}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isReadyToSentEmail!= &quot;${customerQuoteHeaderUI_validate_isReadyToSentEmail}&quot;) { failureMessage = failureMessage + &quot;Expect isReadyToSentEmail${customerQuoteHeaderUI_validate_isReadyToSentEmail} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isReadyToSentEmail}
+if (&quot;${customerQuoteHeaderUI_validate_isUpdateOrderRevision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isUpdateOrderRevision!= &quot;${customerQuoteHeaderUI_validate_isUpdateOrderRevision}&quot;) { failureMessage = failureMessage + &quot;Expect isUpdateOrderRevision${customerQuoteHeaderUI_validate_isUpdateOrderRevision} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isUpdateOrderRevision}
+if (&quot;${customerQuoteHeaderUI_validate_phoneNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].phoneNumber!= &quot;${customerQuoteHeaderUI_validate_phoneNumber}&quot;) { failureMessage = failureMessage + &quot;Expect phoneNumber${customerQuoteHeaderUI_validate_phoneNumber} but got &quot; + objRequest.customerQuoteHeaderUIs[0].phoneNumber}
+if (&quot;${customerQuoteHeaderUI_validate_purchaseOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].purchaseOrderNumber!= &quot;${customerQuoteHeaderUI_validate_purchaseOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect purchaseOrderNumber${customerQuoteHeaderUI_validate_purchaseOrderNumber} but got &quot; + objRequest.customerQuoteHeaderUIs[0].purchaseOrderNumber}
+if (&quot;${customerQuoteHeaderUI_validate_quoteDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].quoteDate!= &quot;${customerQuoteHeaderUI_validate_quoteDate}&quot;) { failureMessage = failureMessage + &quot;Expect quoteDate${customerQuoteHeaderUI_validate_quoteDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].quoteDate}
+if (&quot;${customerQuoteHeaderUI_validate_requiredDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].requiredDate!= &quot;${customerQuoteHeaderUI_validate_requiredDate}&quot;) { failureMessage = failureMessage + &quot;Expect requiredDate${customerQuoteHeaderUI_validate_requiredDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].requiredDate}
+if (&quot;${customerQuoteHeaderUI_validate_promiseDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].promiseDate!= &quot;${customerQuoteHeaderUI_validate_promiseDate}&quot;) { failureMessage = failureMessage + &quot;Expect promiseDate${customerQuoteHeaderUI_validate_promiseDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].promiseDate}
+if (&quot;${customerQuoteHeaderUI_validate_followUpDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].followUpDate!= &quot;${customerQuoteHeaderUI_validate_followUpDate}&quot;) { failureMessage = failureMessage + &quot;Expect followUpDate${customerQuoteHeaderUI_validate_followUpDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].followUpDate}
+if (&quot;${customerQuoteHeaderUI_validate_acceptedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].acceptedDate!= &quot;${customerQuoteHeaderUI_validate_acceptedDate}&quot;) { failureMessage = failureMessage + &quot;Expect acceptedDate${customerQuoteHeaderUI_validate_acceptedDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].acceptedDate}
+if (&quot;${customerQuoteHeaderUI_validate_isTaxable}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isTaxable!= &quot;${customerQuoteHeaderUI_validate_isTaxable}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxable${customerQuoteHeaderUI_validate_isTaxable} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isTaxable}
+if (&quot;${customerQuoteHeaderUI_validate_remarks}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].remarks!= &quot;${customerQuoteHeaderUI_validate_remarks}&quot;) { failureMessage = failureMessage + &quot;Expect remarks${customerQuoteHeaderUI_validate_remarks} but got &quot; + objRequest.customerQuoteHeaderUIs[0].remarks}
+if (&quot;${customerQuoteHeaderUI_validate_isReadyToRelease}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isReadyToRelease!= &quot;${customerQuoteHeaderUI_validate_isReadyToRelease}&quot;) { failureMessage = failureMessage + &quot;Expect isReadyToRelease${customerQuoteHeaderUI_validate_isReadyToRelease} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isReadyToRelease}
+if (&quot;${customerQuoteHeaderUI_validate_isPrintQuote}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isPrintQuote!= &quot;${customerQuoteHeaderUI_validate_isPrintQuote}&quot;) { failureMessage = failureMessage + &quot;Expect isPrintQuote${customerQuoteHeaderUI_validate_isPrintQuote} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isPrintQuote}
+if (&quot;${customerQuoteHeaderUI_validate_remindersSent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].remindersSent!= &quot;${customerQuoteHeaderUI_validate_remindersSent}&quot;) { failureMessage = failureMessage + &quot;Expect remindersSent${customerQuoteHeaderUI_validate_remindersSent} but got &quot; + objRequest.customerQuoteHeaderUIs[0].remindersSent}
+if (&quot;${customerQuoteHeaderUI_validate_remindersUpTo}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].remindersUpTo!= &quot;${customerQuoteHeaderUI_validate_remindersUpTo}&quot;) { failureMessage = failureMessage + &quot;Expect remindersUpTo${customerQuoteHeaderUI_validate_remindersUpTo} but got &quot; + objRequest.customerQuoteHeaderUIs[0].remindersUpTo}
+if (&quot;${customerQuoteHeaderUI_validate_releaseDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].releaseDate!= &quot;${customerQuoteHeaderUI_validate_releaseDate}&quot;) { failureMessage = failureMessage + &quot;Expect releaseDate${customerQuoteHeaderUI_validate_releaseDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].releaseDate}
+if (&quot;${customerQuoteHeaderUI_validate_reasonLost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].reasonLost!= &quot;${customerQuoteHeaderUI_validate_reasonLost}&quot;) { failureMessage = failureMessage + &quot;Expect reasonLost${customerQuoteHeaderUI_validate_reasonLost} but got &quot; + objRequest.customerQuoteHeaderUIs[0].reasonLost}
+if (&quot;${customerQuoteHeaderUI_validate_reasonLostDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].reasonLostDescription!= &quot;${customerQuoteHeaderUI_validate_reasonLostDescription}&quot;) { failureMessage = failureMessage + &quot;Expect reasonLostDescription${customerQuoteHeaderUI_validate_reasonLostDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].reasonLostDescription}
+if (&quot;${customerQuoteHeaderUI_validate_languageCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].languageCode!= &quot;${customerQuoteHeaderUI_validate_languageCode}&quot;) { failureMessage = failureMessage + &quot;Expect languageCode${customerQuoteHeaderUI_validate_languageCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].languageCode}
+if (&quot;${customerQuoteHeaderUI_validate_languageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].languageDescription!= &quot;${customerQuoteHeaderUI_validate_languageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect languageDescription${customerQuoteHeaderUI_validate_languageDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].languageDescription}
+if (&quot;${customerQuoteHeaderUI_validate_creatingUser}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creatingUser!= &quot;${customerQuoteHeaderUI_validate_creatingUser}&quot;) { failureMessage = failureMessage + &quot;Expect creatingUser${customerQuoteHeaderUI_validate_creatingUser} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creatingUser}
+if (&quot;${customerQuoteHeaderUI_validate_creatingUserName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creatingUserName!= &quot;${customerQuoteHeaderUI_validate_creatingUserName}&quot;) { failureMessage = failureMessage + &quot;Expect creatingUserName${customerQuoteHeaderUI_validate_creatingUserName} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creatingUserName}
+if (&quot;${customerQuoteHeaderUI_validate_lastModifiedUser}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].lastModifiedUser!= &quot;${customerQuoteHeaderUI_validate_lastModifiedUser}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedUser${customerQuoteHeaderUI_validate_lastModifiedUser} but got &quot; + objRequest.customerQuoteHeaderUIs[0].lastModifiedUser}
+if (&quot;${customerQuoteHeaderUI_validate_lastModifiedUserName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].lastModifiedUserName!= &quot;${customerQuoteHeaderUI_validate_lastModifiedUserName}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedUserName${customerQuoteHeaderUI_validate_lastModifiedUserName} but got &quot; + objRequest.customerQuoteHeaderUIs[0].lastModifiedUserName}
+if (&quot;${customerQuoteHeaderUI_validate_createdDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].createdDateTime!= &quot;${customerQuoteHeaderUI_validate_createdDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect createdDateTime${customerQuoteHeaderUI_validate_createdDateTime} but got &quot; + objRequest.customerQuoteHeaderUIs[0].createdDateTime}
+if (&quot;${customerQuoteHeaderUI_validate_lastModifiedDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].lastModifiedDateTime!= &quot;${customerQuoteHeaderUI_validate_lastModifiedDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedDateTime${customerQuoteHeaderUI_validate_lastModifiedDateTime} but got &quot; + objRequest.customerQuoteHeaderUIs[0].lastModifiedDateTime}
+if (&quot;${customerQuoteHeaderUI_validate_shipToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToCustomerCode!= &quot;${customerQuoteHeaderUI_validate_shipToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect shipToCustomerCode${customerQuoteHeaderUI_validate_shipToCustomerCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToCustomerCode}
+if (&quot;${customerQuoteHeaderUI_validate_shipToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToAddressField1!= &quot;${customerQuoteHeaderUI_validate_shipToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField1${customerQuoteHeaderUI_validate_shipToAddressField1} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToAddressField1}
+if (&quot;${customerQuoteHeaderUI_validate_shipToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToAddressField2!= &quot;${customerQuoteHeaderUI_validate_shipToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField2${customerQuoteHeaderUI_validate_shipToAddressField2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToAddressField2}
+if (&quot;${customerQuoteHeaderUI_validate_shipToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToAddressField3!= &quot;${customerQuoteHeaderUI_validate_shipToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField3${customerQuoteHeaderUI_validate_shipToAddressField3} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToAddressField3}
+if (&quot;${customerQuoteHeaderUI_validate_shipToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToAddressField4!= &quot;${customerQuoteHeaderUI_validate_shipToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField4${customerQuoteHeaderUI_validate_shipToAddressField4} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToAddressField4}
+if (&quot;${customerQuoteHeaderUI_validate_shipToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToAddressField5!= &quot;${customerQuoteHeaderUI_validate_shipToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField5${customerQuoteHeaderUI_validate_shipToAddressField5} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToAddressField5}
+if (&quot;${customerQuoteHeaderUI_validate_shipToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipToAddressField6!= &quot;${customerQuoteHeaderUI_validate_shipToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField6${customerQuoteHeaderUI_validate_shipToAddressField6} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipToAddressField6}
+if (&quot;${customerQuoteHeaderUI_validate_siteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].siteCode!= &quot;${customerQuoteHeaderUI_validate_siteCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteCode${customerQuoteHeaderUI_validate_siteCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].siteCode}
+if (&quot;${customerQuoteHeaderUI_validate_siteDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].siteDescription!= &quot;${customerQuoteHeaderUI_validate_siteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteDescription${customerQuoteHeaderUI_validate_siteDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].siteDescription}
+if (&quot;${customerQuoteHeaderUI_validate_siteEntityCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].siteEntityCode!= &quot;${customerQuoteHeaderUI_validate_siteEntityCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteEntityCode${customerQuoteHeaderUI_validate_siteEntityCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].siteEntityCode}
+if (&quot;${customerQuoteHeaderUI_validate_siteEntityDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].siteEntityDescription!= &quot;${customerQuoteHeaderUI_validate_siteEntityDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteEntityDescription${customerQuoteHeaderUI_validate_siteEntityDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].siteEntityDescription}
+if (&quot;${customerQuoteHeaderUI_validate_dueDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].dueDate!= &quot;${customerQuoteHeaderUI_validate_dueDate}&quot;) { failureMessage = failureMessage + &quot;Expect dueDate${customerQuoteHeaderUI_validate_dueDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].dueDate}
+if (&quot;${customerQuoteHeaderUI_validate_shipVia}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipVia!= &quot;${customerQuoteHeaderUI_validate_shipVia}&quot;) { failureMessage = failureMessage + &quot;Expect shipVia${customerQuoteHeaderUI_validate_shipVia} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipVia}
+if (&quot;${customerQuoteHeaderUI_validate_shipViaDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].shipViaDescription!= &quot;${customerQuoteHeaderUI_validate_shipViaDescription}&quot;) { failureMessage = failureMessage + &quot;Expect shipViaDescription${customerQuoteHeaderUI_validate_shipViaDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].shipViaDescription}
+if (&quot;${customerQuoteHeaderUI_validate_isCalculateFreight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isCalculateFreight!= &quot;${customerQuoteHeaderUI_validate_isCalculateFreight}&quot;) { failureMessage = failureMessage + &quot;Expect isCalculateFreight${customerQuoteHeaderUI_validate_isCalculateFreight} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isCalculateFreight}
+if (&quot;${customerQuoteHeaderUI_validate_freightListCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightListCode!= &quot;${customerQuoteHeaderUI_validate_freightListCode}&quot;) { failureMessage = failureMessage + &quot;Expect freightListCode${customerQuoteHeaderUI_validate_freightListCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightListCode}
+if (&quot;${customerQuoteHeaderUI_validate_freightListDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightListDescription!= &quot;${customerQuoteHeaderUI_validate_freightListDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freightListDescription${customerQuoteHeaderUI_validate_freightListDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightListDescription}
+if (&quot;${customerQuoteHeaderUI_validate_freightMinimumWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightMinimumWeight!= &quot;${customerQuoteHeaderUI_validate_freightMinimumWeight}&quot;) { failureMessage = failureMessage + &quot;Expect freightMinimumWeight${customerQuoteHeaderUI_validate_freightMinimumWeight} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightMinimumWeight}
+if (&quot;${customerQuoteHeaderUI_validate_freightWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightWeight!= &quot;${customerQuoteHeaderUI_validate_freightWeight}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeight${customerQuoteHeaderUI_validate_freightWeight} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightWeight}
+if (&quot;${customerQuoteHeaderUI_validate_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightWeightUnitOfMeasure!= &quot;${customerQuoteHeaderUI_validate_freightWeightUnitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeightUnitOfMeasure${customerQuoteHeaderUI_validate_freightWeightUnitOfMeasure} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightWeightUnitOfMeasure}
+if (&quot;${customerQuoteHeaderUI_validate_freightTermsCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightTermsCode!= &quot;${customerQuoteHeaderUI_validate_freightTermsCode}&quot;) { failureMessage = failureMessage + &quot;Expect freightTermsCode${customerQuoteHeaderUI_validate_freightTermsCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightTermsCode}
+if (&quot;${customerQuoteHeaderUI_validate_freightTermsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].freightTermsDescription!= &quot;${customerQuoteHeaderUI_validate_freightTermsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freightTermsDescription${customerQuoteHeaderUI_validate_freightTermsDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].freightTermsDescription}
+if (&quot;${customerQuoteHeaderUI_validate_incoterms}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].incoterms!= &quot;${customerQuoteHeaderUI_validate_incoterms}&quot;) { failureMessage = failureMessage + &quot;Expect incoterms${customerQuoteHeaderUI_validate_incoterms} but got &quot; + objRequest.customerQuoteHeaderUIs[0].incoterms}
+if (&quot;${customerQuoteHeaderUI_validate_incotermsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].incotermsDescription!= &quot;${customerQuoteHeaderUI_validate_incotermsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect incotermsDescription${customerQuoteHeaderUI_validate_incotermsDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].incotermsDescription}
+if (&quot;${customerQuoteHeaderUI_validate_billToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToCustomerCode!= &quot;${customerQuoteHeaderUI_validate_billToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect billToCustomerCode${customerQuoteHeaderUI_validate_billToCustomerCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToCustomerCode}
+if (&quot;${customerQuoteHeaderUI_validate_billToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToAddressField1!= &quot;${customerQuoteHeaderUI_validate_billToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField1${customerQuoteHeaderUI_validate_billToAddressField1} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToAddressField1}
+if (&quot;${customerQuoteHeaderUI_validate_billToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToAddressField2!= &quot;${customerQuoteHeaderUI_validate_billToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField2${customerQuoteHeaderUI_validate_billToAddressField2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToAddressField2}
+if (&quot;${customerQuoteHeaderUI_validate_billToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToAddressField3!= &quot;${customerQuoteHeaderUI_validate_billToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField3${customerQuoteHeaderUI_validate_billToAddressField3} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToAddressField3}
+if (&quot;${customerQuoteHeaderUI_validate_billToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToAddressField4!= &quot;${customerQuoteHeaderUI_validate_billToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField4${customerQuoteHeaderUI_validate_billToAddressField4} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToAddressField4}
+if (&quot;${customerQuoteHeaderUI_validate_billToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToAddressField5!= &quot;${customerQuoteHeaderUI_validate_billToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField5${customerQuoteHeaderUI_validate_billToAddressField5} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToAddressField5}
+if (&quot;${customerQuoteHeaderUI_validate_billToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].billToAddressField6!= &quot;${customerQuoteHeaderUI_validate_billToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField6${customerQuoteHeaderUI_validate_billToAddressField6} but got &quot; + objRequest.customerQuoteHeaderUIs[0].billToAddressField6}
+if (&quot;${customerQuoteHeaderUI_validate_currencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].currencyCode!= &quot;${customerQuoteHeaderUI_validate_currencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCode${customerQuoteHeaderUI_validate_currencyCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].currencyCode}
+if (&quot;${customerQuoteHeaderUI_validate_daybookSetCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].daybookSetCode!= &quot;${customerQuoteHeaderUI_validate_daybookSetCode}&quot;) { failureMessage = failureMessage + &quot;Expect daybookSetCode${customerQuoteHeaderUI_validate_daybookSetCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].daybookSetCode}
+if (&quot;${customerQuoteHeaderUI_validate_daybookSetDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].daybookSetDescription!= &quot;${customerQuoteHeaderUI_validate_daybookSetDescription}&quot;) { failureMessage = failureMessage + &quot;Expect daybookSetDescription${customerQuoteHeaderUI_validate_daybookSetDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].daybookSetDescription}
+if (&quot;${customerQuoteHeaderUI_validate_channel}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].channel!= &quot;${customerQuoteHeaderUI_validate_channel}&quot;) { failureMessage = failureMessage + &quot;Expect channel${customerQuoteHeaderUI_validate_channel} but got &quot; + objRequest.customerQuoteHeaderUIs[0].channel}
+if (&quot;${customerQuoteHeaderUI_validate_channelDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].channelDescription!= &quot;${customerQuoteHeaderUI_validate_channelDescription}&quot;) { failureMessage = failureMessage + &quot;Expect channelDescription${customerQuoteHeaderUI_validate_channelDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].channelDescription}
+if (&quot;${customerQuoteHeaderUI_validate_projectCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].projectCode!= &quot;${customerQuoteHeaderUI_validate_projectCode}&quot;) { failureMessage = failureMessage + &quot;Expect projectCode${customerQuoteHeaderUI_validate_projectCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].projectCode}
+if (&quot;${customerQuoteHeaderUI_validate_projectDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].projectDescription!= &quot;${customerQuoteHeaderUI_validate_projectDescription}&quot;) { failureMessage = failureMessage + &quot;Expect projectDescription${customerQuoteHeaderUI_validate_projectDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].projectDescription}
+if (&quot;${customerQuoteHeaderUI_validate_discountPercent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].discountPercent!= &quot;${customerQuoteHeaderUI_validate_discountPercent}&quot;) { failureMessage = failureMessage + &quot;Expect discountPercent${customerQuoteHeaderUI_validate_discountPercent} but got &quot; + objRequest.customerQuoteHeaderUIs[0].discountPercent}
+if (&quot;${customerQuoteHeaderUI_validate_pricingDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].pricingDate!= &quot;${customerQuoteHeaderUI_validate_pricingDate}&quot;) { failureMessage = failureMessage + &quot;Expect pricingDate${customerQuoteHeaderUI_validate_pricingDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].pricingDate}
+if (&quot;${customerQuoteHeaderUI_validate_pricedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].pricedDate!= &quot;${customerQuoteHeaderUI_validate_pricedDate}&quot;) { failureMessage = failureMessage + &quot;Expect pricedDate${customerQuoteHeaderUI_validate_pricedDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].pricedDate}
+if (&quot;${customerQuoteHeaderUI_validate_creditTermsCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditTermsCode!= &quot;${customerQuoteHeaderUI_validate_creditTermsCode}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsCode${customerQuoteHeaderUI_validate_creditTermsCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditTermsCode}
+if (&quot;${customerQuoteHeaderUI_validate_creditTermsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditTermsDescription!= &quot;${customerQuoteHeaderUI_validate_creditTermsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsDescription${customerQuoteHeaderUI_validate_creditTermsDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditTermsDescription}
+if (&quot;${customerQuoteHeaderUI_validate_creditTermsInterestPercentage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditTermsInterestPercentage!= &quot;${customerQuoteHeaderUI_validate_creditTermsInterestPercentage}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsInterestPercentage${customerQuoteHeaderUI_validate_creditTermsInterestPercentage} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditTermsInterestPercentage}
+if (&quot;${customerQuoteHeaderUI_validate_actionStatus}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].actionStatus!= &quot;${customerQuoteHeaderUI_validate_actionStatus}&quot;) { failureMessage = failureMessage + &quot;Expect actionStatus${customerQuoteHeaderUI_validate_actionStatus} but got &quot; + objRequest.customerQuoteHeaderUIs[0].actionStatus}
+if (&quot;${customerQuoteHeaderUI_validate_actionStatusDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].actionStatusDescription!= &quot;${customerQuoteHeaderUI_validate_actionStatusDescription}&quot;) { failureMessage = failureMessage + &quot;Expect actionStatusDescription${customerQuoteHeaderUI_validate_actionStatusDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].actionStatusDescription}
+if (&quot;${customerQuoteHeaderUI_validate_prepaidAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].prepaidAmount!= &quot;${customerQuoteHeaderUI_validate_prepaidAmount}&quot;) { failureMessage = failureMessage + &quot;Expect prepaidAmount${customerQuoteHeaderUI_validate_prepaidAmount} but got &quot; + objRequest.customerQuoteHeaderUIs[0].prepaidAmount}
+if (&quot;${customerQuoteHeaderUI_validate_creditInitials}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditInitials!= &quot;${customerQuoteHeaderUI_validate_creditInitials}&quot;) { failureMessage = failureMessage + &quot;Expect creditInitials${customerQuoteHeaderUI_validate_creditInitials} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditInitials}
+if (&quot;${customerQuoteHeaderUI_validate_creditInitialsDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditInitialsDescription!= &quot;${customerQuoteHeaderUI_validate_creditInitialsDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditInitialsDescription${customerQuoteHeaderUI_validate_creditInitialsDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditInitialsDescription}
+if (&quot;${customerQuoteHeaderUI_validate_creditCard}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditCard!= &quot;${customerQuoteHeaderUI_validate_creditCard}&quot;) { failureMessage = failureMessage + &quot;Expect creditCard${customerQuoteHeaderUI_validate_creditCard} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditCard}
+if (&quot;${customerQuoteHeaderUI_validate_creditCardDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].creditCardDescription!= &quot;${customerQuoteHeaderUI_validate_creditCardDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditCardDescription${customerQuoteHeaderUI_validate_creditCardDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].creditCardDescription}
+if (&quot;${customerQuoteHeaderUI_validate_taxClass}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxClass!= &quot;${customerQuoteHeaderUI_validate_taxClass}&quot;) { failureMessage = failureMessage + &quot;Expect taxClass${customerQuoteHeaderUI_validate_taxClass} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxClass}
+if (&quot;${customerQuoteHeaderUI_validate_taxClassDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxClassDescription!= &quot;${customerQuoteHeaderUI_validate_taxClassDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxClassDescription${customerQuoteHeaderUI_validate_taxClassDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxClassDescription}
+if (&quot;${customerQuoteHeaderUI_validate_taxEnvironment}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxEnvironment!= &quot;${customerQuoteHeaderUI_validate_taxEnvironment}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironment${customerQuoteHeaderUI_validate_taxEnvironment} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxEnvironment}
+if (&quot;${customerQuoteHeaderUI_validate_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxEnvironmentDescription!= &quot;${customerQuoteHeaderUI_validate_taxEnvironmentDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironmentDescription${customerQuoteHeaderUI_validate_taxEnvironmentDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxEnvironmentDescription}
+if (&quot;${customerQuoteHeaderUI_validate_isTaxIncluded}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isTaxIncluded!= &quot;${customerQuoteHeaderUI_validate_isTaxIncluded}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxIncluded${customerQuoteHeaderUI_validate_isTaxIncluded} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isTaxIncluded}
+if (&quot;${customerQuoteHeaderUI_validate_taxUsage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxUsage!= &quot;${customerQuoteHeaderUI_validate_taxUsage}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsage${customerQuoteHeaderUI_validate_taxUsage} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxUsage}
+if (&quot;${customerQuoteHeaderUI_validate_taxUsageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxUsageDescription!= &quot;${customerQuoteHeaderUI_validate_taxUsageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsageDescription${customerQuoteHeaderUI_validate_taxUsageDescription} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxUsageDescription}
+if (&quot;${customerQuoteHeaderUI_validate_taxDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxDate!= &quot;${customerQuoteHeaderUI_validate_taxDate}&quot;) { failureMessage = failureMessage + &quot;Expect taxDate${customerQuoteHeaderUI_validate_taxDate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxDate}
+if (&quot;${customerQuoteHeaderUI_validate_exchangeRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].exchangeRate!= &quot;${customerQuoteHeaderUI_validate_exchangeRate}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate${customerQuoteHeaderUI_validate_exchangeRate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].exchangeRate}
+if (&quot;${customerQuoteHeaderUI_validate_exchangeRate2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].exchangeRate2!= &quot;${customerQuoteHeaderUI_validate_exchangeRate2}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate2${customerQuoteHeaderUI_validate_exchangeRate2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].exchangeRate2}
+if (&quot;${customerQuoteHeaderUI_validate_isFixedRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isFixedRate!= &quot;${customerQuoteHeaderUI_validate_isFixedRate}&quot;) { failureMessage = failureMessage + &quot;Expect isFixedRate${customerQuoteHeaderUI_validate_isFixedRate} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isFixedRate}
+if (&quot;${customerQuoteHeaderUI_validate_exchangeRateType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].exchangeRateType!= &quot;${customerQuoteHeaderUI_validate_exchangeRateType}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRateType${customerQuoteHeaderUI_validate_exchangeRateType} but got &quot; + objRequest.customerQuoteHeaderUIs[0].exchangeRateType}
+if (&quot;${customerQuoteHeaderUI_validate_baseCurrencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].baseCurrencyCode!= &quot;${customerQuoteHeaderUI_validate_baseCurrencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect baseCurrencyCode${customerQuoteHeaderUI_validate_baseCurrencyCode} but got &quot; + objRequest.customerQuoteHeaderUIs[0].baseCurrencyCode}
+if (&quot;${customerQuoteHeaderUI_validate_trailerCode1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerCode1!= &quot;${customerQuoteHeaderUI_validate_trailerCode1}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCode1${customerQuoteHeaderUI_validate_trailerCode1} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerCode1}
+if (&quot;${customerQuoteHeaderUI_validate_trailerCodeDescription1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription1!= &quot;${customerQuoteHeaderUI_validate_trailerCodeDescription1}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCodeDescription1${customerQuoteHeaderUI_validate_trailerCodeDescription1} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription1}
+if (&quot;${customerQuoteHeaderUI_validate_trailerAmount1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerAmount1!= &quot;${customerQuoteHeaderUI_validate_trailerAmount1}&quot;) { failureMessage = failureMessage + &quot;Expect trailerAmount1${customerQuoteHeaderUI_validate_trailerAmount1} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerAmount1}
+if (&quot;${customerQuoteHeaderUI_validate_trailerCode2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerCode2!= &quot;${customerQuoteHeaderUI_validate_trailerCode2}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCode2${customerQuoteHeaderUI_validate_trailerCode2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerCode2}
+if (&quot;${customerQuoteHeaderUI_validate_trailerCodeDescription2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription2!= &quot;${customerQuoteHeaderUI_validate_trailerCodeDescription2}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCodeDescription2${customerQuoteHeaderUI_validate_trailerCodeDescription2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription2}
+if (&quot;${customerQuoteHeaderUI_validate_trailerAmount2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerAmount2!= &quot;${customerQuoteHeaderUI_validate_trailerAmount2}&quot;) { failureMessage = failureMessage + &quot;Expect trailerAmount2${customerQuoteHeaderUI_validate_trailerAmount2} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerAmount2}
+if (&quot;${customerQuoteHeaderUI_validate_trailerCode3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerCode3!= &quot;${customerQuoteHeaderUI_validate_trailerCode3}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCode3${customerQuoteHeaderUI_validate_trailerCode3} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerCode3}
+if (&quot;${customerQuoteHeaderUI_validate_trailerCodeDescription3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription3!= &quot;${customerQuoteHeaderUI_validate_trailerCodeDescription3}&quot;) { failureMessage = failureMessage + &quot;Expect trailerCodeDescription3${customerQuoteHeaderUI_validate_trailerCodeDescription3} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerCodeDescription3}
+if (&quot;${customerQuoteHeaderUI_validate_trailerAmount3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].trailerAmount3!= &quot;${customerQuoteHeaderUI_validate_trailerAmount3}&quot;) { failureMessage = failureMessage + &quot;Expect trailerAmount3${customerQuoteHeaderUI_validate_trailerAmount3} but got &quot; + objRequest.customerQuoteHeaderUIs[0].trailerAmount3}
+if (&quot;${customerQuoteHeaderUI_validate_taxableAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].taxableAmount!= &quot;${customerQuoteHeaderUI_validate_taxableAmount}&quot;) { failureMessage = failureMessage + &quot;Expect taxableAmount${customerQuoteHeaderUI_validate_taxableAmount} but got &quot; + objRequest.customerQuoteHeaderUIs[0].taxableAmount}
+if (&quot;${customerQuoteHeaderUI_validate_nonTaxableAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].nonTaxableAmount!= &quot;${customerQuoteHeaderUI_validate_nonTaxableAmount}&quot;) { failureMessage = failureMessage + &quot;Expect nonTaxableAmount${customerQuoteHeaderUI_validate_nonTaxableAmount} but got &quot; + objRequest.customerQuoteHeaderUIs[0].nonTaxableAmount}
+if (&quot;${customerQuoteHeaderUI_validate_lineTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].lineTotal!= &quot;${customerQuoteHeaderUI_validate_lineTotal}&quot;) { failureMessage = failureMessage + &quot;Expect lineTotal${customerQuoteHeaderUI_validate_lineTotal} but got &quot; + objRequest.customerQuoteHeaderUIs[0].lineTotal}
+if (&quot;${customerQuoteHeaderUI_validate_discountAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].discountAmount!= &quot;${customerQuoteHeaderUI_validate_discountAmount}&quot;) { failureMessage = failureMessage + &quot;Expect discountAmount${customerQuoteHeaderUI_validate_discountAmount} but got &quot; + objRequest.customerQuoteHeaderUIs[0].discountAmount}
+if (&quot;${customerQuoteHeaderUI_validate_totalTrailerCharges}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].totalTrailerCharges!= &quot;${customerQuoteHeaderUI_validate_totalTrailerCharges}&quot;) { failureMessage = failureMessage + &quot;Expect totalTrailerCharges${customerQuoteHeaderUI_validate_totalTrailerCharges} but got &quot; + objRequest.customerQuoteHeaderUIs[0].totalTrailerCharges}
+if (&quot;${customerQuoteHeaderUI_validate_totalTax}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].totalTax!= &quot;${customerQuoteHeaderUI_validate_totalTax}&quot;) { failureMessage = failureMessage + &quot;Expect totalTax${customerQuoteHeaderUI_validate_totalTax} but got &quot; + objRequest.customerQuoteHeaderUIs[0].totalTax}
+if (&quot;${customerQuoteHeaderUI_validate_totalAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].totalAmount!= &quot;${customerQuoteHeaderUI_validate_totalAmount}&quot;) { failureMessage = failureMessage + &quot;Expect totalAmount${customerQuoteHeaderUI_validate_totalAmount} but got &quot; + objRequest.customerQuoteHeaderUIs[0].totalAmount}
+if (&quot;${customerQuoteHeaderUI_validate_commentIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].commentIndex!= &quot;${customerQuoteHeaderUI_validate_commentIndex}&quot;) { failureMessage = failureMessage + &quot;Expect commentIndex${customerQuoteHeaderUI_validate_commentIndex} but got &quot; + objRequest.customerQuoteHeaderUIs[0].commentIndex}
+if (&quot;${customerQuoteHeaderUI_validate_isManualDiscountPercent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isManualDiscountPercent!= &quot;${customerQuoteHeaderUI_validate_isManualDiscountPercent}&quot;) { failureMessage = failureMessage + &quot;Expect isManualDiscountPercent${customerQuoteHeaderUI_validate_isManualDiscountPercent} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isManualDiscountPercent}
+if (&quot;${customerQuoteHeaderUI_validate_isDisplayTaxAmounts}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isDisplayTaxAmounts!= &quot;${customerQuoteHeaderUI_validate_isDisplayTaxAmounts}&quot;) { failureMessage = failureMessage + &quot;Expect isDisplayTaxAmounts${customerQuoteHeaderUI_validate_isDisplayTaxAmounts} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isDisplayTaxAmounts}
+if (&quot;${customerQuoteHeaderUI_validate_initialTotalAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].initialTotalAmount!= &quot;${customerQuoteHeaderUI_validate_initialTotalAmount}&quot;) { failureMessage = failureMessage + &quot;Expect initialTotalAmount${customerQuoteHeaderUI_validate_initialTotalAmount} but got &quot; + objRequest.customerQuoteHeaderUIs[0].initialTotalAmount}
+if (&quot;${customerQuoteHeaderUI_validate_isProcessQuoteSummary}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isProcessQuoteSummary!= &quot;${customerQuoteHeaderUI_validate_isProcessQuoteSummary}&quot;) { failureMessage = failureMessage + &quot;Expect isProcessQuoteSummary${customerQuoteHeaderUI_validate_isProcessQuoteSummary} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isProcessQuoteSummary}
+if (&quot;${customerQuoteHeaderUI_validate_completeStatus}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].completeStatus!= &quot;${customerQuoteHeaderUI_validate_completeStatus}&quot;) { failureMessage = failureMessage + &quot;Expect completeStatus${customerQuoteHeaderUI_validate_completeStatus} but got &quot; + objRequest.customerQuoteHeaderUIs[0].completeStatus}
+if (&quot;${customerQuoteHeaderUI_validate_isProcessPostTrailer}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isProcessPostTrailer!= &quot;${customerQuoteHeaderUI_validate_isProcessPostTrailer}&quot;) { failureMessage = failureMessage + &quot;Expect isProcessPostTrailer${customerQuoteHeaderUI_validate_isProcessPostTrailer} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isProcessPostTrailer}
+if (&quot;${customerQuoteHeaderUI_validate_isDoneLines}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].isDoneLines!= &quot;${customerQuoteHeaderUI_validate_isDoneLines}&quot;) { failureMessage = failureMessage + &quot;Expect isDoneLines${customerQuoteHeaderUI_validate_isDoneLines} but got &quot; + objRequest.customerQuoteHeaderUIs[0].isDoneLines}
+if (&quot;${customerQuoteHeaderUI_validate_disallowedActions}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].disallowedActions!= &quot;${customerQuoteHeaderUI_validate_disallowedActions}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActions${customerQuoteHeaderUI_validate_disallowedActions} but got &quot; + objRequest.customerQuoteHeaderUIs[0].disallowedActions}
+if (&quot;${customerQuoteHeaderUI_validate_disallowedActionsMessage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].disallowedActionsMessage!= &quot;${customerQuoteHeaderUI_validate_disallowedActionsMessage}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActionsMessage${customerQuoteHeaderUI_validate_disallowedActionsMessage} but got &quot; + objRequest.customerQuoteHeaderUIs[0].disallowedActionsMessage}
+if (&quot;${customerQuoteHeaderUI_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].dataOperation!= &quot;${customerQuoteHeaderUI_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${customerQuoteHeaderUI_validate_dataOperation} but got &quot; + objRequest.customerQuoteHeaderUIs[0].dataOperation}
+if (&quot;${customerQuoteHeaderUI_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteHeaderUIs[0].concurrencyHash!= &quot;${customerQuoteHeaderUI_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${customerQuoteHeaderUI_validate_concurrencyHash} but got &quot; + objRequest.customerQuoteHeaderUIs[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;customerQuoteHeaderUI_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

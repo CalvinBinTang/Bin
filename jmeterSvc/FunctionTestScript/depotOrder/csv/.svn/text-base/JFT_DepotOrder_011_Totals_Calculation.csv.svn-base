@@ -1,0 +1,3 @@
+trailerAmount1,line,repairType,itemCode,quantity,lotSerial,estimatedCost,lineTotal,totalTrailerCharges,taxableAmount,nonTaxableAmount,totalTax,totalAmount,discountAmount
+0,1,Repair,01010,1,lot1,1000,1000,0,905,0,63.35,968.35,-95
+-10000,2,Repair,02002,1,lot2,500,1500,-10000,1357.5,-10000,95.03,-8547.47,-142.5

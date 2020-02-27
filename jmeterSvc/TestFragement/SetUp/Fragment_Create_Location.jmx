@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Fragment" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Create Location header" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set default values" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// Add module variables here
+//varsList.add(&quot;[prefix]_[var_name]&quot;);
+varsList.add(&quot;domainCode&quot;);
+varsList.add(&quot;location_Location&quot;);
+varsList.add(&quot;location_Description&quot;);
+varsList.add(&quot;location_Site&quot;);
+varsList.add(&quot;location_InventoryStatus&quot;);
+varsList.add(&quot;location_Project&quot;);
+varsList.add(&quot;location_Type&quot;);
+varsList.add(&quot;location_TypeDescription&quot;);
+varsList.add(&quot;location_Capacity&quot;);
+varsList.add(&quot;location_CapacityUM&quot;);
+varsList.add(&quot;location_PhysicalAddress&quot;);
+varsList.add(&quot;location_DateCreated&quot;);
+varsList.add(&quot;location_Permanent&quot;);
+varsList.add(&quot;location_SingleItem&quot;);
+varsList.add(&quot;location_SingleLotReference&quot;);
+varsList.add(&quot;location_TransferOwnership&quot;);
+
+// Set default values
+varsList.each {
+	if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}
+
+// Variables with a different default value
+if (vars.get(&quot;location_SubmitResult&quot;) == null) vars.put(&quot;location_SubmitResult&quot;, &quot;true&quot;);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="initialize" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="initialize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">initialize</stringProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/locationMasters</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="save" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/locationMasters</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var strRequest = vars.get(&quot;RequestData&quot;);
+
+//Parse the Response JSON to get a JavaScript data object
+var objResponse = JSON.parse(strRequest);
+
+//Update the value of the data object
+if (&quot;${location_Site}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].siteCode = &quot;${location_Site}&quot;;
+if (&quot;${location_Location}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].location = &quot;${location_Location}&quot;;
+if (&quot;${location_Description}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].description = &quot;${location_Description}&quot;;
+if (&quot;${location_InventoryStatus}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].inventoryStatusCode = &quot;${location_InventoryStatus}&quot;;
+if (&quot;${location_Project}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].projectCode = &quot;${location_Project}&quot;;
+if (&quot;${location_Type}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].locationType = &quot;${location_Type}&quot;;
+if (&quot;${location_Capacity}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].capacity = &quot;${location_Capacity}&quot;;
+if (&quot;${location_CapacityUM}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].capacityUom = &quot;${location_CapacityUM}&quot;;
+if (&quot;${location_PhysicalAddress}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].physicalAddress = &quot;${location_PhysicalAddress}&quot;;
+if (&quot;${location_DateCreated}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].dateCreated = &quot;${location_DateCreated}&quot;;
+if (&quot;${location_Permanent}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].isPermanent = &quot;${location_Permanent}&quot;;
+if (&quot;${location_SingleItem}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].isSingleItem = &quot;${location_SingleItem}&quot;;
+if (&quot;${location_SingleLotReference}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].isSingleLotReference = &quot;${location_SingleLotReference}&quot;;
+if (&quot;${location_TransferOwnership}&quot; != &quot;[N/A]&quot;) objResponse.locationMasters[0].isTransferOwnership = &quot;${location_TransferOwnership}&quot;;
+
+//Convert the data object back to a JSON string 
+var strUpdatedResponse = JSON.stringify(objResponse);
+
+//Update ${Response} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedResponse);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">https://${server}:${tomcatPort}/${webapp}/</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+              </elementProp>
+              <elementProp name="x-qadcalluid" elementType="Header">
+                <stringProp name="Header.name">x-qadcalluid</stringProp>
+                <stringProp name="Header.value">8fb6ba00-cf54-4a3d-ba26-29b514168ecc</stringProp>
+              </elementProp>
+              <elementProp name="x-qadskipdefaulterrorhandling" elementType="Header">
+                <stringProp name="Header.name">x-qadskipdefaulterrorhandling</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON Assertion" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">${location_SubmitResult}</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="errorMessages" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">errorMessages</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.submitResult.errors[*].message</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">null</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">errors</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.submitResult.errors</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">null</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;location_&quot;;
+
+copyHs = new HashSet(vars.entrySet());
+for (Iterator iter = copyHs.iterator(); iter.hasNext();) {
+    name = iter.next().getKey();
+    if (name.startsWith(prefix)) {
+        vars.remove(name);
+    }
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

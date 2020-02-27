@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create CustomerQuoteHeader" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Create CustomerQuoteHeader" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set default values" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;customerQuoteHeaderUI_url_domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_url_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_url_revision&quot;);
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_revision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_printRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isCombineDocument&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_soldToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_statusCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_contact&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_email&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_phoneNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_purchaseOrderNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isTaxable&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isReadyToRelease&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_isPrintQuote&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_siteCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_shipVia&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightListCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_freightTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_incoterms&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_billToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_currencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_channel&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_creditTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_quoteDate&quot;);
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Customer Quote Header Initialize" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="initialize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">initialize</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract createdDateTime" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">output_createdDateTime</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteHeaderUIs[0].createdDateTime</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Customer Quote Header Handle  SoldToCode fieldchange ${customerQuoteHeaderUI_soldToCustomerCode}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders/fieldChange?fieldName=soldToCustomerCode</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+
+//Update the value of the data objec
+//if (&quot;${domain_Code}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUI[0].domainCode = &quot;${domain_Code}&quot;;
+if (&quot;${customerQuoteHeaderUI_soldToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].soldToCustomerCode = &quot;${customerQuoteHeaderUI_soldToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_printRevision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].printRevision = &quot;${customerQuoteHeaderUI_printRevision}&quot;;
+if (&quot;${customerQuoteHeaderUI_isCombineDocument}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isCombineDocument = &quot;${customerQuoteHeaderUI_isCombineDocument}&quot;;
+if (&quot;${customerQuoteHeaderUI_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].statusCode = &quot;${customerQuoteHeaderUI_statusCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_contact}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].contact = &quot;${customerQuoteHeaderUI_contact}&quot;;
+if (&quot;${customerQuoteHeaderUI_email}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].email = &quot;${customerQuoteHeaderUI_email}&quot;;
+if (&quot;${customerQuoteHeaderUI_phoneNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].phoneNumber = &quot;${customerQuoteHeaderUI_phoneNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_purchaseOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].purchaseOrderNumber = &quot;${customerQuoteHeaderUI_purchaseOrderNumber}&quot;;
+if (&quot;${customerQuoteHeaderUI_isTaxable}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isTaxable = &quot;${customerQuoteHeaderUI_isTaxable}&quot;;
+if (&quot;${customerQuoteHeaderUI_isReadyToRelease}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isReadyToRelease = &quot;${customerQuoteHeaderUI_isReadyToRelease}&quot;;
+if (&quot;${customerQuoteHeaderUI_isPrintQuote}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].isPrintQuote = &quot;${customerQuoteHeaderUI_isPrintQuote}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipToCustomerCode = &quot;${customerQuoteHeaderUI_shipToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].siteCode = &quot;${customerQuoteHeaderUI_siteCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_shipVia}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].shipVia = &quot;${customerQuoteHeaderUI_shipVia}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightListCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightListCode = &quot;${customerQuoteHeaderUI_freightListCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_freightTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].freightTermsCode = &quot;${customerQuoteHeaderUI_freightTermsCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_incoterms}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].incoterms = &quot;${customerQuoteHeaderUI_incoterms}&quot;;
+if (&quot;${customerQuoteHeaderUI_billToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].billToCustomerCode = &quot;${customerQuoteHeaderUI_billToCustomerCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].currencyCode = &quot;${customerQuoteHeaderUI_currencyCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_channel}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].channel = &quot;${customerQuoteHeaderUI_channel}&quot;;
+if (&quot;${customerQuoteHeaderUI_creditTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUs[0].creditTermsCode = &quot;${customerQuoteHeaderUI_creditTermsCode}&quot;;
+if (&quot;${customerQuoteHeaderUI_quoteDate}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].quoteDate = &quot;${customerQuoteHeaderUI_quoteDate}&quot;;
+if (&quot;${customerQuoteHeaderUI_revision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteHeaderUIs[0].revision = &quot;${customerQuoteHeaderUI_revision}&quot;;
+
+
+
+
+//Convert the data object back to a JSON string 
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If customerQuoteHeaderUI_quoteNumber is not null" enabled="true">
+          <stringProp name="IfController.condition">&quot;${customerQuoteHeaderUI_quoteNumber}&quot; !=&quot;[N/A]&quot;&amp;&amp;&quot;${customerQuoteHeaderUI_quoteNumber}&quot; !=&quot;&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CustomerQuote Create: ${customerQuoteHeaderUI_quoteNumber}" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-qadskipdefaulterrorhandling" elementType="Header">
+                  <stringProp name="Header.name">x-qadskipdefaulterrorhandling</stringProp>
+                  <stringProp name="Header.value">true</stringProp>
+                </elementProp>
+                <elementProp name="x-qadcalluid" elementType="Header">
+                  <stringProp name="Header.name">x-qadcalluid</stringProp>
+                  <stringProp name="Header.value">9bb158a4-46aa-4351-991a-5147c7335480</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+
+objRequest.customerQuoteHeaderUIs[0].quoteNumber =&quot;${customerQuoteHeaderUI_quoteNumber}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);
+</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract output_customerQuoteHeaderUI_quoteNumber" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">output_customerQuoteHeaderUI_quoteNumber</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteHeaderUIs[0].quoteNumber</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract lastModifiedDateTime" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">output_lastModifiedDateTime</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteHeaderUIs[0].lastModifiedDateTime</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+              <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">false</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If customerQuoteHeaderUI_quoteNumber is null" enabled="true">
+          <stringProp name="IfController.condition">&quot;${customerQuoteHeaderUI_quoteNumber}&quot; ==&quot;[N/A]&quot;||&quot;${customerQuoteHeaderUI_quoteNumber}&quot; ==&quot;&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CustomerQuoteHeader GetNextCustomerQuoteNumber" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="domainCode" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">domainCode</stringProp>
+                  <stringProp name="Argument.value">${domainCode}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders/nextCustomerQuoteNumber</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract NextCustomerQuoteNumber" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">output_customerQuoteHeaderUI_quoteNumber</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.nextCustomerQuoteNumber</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CustomerQuote Create: ${output_customerQuoteHeaderUI_quoteNumber}" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="x-qadskipdefaulterrorhandling" elementType="Header">
+                  <stringProp name="Header.name">x-qadskipdefaulterrorhandling</stringProp>
+                  <stringProp name="Header.value">true</stringProp>
+                </elementProp>
+                <elementProp name="x-qadcalluid" elementType="Header">
+                  <stringProp name="Header.name">x-qadcalluid</stringProp>
+                  <stringProp name="Header.value">9bb158a4-46aa-4351-991a-5147c7335480</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+
+objRequest.customerQuoteHeaderUIs[0].quoteNumber =&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);
+</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract lastModifiedDateTime" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">output_lastModifiedDateTime</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteHeaderUIs[0].lastModifiedDateTime</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+              <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">false</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;customerQuoteHeaderUI_&quot;;
+
+vars.entrySet().each { entry -&gt; 
+	def name = entry.getKey()
+	if (name.startsWith(prefix)) {
+		vars.put(name, &quot;[N/A]&quot;);
+	}
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

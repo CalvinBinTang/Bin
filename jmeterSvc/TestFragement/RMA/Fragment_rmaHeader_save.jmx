@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="RMA Header Save" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="save" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;rmaHeader_rmaNumber&quot;);
+varsList.add(&quot;rmaHeader_url_parameters&quot;);
+
+
+// Inputs
+varsList.add(&quot;rmaHeader_update_s_purchaseOrderNumber&quot;); //purchase order number
+
+varsList.add(&quot;rmaHeader_update_i_isForecastConsumed&quot;); //contract Visit
+
+
+// Fields for validation
+varsList.add(&quot;rmaHeader_validate_shipVia&quot;); //sold-To
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="RMA Header save" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/rmaHeaders?viewUri=urn:be:com.qad.service.rma.IRmaHeader${rmaHeader_url_parameters}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var defaultValue = &quot;[N/A]&quot;;
+var prefix1 = &quot;rmaHeader_update_&quot;;
+
+if (&quot;${rmaHeader_rmaNumber}&quot;!=defaultValue){
+	vars.put(&quot;rmaHeader_url_parameters&quot;,&quot;&amp;domainCode=${domainCode}&amp;rmaNumber=${rmaHeader_rmaNumber}&quot;)
+}
+else{
+	vars.put(&quot;rmaHeader_url_parameters&quot;,&quot;&quot;)
+}
+
+// All the fields in dataset should be set here
+// Below code block is only for rmaHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix1)){		
+		if(e.getValue() != defaultValue){
+				var temp = varName.replace(prefix1,&quot;&quot;)
+			var temp0 = vars.get(varName);
+			if(temp.startsWith(&quot;s_&quot;)){ 
+				eval(&quot;objRequest.rmaHeaders[0].&quot; + temp.replace(&quot;s_&quot;,&quot;&quot;) + &quot;= &apos;&quot; + temp0 + &quot;&apos;&quot;);
+			}
+			else if (temp.startsWith(&quot;i_&quot;)){
+				eval(&quot;objRequest.rmaHeaders[0].&quot; + temp.replace(&quot;i_&quot;,&quot;&quot;) + &quot;=&quot; + temp0);			
+			}
+		}
+	}
+}
+
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Extract full response" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+var prefix2 = &quot;rmaHeader_validate_&quot;;
+
+
+// All the fields in dataset should be set here
+// Below code block is only for serviceContractHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix2)){
+		var actValue = eval(&quot;objRequest.rmaHeaders[0].&quot; + varName.replace(prefix2,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  actValue != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix2,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot;\n&quot;;
+		}
+	}
+}
+
+
+
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;rmaHeader_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

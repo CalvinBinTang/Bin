@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Action Request CreateDepotOrder" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1479226785000</longProp>
+        <longProp name="ThreadGroup.end_time">1479226785000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">Error validations on fields update</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="LogIn" enabled="true">
+          <stringProp name="IncludeController.includepath">../../TestFragement/Common/Login-Fragment.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="SetUpEnvironment" enabled="true">
+          <stringProp name="filename">..\..\CSV\LogIn.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="domainCode" elementType="Argument">
+              <stringProp name="Argument.name">domainCode</stringProp>
+              <stringProp name="Argument.value">10USA</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="serviceActivityReport_url_reportID" elementType="Argument">
+              <stringProp name="Argument.name">serviceActivityReport_url_reportID</stringProp>
+              <stringProp name="Argument.value">defaultSARID</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="today" elementType="Argument">
+              <stringProp name="Argument.name">today</stringProp>
+              <stringProp name="Argument.value">${__time(yyyy-MM-dd,)}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocolRest}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">~/log/${__TestPlanName}_${__time(YMDHMS)}.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Action Request" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestHeader_itemCode&quot;,&quot;02002&quot;);
+vars.put(&quot;actionRequestHeader_contactType&quot;,&quot;End User&quot;);
+vars.put(&quot;actionRequestHeader_contactCode&quot;,&quot;10C1001&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateActionRequest.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract Action Request Number" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">
+//var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+//var objRequest = JSON.parse(requestData);
+
+//assign service order number
+//vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,objRequest.depotOrderHeaders[0].depotOrderNumber); 
+
+var requestData = vars.get(&quot;output_actionRequestNumber&quot;);
+
+vars.put(&quot;actionRequestNumber&quot;,requestData);</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Depot Order from action request-Initialize" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;actionRequestHeader_itemCode&quot;,&quot;02002&quot;);
+vars.put(&quot;actionRequestHeader_endUserCode&quot;,&quot;10C1001&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-initialize.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="action request fetch" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequest_url_actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_actionRequest fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Depot Order from action request-4002" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_workCode&quot;,&quot;4002&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;workCode&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="next Depot Order Line" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-nextDepotOrderNumber.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract Depot Order Number" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">
+//var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+//var objRequest = JSON.parse(requestData);
+
+//assign service order number
+//vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,objRequest.depotOrderHeaders[0].depotOrderNumber); 
+
+var requestData = vars.get(&quot;nextDepotOrderNumber&quot;);
+
+vars.put(&quot;depotOrderNumber&quot;,requestData);</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="save Depot Order" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;DepotOrderNumber&quot;,&quot;${depotOrderNumber}&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-save.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="update action request" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;DepotOrderNumber&quot;,&quot;${depotOrderNumber}&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-update ActionRequest.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Depot Order Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Depot Order Header" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;depotOrderHeader_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderHeader_validate_endUserCode&quot;, &quot;10C1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_workCode&quot;, &quot;4002&quot;);
+vars.put(&quot;depotOrderHeader_validate_severityCode&quot;, &quot;B&quot;);
+vars.put(&quot;depotOrderHeader_validate_typeCode&quot;, &quot;DEFECT&quot;);
+vars.put(&quot;depotOrderHeader_validate_priority&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_serviceTypeCode&quot;, &quot;STD&quot;);
+vars.put(&quot;depotOrderHeader_validate_isConfirmed&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderHeader_validate_confirmedDate&quot;, &quot;${today}&quot; + &quot;T00:00:00.000Z&quot;);
+vars.put(&quot;depotOrderHeader_validate_isTaxable&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderHeader_validate_assigned&quot;, &quot;10-ENG01&quot;);
+vars.put(&quot;depotOrderHeader_validate_statusCode&quot;, &quot;10&quot;);
+vars.put(&quot;depotOrderHeader_validate_nextStatusCode&quot;, &quot;20&quot;);
+vars.put(&quot;depotOrderHeader_validate_shipToCustomerCode&quot;, &quot;10C1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_siteCode&quot;, &quot;10-100&quot;);
+vars.put(&quot;depotOrderHeader_validate_siteEntityCode&quot;, &quot;10USACO&quot;);
+vars.put(&quot;depotOrderHeader_validate_freightListCode&quot;, &quot;10FRT&quot;);
+vars.put(&quot;depotOrderHeader_validate_freightTermsCode&quot;, &quot;ADD&quot;);
+vars.put(&quot;depotOrderHeader_validate_currencyCode&quot;, &quot;USD&quot;);
+vars.put(&quot;depotOrderHeader_validate_daybookSetCode&quot;, &quot;10-SALES&quot;);
+vars.put(&quot;depotOrderHeader_validate_discountPercent&quot;, &quot;9.5&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode1&quot;, &quot;20&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerAmount1&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode2&quot;, &quot;11&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerAmount2&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode3&quot;, &quot;31&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerAmount3&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_priceListCode&quot;, &quot;RP10-100&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Depot Order Header" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderHeader fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Depot Order Line" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Depot Order Line" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">  
+
+vars.put(&quot;depotOrderLine_url_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderNumber&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderLine&quot;, &quot;1&quot;);
+
+vars.put(&quot;depotOrderLine_validate_itemCode&quot;, &quot;02002&quot;);
+vars.put(&quot;depotOrderLine_validate_quantity&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDisplayValue&quot;, &quot;Repair&quot;);
+vars.put(&quot;depotOrderLine_validate_workCode&quot;, &quot;4002&quot;);
+vars.put(&quot;depotOrderLine_validate_assigned&quot;, &quot;10-ENG01&quot;);
+vars.put(&quot;depotOrderLine_validate_siteCode&quot;, &quot;10-100&quot;);
+vars.put(&quot;depotOrderLine_validate_statusCode&quot;, &quot;10&quot;);
+vars.put(&quot;depotOrderLine_validate_estimatedCost&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_freightWeight&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_fixedPrice&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_isFixedPrice&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_wipProductLine&quot;, &quot;22&quot;);
+vars.put(&quot;depotOrderLine_validate_salesAccount&quot;, &quot;4010&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccount&quot;, &quot;mech&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenter&quot;, &quot;ADM&quot;);
+vars.put(&quot;depotOrderLine_validate_discountAccount&quot;, &quot;4200&quot;);
+vars.put(&quot;depotOrderLine_validate_discountSubAccount&quot;, &quot;Mech&quot;);
+vars.put(&quot;depotOrderLine_validate_discountCostCenter&quot;, &quot;&quot;);
+
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Depot Order Line" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderLine fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Action Request" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">
+
+vars.put(&quot;actionRequest_url_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;actionRequest_url_actionRequestNumber&quot;, &quot;${actionRequestNumber}&quot;);
+
+vars.put(&quot;actionRequest_validate_linkNumber0&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;actionRequest_validate_linkType0&quot;, &quot;DepotOrd&quot;);
+
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_actionRequest fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="action request fetch" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequest_url_actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_actionRequest fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Depot Order from action request-Initialize" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;actionRequestHeader_itemCode&quot;,&quot;02002&quot;);
+vars.put(&quot;actionRequestHeader_endUserCode&quot;,&quot;10C1001&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-initialize.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create depot order field change 10C1001a" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;endUserCode&quot;);
+vars.put(&quot;depotOrderCreate_endUserCode&quot;,&quot;10C1001A&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create depot order field change 30c1001" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;billToCustomerCode&quot;);
+vars.put(&quot;depotOrderCreate_billToCustomerCode&quot;,&quot;30C1001&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create depot order field change 4002" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_workCode&quot;,&quot;4002&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;workCode&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create depot order field change replace" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;repairTypeDisplayValue&quot;);
+vars.put(&quot;depotOrderCreate_repairTypeDisplayValue&quot;,&quot;replace&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create depot order field change model1" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;modelCode&quot;);
+vars.put(&quot;depotOrderCreate_modelCode&quot;,&quot;model1&quot;);
+vars.put(&quot;depotOrderCreate_validate_currencyCode&quot;, &quot;CNY&quot;);
+vars.put(&quot;depotOrderCreate_validate_unitOfMeasure&quot;, &quot;EA&quot;);
+vars.put(&quot;depotOrderCreate_validate_replacementItemCode&quot;, &quot;02002&quot;);
+vars.put(&quot;depotOrderCreate_validate_replacementAlternateItem&quot;, &quot;02002&quot;);
+vars.put(&quot;depotOrderCreate_validate_quantity&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderCreate_validate_exchangeRate2&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderCreate_validate_exchangeRate&quot;, &quot;6.29&quot;);
+vars.put(&quot;depotOrderCreate_validate_baseCurrencyCode&quot;, &quot;USD&quot;);
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create depot order field change replacementItem 01012" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;depotOrderCreate_url_fieldName&quot;,&quot;replacementItemCode&quot;);
+vars.put(&quot;depotOrderCreate_replacementItemCode&quot;, &quot;01012&quot;);
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_depotOrderCreate fieldChange.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract RequestData" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">
+//var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+//var objRequest = JSON.parse(requestData);
+
+//assign service order number
+//vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,objRequest.depotOrderHeaders[0].depotOrderNumber); 
+
+var requestData = vars.get(&quot;RequestData&quot;);
+
+vars.put(&quot;tempRequest&quot;,requestData);</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="next Depot Order" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-nextDepotOrderNumber.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract Depot Order Number" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">
+//var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+//var objRequest = JSON.parse(requestData);
+
+//assign service order number
+//vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,objRequest.depotOrderHeaders[0].depotOrderNumber); 
+
+var requestData = vars.get(&quot;nextDepotOrderNumber&quot;);
+
+vars.put(&quot;depotOrderNumber&quot;,requestData);
+
+var requestData = vars.get(&quot;tempRequest&quot;);
+
+vars.put(&quot;RequestData&quot;,requestData);</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+        <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="Extract Depot Order Number" enabled="false">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">
+//var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+//var objRequest = JSON.parse(requestData);
+
+//assign service order number
+//vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,objRequest.depotOrderHeaders[0].depotOrderNumber);
+
+var requestData = vars.get(&quot;tempRequest&quot;);
+
+vars.put(&quot;requestData&quot;,requestData);</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223PostProcessor>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="save Depot Order" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;DepotOrderNumber&quot;,&quot;${depotOrderNumber}&quot;);
+var requestData = vars.get(&quot;tempRequest&quot;);
+vars.put(&quot;RequestData&quot;,requestData);
+vars.put(&quot;depotOrderCreate_purchaseOrderNumber&quot;,&quot;po001&quot;);
+vars.put(&quot;depotOrderCreate_replacementLotSerial&quot;,&quot;kkc&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-save.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="update action request" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;actionRequestNumber&quot;,&quot;${actionRequestNumber}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Depot Order from Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_CreateDepotOrder-update ActionRequest.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Depot Order Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Depot Order Header" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;depotOrderHeader_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderHeader_validate_endUserCode&quot;, &quot;10C1001A&quot;);
+vars.put(&quot;depotOrderHeader_validate_workCode&quot;, &quot;4002&quot;);
+vars.put(&quot;depotOrderHeader_validate_severityCode&quot;, &quot;B&quot;);
+vars.put(&quot;depotOrderHeader_validate_typeCode&quot;, &quot;DEFECT&quot;);
+vars.put(&quot;depotOrderHeader_validate_priority&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_serviceTypeCode&quot;, &quot;STD&quot;);
+vars.put(&quot;depotOrderHeader_validate_isConfirmed&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderHeader_validate_confirmedDate&quot;, vars.get(&quot;today&quot;) + &quot;T00:00:00.000Z&quot;);
+vars.put(&quot;depotOrderHeader_validate_isTaxable&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_assigned&quot;, &quot;10-ENG04&quot;);
+vars.put(&quot;depotOrderHeader_validate_statusCode&quot;, &quot;10&quot;);
+vars.put(&quot;depotOrderHeader_validate_nextStatusCode&quot;, &quot;20&quot;);
+vars.put(&quot;depotOrderHeader_validate_shipToCustomerCode&quot;, &quot;10C1001A&quot;);
+vars.put(&quot;depotOrderHeader_validate_siteCode&quot;, &quot;10-500&quot;);
+vars.put(&quot;depotOrderHeader_validate_siteEntityCode&quot;, &quot;10USACO&quot;);
+vars.put(&quot;depotOrderHeader_validate_freightListCode&quot;, &quot;10FRT&quot;);
+vars.put(&quot;depotOrderHeader_validate_freightTermsCode&quot;, &quot;ADD&quot;);
+vars.put(&quot;depotOrderHeader_validate_currencyCode&quot;, &quot;CNY&quot;);
+vars.put(&quot;depotOrderHeader_validate_daybookSetCode&quot;, &quot;10-SALES&quot;);
+vars.put(&quot;depotOrderHeader_validate_discountPercent&quot;, &quot;9.5&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode1&quot;, &quot;20&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerAmount1&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode2&quot;, &quot;10&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerAmount2&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode3&quot;, &quot;30&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerAmount3&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderHeader_validate_priceListCode&quot;, &quot;RP10-100&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Depot Order Header" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderHeader fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Depot Order Line" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Depot Order Line" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">
+
+vars.put(&quot;depotOrderLine_url_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderNumber&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderLine&quot;, &quot;1&quot;);
+
+vars.put(&quot;depotOrderLine_validate_itemCode&quot;, &quot;02002&quot;);
+vars.put(&quot;depotOrderLine_validate_quantity&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDisplayValue&quot;, &quot;Replace&quot;);
+vars.put(&quot;depotOrderLine_validate_workCode&quot;, &quot;4002&quot;);
+vars.put(&quot;depotOrderLine_validate_assigned&quot;, &quot;10-ENG04&quot;);
+vars.put(&quot;depotOrderLine_validate_siteCode&quot;, &quot;10-500&quot;);
+vars.put(&quot;depotOrderLine_validate_statusCode&quot;, &quot;10&quot;);
+vars.put(&quot;depotOrderLine_validate_estimatedCost&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_freightWeight&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_fixedPrice&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_isFixedPrice&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_wipProductLine&quot;, &quot;22&quot;);
+vars.put(&quot;depotOrderLine_validate_salesAccount&quot;, &quot;4010&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccount&quot;, &quot;mech&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenter&quot;, &quot;ADM&quot;);
+vars.put(&quot;depotOrderLine_validate_discountAccount&quot;, &quot;4200&quot;);
+vars.put(&quot;depotOrderLine_validate_discountSubAccount&quot;, &quot;Mech&quot;);
+vars.put(&quot;depotOrderLine_validate_discountCostCenter&quot;, &quot;&quot;);
+
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Depot Order Line" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderLine fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Depot Order Line" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Depot Order Line" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">
+vars.put(&quot;depotOrderLine_url_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderNumber&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderLine&quot;, &quot;2&quot;);
+
+vars.put(&quot;depotOrderLine_validate_itemCode&quot;, &quot;01012&quot;);
+vars.put(&quot;depotOrderLine_validate_quantity&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDisplayValue&quot;, &quot;Item Repl&quot;);
+vars.put(&quot;depotOrderLine_validate_workCode&quot;, &quot;4002&quot;);
+vars.put(&quot;depotOrderLine_validate_assigned&quot;, &quot;10-ENG04&quot;);
+vars.put(&quot;depotOrderLine_validate_siteCode&quot;, &quot;10-500&quot;);
+vars.put(&quot;depotOrderLine_validate_statusCode&quot;, &quot;60&quot;);
+vars.put(&quot;depotOrderLine_validate_estimatedCost&quot;, &quot;22&quot;);
+vars.put(&quot;depotOrderLine_validate_freightWeight&quot;, &quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_fixedPrice&quot;, &quot;22&quot;);
+vars.put(&quot;depotOrderLine_validate_isFixedPrice&quot;, &quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_wipProductLine&quot;, &quot;20&quot;);
+vars.put(&quot;depotOrderLine_validate_salesAccount&quot;, &quot;4010&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccount&quot;, &quot;mech&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenter&quot;, &quot;ADM&quot;);
+vars.put(&quot;depotOrderLine_validate_discountAccount&quot;, &quot;4200&quot;);
+vars.put(&quot;depotOrderLine_validate_discountSubAccount&quot;, &quot;Mech&quot;);
+vars.put(&quot;depotOrderLine_validate_discountCostCenter&quot;, &quot;&quot;);
+
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Depot Order Line" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderLine fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Action Request" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Verify Action Request" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">
+
+vars.put(&quot;actionRequest_url_domainCode&quot;, &quot;10USA&quot;);
+vars.put(&quot;actionRequest_url_actionRequestNumber&quot;, &quot;${actionRequestNumber}&quot;);
+
+vars.put(&quot;actionRequest_validate_linkNumber1&quot;, &quot;${depotOrderNumber}&quot;);
+vars.put(&quot;actionRequest_validate_linkType1&quot;, &quot;DepotOrd&quot;);
+
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Action Request" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/ActionRequest/Fragement_actionRequest fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

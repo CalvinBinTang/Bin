@@ -1,0 +1,10 @@
+type,endUser,supportItem,startDate,endDate,quantity,netPrice,isTaxable,taxClass,isTaxIn,taxEnvironment,taxUsage
+Line,10c1001,02002,2019-07-01,2020-06-30,1,100,true,,false,US/NJ,KKC
+Line,10c1001,02002,2019-07-01,2019-12-30,2,20,false,,[N/A],[N/A],
+Line,30c1001,02002,2019-08-01,2020-05-30,1,10,true,,true,CAN/QUE,
+AdditionalCharge,10c1001,01010,2019-07-01,2020-06-30,,5,false,,[N/A],[N/A],
+AdditionalCharge,10c1001,02002,2019-09-01,2020-06-30,3,50,true,,true,US/NJ,KKC
+AdditionalCharge,30c1001,01010,2019-10-01,2020-04-30,,2.62,true,,false,US/NJ,kkc
+AdditionalCharge,30c1001,02002,2019-08-01,2020-06-30,1,62,false,,[N/A],[N/A],
+AdditionalCharge,,01010,2019-08-01,2020-05-01,,15,true,,true,US/NJ,kkc
+AdditionalCharge,,02002,2019-09-01,2020-06-30,11,7.25666,true,,true,US/NJ,kkc

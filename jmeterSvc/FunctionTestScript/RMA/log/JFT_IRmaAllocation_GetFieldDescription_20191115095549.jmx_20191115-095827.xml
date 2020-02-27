@@ -1,0 +1,3 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573783107981,64, Login,404,"Number of samples in transaction : 1, number of failing samples : 1",Thread Group 1-1,,false,,462,549,1,1,null,0,16,0
+1573783107997,64,Login-001-login,404,Not Found,Thread Group 1-1,text,false,,462,549,1,1,https://vmlbft0002.qad.com/qad-central/login,64,0,49

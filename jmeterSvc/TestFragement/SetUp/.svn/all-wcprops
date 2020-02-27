@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qadmodule_repository/!svn/ver/231220/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp
+END
+Fragment_Create_Location.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/qadmodule_repository/!svn/ver/218731/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp/Fragment_Create_Location.jmx
+END
+Fragment_Create_Site.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/qadmodule_repository/!svn/ver/218731/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp/Fragment_Create_Site.jmx
+END
+Fragment_Create_Unplanned_Receipt.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/qadmodule_repository/!svn/ver/218731/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp/Fragment_Create_Unplanned_Receipt.jmx
+END
+Fragment__IShipperControl_Update.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/qadmodule_repository/!svn/ver/231220/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp/Fragment__IShipperControl_Update.jmx
+END
+Fragement_InventoryMovements.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/qadmodule_repository/!svn/ver/201516/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp/Fragement_InventoryMovements.jmx
+END
+Fragment_Create_Item.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/qadmodule_repository/!svn/ver/218731/service/autoScripts/trunk/JMeter_Service/TestFragement/SetUp/Fragment_Create_Item.jmx
+END

@@ -1,0 +1,4 @@
+IsSelected,MaterialOrderNumber,MaterialOrderLine,OrderType,EngineerCode,SiteCode,SoldToCustomerCode,IsConfirmed,ItemCode,QuantityOrdered,UnitOfMeasure,QuantityAllocated,DueDate,EMTType,EMTSupplier,EMTPONumber,ShipToCustomerCode,PurchaseOrderNumber,EndUserCode,OrderDate,ActionStatus,ServiceOrderNumber
+true,BulkC01,1,replenishment,10-ENG02,10-100,10-ENG02,false,01010,10,EA,10,2019-10-11T00:00:00.000Z,NON-EMT,,,10-ENG02,,,2019-10-03T00:00:00.000Z,,
+true,BulkC02,1,replenishment,10-ENG02,10-100,10-ENG02,false,01010,10,EA,10,2019-10-11T00:00:00.000Z,NON-EMT,,,10-ENG02,,,2019-10-03T00:00:00.000Z,,
+true,BulkC03,1,replenishment,10-ENG02,10-100,10C1001,false,01010,100,EA,10,2019-10-21T00:00:00.000Z,NON-EMT,,,10-ENG02,,,2019-10-03T00:00:00.000Z,,

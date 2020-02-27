@@ -1,0 +1,4 @@
+QuoteType,QuoteLine,RepairType,EndUser,Engineer,WorkCode,itemCode,LotSerial,LineSite,FreightWeight,FreightClass,QuantityQuoted
+Depot,1,Repair,10C1001,10-eng01,5000,99020,Serial033-0,,5,,3
+Depot,2,Repair,10c1001,10-eng01,4003,01010,,,5,,1
+Depot,3,Replace,10C1001A,,4002,60051,Serial033-1,10-200,,,1

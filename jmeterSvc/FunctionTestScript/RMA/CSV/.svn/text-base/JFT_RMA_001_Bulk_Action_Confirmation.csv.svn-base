@@ -1,0 +1,6 @@
+soldTo,purchaseOrder,isConfirmed,line,lineType,itemCode,siteCode,quantity,netPrice,dueDate,isForecastConsumed,isConfirmedLine,bulkConfirm,isChangeForAtpWarn,isChangeForAtpError,isChangePromiseDate,validateMsg,validateResult
+10C1001,RMA Bulk Confirm,false,1,Return,02002,10-100,1,15,,false,false,false,,,,,
+10C1001,RMA Bulk Confirm,false,1,Replacement,02002,10-200,5,25,2019-10-10T00:00:00.000Z,false,false,false,false,false,false,,
+,,,2,Replacement,01030,10-100,5,35,2019-10-01T00:00:00.000Z,false,false,true,true,false,true,ATP enforcement calculated due date.,true
+10C1001,RMA Bulk Confirm,false,1,Replacement,atp01,10-200,5,25,2019-10-10T00:00:00.000Z,false,false,true,false,false,false,Qty Ordered not allowed for Due Date.,false
+10C1001,RMA Bulk Confirm,false,1,Replacement,atp01,10-200,5,25,2019-10-10T00:00:00.000Z,false,false,true,false,true,false,ATP enforcement calculated due date.,true

@@ -1,0 +1,4 @@
+freightListCode;freightListDescription;siteCode;currencyCode;freightType;isFreightTypeUnit;unitOfMeasure;trailerCode
+FRT;;10-100;USD;no;false;KG;20
+10txFRT;;10-100;USD;no;false;KG;21
+10txfrt;;10-500;USD;no;false;KG;21

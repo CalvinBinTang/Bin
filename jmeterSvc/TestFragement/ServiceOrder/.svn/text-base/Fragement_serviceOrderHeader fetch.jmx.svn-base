@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3.20180111">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="serviceOrderHeader fetch" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fetch" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;serviceOrderHeader_url_serviceOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_url_domainCode&quot;);
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;serviceOrderHeader_domainCode&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_category&quot;);
+varsList.add(&quot;serviceOrderHeader_callDate&quot;);
+varsList.add(&quot;serviceOrderHeader_nextStatusDateTime&quot;);
+varsList.add(&quot;serviceOrderHeader_queueCode&quot;);
+varsList.add(&quot;serviceOrderHeader_queueDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_daybookSetDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_responseTime&quot;);
+varsList.add(&quot;serviceOrderHeader_responseUnitOfMeasureDisplay&quot;);
+varsList.add(&quot;serviceOrderHeader_assigned&quot;);
+varsList.add(&quot;serviceOrderHeader_assignedDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserCode&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserAddressField1&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserAddressField2&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserAddressField3&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserAddressField4&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserAddressField5&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserAddressField6&quot;);
+varsList.add(&quot;serviceOrderHeader_enteredBy&quot;);
+varsList.add(&quot;serviceOrderHeader_statusCode&quot;);
+varsList.add(&quot;serviceOrderHeader_statusCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_typeCode&quot;);
+varsList.add(&quot;serviceOrderHeader_typeCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_itemCode&quot;);
+varsList.add(&quot;serviceOrderHeader_serial&quot;);
+varsList.add(&quot;serviceOrderHeader_nextStatusCode&quot;);
+varsList.add(&quot;serviceOrderHeader_nextStatusCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_salesOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_callerName&quot;);
+varsList.add(&quot;serviceOrderHeader_phoneNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_problemSkillCode&quot;);
+varsList.add(&quot;serviceOrderHeader_resolutionCode&quot;);
+varsList.add(&quot;serviceOrderHeader_priority&quot;);
+varsList.add(&quot;serviceOrderHeader_description&quot;);
+varsList.add(&quot;serviceOrderHeader_eventDate&quot;);
+varsList.add(&quot;serviceOrderHeader_eventDateTime&quot;);
+varsList.add(&quot;serviceOrderHeader_commentIndex&quot;);
+varsList.add(&quot;serviceOrderHeader_travelTime&quot;);
+varsList.add(&quot;serviceOrderHeader_travelHours&quot;);
+varsList.add(&quot;serviceOrderHeader_travelMinutes&quot;);
+varsList.add(&quot;serviceOrderHeader_travelDistance&quot;);
+varsList.add(&quot;serviceOrderHeader_travelUnitOfMeasure&quot;);
+varsList.add(&quot;serviceOrderHeader_currentTimeZoneCode&quot;);
+varsList.add(&quot;serviceOrderHeader_currentDateTime&quot;);
+varsList.add(&quot;serviceOrderHeader_isDisplayTravelAndEstimatedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceTypeCode&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceTypeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_fromQueueCode&quot;);
+varsList.add(&quot;serviceOrderHeader_rMACode&quot;);
+varsList.add(&quot;serviceOrderHeader_sequenceNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_eventTime&quot;);
+varsList.add(&quot;serviceOrderHeader_openedDate&quot;);
+varsList.add(&quot;serviceOrderHeader_openedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_reference&quot;);
+varsList.add(&quot;serviceOrderHeader_timeSpent&quot;);
+varsList.add(&quot;serviceOrderHeader_timeSpentDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_closedDate&quot;);
+varsList.add(&quot;serviceOrderHeader_closedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_contractNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_severityCode&quot;);
+varsList.add(&quot;serviceOrderHeader_severityCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_contractLine&quot;);
+varsList.add(&quot;serviceOrderHeader_toQueueCode&quot;);
+varsList.add(&quot;serviceOrderHeader_isBilled&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceRequestCode&quot;);
+varsList.add(&quot;serviceOrderHeader_isActivity&quot;);
+varsList.add(&quot;serviceOrderHeader_purchaseOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_engineerGroupCode&quot;);
+varsList.add(&quot;serviceOrderHeader_areaCode&quot;);
+varsList.add(&quot;serviceOrderHeader_areaDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_engineerAreaCode&quot;);
+varsList.add(&quot;serviceOrderHeader_workCode&quot;);
+varsList.add(&quot;serviceOrderHeader_workCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_createdFrom&quot;);
+varsList.add(&quot;serviceOrderHeader_creationDateStamp&quot;);
+varsList.add(&quot;serviceOrderHeader_creationTimeStamp&quot;);
+varsList.add(&quot;serviceOrderHeader_estimatedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_estimatedHours&quot;);
+varsList.add(&quot;serviceOrderHeader_estimatedMinutes&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserDate&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserTime&quot;);
+varsList.add(&quot;serviceOrderHeader_isCommentsModified&quot;);
+varsList.add(&quot;serviceOrderHeader_revision&quot;);
+varsList.add(&quot;serviceOrderHeader_escalationNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_escalationSequence&quot;);
+varsList.add(&quot;serviceOrderHeader_routingCode&quot;);
+varsList.add(&quot;serviceOrderHeader_billOfMaterialCode&quot;);
+varsList.add(&quot;serviceOrderHeader_siteCode&quot;);
+varsList.add(&quot;serviceOrderHeader_siteDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_isSchedule&quot;);
+varsList.add(&quot;serviceOrderHeader_isThirdPartyService&quot;);
+varsList.add(&quot;serviceOrderHeader_thirdPartyID&quot;);
+varsList.add(&quot;serviceOrderHeader_isSendAcknowledgementLetter&quot;);
+varsList.add(&quot;serviceOrderHeader_completeDate&quot;);
+varsList.add(&quot;serviceOrderHeader_completeTime&quot;);
+varsList.add(&quot;serviceOrderHeader_creditTermsCode&quot;);
+varsList.add(&quot;serviceOrderHeader_creditTermsCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_currencyCode&quot;);
+varsList.add(&quot;serviceOrderHeader_baseCurrencyCode&quot;);
+varsList.add(&quot;serviceOrderHeader_exchangeRate&quot;);
+varsList.add(&quot;serviceOrderHeader_exchangeRateDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_fieldNotificationNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_isIncludedInStatistics&quot;);
+varsList.add(&quot;serviceOrderHeader_isServiceOrderPrinted&quot;);
+varsList.add(&quot;serviceOrderHeader_priceListCode&quot;);
+varsList.add(&quot;serviceOrderHeader_priceDate&quot;);
+varsList.add(&quot;serviceOrderHeader_isQuoteRequired&quot;);
+varsList.add(&quot;serviceOrderHeader_quotePrice&quot;);
+varsList.add(&quot;serviceOrderHeader_repairCenterSiteCode&quot;);
+varsList.add(&quot;serviceOrderHeader_resolutionDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_resolveDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_shipToCustomerCode&quot;);
+varsList.add(&quot;serviceOrderHeader_salesQuoteNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_isActivitySuspended&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceType&quot;);
+varsList.add(&quot;serviceOrderHeader_isTaxable&quot;);
+varsList.add(&quot;serviceOrderHeader_isTaxIncluded&quot;);
+varsList.add(&quot;serviceOrderHeader_taxClass&quot;);
+varsList.add(&quot;serviceOrderHeader_taxClassDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_isAwaitingItems&quot;);
+varsList.add(&quot;serviceOrderHeader_billToCustomerCode&quot;);
+varsList.add(&quot;serviceOrderHeader_billToAddressField1&quot;);
+varsList.add(&quot;serviceOrderHeader_billToAddressField2&quot;);
+varsList.add(&quot;serviceOrderHeader_billToAddressField3&quot;);
+varsList.add(&quot;serviceOrderHeader_billToAddressField4&quot;);
+varsList.add(&quot;serviceOrderHeader_billToAddressField5&quot;);
+varsList.add(&quot;serviceOrderHeader_billToAddressField6&quot;);
+varsList.add(&quot;serviceOrderHeader_isInvoiceDraftPrinted&quot;);
+varsList.add(&quot;serviceOrderHeader_isRecorded&quot;);
+varsList.add(&quot;serviceOrderHeader_isRepairCenterCall&quot;);
+varsList.add(&quot;serviceOrderHeader_languageCode&quot;);
+varsList.add(&quot;serviceOrderHeader_languageDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_taxDate&quot;);
+varsList.add(&quot;serviceOrderHeader_quoteExpireDate&quot;);
+varsList.add(&quot;serviceOrderHeader_repairSequence&quot;);
+varsList.add(&quot;serviceOrderHeader_repairStep&quot;);
+varsList.add(&quot;serviceOrderHeader_isEndUserChanged&quot;);
+varsList.add(&quot;serviceOrderHeader_lastModifiedUser&quot;);
+varsList.add(&quot;serviceOrderHeader_lastModifiedDate&quot;);
+varsList.add(&quot;serviceOrderHeader_customerCode&quot;);
+varsList.add(&quot;serviceOrderHeader_taxEnvironment&quot;);
+varsList.add(&quot;serviceOrderHeader_taxEnvironmentDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_taxUsage&quot;);
+varsList.add(&quot;serviceOrderHeader_taxUsageDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_taxPercentage&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceQuoteNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceQuoteDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_enteredExchangeRate&quot;);
+varsList.add(&quot;serviceOrderHeader_isFixedRate&quot;);
+varsList.add(&quot;serviceOrderHeader_channel&quot;);
+varsList.add(&quot;serviceOrderHeader_channelDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_exchangeRate2&quot;);
+varsList.add(&quot;serviceOrderHeader_exchangeRate2Description&quot;);
+varsList.add(&quot;serviceOrderHeader_exchangeRateType&quot;);
+varsList.add(&quot;serviceOrderHeader_exchangeRateSequence&quot;);
+varsList.add(&quot;serviceOrderHeader_endDate&quot;);
+varsList.add(&quot;serviceOrderHeader_startDate&quot;);
+varsList.add(&quot;serviceOrderHeader_projectCode&quot;);
+varsList.add(&quot;serviceOrderHeader_projectCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_defaultWorksheet&quot;);
+varsList.add(&quot;serviceOrderHeader_isUpdateInstalledBase&quot;);
+varsList.add(&quot;serviceOrderHeader_daybookSet&quot;);
+varsList.add(&quot;serviceOrderHeader_modelCode&quot;);
+varsList.add(&quot;serviceOrderHeader_serviceGroup&quot;);
+varsList.add(&quot;serviceOrderHeader_timeZoneCode&quot;);
+varsList.add(&quot;serviceOrderHeader_timeZoneDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_defaultTimeZoneCode&quot;);
+varsList.add(&quot;serviceOrderHeader_isMultipleTimeZoneEnabled&quot;);
+varsList.add(&quot;serviceOrderHeader_isDepotOrder&quot;);
+varsList.add(&quot;serviceOrderHeader_endUserMessage&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrUser1&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrUser2&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr01&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr02&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr03&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr04&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr05&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr06&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr07&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr08&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr09&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrChr10&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDec01&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDec02&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDec03&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDte01&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDte02&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDte03&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDte04&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrDte05&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrLog01&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrLog02&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrLog03&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrLog04&quot;);
+varsList.add(&quot;serviceOrderHeader_caMstrLog05&quot;);
+varsList.add(&quot;serviceOrderHeader_dataOperation&quot;);
+varsList.add(&quot;serviceOrderHeader_concurrencyHash&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;serviceOrderHeader_validate_domainCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_category&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_callDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_nextStatusDateTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_queueCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_queueDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_daybookSetDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_responseTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_responseUnitOfMeasureDisplay&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_assigned&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_assignedDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserAddressField1&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserAddressField2&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserAddressField3&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserAddressField4&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserAddressField5&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserAddressField6&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_enteredBy&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_statusCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_statusCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_typeCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_typeCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_itemCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serial&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_nextStatusCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_nextStatusCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_salesOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_callerName&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_phoneNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_problemSkillCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_resolutionCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_priority&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_description&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_eventDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_eventDateTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_commentIndex&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_travelTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_travelHours&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_travelMinutes&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_travelDistance&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_travelUnitOfMeasure&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_currentTimeZoneCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_currentDateTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceTypeCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceTypeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_fromQueueCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_rMACode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_sequenceNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_eventTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_openedDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_openedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_reference&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_timeSpent&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_timeSpentDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_closedDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_closedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_contractNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_severityCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_severityCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_contractLine&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_toQueueCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isBilled&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceRequestCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isActivity&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_purchaseOrderNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_engineerGroupCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_areaCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_areaDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_engineerAreaCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_workCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_workCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_createdFrom&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_creationDateStamp&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_creationTimeStamp&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_estimatedTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_estimatedHours&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_estimatedMinutes&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isCommentsModified&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_revision&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_escalationNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_escalationSequence&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_routingCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billOfMaterialCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_siteCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_siteDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isSchedule&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isThirdPartyService&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_thirdPartyID&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isSendAcknowledgementLetter&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_completeDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_completeTime&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_creditTermsCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_creditTermsCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_currencyCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_baseCurrencyCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_exchangeRate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_exchangeRateDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_fieldNotificationNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isIncludedInStatistics&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isServiceOrderPrinted&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_priceListCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_priceDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isQuoteRequired&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_quotePrice&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_repairCenterSiteCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_resolutionDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_resolveDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_shipToCustomerCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_salesQuoteNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isActivitySuspended&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceType&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isTaxable&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isTaxIncluded&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxClass&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxClassDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isAwaitingItems&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToCustomerCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToAddressField1&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToAddressField2&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToAddressField3&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToAddressField4&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToAddressField5&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_billToAddressField6&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isInvoiceDraftPrinted&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isRecorded&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isRepairCenterCall&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_languageCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_languageDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_quoteExpireDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_repairSequence&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_repairStep&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isEndUserChanged&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_lastModifiedUser&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_lastModifiedDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_customerCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxEnvironment&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxEnvironmentDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxUsage&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxUsageDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_taxPercentage&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceQuoteNumber&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceQuoteDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_enteredExchangeRate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isFixedRate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_channel&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_channelDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_exchangeRate2&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_exchangeRate2Description&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_exchangeRateType&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_exchangeRateSequence&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_startDate&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_projectCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_projectCodeDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_defaultWorksheet&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isUpdateInstalledBase&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_daybookSet&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_modelCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_serviceGroup&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_timeZoneCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_timeZoneDescription&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_defaultTimeZoneCode&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isMultipleTimeZoneEnabled&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_isDepotOrder&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_endUserMessage&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrUser1&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrUser2&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr01&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr02&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr03&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr04&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr05&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr06&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr07&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr08&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr09&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrChr10&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDec01&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDec02&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDec03&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDte01&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDte02&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDte03&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDte04&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrDte05&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrLog01&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrLog02&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrLog03&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrLog04&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_caMstrLog05&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_dataOperation&quot;);
+varsList.add(&quot;serviceOrderHeader_validate_concurrencyHash&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="serviceOrderHeader fetch" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="serviceOrderNumber" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">serviceOrderNumber</stringProp>
+                <stringProp name="Argument.value">${serviceOrderHeader_url_serviceOrderNumber}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/serviceOrderHeaders</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${serviceOrderHeader_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].domainCode= &quot;${serviceOrderHeader_domainCode}&quot;;
+if (&quot;${serviceOrderHeader_serviceOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceOrderNumber= &quot;${serviceOrderHeader_serviceOrderNumber}&quot;;
+if (&quot;${serviceOrderHeader_category}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].category= &quot;${serviceOrderHeader_category}&quot;;
+if (&quot;${serviceOrderHeader_callDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].callDate= &quot;${serviceOrderHeader_callDate}&quot;;
+if (&quot;${serviceOrderHeader_nextStatusDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].nextStatusDateTime= &quot;${serviceOrderHeader_nextStatusDateTime}&quot;;
+if (&quot;${serviceOrderHeader_queueCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].queueCode= &quot;${serviceOrderHeader_queueCode}&quot;;
+if (&quot;${serviceOrderHeader_queueDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].queueDescription= &quot;${serviceOrderHeader_queueDescription}&quot;;
+if (&quot;${serviceOrderHeader_daybookSetDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].daybookSetDescription= &quot;${serviceOrderHeader_daybookSetDescription}&quot;;
+if (&quot;${serviceOrderHeader_responseTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].responseTime= &quot;${serviceOrderHeader_responseTime}&quot;;
+if (&quot;${serviceOrderHeader_responseUnitOfMeasureDisplay}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].responseUnitOfMeasureDisplay= &quot;${serviceOrderHeader_responseUnitOfMeasureDisplay}&quot;;
+if (&quot;${serviceOrderHeader_assigned}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].assigned= &quot;${serviceOrderHeader_assigned}&quot;;
+if (&quot;${serviceOrderHeader_assignedDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].assignedDescription= &quot;${serviceOrderHeader_assignedDescription}&quot;;
+if (&quot;${serviceOrderHeader_endUserCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserCode= &quot;${serviceOrderHeader_endUserCode}&quot;;
+if (&quot;${serviceOrderHeader_endUserAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserAddressField1= &quot;${serviceOrderHeader_endUserAddressField1}&quot;;
+if (&quot;${serviceOrderHeader_endUserAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserAddressField2= &quot;${serviceOrderHeader_endUserAddressField2}&quot;;
+if (&quot;${serviceOrderHeader_endUserAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserAddressField3= &quot;${serviceOrderHeader_endUserAddressField3}&quot;;
+if (&quot;${serviceOrderHeader_endUserAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserAddressField4= &quot;${serviceOrderHeader_endUserAddressField4}&quot;;
+if (&quot;${serviceOrderHeader_endUserAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserAddressField5= &quot;${serviceOrderHeader_endUserAddressField5}&quot;;
+if (&quot;${serviceOrderHeader_endUserAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserAddressField6= &quot;${serviceOrderHeader_endUserAddressField6}&quot;;
+if (&quot;${serviceOrderHeader_enteredBy}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].enteredBy= &quot;${serviceOrderHeader_enteredBy}&quot;;
+if (&quot;${serviceOrderHeader_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].statusCode= &quot;${serviceOrderHeader_statusCode}&quot;;
+if (&quot;${serviceOrderHeader_statusCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].statusCodeDescription= &quot;${serviceOrderHeader_statusCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_typeCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].typeCode= &quot;${serviceOrderHeader_typeCode}&quot;;
+if (&quot;${serviceOrderHeader_typeCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].typeCodeDescription= &quot;${serviceOrderHeader_typeCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_itemCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].itemCode= &quot;${serviceOrderHeader_itemCode}&quot;;
+if (&quot;${serviceOrderHeader_serial}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serial= &quot;${serviceOrderHeader_serial}&quot;;
+if (&quot;${serviceOrderHeader_nextStatusCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].nextStatusCode= &quot;${serviceOrderHeader_nextStatusCode}&quot;;
+if (&quot;${serviceOrderHeader_nextStatusCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].nextStatusCodeDescription= &quot;${serviceOrderHeader_nextStatusCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_salesOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].salesOrderNumber= &quot;${serviceOrderHeader_salesOrderNumber}&quot;;
+if (&quot;${serviceOrderHeader_callerName}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].callerName= &quot;${serviceOrderHeader_callerName}&quot;;
+if (&quot;${serviceOrderHeader_phoneNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].phoneNumber= &quot;${serviceOrderHeader_phoneNumber}&quot;;
+if (&quot;${serviceOrderHeader_problemSkillCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].problemSkillCode= &quot;${serviceOrderHeader_problemSkillCode}&quot;;
+if (&quot;${serviceOrderHeader_resolutionCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].resolutionCode= &quot;${serviceOrderHeader_resolutionCode}&quot;;
+if (&quot;${serviceOrderHeader_priority}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].priority= &quot;${serviceOrderHeader_priority}&quot;;
+if (&quot;${serviceOrderHeader_description}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].description= &quot;${serviceOrderHeader_description}&quot;;
+if (&quot;${serviceOrderHeader_eventDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].eventDate= &quot;${serviceOrderHeader_eventDate}&quot;;
+if (&quot;${serviceOrderHeader_eventDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].eventDateTime= &quot;${serviceOrderHeader_eventDateTime}&quot;;
+if (&quot;${serviceOrderHeader_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].commentIndex= &quot;${serviceOrderHeader_commentIndex}&quot;;
+if (&quot;${serviceOrderHeader_travelTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].travelTime= &quot;${serviceOrderHeader_travelTime}&quot;;
+if (&quot;${serviceOrderHeader_travelHours}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].travelHours= &quot;${serviceOrderHeader_travelHours}&quot;;
+if (&quot;${serviceOrderHeader_travelMinutes}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].travelMinutes= &quot;${serviceOrderHeader_travelMinutes}&quot;;
+if (&quot;${serviceOrderHeader_travelDistance}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].travelDistance= &quot;${serviceOrderHeader_travelDistance}&quot;;
+if (&quot;${serviceOrderHeader_travelUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].travelUnitOfMeasure= &quot;${serviceOrderHeader_travelUnitOfMeasure}&quot;;
+if (&quot;${serviceOrderHeader_currentTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].currentTimeZoneCode= &quot;${serviceOrderHeader_currentTimeZoneCode}&quot;;
+if (&quot;${serviceOrderHeader_currentDateTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].currentDateTime= &quot;${serviceOrderHeader_currentDateTime}&quot;;
+if (&quot;${serviceOrderHeader_isDisplayTravelAndEstimatedTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isDisplayTravelAndEstimatedTime= &quot;${serviceOrderHeader_isDisplayTravelAndEstimatedTime}&quot;;
+if (&quot;${serviceOrderHeader_serviceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceTypeCode= &quot;${serviceOrderHeader_serviceTypeCode}&quot;;
+if (&quot;${serviceOrderHeader_serviceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceTypeDescription= &quot;${serviceOrderHeader_serviceTypeDescription}&quot;;
+if (&quot;${serviceOrderHeader_fromQueueCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].fromQueueCode= &quot;${serviceOrderHeader_fromQueueCode}&quot;;
+if (&quot;${serviceOrderHeader_rMACode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].rMACode= &quot;${serviceOrderHeader_rMACode}&quot;;
+if (&quot;${serviceOrderHeader_sequenceNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].sequenceNumber= &quot;${serviceOrderHeader_sequenceNumber}&quot;;
+if (&quot;${serviceOrderHeader_eventTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].eventTime= &quot;${serviceOrderHeader_eventTime}&quot;;
+if (&quot;${serviceOrderHeader_openedDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].openedDate= &quot;${serviceOrderHeader_openedDate}&quot;;
+if (&quot;${serviceOrderHeader_openedTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].openedTime= &quot;${serviceOrderHeader_openedTime}&quot;;
+if (&quot;${serviceOrderHeader_reference}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].reference= &quot;${serviceOrderHeader_reference}&quot;;
+if (&quot;${serviceOrderHeader_timeSpent}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].timeSpent= &quot;${serviceOrderHeader_timeSpent}&quot;;
+if (&quot;${serviceOrderHeader_timeSpentDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].timeSpentDescription= &quot;${serviceOrderHeader_timeSpentDescription}&quot;;
+if (&quot;${serviceOrderHeader_closedDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].closedDate= &quot;${serviceOrderHeader_closedDate}&quot;;
+if (&quot;${serviceOrderHeader_closedTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].closedTime= &quot;${serviceOrderHeader_closedTime}&quot;;
+if (&quot;${serviceOrderHeader_contractNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].contractNumber= &quot;${serviceOrderHeader_contractNumber}&quot;;
+if (&quot;${serviceOrderHeader_severityCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].severityCode= &quot;${serviceOrderHeader_severityCode}&quot;;
+if (&quot;${serviceOrderHeader_severityCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].severityCodeDescription= &quot;${serviceOrderHeader_severityCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_contractLine}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].contractLine= &quot;${serviceOrderHeader_contractLine}&quot;;
+if (&quot;${serviceOrderHeader_toQueueCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].toQueueCode= &quot;${serviceOrderHeader_toQueueCode}&quot;;
+if (&quot;${serviceOrderHeader_isBilled}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isBilled= &quot;${serviceOrderHeader_isBilled}&quot;;
+if (&quot;${serviceOrderHeader_serviceRequestCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceRequestCode= &quot;${serviceOrderHeader_serviceRequestCode}&quot;;
+if (&quot;${serviceOrderHeader_isActivity}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isActivity= &quot;${serviceOrderHeader_isActivity}&quot;;
+if (&quot;${serviceOrderHeader_purchaseOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].purchaseOrderNumber= &quot;${serviceOrderHeader_purchaseOrderNumber}&quot;;
+if (&quot;${serviceOrderHeader_engineerGroupCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].engineerGroupCode= &quot;${serviceOrderHeader_engineerGroupCode}&quot;;
+if (&quot;${serviceOrderHeader_areaCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].areaCode= &quot;${serviceOrderHeader_areaCode}&quot;;
+if (&quot;${serviceOrderHeader_areaDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].areaDescription= &quot;${serviceOrderHeader_areaDescription}&quot;;
+if (&quot;${serviceOrderHeader_engineerAreaCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].engineerAreaCode= &quot;${serviceOrderHeader_engineerAreaCode}&quot;;
+if (&quot;${serviceOrderHeader_workCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].workCode= &quot;${serviceOrderHeader_workCode}&quot;;
+if (&quot;${serviceOrderHeader_workCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].workCodeDescription= &quot;${serviceOrderHeader_workCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_createdFrom}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].createdFrom= &quot;${serviceOrderHeader_createdFrom}&quot;;
+if (&quot;${serviceOrderHeader_creationDateStamp}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].creationDateStamp= &quot;${serviceOrderHeader_creationDateStamp}&quot;;
+if (&quot;${serviceOrderHeader_creationTimeStamp}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].creationTimeStamp= &quot;${serviceOrderHeader_creationTimeStamp}&quot;;
+if (&quot;${serviceOrderHeader_estimatedTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].estimatedTime= &quot;${serviceOrderHeader_estimatedTime}&quot;;
+if (&quot;${serviceOrderHeader_estimatedHours}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].estimatedHours= &quot;${serviceOrderHeader_estimatedHours}&quot;;
+if (&quot;${serviceOrderHeader_estimatedMinutes}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].estimatedMinutes= &quot;${serviceOrderHeader_estimatedMinutes}&quot;;
+if (&quot;${serviceOrderHeader_endUserDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserDate= &quot;${serviceOrderHeader_endUserDate}&quot;;
+if (&quot;${serviceOrderHeader_endUserTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserTime= &quot;${serviceOrderHeader_endUserTime}&quot;;
+if (&quot;${serviceOrderHeader_isCommentsModified}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isCommentsModified= &quot;${serviceOrderHeader_isCommentsModified}&quot;;
+if (&quot;${serviceOrderHeader_revision}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].revision= &quot;${serviceOrderHeader_revision}&quot;;
+if (&quot;${serviceOrderHeader_escalationNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].escalationNumber= &quot;${serviceOrderHeader_escalationNumber}&quot;;
+if (&quot;${serviceOrderHeader_escalationSequence}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].escalationSequence= &quot;${serviceOrderHeader_escalationSequence}&quot;;
+if (&quot;${serviceOrderHeader_routingCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].routingCode= &quot;${serviceOrderHeader_routingCode}&quot;;
+if (&quot;${serviceOrderHeader_billOfMaterialCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billOfMaterialCode= &quot;${serviceOrderHeader_billOfMaterialCode}&quot;;
+if (&quot;${serviceOrderHeader_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].siteCode= &quot;${serviceOrderHeader_siteCode}&quot;;
+if (&quot;${serviceOrderHeader_siteDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].siteDescription= &quot;${serviceOrderHeader_siteDescription}&quot;;
+if (&quot;${serviceOrderHeader_isSchedule}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isSchedule= &quot;${serviceOrderHeader_isSchedule}&quot;;
+if (&quot;${serviceOrderHeader_isThirdPartyService}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isThirdPartyService= &quot;${serviceOrderHeader_isThirdPartyService}&quot;;
+if (&quot;${serviceOrderHeader_thirdPartyID}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].thirdPartyID= &quot;${serviceOrderHeader_thirdPartyID}&quot;;
+if (&quot;${serviceOrderHeader_isSendAcknowledgementLetter}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isSendAcknowledgementLetter= &quot;${serviceOrderHeader_isSendAcknowledgementLetter}&quot;;
+if (&quot;${serviceOrderHeader_completeDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].completeDate= &quot;${serviceOrderHeader_completeDate}&quot;;
+if (&quot;${serviceOrderHeader_completeTime}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].completeTime= &quot;${serviceOrderHeader_completeTime}&quot;;
+if (&quot;${serviceOrderHeader_creditTermsCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].creditTermsCode= &quot;${serviceOrderHeader_creditTermsCode}&quot;;
+if (&quot;${serviceOrderHeader_creditTermsCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].creditTermsCodeDescription= &quot;${serviceOrderHeader_creditTermsCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].currencyCode= &quot;${serviceOrderHeader_currencyCode}&quot;;
+if (&quot;${serviceOrderHeader_baseCurrencyCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].baseCurrencyCode= &quot;${serviceOrderHeader_baseCurrencyCode}&quot;;
+if (&quot;${serviceOrderHeader_exchangeRate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].exchangeRate= &quot;${serviceOrderHeader_exchangeRate}&quot;;
+if (&quot;${serviceOrderHeader_exchangeRateDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].exchangeRateDescription= &quot;${serviceOrderHeader_exchangeRateDescription}&quot;;
+if (&quot;${serviceOrderHeader_fieldNotificationNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].fieldNotificationNumber= &quot;${serviceOrderHeader_fieldNotificationNumber}&quot;;
+if (&quot;${serviceOrderHeader_isIncludedInStatistics}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isIncludedInStatistics= &quot;${serviceOrderHeader_isIncludedInStatistics}&quot;;
+if (&quot;${serviceOrderHeader_isServiceOrderPrinted}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isServiceOrderPrinted= &quot;${serviceOrderHeader_isServiceOrderPrinted}&quot;;
+if (&quot;${serviceOrderHeader_priceListCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].priceListCode= &quot;${serviceOrderHeader_priceListCode}&quot;;
+if (&quot;${serviceOrderHeader_priceDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].priceDate= &quot;${serviceOrderHeader_priceDate}&quot;;
+if (&quot;${serviceOrderHeader_isQuoteRequired}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isQuoteRequired= &quot;${serviceOrderHeader_isQuoteRequired}&quot;;
+if (&quot;${serviceOrderHeader_quotePrice}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].quotePrice= &quot;${serviceOrderHeader_quotePrice}&quot;;
+if (&quot;${serviceOrderHeader_repairCenterSiteCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].repairCenterSiteCode= &quot;${serviceOrderHeader_repairCenterSiteCode}&quot;;
+if (&quot;${serviceOrderHeader_resolutionDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].resolutionDescription= &quot;${serviceOrderHeader_resolutionDescription}&quot;;
+if (&quot;${serviceOrderHeader_resolveDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].resolveDescription= &quot;${serviceOrderHeader_resolveDescription}&quot;;
+if (&quot;${serviceOrderHeader_shipToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].shipToCustomerCode= &quot;${serviceOrderHeader_shipToCustomerCode}&quot;;
+if (&quot;${serviceOrderHeader_salesQuoteNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].salesQuoteNumber= &quot;${serviceOrderHeader_salesQuoteNumber}&quot;;
+if (&quot;${serviceOrderHeader_isActivitySuspended}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isActivitySuspended= &quot;${serviceOrderHeader_isActivitySuspended}&quot;;
+if (&quot;${serviceOrderHeader_serviceType}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceType= &quot;${serviceOrderHeader_serviceType}&quot;;
+if (&quot;${serviceOrderHeader_isTaxable}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isTaxable= &quot;${serviceOrderHeader_isTaxable}&quot;;
+if (&quot;${serviceOrderHeader_isTaxIncluded}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isTaxIncluded= &quot;${serviceOrderHeader_isTaxIncluded}&quot;;
+if (&quot;${serviceOrderHeader_taxClass}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxClass= &quot;${serviceOrderHeader_taxClass}&quot;;
+if (&quot;${serviceOrderHeader_taxClassDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxClassDescription= &quot;${serviceOrderHeader_taxClassDescription}&quot;;
+if (&quot;${serviceOrderHeader_isAwaitingItems}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isAwaitingItems= &quot;${serviceOrderHeader_isAwaitingItems}&quot;;
+if (&quot;${serviceOrderHeader_billToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToCustomerCode= &quot;${serviceOrderHeader_billToCustomerCode}&quot;;
+if (&quot;${serviceOrderHeader_billToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToAddressField1= &quot;${serviceOrderHeader_billToAddressField1}&quot;;
+if (&quot;${serviceOrderHeader_billToAddressField2}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToAddressField2= &quot;${serviceOrderHeader_billToAddressField2}&quot;;
+if (&quot;${serviceOrderHeader_billToAddressField3}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToAddressField3= &quot;${serviceOrderHeader_billToAddressField3}&quot;;
+if (&quot;${serviceOrderHeader_billToAddressField4}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToAddressField4= &quot;${serviceOrderHeader_billToAddressField4}&quot;;
+if (&quot;${serviceOrderHeader_billToAddressField5}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToAddressField5= &quot;${serviceOrderHeader_billToAddressField5}&quot;;
+if (&quot;${serviceOrderHeader_billToAddressField6}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].billToAddressField6= &quot;${serviceOrderHeader_billToAddressField6}&quot;;
+if (&quot;${serviceOrderHeader_isInvoiceDraftPrinted}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isInvoiceDraftPrinted= &quot;${serviceOrderHeader_isInvoiceDraftPrinted}&quot;;
+if (&quot;${serviceOrderHeader_isRecorded}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isRecorded= &quot;${serviceOrderHeader_isRecorded}&quot;;
+if (&quot;${serviceOrderHeader_isRepairCenterCall}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isRepairCenterCall= &quot;${serviceOrderHeader_isRepairCenterCall}&quot;;
+if (&quot;${serviceOrderHeader_languageCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].languageCode= &quot;${serviceOrderHeader_languageCode}&quot;;
+if (&quot;${serviceOrderHeader_languageDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].languageDescription= &quot;${serviceOrderHeader_languageDescription}&quot;;
+if (&quot;${serviceOrderHeader_taxDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxDate= &quot;${serviceOrderHeader_taxDate}&quot;;
+if (&quot;${serviceOrderHeader_quoteExpireDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].quoteExpireDate= &quot;${serviceOrderHeader_quoteExpireDate}&quot;;
+if (&quot;${serviceOrderHeader_repairSequence}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].repairSequence= &quot;${serviceOrderHeader_repairSequence}&quot;;
+if (&quot;${serviceOrderHeader_repairStep}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].repairStep= &quot;${serviceOrderHeader_repairStep}&quot;;
+if (&quot;${serviceOrderHeader_isEndUserChanged}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isEndUserChanged= &quot;${serviceOrderHeader_isEndUserChanged}&quot;;
+if (&quot;${serviceOrderHeader_lastModifiedUser}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].lastModifiedUser= &quot;${serviceOrderHeader_lastModifiedUser}&quot;;
+if (&quot;${serviceOrderHeader_lastModifiedDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].lastModifiedDate= &quot;${serviceOrderHeader_lastModifiedDate}&quot;;
+if (&quot;${serviceOrderHeader_customerCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].customerCode= &quot;${serviceOrderHeader_customerCode}&quot;;
+if (&quot;${serviceOrderHeader_taxEnvironment}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxEnvironment= &quot;${serviceOrderHeader_taxEnvironment}&quot;;
+if (&quot;${serviceOrderHeader_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxEnvironmentDescription= &quot;${serviceOrderHeader_taxEnvironmentDescription}&quot;;
+if (&quot;${serviceOrderHeader_taxUsage}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxUsage= &quot;${serviceOrderHeader_taxUsage}&quot;;
+if (&quot;${serviceOrderHeader_taxUsageDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxUsageDescription= &quot;${serviceOrderHeader_taxUsageDescription}&quot;;
+if (&quot;${serviceOrderHeader_taxPercentage}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].taxPercentage= &quot;${serviceOrderHeader_taxPercentage}&quot;;
+if (&quot;${serviceOrderHeader_serviceQuoteNumber}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceQuoteNumber= &quot;${serviceOrderHeader_serviceQuoteNumber}&quot;;
+if (&quot;${serviceOrderHeader_serviceQuoteDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceQuoteDescription= &quot;${serviceOrderHeader_serviceQuoteDescription}&quot;;
+if (&quot;${serviceOrderHeader_enteredExchangeRate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].enteredExchangeRate= &quot;${serviceOrderHeader_enteredExchangeRate}&quot;;
+if (&quot;${serviceOrderHeader_isFixedRate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isFixedRate= &quot;${serviceOrderHeader_isFixedRate}&quot;;
+if (&quot;${serviceOrderHeader_channel}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].channel= &quot;${serviceOrderHeader_channel}&quot;;
+if (&quot;${serviceOrderHeader_channelDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].channelDescription= &quot;${serviceOrderHeader_channelDescription}&quot;;
+if (&quot;${serviceOrderHeader_exchangeRate2}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].exchangeRate2= &quot;${serviceOrderHeader_exchangeRate2}&quot;;
+if (&quot;${serviceOrderHeader_exchangeRate2Description}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].exchangeRate2Description= &quot;${serviceOrderHeader_exchangeRate2Description}&quot;;
+if (&quot;${serviceOrderHeader_exchangeRateType}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].exchangeRateType= &quot;${serviceOrderHeader_exchangeRateType}&quot;;
+if (&quot;${serviceOrderHeader_exchangeRateSequence}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].exchangeRateSequence= &quot;${serviceOrderHeader_exchangeRateSequence}&quot;;
+if (&quot;${serviceOrderHeader_endDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endDate= &quot;${serviceOrderHeader_endDate}&quot;;
+if (&quot;${serviceOrderHeader_startDate}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].startDate= &quot;${serviceOrderHeader_startDate}&quot;;
+if (&quot;${serviceOrderHeader_projectCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].projectCode= &quot;${serviceOrderHeader_projectCode}&quot;;
+if (&quot;${serviceOrderHeader_projectCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].projectCodeDescription= &quot;${serviceOrderHeader_projectCodeDescription}&quot;;
+if (&quot;${serviceOrderHeader_defaultWorksheet}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].defaultWorksheet= &quot;${serviceOrderHeader_defaultWorksheet}&quot;;
+if (&quot;${serviceOrderHeader_isUpdateInstalledBase}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isUpdateInstalledBase= &quot;${serviceOrderHeader_isUpdateInstalledBase}&quot;;
+if (&quot;${serviceOrderHeader_daybookSet}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].daybookSet= &quot;${serviceOrderHeader_daybookSet}&quot;;
+if (&quot;${serviceOrderHeader_modelCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].modelCode= &quot;${serviceOrderHeader_modelCode}&quot;;
+if (&quot;${serviceOrderHeader_serviceGroup}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].serviceGroup= &quot;${serviceOrderHeader_serviceGroup}&quot;;
+if (&quot;${serviceOrderHeader_timeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].timeZoneCode= &quot;${serviceOrderHeader_timeZoneCode}&quot;;
+if (&quot;${serviceOrderHeader_timeZoneDescription}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].timeZoneDescription= &quot;${serviceOrderHeader_timeZoneDescription}&quot;;
+if (&quot;${serviceOrderHeader_defaultTimeZoneCode}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].defaultTimeZoneCode= &quot;${serviceOrderHeader_defaultTimeZoneCode}&quot;;
+if (&quot;${serviceOrderHeader_isMultipleTimeZoneEnabled}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isMultipleTimeZoneEnabled= &quot;${serviceOrderHeader_isMultipleTimeZoneEnabled}&quot;;
+if (&quot;${serviceOrderHeader_isDepotOrder}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].isDepotOrder= &quot;${serviceOrderHeader_isDepotOrder}&quot;;
+if (&quot;${serviceOrderHeader_endUserMessage}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].endUserMessage= &quot;${serviceOrderHeader_endUserMessage}&quot;;
+if (&quot;${serviceOrderHeader_caMstrUser1}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrUser1= &quot;${serviceOrderHeader_caMstrUser1}&quot;;
+if (&quot;${serviceOrderHeader_caMstrUser2}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrUser2= &quot;${serviceOrderHeader_caMstrUser2}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr01}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr01= &quot;${serviceOrderHeader_caMstrChr01}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr02}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr02= &quot;${serviceOrderHeader_caMstrChr02}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr03}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr03= &quot;${serviceOrderHeader_caMstrChr03}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr04}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr04= &quot;${serviceOrderHeader_caMstrChr04}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr05}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr05= &quot;${serviceOrderHeader_caMstrChr05}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr06}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr06= &quot;${serviceOrderHeader_caMstrChr06}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr07}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr07= &quot;${serviceOrderHeader_caMstrChr07}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr08}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr08= &quot;${serviceOrderHeader_caMstrChr08}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr09}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr09= &quot;${serviceOrderHeader_caMstrChr09}&quot;;
+if (&quot;${serviceOrderHeader_caMstrChr10}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrChr10= &quot;${serviceOrderHeader_caMstrChr10}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDec01}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDec01= &quot;${serviceOrderHeader_caMstrDec01}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDec02}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDec02= &quot;${serviceOrderHeader_caMstrDec02}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDec03}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDec03= &quot;${serviceOrderHeader_caMstrDec03}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDte01}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDte01= &quot;${serviceOrderHeader_caMstrDte01}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDte02}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDte02= &quot;${serviceOrderHeader_caMstrDte02}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDte03}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDte03= &quot;${serviceOrderHeader_caMstrDte03}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDte04}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDte04= &quot;${serviceOrderHeader_caMstrDte04}&quot;;
+if (&quot;${serviceOrderHeader_caMstrDte05}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrDte05= &quot;${serviceOrderHeader_caMstrDte05}&quot;;
+if (&quot;${serviceOrderHeader_caMstrLog01}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrLog01= &quot;${serviceOrderHeader_caMstrLog01}&quot;;
+if (&quot;${serviceOrderHeader_caMstrLog02}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrLog02= &quot;${serviceOrderHeader_caMstrLog02}&quot;;
+if (&quot;${serviceOrderHeader_caMstrLog03}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrLog03= &quot;${serviceOrderHeader_caMstrLog03}&quot;;
+if (&quot;${serviceOrderHeader_caMstrLog04}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrLog04= &quot;${serviceOrderHeader_caMstrLog04}&quot;;
+if (&quot;${serviceOrderHeader_caMstrLog05}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].caMstrLog05= &quot;${serviceOrderHeader_caMstrLog05}&quot;;
+if (&quot;${serviceOrderHeader_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].dataOperation= &quot;${serviceOrderHeader_dataOperation}&quot;;
+if (&quot;${serviceOrderHeader_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.serviceOrderHeaders[0].concurrencyHash= &quot;${serviceOrderHeader_concurrencyHash}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="VAR">RequestData</stringProp>
+            <stringProp name="JSONPATH">$.data</stringProp>
+            <stringProp name="DEFAULT">NotFound</stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+
+// All the fields in dataset should be set here
+if (&quot;${serviceOrderHeader_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].domainCode!= &quot;${serviceOrderHeader_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${serviceOrderHeader_validate_domainCode} but got &quot; + objRequest.serviceOrderHeaders[0].domainCode}
+if (&quot;${serviceOrderHeader_validate_serviceOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceOrderNumber!= &quot;${serviceOrderHeader_validate_serviceOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderNumber${serviceOrderHeader_validate_serviceOrderNumber} but got &quot; + objRequest.serviceOrderHeaders[0].serviceOrderNumber}
+if (&quot;${serviceOrderHeader_validate_category}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].category!= &quot;${serviceOrderHeader_validate_category}&quot;) { failureMessage = failureMessage + &quot;Expect category${serviceOrderHeader_validate_category} but got &quot; + objRequest.serviceOrderHeaders[0].category}
+if (&quot;${serviceOrderHeader_validate_callDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].callDate!= &quot;${serviceOrderHeader_validate_callDate}&quot;) { failureMessage = failureMessage + &quot;Expect callDate${serviceOrderHeader_validate_callDate} but got &quot; + objRequest.serviceOrderHeaders[0].callDate}
+if (&quot;${serviceOrderHeader_validate_nextStatusDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].nextStatusDateTime!= &quot;${serviceOrderHeader_validate_nextStatusDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect nextStatusDateTime${serviceOrderHeader_validate_nextStatusDateTime} but got &quot; + objRequest.serviceOrderHeaders[0].nextStatusDateTime}
+if (&quot;${serviceOrderHeader_validate_queueCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].queueCode!= &quot;${serviceOrderHeader_validate_queueCode}&quot;) { failureMessage = failureMessage + &quot;Expect queueCode${serviceOrderHeader_validate_queueCode} but got &quot; + objRequest.serviceOrderHeaders[0].queueCode}
+if (&quot;${serviceOrderHeader_validate_queueDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].queueDescription!= &quot;${serviceOrderHeader_validate_queueDescription}&quot;) { failureMessage = failureMessage + &quot;Expect queueDescription${serviceOrderHeader_validate_queueDescription} but got &quot; + objRequest.serviceOrderHeaders[0].queueDescription}
+if (&quot;${serviceOrderHeader_validate_daybookSetDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].daybookSetDescription!= &quot;${serviceOrderHeader_validate_daybookSetDescription}&quot;) { failureMessage = failureMessage + &quot;Expect daybookSetDescription${serviceOrderHeader_validate_daybookSetDescription} but got &quot; + objRequest.serviceOrderHeaders[0].daybookSetDescription}
+if (&quot;${serviceOrderHeader_validate_responseTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].responseTime!= &quot;${serviceOrderHeader_validate_responseTime}&quot;) { failureMessage = failureMessage + &quot;Expect responseTime${serviceOrderHeader_validate_responseTime} but got &quot; + objRequest.serviceOrderHeaders[0].responseTime}
+if (&quot;${serviceOrderHeader_validate_responseUnitOfMeasureDisplay}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].responseUnitOfMeasureDisplay!= &quot;${serviceOrderHeader_validate_responseUnitOfMeasureDisplay}&quot;) { failureMessage = failureMessage + &quot;Expect responseUnitOfMeasureDisplay${serviceOrderHeader_validate_responseUnitOfMeasureDisplay} but got &quot; + objRequest.serviceOrderHeaders[0].responseUnitOfMeasureDisplay}
+if (&quot;${serviceOrderHeader_validate_assigned}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].assigned!= &quot;${serviceOrderHeader_validate_assigned}&quot;) { failureMessage = failureMessage + &quot;Expect assigned${serviceOrderHeader_validate_assigned} but got &quot; + objRequest.serviceOrderHeaders[0].assigned}
+if (&quot;${serviceOrderHeader_validate_assignedDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].assignedDescription!= &quot;${serviceOrderHeader_validate_assignedDescription}&quot;) { failureMessage = failureMessage + &quot;Expect assignedDescription${serviceOrderHeader_validate_assignedDescription} but got &quot; + objRequest.serviceOrderHeaders[0].assignedDescription}
+if (&quot;${serviceOrderHeader_validate_endUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserCode!= &quot;${serviceOrderHeader_validate_endUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCode${serviceOrderHeader_validate_endUserCode} but got &quot; + objRequest.serviceOrderHeaders[0].endUserCode}
+if (&quot;${serviceOrderHeader_validate_endUserAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField1!= &quot;${serviceOrderHeader_validate_endUserAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField1${serviceOrderHeader_validate_endUserAddressField1} but got &quot; + objRequest.serviceOrderHeaders[0].endUserAddressField1}
+if (&quot;${serviceOrderHeader_validate_endUserAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField2!= &quot;${serviceOrderHeader_validate_endUserAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField2${serviceOrderHeader_validate_endUserAddressField2} but got &quot; + objRequest.serviceOrderHeaders[0].endUserAddressField2}
+if (&quot;${serviceOrderHeader_validate_endUserAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField3!= &quot;${serviceOrderHeader_validate_endUserAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField3${serviceOrderHeader_validate_endUserAddressField3} but got &quot; + objRequest.serviceOrderHeaders[0].endUserAddressField3}
+if (&quot;${serviceOrderHeader_validate_endUserAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField4!= &quot;${serviceOrderHeader_validate_endUserAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField4${serviceOrderHeader_validate_endUserAddressField4} but got &quot; + objRequest.serviceOrderHeaders[0].endUserAddressField4}
+if (&quot;${serviceOrderHeader_validate_endUserAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField5!= &quot;${serviceOrderHeader_validate_endUserAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField5${serviceOrderHeader_validate_endUserAddressField5} but got &quot; + objRequest.serviceOrderHeaders[0].endUserAddressField5}
+if (&quot;${serviceOrderHeader_validate_endUserAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserAddressField6!= &quot;${serviceOrderHeader_validate_endUserAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField6${serviceOrderHeader_validate_endUserAddressField6} but got &quot; + objRequest.serviceOrderHeaders[0].endUserAddressField6}
+if (&quot;${serviceOrderHeader_validate_enteredBy}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].enteredBy!= &quot;${serviceOrderHeader_validate_enteredBy}&quot;) { failureMessage = failureMessage + &quot;Expect enteredBy${serviceOrderHeader_validate_enteredBy} but got &quot; + objRequest.serviceOrderHeaders[0].enteredBy}
+if (&quot;${serviceOrderHeader_validate_statusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].statusCode!= &quot;${serviceOrderHeader_validate_statusCode}&quot;) { failureMessage = failureMessage + &quot;Expect statusCode${serviceOrderHeader_validate_statusCode} but got &quot; + objRequest.serviceOrderHeaders[0].statusCode}
+if (&quot;${serviceOrderHeader_validate_statusCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].statusCodeDescription!= &quot;${serviceOrderHeader_validate_statusCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect statusCodeDescription${serviceOrderHeader_validate_statusCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].statusCodeDescription}
+if (&quot;${serviceOrderHeader_validate_typeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].typeCode!= &quot;${serviceOrderHeader_validate_typeCode}&quot;) { failureMessage = failureMessage + &quot;Expect typeCode${serviceOrderHeader_validate_typeCode} but got &quot; + objRequest.serviceOrderHeaders[0].typeCode}
+if (&quot;${serviceOrderHeader_validate_typeCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].typeCodeDescription!= &quot;${serviceOrderHeader_validate_typeCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect typeCodeDescription${serviceOrderHeader_validate_typeCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].typeCodeDescription}
+if (&quot;${serviceOrderHeader_validate_itemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].itemCode!= &quot;${serviceOrderHeader_validate_itemCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemCode${serviceOrderHeader_validate_itemCode} but got &quot; + objRequest.serviceOrderHeaders[0].itemCode}
+if (&quot;${serviceOrderHeader_validate_serial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serial!= &quot;${serviceOrderHeader_validate_serial}&quot;) { failureMessage = failureMessage + &quot;Expect serial${serviceOrderHeader_validate_serial} but got &quot; + objRequest.serviceOrderHeaders[0].serial}
+if (&quot;${serviceOrderHeader_validate_nextStatusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].nextStatusCode!= &quot;${serviceOrderHeader_validate_nextStatusCode}&quot;) { failureMessage = failureMessage + &quot;Expect nextStatusCode${serviceOrderHeader_validate_nextStatusCode} but got &quot; + objRequest.serviceOrderHeaders[0].nextStatusCode}
+if (&quot;${serviceOrderHeader_validate_nextStatusCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].nextStatusCodeDescription!= &quot;${serviceOrderHeader_validate_nextStatusCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect nextStatusCodeDescription${serviceOrderHeader_validate_nextStatusCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].nextStatusCodeDescription}
+if (&quot;${serviceOrderHeader_validate_salesOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].salesOrderNumber!= &quot;${serviceOrderHeader_validate_salesOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect salesOrderNumber${serviceOrderHeader_validate_salesOrderNumber} but got &quot; + objRequest.serviceOrderHeaders[0].salesOrderNumber}
+if (&quot;${serviceOrderHeader_validate_callerName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].callerName!= &quot;${serviceOrderHeader_validate_callerName}&quot;) { failureMessage = failureMessage + &quot;Expect callerName${serviceOrderHeader_validate_callerName} but got &quot; + objRequest.serviceOrderHeaders[0].callerName}
+if (&quot;${serviceOrderHeader_validate_phoneNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].phoneNumber!= &quot;${serviceOrderHeader_validate_phoneNumber}&quot;) { failureMessage = failureMessage + &quot;Expect phoneNumber${serviceOrderHeader_validate_phoneNumber} but got &quot; + objRequest.serviceOrderHeaders[0].phoneNumber}
+if (&quot;${serviceOrderHeader_validate_problemSkillCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].problemSkillCode!= &quot;${serviceOrderHeader_validate_problemSkillCode}&quot;) { failureMessage = failureMessage + &quot;Expect problemSkillCode${serviceOrderHeader_validate_problemSkillCode} but got &quot; + objRequest.serviceOrderHeaders[0].problemSkillCode}
+if (&quot;${serviceOrderHeader_validate_resolutionCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].resolutionCode!= &quot;${serviceOrderHeader_validate_resolutionCode}&quot;) { failureMessage = failureMessage + &quot;Expect resolutionCode${serviceOrderHeader_validate_resolutionCode} but got &quot; + objRequest.serviceOrderHeaders[0].resolutionCode}
+if (&quot;${serviceOrderHeader_validate_priority}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].priority!= &quot;${serviceOrderHeader_validate_priority}&quot;) { failureMessage = failureMessage + &quot;Expect priority${serviceOrderHeader_validate_priority} but got &quot; + objRequest.serviceOrderHeaders[0].priority}
+if (&quot;${serviceOrderHeader_validate_description}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].description!= &quot;${serviceOrderHeader_validate_description}&quot;) { failureMessage = failureMessage + &quot;Expect description${serviceOrderHeader_validate_description} but got &quot; + objRequest.serviceOrderHeaders[0].description}
+if (&quot;${serviceOrderHeader_validate_eventDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].eventDate!= &quot;${serviceOrderHeader_validate_eventDate}&quot;) { failureMessage = failureMessage + &quot;Expect eventDate${serviceOrderHeader_validate_eventDate} but got &quot; + objRequest.serviceOrderHeaders[0].eventDate}
+if (&quot;${serviceOrderHeader_validate_eventDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].eventDateTime!= &quot;${serviceOrderHeader_validate_eventDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect eventDateTime${serviceOrderHeader_validate_eventDateTime} but got &quot; + objRequest.serviceOrderHeaders[0].eventDateTime}
+if (&quot;${serviceOrderHeader_validate_commentIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].commentIndex!= &quot;${serviceOrderHeader_validate_commentIndex}&quot;) { failureMessage = failureMessage + &quot;Expect commentIndex${serviceOrderHeader_validate_commentIndex} but got &quot; + objRequest.serviceOrderHeaders[0].commentIndex}
+if (&quot;${serviceOrderHeader_validate_travelTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].travelTime!= &quot;${serviceOrderHeader_validate_travelTime}&quot;) { failureMessage = failureMessage + &quot;Expect travelTime${serviceOrderHeader_validate_travelTime} but got &quot; + objRequest.serviceOrderHeaders[0].travelTime}
+if (&quot;${serviceOrderHeader_validate_travelHours}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].travelHours!= &quot;${serviceOrderHeader_validate_travelHours}&quot;) { failureMessage = failureMessage + &quot;Expect travelHours${serviceOrderHeader_validate_travelHours} but got &quot; + objRequest.serviceOrderHeaders[0].travelHours}
+if (&quot;${serviceOrderHeader_validate_travelMinutes}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].travelMinutes!= &quot;${serviceOrderHeader_validate_travelMinutes}&quot;) { failureMessage = failureMessage + &quot;Expect travelMinutes${serviceOrderHeader_validate_travelMinutes} but got &quot; + objRequest.serviceOrderHeaders[0].travelMinutes}
+if (&quot;${serviceOrderHeader_validate_travelDistance}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].travelDistance!= &quot;${serviceOrderHeader_validate_travelDistance}&quot;) { failureMessage = failureMessage + &quot;Expect travelDistance${serviceOrderHeader_validate_travelDistance} but got &quot; + objRequest.serviceOrderHeaders[0].travelDistance}
+if (&quot;${serviceOrderHeader_validate_travelUnitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].travelUnitOfMeasure!= &quot;${serviceOrderHeader_validate_travelUnitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect travelUnitOfMeasure${serviceOrderHeader_validate_travelUnitOfMeasure} but got &quot; + objRequest.serviceOrderHeaders[0].travelUnitOfMeasure}
+if (&quot;${serviceOrderHeader_validate_currentTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].currentTimeZoneCode!= &quot;${serviceOrderHeader_validate_currentTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect currentTimeZoneCode${serviceOrderHeader_validate_currentTimeZoneCode} but got &quot; + objRequest.serviceOrderHeaders[0].currentTimeZoneCode}
+if (&quot;${serviceOrderHeader_validate_currentDateTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].currentDateTime!= &quot;${serviceOrderHeader_validate_currentDateTime}&quot;) { failureMessage = failureMessage + &quot;Expect currentDateTime${serviceOrderHeader_validate_currentDateTime} but got &quot; + objRequest.serviceOrderHeaders[0].currentDateTime}
+if (&quot;${serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isDisplayTravelAndEstimatedTime!= &quot;${serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime}&quot;) { failureMessage = failureMessage + &quot;Expect isDisplayTravelAndEstimatedTime${serviceOrderHeader_validate_isDisplayTravelAndEstimatedTime} but got &quot; + objRequest.serviceOrderHeaders[0].isDisplayTravelAndEstimatedTime}
+if (&quot;${serviceOrderHeader_validate_serviceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceTypeCode!= &quot;${serviceOrderHeader_validate_serviceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeCode${serviceOrderHeader_validate_serviceTypeCode} but got &quot; + objRequest.serviceOrderHeaders[0].serviceTypeCode}
+if (&quot;${serviceOrderHeader_validate_serviceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceTypeDescription!= &quot;${serviceOrderHeader_validate_serviceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeDescription${serviceOrderHeader_validate_serviceTypeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].serviceTypeDescription}
+if (&quot;${serviceOrderHeader_validate_fromQueueCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].fromQueueCode!= &quot;${serviceOrderHeader_validate_fromQueueCode}&quot;) { failureMessage = failureMessage + &quot;Expect fromQueueCode${serviceOrderHeader_validate_fromQueueCode} but got &quot; + objRequest.serviceOrderHeaders[0].fromQueueCode}
+if (&quot;${serviceOrderHeader_validate_rMACode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].rMACode!= &quot;${serviceOrderHeader_validate_rMACode}&quot;) { failureMessage = failureMessage + &quot;Expect rMACode${serviceOrderHeader_validate_rMACode} but got &quot; + objRequest.serviceOrderHeaders[0].rMACode}
+if (&quot;${serviceOrderHeader_validate_sequenceNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].sequenceNumber!= &quot;${serviceOrderHeader_validate_sequenceNumber}&quot;) { failureMessage = failureMessage + &quot;Expect sequenceNumber${serviceOrderHeader_validate_sequenceNumber} but got &quot; + objRequest.serviceOrderHeaders[0].sequenceNumber}
+if (&quot;${serviceOrderHeader_validate_eventTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].eventTime!= &quot;${serviceOrderHeader_validate_eventTime}&quot;) { failureMessage = failureMessage + &quot;Expect eventTime${serviceOrderHeader_validate_eventTime} but got &quot; + objRequest.serviceOrderHeaders[0].eventTime}
+if (&quot;${serviceOrderHeader_validate_openedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].openedDate!= &quot;${serviceOrderHeader_validate_openedDate}&quot;) { failureMessage = failureMessage + &quot;Expect openedDate${serviceOrderHeader_validate_openedDate} but got &quot; + objRequest.serviceOrderHeaders[0].openedDate}
+if (&quot;${serviceOrderHeader_validate_openedTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].openedTime!= &quot;${serviceOrderHeader_validate_openedTime}&quot;) { failureMessage = failureMessage + &quot;Expect openedTime${serviceOrderHeader_validate_openedTime} but got &quot; + objRequest.serviceOrderHeaders[0].openedTime}
+if (&quot;${serviceOrderHeader_validate_reference}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].reference!= &quot;${serviceOrderHeader_validate_reference}&quot;) { failureMessage = failureMessage + &quot;Expect reference${serviceOrderHeader_validate_reference} but got &quot; + objRequest.serviceOrderHeaders[0].reference}
+if (&quot;${serviceOrderHeader_validate_timeSpent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].timeSpent!= &quot;${serviceOrderHeader_validate_timeSpent}&quot;) { failureMessage = failureMessage + &quot;Expect timeSpent${serviceOrderHeader_validate_timeSpent} but got &quot; + objRequest.serviceOrderHeaders[0].timeSpent}
+if (&quot;${serviceOrderHeader_validate_timeSpentDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].timeSpentDescription!= &quot;${serviceOrderHeader_validate_timeSpentDescription}&quot;) { failureMessage = failureMessage + &quot;Expect timeSpentDescription${serviceOrderHeader_validate_timeSpentDescription} but got &quot; + objRequest.serviceOrderHeaders[0].timeSpentDescription}
+if (&quot;${serviceOrderHeader_validate_closedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].closedDate!= &quot;${serviceOrderHeader_validate_closedDate}&quot;) { failureMessage = failureMessage + &quot;Expect closedDate${serviceOrderHeader_validate_closedDate} but got &quot; + objRequest.serviceOrderHeaders[0].closedDate}
+if (&quot;${serviceOrderHeader_validate_closedTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].closedTime!= &quot;${serviceOrderHeader_validate_closedTime}&quot;) { failureMessage = failureMessage + &quot;Expect closedTime${serviceOrderHeader_validate_closedTime} but got &quot; + objRequest.serviceOrderHeaders[0].closedTime}
+if (&quot;${serviceOrderHeader_validate_contractNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].contractNumber!= &quot;${serviceOrderHeader_validate_contractNumber}&quot;) { failureMessage = failureMessage + &quot;Expect contractNumber${serviceOrderHeader_validate_contractNumber} but got &quot; + objRequest.serviceOrderHeaders[0].contractNumber}
+if (&quot;${serviceOrderHeader_validate_severityCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].severityCode!= &quot;${serviceOrderHeader_validate_severityCode}&quot;) { failureMessage = failureMessage + &quot;Expect severityCode${serviceOrderHeader_validate_severityCode} but got &quot; + objRequest.serviceOrderHeaders[0].severityCode}
+if (&quot;${serviceOrderHeader_validate_severityCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].severityCodeDescription!= &quot;${serviceOrderHeader_validate_severityCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect severityCodeDescription${serviceOrderHeader_validate_severityCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].severityCodeDescription}
+if (&quot;${serviceOrderHeader_validate_contractLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].contractLine!= &quot;${serviceOrderHeader_validate_contractLine}&quot;) { failureMessage = failureMessage + &quot;Expect contractLine${serviceOrderHeader_validate_contractLine} but got &quot; + objRequest.serviceOrderHeaders[0].contractLine}
+if (&quot;${serviceOrderHeader_validate_toQueueCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].toQueueCode!= &quot;${serviceOrderHeader_validate_toQueueCode}&quot;) { failureMessage = failureMessage + &quot;Expect toQueueCode${serviceOrderHeader_validate_toQueueCode} but got &quot; + objRequest.serviceOrderHeaders[0].toQueueCode}
+if (&quot;${serviceOrderHeader_validate_isBilled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isBilled!= &quot;${serviceOrderHeader_validate_isBilled}&quot;) { failureMessage = failureMessage + &quot;Expect isBilled${serviceOrderHeader_validate_isBilled} but got &quot; + objRequest.serviceOrderHeaders[0].isBilled}
+if (&quot;${serviceOrderHeader_validate_serviceRequestCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceRequestCode!= &quot;${serviceOrderHeader_validate_serviceRequestCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceRequestCode${serviceOrderHeader_validate_serviceRequestCode} but got &quot; + objRequest.serviceOrderHeaders[0].serviceRequestCode}
+if (&quot;${serviceOrderHeader_validate_isActivity}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isActivity!= &quot;${serviceOrderHeader_validate_isActivity}&quot;) { failureMessage = failureMessage + &quot;Expect isActivity${serviceOrderHeader_validate_isActivity} but got &quot; + objRequest.serviceOrderHeaders[0].isActivity}
+if (&quot;${serviceOrderHeader_validate_purchaseOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].purchaseOrderNumber!= &quot;${serviceOrderHeader_validate_purchaseOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect purchaseOrderNumber${serviceOrderHeader_validate_purchaseOrderNumber} but got &quot; + objRequest.serviceOrderHeaders[0].purchaseOrderNumber}
+if (&quot;${serviceOrderHeader_validate_engineerGroupCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].engineerGroupCode!= &quot;${serviceOrderHeader_validate_engineerGroupCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerGroupCode${serviceOrderHeader_validate_engineerGroupCode} but got &quot; + objRequest.serviceOrderHeaders[0].engineerGroupCode}
+if (&quot;${serviceOrderHeader_validate_areaCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].areaCode!= &quot;${serviceOrderHeader_validate_areaCode}&quot;) { failureMessage = failureMessage + &quot;Expect areaCode${serviceOrderHeader_validate_areaCode} but got &quot; + objRequest.serviceOrderHeaders[0].areaCode}
+if (&quot;${serviceOrderHeader_validate_areaDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].areaDescription!= &quot;${serviceOrderHeader_validate_areaDescription}&quot;) { failureMessage = failureMessage + &quot;Expect areaDescription${serviceOrderHeader_validate_areaDescription} but got &quot; + objRequest.serviceOrderHeaders[0].areaDescription}
+if (&quot;${serviceOrderHeader_validate_engineerAreaCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].engineerAreaCode!= &quot;${serviceOrderHeader_validate_engineerAreaCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerAreaCode${serviceOrderHeader_validate_engineerAreaCode} but got &quot; + objRequest.serviceOrderHeaders[0].engineerAreaCode}
+if (&quot;${serviceOrderHeader_validate_workCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].workCode!= &quot;${serviceOrderHeader_validate_workCode}&quot;) { failureMessage = failureMessage + &quot;Expect workCode${serviceOrderHeader_validate_workCode} but got &quot; + objRequest.serviceOrderHeaders[0].workCode}
+if (&quot;${serviceOrderHeader_validate_workCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].workCodeDescription!= &quot;${serviceOrderHeader_validate_workCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect workCodeDescription${serviceOrderHeader_validate_workCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].workCodeDescription}
+if (&quot;${serviceOrderHeader_validate_createdFrom}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].createdFrom!= &quot;${serviceOrderHeader_validate_createdFrom}&quot;) { failureMessage = failureMessage + &quot;Expect createdFrom${serviceOrderHeader_validate_createdFrom} but got &quot; + objRequest.serviceOrderHeaders[0].createdFrom}
+if (&quot;${serviceOrderHeader_validate_creationDateStamp}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].creationDateStamp!= &quot;${serviceOrderHeader_validate_creationDateStamp}&quot;) { failureMessage = failureMessage + &quot;Expect creationDateStamp${serviceOrderHeader_validate_creationDateStamp} but got &quot; + objRequest.serviceOrderHeaders[0].creationDateStamp}
+if (&quot;${serviceOrderHeader_validate_creationTimeStamp}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].creationTimeStamp!= &quot;${serviceOrderHeader_validate_creationTimeStamp}&quot;) { failureMessage = failureMessage + &quot;Expect creationTimeStamp${serviceOrderHeader_validate_creationTimeStamp} but got &quot; + objRequest.serviceOrderHeaders[0].creationTimeStamp}
+if (&quot;${serviceOrderHeader_validate_estimatedTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].estimatedTime!= &quot;${serviceOrderHeader_validate_estimatedTime}&quot;) { failureMessage = failureMessage + &quot;Expect estimatedTime${serviceOrderHeader_validate_estimatedTime} but got &quot; + objRequest.serviceOrderHeaders[0].estimatedTime}
+if (&quot;${serviceOrderHeader_validate_estimatedHours}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].estimatedHours!= &quot;${serviceOrderHeader_validate_estimatedHours}&quot;) { failureMessage = failureMessage + &quot;Expect estimatedHours${serviceOrderHeader_validate_estimatedHours} but got &quot; + objRequest.serviceOrderHeaders[0].estimatedHours}
+if (&quot;${serviceOrderHeader_validate_estimatedMinutes}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].estimatedMinutes!= &quot;${serviceOrderHeader_validate_estimatedMinutes}&quot;) { failureMessage = failureMessage + &quot;Expect estimatedMinutes${serviceOrderHeader_validate_estimatedMinutes} but got &quot; + objRequest.serviceOrderHeaders[0].estimatedMinutes}
+if (&quot;${serviceOrderHeader_validate_endUserDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserDate!= &quot;${serviceOrderHeader_validate_endUserDate}&quot;) { failureMessage = failureMessage + &quot;Expect endUserDate${serviceOrderHeader_validate_endUserDate} but got &quot; + objRequest.serviceOrderHeaders[0].endUserDate}
+if (&quot;${serviceOrderHeader_validate_endUserTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserTime!= &quot;${serviceOrderHeader_validate_endUserTime}&quot;) { failureMessage = failureMessage + &quot;Expect endUserTime${serviceOrderHeader_validate_endUserTime} but got &quot; + objRequest.serviceOrderHeaders[0].endUserTime}
+if (&quot;${serviceOrderHeader_validate_isCommentsModified}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isCommentsModified!= &quot;${serviceOrderHeader_validate_isCommentsModified}&quot;) { failureMessage = failureMessage + &quot;Expect isCommentsModified${serviceOrderHeader_validate_isCommentsModified} but got &quot; + objRequest.serviceOrderHeaders[0].isCommentsModified}
+if (&quot;${serviceOrderHeader_validate_revision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].revision!= &quot;${serviceOrderHeader_validate_revision}&quot;) { failureMessage = failureMessage + &quot;Expect revision${serviceOrderHeader_validate_revision} but got &quot; + objRequest.serviceOrderHeaders[0].revision}
+if (&quot;${serviceOrderHeader_validate_escalationNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].escalationNumber!= &quot;${serviceOrderHeader_validate_escalationNumber}&quot;) { failureMessage = failureMessage + &quot;Expect escalationNumber${serviceOrderHeader_validate_escalationNumber} but got &quot; + objRequest.serviceOrderHeaders[0].escalationNumber}
+if (&quot;${serviceOrderHeader_validate_escalationSequence}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].escalationSequence!= &quot;${serviceOrderHeader_validate_escalationSequence}&quot;) { failureMessage = failureMessage + &quot;Expect escalationSequence${serviceOrderHeader_validate_escalationSequence} but got &quot; + objRequest.serviceOrderHeaders[0].escalationSequence}
+if (&quot;${serviceOrderHeader_validate_routingCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].routingCode!= &quot;${serviceOrderHeader_validate_routingCode}&quot;) { failureMessage = failureMessage + &quot;Expect routingCode${serviceOrderHeader_validate_routingCode} but got &quot; + objRequest.serviceOrderHeaders[0].routingCode}
+if (&quot;${serviceOrderHeader_validate_billOfMaterialCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billOfMaterialCode!= &quot;${serviceOrderHeader_validate_billOfMaterialCode}&quot;) { failureMessage = failureMessage + &quot;Expect billOfMaterialCode${serviceOrderHeader_validate_billOfMaterialCode} but got &quot; + objRequest.serviceOrderHeaders[0].billOfMaterialCode}
+if (&quot;${serviceOrderHeader_validate_siteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].siteCode!= &quot;${serviceOrderHeader_validate_siteCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteCode${serviceOrderHeader_validate_siteCode} but got &quot; + objRequest.serviceOrderHeaders[0].siteCode}
+if (&quot;${serviceOrderHeader_validate_siteDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].siteDescription!= &quot;${serviceOrderHeader_validate_siteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteDescription${serviceOrderHeader_validate_siteDescription} but got &quot; + objRequest.serviceOrderHeaders[0].siteDescription}
+if (&quot;${serviceOrderHeader_validate_isSchedule}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isSchedule!= &quot;${serviceOrderHeader_validate_isSchedule}&quot;) { failureMessage = failureMessage + &quot;Expect isSchedule${serviceOrderHeader_validate_isSchedule} but got &quot; + objRequest.serviceOrderHeaders[0].isSchedule}
+if (&quot;${serviceOrderHeader_validate_isThirdPartyService}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isThirdPartyService!= &quot;${serviceOrderHeader_validate_isThirdPartyService}&quot;) { failureMessage = failureMessage + &quot;Expect isThirdPartyService${serviceOrderHeader_validate_isThirdPartyService} but got &quot; + objRequest.serviceOrderHeaders[0].isThirdPartyService}
+if (&quot;${serviceOrderHeader_validate_thirdPartyID}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].thirdPartyID!= &quot;${serviceOrderHeader_validate_thirdPartyID}&quot;) { failureMessage = failureMessage + &quot;Expect thirdPartyID${serviceOrderHeader_validate_thirdPartyID} but got &quot; + objRequest.serviceOrderHeaders[0].thirdPartyID}
+if (&quot;${serviceOrderHeader_validate_isSendAcknowledgementLetter}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isSendAcknowledgementLetter!= &quot;${serviceOrderHeader_validate_isSendAcknowledgementLetter}&quot;) { failureMessage = failureMessage + &quot;Expect isSendAcknowledgementLetter${serviceOrderHeader_validate_isSendAcknowledgementLetter} but got &quot; + objRequest.serviceOrderHeaders[0].isSendAcknowledgementLetter}
+if (&quot;${serviceOrderHeader_validate_completeDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].completeDate!= &quot;${serviceOrderHeader_validate_completeDate}&quot;) { failureMessage = failureMessage + &quot;Expect completeDate${serviceOrderHeader_validate_completeDate} but got &quot; + objRequest.serviceOrderHeaders[0].completeDate}
+if (&quot;${serviceOrderHeader_validate_completeTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].completeTime!= &quot;${serviceOrderHeader_validate_completeTime}&quot;) { failureMessage = failureMessage + &quot;Expect completeTime${serviceOrderHeader_validate_completeTime} but got &quot; + objRequest.serviceOrderHeaders[0].completeTime}
+if (&quot;${serviceOrderHeader_validate_creditTermsCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].creditTermsCode!= &quot;${serviceOrderHeader_validate_creditTermsCode}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsCode${serviceOrderHeader_validate_creditTermsCode} but got &quot; + objRequest.serviceOrderHeaders[0].creditTermsCode}
+if (&quot;${serviceOrderHeader_validate_creditTermsCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].creditTermsCodeDescription!= &quot;${serviceOrderHeader_validate_creditTermsCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect creditTermsCodeDescription${serviceOrderHeader_validate_creditTermsCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].creditTermsCodeDescription}
+if (&quot;${serviceOrderHeader_validate_currencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].currencyCode!= &quot;${serviceOrderHeader_validate_currencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCode${serviceOrderHeader_validate_currencyCode} but got &quot; + objRequest.serviceOrderHeaders[0].currencyCode}
+if (&quot;${serviceOrderHeader_validate_baseCurrencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].baseCurrencyCode!= &quot;${serviceOrderHeader_validate_baseCurrencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect baseCurrencyCode${serviceOrderHeader_validate_baseCurrencyCode} but got &quot; + objRequest.serviceOrderHeaders[0].baseCurrencyCode}
+if (&quot;${serviceOrderHeader_validate_exchangeRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRate!= &quot;${serviceOrderHeader_validate_exchangeRate}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate${serviceOrderHeader_validate_exchangeRate} but got &quot; + objRequest.serviceOrderHeaders[0].exchangeRate}
+if (&quot;${serviceOrderHeader_validate_exchangeRateDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRateDescription!= &quot;${serviceOrderHeader_validate_exchangeRateDescription}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRateDescription${serviceOrderHeader_validate_exchangeRateDescription} but got &quot; + objRequest.serviceOrderHeaders[0].exchangeRateDescription}
+if (&quot;${serviceOrderHeader_validate_fieldNotificationNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].fieldNotificationNumber!= &quot;${serviceOrderHeader_validate_fieldNotificationNumber}&quot;) { failureMessage = failureMessage + &quot;Expect fieldNotificationNumber${serviceOrderHeader_validate_fieldNotificationNumber} but got &quot; + objRequest.serviceOrderHeaders[0].fieldNotificationNumber}
+if (&quot;${serviceOrderHeader_validate_isIncludedInStatistics}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isIncludedInStatistics!= &quot;${serviceOrderHeader_validate_isIncludedInStatistics}&quot;) { failureMessage = failureMessage + &quot;Expect isIncludedInStatistics${serviceOrderHeader_validate_isIncludedInStatistics} but got &quot; + objRequest.serviceOrderHeaders[0].isIncludedInStatistics}
+if (&quot;${serviceOrderHeader_validate_isServiceOrderPrinted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isServiceOrderPrinted!= &quot;${serviceOrderHeader_validate_isServiceOrderPrinted}&quot;) { failureMessage = failureMessage + &quot;Expect isServiceOrderPrinted${serviceOrderHeader_validate_isServiceOrderPrinted} but got &quot; + objRequest.serviceOrderHeaders[0].isServiceOrderPrinted}
+if (&quot;${serviceOrderHeader_validate_priceListCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].priceListCode!= &quot;${serviceOrderHeader_validate_priceListCode}&quot;) { failureMessage = failureMessage + &quot;Expect priceListCode${serviceOrderHeader_validate_priceListCode} but got &quot; + objRequest.serviceOrderHeaders[0].priceListCode}
+if (&quot;${serviceOrderHeader_validate_priceDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].priceDate!= &quot;${serviceOrderHeader_validate_priceDate}&quot;) { failureMessage = failureMessage + &quot;Expect priceDate${serviceOrderHeader_validate_priceDate} but got &quot; + objRequest.serviceOrderHeaders[0].priceDate}
+if (&quot;${serviceOrderHeader_validate_isQuoteRequired}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isQuoteRequired!= &quot;${serviceOrderHeader_validate_isQuoteRequired}&quot;) { failureMessage = failureMessage + &quot;Expect isQuoteRequired${serviceOrderHeader_validate_isQuoteRequired} but got &quot; + objRequest.serviceOrderHeaders[0].isQuoteRequired}
+if (&quot;${serviceOrderHeader_validate_quotePrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].quotePrice!= &quot;${serviceOrderHeader_validate_quotePrice}&quot;) { failureMessage = failureMessage + &quot;Expect quotePrice${serviceOrderHeader_validate_quotePrice} but got &quot; + objRequest.serviceOrderHeaders[0].quotePrice}
+if (&quot;${serviceOrderHeader_validate_repairCenterSiteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].repairCenterSiteCode!= &quot;${serviceOrderHeader_validate_repairCenterSiteCode}&quot;) { failureMessage = failureMessage + &quot;Expect repairCenterSiteCode${serviceOrderHeader_validate_repairCenterSiteCode} but got &quot; + objRequest.serviceOrderHeaders[0].repairCenterSiteCode}
+if (&quot;${serviceOrderHeader_validate_resolutionDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].resolutionDescription!= &quot;${serviceOrderHeader_validate_resolutionDescription}&quot;) { failureMessage = failureMessage + &quot;Expect resolutionDescription${serviceOrderHeader_validate_resolutionDescription} but got &quot; + objRequest.serviceOrderHeaders[0].resolutionDescription}
+if (&quot;${serviceOrderHeader_validate_resolveDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].resolveDescription!= &quot;${serviceOrderHeader_validate_resolveDescription}&quot;) { failureMessage = failureMessage + &quot;Expect resolveDescription${serviceOrderHeader_validate_resolveDescription} but got &quot; + objRequest.serviceOrderHeaders[0].resolveDescription}
+if (&quot;${serviceOrderHeader_validate_shipToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].shipToCustomerCode!= &quot;${serviceOrderHeader_validate_shipToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect shipToCustomerCode${serviceOrderHeader_validate_shipToCustomerCode} but got &quot; + objRequest.serviceOrderHeaders[0].shipToCustomerCode}
+if (&quot;${serviceOrderHeader_validate_salesQuoteNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].salesQuoteNumber!= &quot;${serviceOrderHeader_validate_salesQuoteNumber}&quot;) { failureMessage = failureMessage + &quot;Expect salesQuoteNumber${serviceOrderHeader_validate_salesQuoteNumber} but got &quot; + objRequest.serviceOrderHeaders[0].salesQuoteNumber}
+if (&quot;${serviceOrderHeader_validate_isActivitySuspended}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isActivitySuspended!= &quot;${serviceOrderHeader_validate_isActivitySuspended}&quot;) { failureMessage = failureMessage + &quot;Expect isActivitySuspended${serviceOrderHeader_validate_isActivitySuspended} but got &quot; + objRequest.serviceOrderHeaders[0].isActivitySuspended}
+if (&quot;${serviceOrderHeader_validate_serviceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceType!= &quot;${serviceOrderHeader_validate_serviceType}&quot;) { failureMessage = failureMessage + &quot;Expect serviceType${serviceOrderHeader_validate_serviceType} but got &quot; + objRequest.serviceOrderHeaders[0].serviceType}
+if (&quot;${serviceOrderHeader_validate_isTaxable}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isTaxable!= &quot;${serviceOrderHeader_validate_isTaxable}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxable${serviceOrderHeader_validate_isTaxable} but got &quot; + objRequest.serviceOrderHeaders[0].isTaxable}
+if (&quot;${serviceOrderHeader_validate_isTaxIncluded}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isTaxIncluded!= &quot;${serviceOrderHeader_validate_isTaxIncluded}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxIncluded${serviceOrderHeader_validate_isTaxIncluded} but got &quot; + objRequest.serviceOrderHeaders[0].isTaxIncluded}
+if (&quot;${serviceOrderHeader_validate_taxClass}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxClass!= &quot;${serviceOrderHeader_validate_taxClass}&quot;) { failureMessage = failureMessage + &quot;Expect taxClass${serviceOrderHeader_validate_taxClass} but got &quot; + objRequest.serviceOrderHeaders[0].taxClass}
+if (&quot;${serviceOrderHeader_validate_taxClassDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxClassDescription!= &quot;${serviceOrderHeader_validate_taxClassDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxClassDescription${serviceOrderHeader_validate_taxClassDescription} but got &quot; + objRequest.serviceOrderHeaders[0].taxClassDescription}
+if (&quot;${serviceOrderHeader_validate_isAwaitingItems}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isAwaitingItems!= &quot;${serviceOrderHeader_validate_isAwaitingItems}&quot;) { failureMessage = failureMessage + &quot;Expect isAwaitingItems${serviceOrderHeader_validate_isAwaitingItems} but got &quot; + objRequest.serviceOrderHeaders[0].isAwaitingItems}
+if (&quot;${serviceOrderHeader_validate_billToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToCustomerCode!= &quot;${serviceOrderHeader_validate_billToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect billToCustomerCode${serviceOrderHeader_validate_billToCustomerCode} but got &quot; + objRequest.serviceOrderHeaders[0].billToCustomerCode}
+if (&quot;${serviceOrderHeader_validate_billToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField1!= &quot;${serviceOrderHeader_validate_billToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField1${serviceOrderHeader_validate_billToAddressField1} but got &quot; + objRequest.serviceOrderHeaders[0].billToAddressField1}
+if (&quot;${serviceOrderHeader_validate_billToAddressField2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField2!= &quot;${serviceOrderHeader_validate_billToAddressField2}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField2${serviceOrderHeader_validate_billToAddressField2} but got &quot; + objRequest.serviceOrderHeaders[0].billToAddressField2}
+if (&quot;${serviceOrderHeader_validate_billToAddressField3}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField3!= &quot;${serviceOrderHeader_validate_billToAddressField3}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField3${serviceOrderHeader_validate_billToAddressField3} but got &quot; + objRequest.serviceOrderHeaders[0].billToAddressField3}
+if (&quot;${serviceOrderHeader_validate_billToAddressField4}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField4!= &quot;${serviceOrderHeader_validate_billToAddressField4}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField4${serviceOrderHeader_validate_billToAddressField4} but got &quot; + objRequest.serviceOrderHeaders[0].billToAddressField4}
+if (&quot;${serviceOrderHeader_validate_billToAddressField5}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField5!= &quot;${serviceOrderHeader_validate_billToAddressField5}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField5${serviceOrderHeader_validate_billToAddressField5} but got &quot; + objRequest.serviceOrderHeaders[0].billToAddressField5}
+if (&quot;${serviceOrderHeader_validate_billToAddressField6}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].billToAddressField6!= &quot;${serviceOrderHeader_validate_billToAddressField6}&quot;) { failureMessage = failureMessage + &quot;Expect billToAddressField6${serviceOrderHeader_validate_billToAddressField6} but got &quot; + objRequest.serviceOrderHeaders[0].billToAddressField6}
+if (&quot;${serviceOrderHeader_validate_isInvoiceDraftPrinted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isInvoiceDraftPrinted!= &quot;${serviceOrderHeader_validate_isInvoiceDraftPrinted}&quot;) { failureMessage = failureMessage + &quot;Expect isInvoiceDraftPrinted${serviceOrderHeader_validate_isInvoiceDraftPrinted} but got &quot; + objRequest.serviceOrderHeaders[0].isInvoiceDraftPrinted}
+if (&quot;${serviceOrderHeader_validate_isRecorded}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isRecorded!= &quot;${serviceOrderHeader_validate_isRecorded}&quot;) { failureMessage = failureMessage + &quot;Expect isRecorded${serviceOrderHeader_validate_isRecorded} but got &quot; + objRequest.serviceOrderHeaders[0].isRecorded}
+if (&quot;${serviceOrderHeader_validate_isRepairCenterCall}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isRepairCenterCall!= &quot;${serviceOrderHeader_validate_isRepairCenterCall}&quot;) { failureMessage = failureMessage + &quot;Expect isRepairCenterCall${serviceOrderHeader_validate_isRepairCenterCall} but got &quot; + objRequest.serviceOrderHeaders[0].isRepairCenterCall}
+if (&quot;${serviceOrderHeader_validate_languageCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].languageCode!= &quot;${serviceOrderHeader_validate_languageCode}&quot;) { failureMessage = failureMessage + &quot;Expect languageCode${serviceOrderHeader_validate_languageCode} but got &quot; + objRequest.serviceOrderHeaders[0].languageCode}
+if (&quot;${serviceOrderHeader_validate_languageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].languageDescription!= &quot;${serviceOrderHeader_validate_languageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect languageDescription${serviceOrderHeader_validate_languageDescription} but got &quot; + objRequest.serviceOrderHeaders[0].languageDescription}
+if (&quot;${serviceOrderHeader_validate_taxDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxDate!= &quot;${serviceOrderHeader_validate_taxDate}&quot;) { failureMessage = failureMessage + &quot;Expect taxDate${serviceOrderHeader_validate_taxDate} but got &quot; + objRequest.serviceOrderHeaders[0].taxDate}
+if (&quot;${serviceOrderHeader_validate_quoteExpireDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].quoteExpireDate!= &quot;${serviceOrderHeader_validate_quoteExpireDate}&quot;) { failureMessage = failureMessage + &quot;Expect quoteExpireDate${serviceOrderHeader_validate_quoteExpireDate} but got &quot; + objRequest.serviceOrderHeaders[0].quoteExpireDate}
+if (&quot;${serviceOrderHeader_validate_repairSequence}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].repairSequence!= &quot;${serviceOrderHeader_validate_repairSequence}&quot;) { failureMessage = failureMessage + &quot;Expect repairSequence${serviceOrderHeader_validate_repairSequence} but got &quot; + objRequest.serviceOrderHeaders[0].repairSequence}
+if (&quot;${serviceOrderHeader_validate_repairStep}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].repairStep!= &quot;${serviceOrderHeader_validate_repairStep}&quot;) { failureMessage = failureMessage + &quot;Expect repairStep${serviceOrderHeader_validate_repairStep} but got &quot; + objRequest.serviceOrderHeaders[0].repairStep}
+if (&quot;${serviceOrderHeader_validate_isEndUserChanged}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isEndUserChanged!= &quot;${serviceOrderHeader_validate_isEndUserChanged}&quot;) { failureMessage = failureMessage + &quot;Expect isEndUserChanged${serviceOrderHeader_validate_isEndUserChanged} but got &quot; + objRequest.serviceOrderHeaders[0].isEndUserChanged}
+if (&quot;${serviceOrderHeader_validate_lastModifiedUser}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].lastModifiedUser!= &quot;${serviceOrderHeader_validate_lastModifiedUser}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedUser${serviceOrderHeader_validate_lastModifiedUser} but got &quot; + objRequest.serviceOrderHeaders[0].lastModifiedUser}
+if (&quot;${serviceOrderHeader_validate_lastModifiedDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].lastModifiedDate!= &quot;${serviceOrderHeader_validate_lastModifiedDate}&quot;) { failureMessage = failureMessage + &quot;Expect lastModifiedDate${serviceOrderHeader_validate_lastModifiedDate} but got &quot; + objRequest.serviceOrderHeaders[0].lastModifiedDate}
+if (&quot;${serviceOrderHeader_validate_customerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].customerCode!= &quot;${serviceOrderHeader_validate_customerCode}&quot;) { failureMessage = failureMessage + &quot;Expect customerCode${serviceOrderHeader_validate_customerCode} but got &quot; + objRequest.serviceOrderHeaders[0].customerCode}
+if (&quot;${serviceOrderHeader_validate_taxEnvironment}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxEnvironment!= &quot;${serviceOrderHeader_validate_taxEnvironment}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironment${serviceOrderHeader_validate_taxEnvironment} but got &quot; + objRequest.serviceOrderHeaders[0].taxEnvironment}
+if (&quot;${serviceOrderHeader_validate_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxEnvironmentDescription!= &quot;${serviceOrderHeader_validate_taxEnvironmentDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironmentDescription${serviceOrderHeader_validate_taxEnvironmentDescription} but got &quot; + objRequest.serviceOrderHeaders[0].taxEnvironmentDescription}
+if (&quot;${serviceOrderHeader_validate_taxUsage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxUsage!= &quot;${serviceOrderHeader_validate_taxUsage}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsage${serviceOrderHeader_validate_taxUsage} but got &quot; + objRequest.serviceOrderHeaders[0].taxUsage}
+if (&quot;${serviceOrderHeader_validate_taxUsageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxUsageDescription!= &quot;${serviceOrderHeader_validate_taxUsageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsageDescription${serviceOrderHeader_validate_taxUsageDescription} but got &quot; + objRequest.serviceOrderHeaders[0].taxUsageDescription}
+if (&quot;${serviceOrderHeader_validate_taxPercentage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].taxPercentage!= &quot;${serviceOrderHeader_validate_taxPercentage}&quot;) { failureMessage = failureMessage + &quot;Expect taxPercentage${serviceOrderHeader_validate_taxPercentage} but got &quot; + objRequest.serviceOrderHeaders[0].taxPercentage}
+if (&quot;${serviceOrderHeader_validate_serviceQuoteNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceQuoteNumber!= &quot;${serviceOrderHeader_validate_serviceQuoteNumber}&quot;) { failureMessage = failureMessage + &quot;Expect serviceQuoteNumber${serviceOrderHeader_validate_serviceQuoteNumber} but got &quot; + objRequest.serviceOrderHeaders[0].serviceQuoteNumber}
+if (&quot;${serviceOrderHeader_validate_serviceQuoteDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceQuoteDescription!= &quot;${serviceOrderHeader_validate_serviceQuoteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceQuoteDescription${serviceOrderHeader_validate_serviceQuoteDescription} but got &quot; + objRequest.serviceOrderHeaders[0].serviceQuoteDescription}
+if (&quot;${serviceOrderHeader_validate_enteredExchangeRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].enteredExchangeRate!= &quot;${serviceOrderHeader_validate_enteredExchangeRate}&quot;) { failureMessage = failureMessage + &quot;Expect enteredExchangeRate${serviceOrderHeader_validate_enteredExchangeRate} but got &quot; + objRequest.serviceOrderHeaders[0].enteredExchangeRate}
+if (&quot;${serviceOrderHeader_validate_isFixedRate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isFixedRate!= &quot;${serviceOrderHeader_validate_isFixedRate}&quot;) { failureMessage = failureMessage + &quot;Expect isFixedRate${serviceOrderHeader_validate_isFixedRate} but got &quot; + objRequest.serviceOrderHeaders[0].isFixedRate}
+if (&quot;${serviceOrderHeader_validate_channel}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].channel!= &quot;${serviceOrderHeader_validate_channel}&quot;) { failureMessage = failureMessage + &quot;Expect channel${serviceOrderHeader_validate_channel} but got &quot; + objRequest.serviceOrderHeaders[0].channel}
+if (&quot;${serviceOrderHeader_validate_channelDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].channelDescription!= &quot;${serviceOrderHeader_validate_channelDescription}&quot;) { failureMessage = failureMessage + &quot;Expect channelDescription${serviceOrderHeader_validate_channelDescription} but got &quot; + objRequest.serviceOrderHeaders[0].channelDescription}
+if (&quot;${serviceOrderHeader_validate_exchangeRate2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRate2!= &quot;${serviceOrderHeader_validate_exchangeRate2}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate2${serviceOrderHeader_validate_exchangeRate2} but got &quot; + objRequest.serviceOrderHeaders[0].exchangeRate2}
+if (&quot;${serviceOrderHeader_validate_exchangeRate2Description}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRate2Description!= &quot;${serviceOrderHeader_validate_exchangeRate2Description}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRate2Description${serviceOrderHeader_validate_exchangeRate2Description} but got &quot; + objRequest.serviceOrderHeaders[0].exchangeRate2Description}
+if (&quot;${serviceOrderHeader_validate_exchangeRateType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRateType!= &quot;${serviceOrderHeader_validate_exchangeRateType}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRateType${serviceOrderHeader_validate_exchangeRateType} but got &quot; + objRequest.serviceOrderHeaders[0].exchangeRateType}
+if (&quot;${serviceOrderHeader_validate_exchangeRateSequence}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].exchangeRateSequence!= &quot;${serviceOrderHeader_validate_exchangeRateSequence}&quot;) { failureMessage = failureMessage + &quot;Expect exchangeRateSequence${serviceOrderHeader_validate_exchangeRateSequence} but got &quot; + objRequest.serviceOrderHeaders[0].exchangeRateSequence}
+if (&quot;${serviceOrderHeader_validate_endDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endDate!= &quot;${serviceOrderHeader_validate_endDate}&quot;) { failureMessage = failureMessage + &quot;Expect endDate${serviceOrderHeader_validate_endDate} but got &quot; + objRequest.serviceOrderHeaders[0].endDate}
+if (&quot;${serviceOrderHeader_validate_startDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].startDate!= &quot;${serviceOrderHeader_validate_startDate}&quot;) { failureMessage = failureMessage + &quot;Expect startDate${serviceOrderHeader_validate_startDate} but got &quot; + objRequest.serviceOrderHeaders[0].startDate}
+if (&quot;${serviceOrderHeader_validate_projectCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].projectCode!= &quot;${serviceOrderHeader_validate_projectCode}&quot;) { failureMessage = failureMessage + &quot;Expect projectCode${serviceOrderHeader_validate_projectCode} but got &quot; + objRequest.serviceOrderHeaders[0].projectCode}
+if (&quot;${serviceOrderHeader_validate_projectCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].projectCodeDescription!= &quot;${serviceOrderHeader_validate_projectCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect projectCodeDescription${serviceOrderHeader_validate_projectCodeDescription} but got &quot; + objRequest.serviceOrderHeaders[0].projectCodeDescription}
+if (&quot;${serviceOrderHeader_validate_defaultWorksheet}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].defaultWorksheet!= &quot;${serviceOrderHeader_validate_defaultWorksheet}&quot;) { failureMessage = failureMessage + &quot;Expect defaultWorksheet${serviceOrderHeader_validate_defaultWorksheet} but got &quot; + objRequest.serviceOrderHeaders[0].defaultWorksheet}
+if (&quot;${serviceOrderHeader_validate_isUpdateInstalledBase}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isUpdateInstalledBase!= &quot;${serviceOrderHeader_validate_isUpdateInstalledBase}&quot;) { failureMessage = failureMessage + &quot;Expect isUpdateInstalledBase${serviceOrderHeader_validate_isUpdateInstalledBase} but got &quot; + objRequest.serviceOrderHeaders[0].isUpdateInstalledBase}
+if (&quot;${serviceOrderHeader_validate_daybookSet}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].daybookSet!= &quot;${serviceOrderHeader_validate_daybookSet}&quot;) { failureMessage = failureMessage + &quot;Expect daybookSet${serviceOrderHeader_validate_daybookSet} but got &quot; + objRequest.serviceOrderHeaders[0].daybookSet}
+if (&quot;${serviceOrderHeader_validate_modelCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].modelCode!= &quot;${serviceOrderHeader_validate_modelCode}&quot;) { failureMessage = failureMessage + &quot;Expect modelCode${serviceOrderHeader_validate_modelCode} but got &quot; + objRequest.serviceOrderHeaders[0].modelCode}
+if (&quot;${serviceOrderHeader_validate_serviceGroup}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].serviceGroup!= &quot;${serviceOrderHeader_validate_serviceGroup}&quot;) { failureMessage = failureMessage + &quot;Expect serviceGroup${serviceOrderHeader_validate_serviceGroup} but got &quot; + objRequest.serviceOrderHeaders[0].serviceGroup}
+if (&quot;${serviceOrderHeader_validate_timeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].timeZoneCode!= &quot;${serviceOrderHeader_validate_timeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect timeZoneCode${serviceOrderHeader_validate_timeZoneCode} but got &quot; + objRequest.serviceOrderHeaders[0].timeZoneCode}
+if (&quot;${serviceOrderHeader_validate_timeZoneDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].timeZoneDescription!= &quot;${serviceOrderHeader_validate_timeZoneDescription}&quot;) { failureMessage = failureMessage + &quot;Expect timeZoneDescription${serviceOrderHeader_validate_timeZoneDescription} but got &quot; + objRequest.serviceOrderHeaders[0].timeZoneDescription}
+if (&quot;${serviceOrderHeader_validate_defaultTimeZoneCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].defaultTimeZoneCode!= &quot;${serviceOrderHeader_validate_defaultTimeZoneCode}&quot;) { failureMessage = failureMessage + &quot;Expect defaultTimeZoneCode${serviceOrderHeader_validate_defaultTimeZoneCode} but got &quot; + objRequest.serviceOrderHeaders[0].defaultTimeZoneCode}
+if (&quot;${serviceOrderHeader_validate_isMultipleTimeZoneEnabled}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isMultipleTimeZoneEnabled!= &quot;${serviceOrderHeader_validate_isMultipleTimeZoneEnabled}&quot;) { failureMessage = failureMessage + &quot;Expect isMultipleTimeZoneEnabled${serviceOrderHeader_validate_isMultipleTimeZoneEnabled} but got &quot; + objRequest.serviceOrderHeaders[0].isMultipleTimeZoneEnabled}
+if (&quot;${serviceOrderHeader_validate_isDepotOrder}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].isDepotOrder!= &quot;${serviceOrderHeader_validate_isDepotOrder}&quot;) { failureMessage = failureMessage + &quot;Expect isDepotOrder${serviceOrderHeader_validate_isDepotOrder} but got &quot; + objRequest.serviceOrderHeaders[0].isDepotOrder}
+if (&quot;${serviceOrderHeader_validate_endUserMessage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].endUserMessage!= &quot;${serviceOrderHeader_validate_endUserMessage}&quot;) { failureMessage = failureMessage + &quot;Expect endUserMessage${serviceOrderHeader_validate_endUserMessage} but got &quot; + objRequest.serviceOrderHeaders[0].endUserMessage}
+if (&quot;${serviceOrderHeader_validate_caMstrUser1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrUser1!= &quot;${serviceOrderHeader_validate_caMstrUser1}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrUser1${serviceOrderHeader_validate_caMstrUser1} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrUser1}
+if (&quot;${serviceOrderHeader_validate_caMstrUser2}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrUser2!= &quot;${serviceOrderHeader_validate_caMstrUser2}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrUser2${serviceOrderHeader_validate_caMstrUser2} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrUser2}
+if (&quot;${serviceOrderHeader_validate_caMstrChr01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr01!= &quot;${serviceOrderHeader_validate_caMstrChr01}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr01${serviceOrderHeader_validate_caMstrChr01} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr01}
+if (&quot;${serviceOrderHeader_validate_caMstrChr02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr02!= &quot;${serviceOrderHeader_validate_caMstrChr02}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr02${serviceOrderHeader_validate_caMstrChr02} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr02}
+if (&quot;${serviceOrderHeader_validate_caMstrChr03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr03!= &quot;${serviceOrderHeader_validate_caMstrChr03}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr03${serviceOrderHeader_validate_caMstrChr03} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr03}
+if (&quot;${serviceOrderHeader_validate_caMstrChr04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr04!= &quot;${serviceOrderHeader_validate_caMstrChr04}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr04${serviceOrderHeader_validate_caMstrChr04} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr04}
+if (&quot;${serviceOrderHeader_validate_caMstrChr05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr05!= &quot;${serviceOrderHeader_validate_caMstrChr05}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr05${serviceOrderHeader_validate_caMstrChr05} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr05}
+if (&quot;${serviceOrderHeader_validate_caMstrChr06}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr06!= &quot;${serviceOrderHeader_validate_caMstrChr06}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr06${serviceOrderHeader_validate_caMstrChr06} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr06}
+if (&quot;${serviceOrderHeader_validate_caMstrChr07}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr07!= &quot;${serviceOrderHeader_validate_caMstrChr07}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr07${serviceOrderHeader_validate_caMstrChr07} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr07}
+if (&quot;${serviceOrderHeader_validate_caMstrChr08}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr08!= &quot;${serviceOrderHeader_validate_caMstrChr08}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr08${serviceOrderHeader_validate_caMstrChr08} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr08}
+if (&quot;${serviceOrderHeader_validate_caMstrChr09}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr09!= &quot;${serviceOrderHeader_validate_caMstrChr09}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr09${serviceOrderHeader_validate_caMstrChr09} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr09}
+if (&quot;${serviceOrderHeader_validate_caMstrChr10}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrChr10!= &quot;${serviceOrderHeader_validate_caMstrChr10}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrChr10${serviceOrderHeader_validate_caMstrChr10} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrChr10}
+if (&quot;${serviceOrderHeader_validate_caMstrDec01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDec01!= &quot;${serviceOrderHeader_validate_caMstrDec01}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDec01${serviceOrderHeader_validate_caMstrDec01} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDec01}
+if (&quot;${serviceOrderHeader_validate_caMstrDec02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDec02!= &quot;${serviceOrderHeader_validate_caMstrDec02}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDec02${serviceOrderHeader_validate_caMstrDec02} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDec02}
+if (&quot;${serviceOrderHeader_validate_caMstrDec03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDec03!= &quot;${serviceOrderHeader_validate_caMstrDec03}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDec03${serviceOrderHeader_validate_caMstrDec03} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDec03}
+if (&quot;${serviceOrderHeader_validate_caMstrDte01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte01!= &quot;${serviceOrderHeader_validate_caMstrDte01}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDte01${serviceOrderHeader_validate_caMstrDte01} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDte01}
+if (&quot;${serviceOrderHeader_validate_caMstrDte02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte02!= &quot;${serviceOrderHeader_validate_caMstrDte02}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDte02${serviceOrderHeader_validate_caMstrDte02} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDte02}
+if (&quot;${serviceOrderHeader_validate_caMstrDte03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte03!= &quot;${serviceOrderHeader_validate_caMstrDte03}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDte03${serviceOrderHeader_validate_caMstrDte03} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDte03}
+if (&quot;${serviceOrderHeader_validate_caMstrDte04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte04!= &quot;${serviceOrderHeader_validate_caMstrDte04}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDte04${serviceOrderHeader_validate_caMstrDte04} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDte04}
+if (&quot;${serviceOrderHeader_validate_caMstrDte05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrDte05!= &quot;${serviceOrderHeader_validate_caMstrDte05}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrDte05${serviceOrderHeader_validate_caMstrDte05} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrDte05}
+if (&quot;${serviceOrderHeader_validate_caMstrLog01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog01!= &quot;${serviceOrderHeader_validate_caMstrLog01}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrLog01${serviceOrderHeader_validate_caMstrLog01} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrLog01}
+if (&quot;${serviceOrderHeader_validate_caMstrLog02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog02!= &quot;${serviceOrderHeader_validate_caMstrLog02}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrLog02${serviceOrderHeader_validate_caMstrLog02} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrLog02}
+if (&quot;${serviceOrderHeader_validate_caMstrLog03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog03!= &quot;${serviceOrderHeader_validate_caMstrLog03}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrLog03${serviceOrderHeader_validate_caMstrLog03} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrLog03}
+if (&quot;${serviceOrderHeader_validate_caMstrLog04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog04!= &quot;${serviceOrderHeader_validate_caMstrLog04}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrLog04${serviceOrderHeader_validate_caMstrLog04} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrLog04}
+if (&quot;${serviceOrderHeader_validate_caMstrLog05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].caMstrLog05!= &quot;${serviceOrderHeader_validate_caMstrLog05}&quot;) { failureMessage = failureMessage + &quot;Expect caMstrLog05${serviceOrderHeader_validate_caMstrLog05} but got &quot; + objRequest.serviceOrderHeaders[0].caMstrLog05}
+if (&quot;${serviceOrderHeader_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].dataOperation!= &quot;${serviceOrderHeader_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${serviceOrderHeader_validate_dataOperation} but got &quot; + objRequest.serviceOrderHeaders[0].dataOperation}
+if (&quot;${serviceOrderHeader_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.serviceOrderHeaders[0].concurrencyHash!= &quot;${serviceOrderHeader_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${serviceOrderHeader_validate_concurrencyHash} but got &quot; + objRequest.serviceOrderHeaders[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;serviceOrderHeader_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

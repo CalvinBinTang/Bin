@@ -1,0 +1,10 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1575273374369,477,Login,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,12356,1189,1,1,null,0,1,0
+1575273374370,477,Login,200,OK,Thread Group 1-1,text,true,,12356,1189,1,1,https://vmlcmsh006.qad.com:22011/qad-central/,434,0,14
+1575273374848,89,SwitchDomain,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,225,607,1,1,null,0,0,0
+1575273374848,89,SwitchDomain-Switch_to_10USA_${entity},200,OK,Thread Group 1-1,text,true,,225,607,1,1,https://vmlcmsh006.qad.com:22011/qad-central/api/webshell/workspaces/switch?workspaceId=qad-qracore%7C10USA_%24%7Bentity%7D,89,0,0
+1575273374938,141,SoapUI - IIsbBulkCreateServiceOrder - Initialize,200,"Number of samples in transaction : 2, number of failing samples : 0",Thread Group 1-1,,true,,327797,950,1,1,null,0,3,0
+1575273374939,40,Setup - IIsbBulkCreateServiceOrder : Initialize,200,OK,Thread Group 1-1,text,true,,326280,141,1,1,http://vmlcmsh006.qad.com:22000/wsa/wsa1/wsdl,13,0,2
+1575273374979,101,Call Initialize,200,OK,Thread Group 1-1,text,true,,1517,809,1,1,http://vmlcmsh006.qad.com:22000/wsa/wsa1,101,0,0
+1575273375082,45,Logout,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,9786,957,1,1,null,0,1,0
+1575273375083,45, Logout-001-logout,200,OK,Thread Group 1-1,text,true,,9786,957,1,1,https://vmlcmsh006.qad.com:22011/qad-central/resources/login.jsp?logged_out=true,40,0,0

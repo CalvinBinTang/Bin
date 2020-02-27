@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/qadmodule_repository/!svn/ver/230813/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract
+END
+JFT_ServiceContract_012_Total Panel.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/qadmodule_repository/!svn/ver/206598/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_012_Total%20Panel.jmx
+END
+JFT_ServiceContract_009_ContractCoverageLimit_Validation.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/qadmodule_repository/!svn/ver/224409/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_009_ContractCoverageLimit_Validation.jmx
+END
+JFT_ServiceContract_010_ContractHeaderLoadCoverageLimit.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/qadmodule_repository/!svn/ver/224409/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_010_ContractHeaderLoadCoverageLimit.jmx
+END
+ServiceContract_MultipleCreate.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/qadmodule_repository/!svn/ver/230813/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/ServiceContract_MultipleCreate.jmx
+END
+JFT_ServiceContract_003_TaxCalculate.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/qadmodule_repository/!svn/ver/199903/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_003_TaxCalculate.jmx
+END
+JFT_ServiceContract_008_CreateContractServiceType_withCoverageLimits.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/qadmodule_repository/!svn/ver/208910/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_008_CreateContractServiceType_withCoverageLimits.jmx
+END
+JFT_ServiceContract_011_ContractServiceTypeUpdate_EndUserLoadCoverageLimit.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 196
+/svn/qadmodule_repository/!svn/ver/224409/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_011_ContractServiceTypeUpdate_EndUserLoadCoverageLimit.jmx
+END
+JFT_ServiceContract_004_SimpleContract.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/qadmodule_repository/!svn/ver/205956/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_004_SimpleContract.jmx
+END
+JFT_ServiceContract_013_Header Delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/qadmodule_repository/!svn/ver/213740/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_013_Header%20Delete.jmx
+END
+JFT_ServiceContract_006_BasicEndUserItem.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/qadmodule_repository/!svn/ver/206101/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_006_BasicEndUserItem.jmx
+END
+JFT_ServiceContract_007_LineMain.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/qadmodule_repository/!svn/ver/197603/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_007_LineMain.jmx
+END
+JFT_ServiceContract_014_Contract Line Delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/qadmodule_repository/!svn/ver/213740/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_014_Contract%20Line%20Delete.jmx
+END
+JFT_ServiceContract_001_CreateHeaderMainPanel.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/qadmodule_repository/!svn/ver/198015/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_001_CreateHeaderMainPanel.jmx
+END
+JFT_ServiceContract_005_EndUserMain.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/qadmodule_repository/!svn/ver/195920/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_005_EndUserMain.jmx
+END
+JFT_ServiceContract_002_ContractLinePrice.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/qadmodule_repository/!svn/ver/206101/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/JFT_ServiceContract_002_ContractLinePrice.jmx
+END

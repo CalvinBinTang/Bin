@@ -1,0 +1,7 @@
+fieldName,fieldValue,ListPrice,Discount,NetPrice,Extended,Cost,Message
+netPrice,1100,[N/A],8.33,[N/A],26400,[N/A],[N/A]
+discountPercentage,10,[N/A],[N/A],1080,25920,[N/A],[N/A]
+serviceType,Ktype1,850,0,850,20400,500,[N/A]
+serviceType,Ktype2,575,0,575,13800,500,[N/A]
+serviceType,Ktype3,600,0,600,14400,500,[N/A]
+netPrice,999999999,[N/A],-999.99,[N/A],[N/A],[N/A],Discount is out of range and will be set to max allowable.

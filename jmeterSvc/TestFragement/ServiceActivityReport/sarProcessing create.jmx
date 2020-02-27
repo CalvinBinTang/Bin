@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="sarProcessing create">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="create"/>
+      <hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String defaultValue = "[N/A]";
+List varsList = [];
+
+// URL Paremeters
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add("sarProcessing_domainCode");
+varsList.add("sarProcessing_serviceOrderNumber");
+varsList.add("sarProcessing_reportID");
+varsList.add("sarProcessing_serviceOrderLine");
+varsList.add("sarProcessing_lineStatusCode");
+varsList.add("sarProcessing_lineStatusCodeDescription");
+varsList.add("sarProcessing_reportStatusCode");
+varsList.add("sarProcessing_reportStatusCodeDescription");
+varsList.add("sarProcessing_effectiveDate");
+varsList.add("sarProcessing_isUpdateServiceOrderStatus");
+varsList.add("sarProcessing_isPrintReport");
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add("sarProcessing_validate_domainCode");
+varsList.add("sarProcessing_validate_serviceOrderNumber");
+varsList.add("sarProcessing_validate_reportID");
+varsList.add("sarProcessing_validate_serviceOrderLine");
+varsList.add("sarProcessing_validate_lineStatusCode");
+varsList.add("sarProcessing_validate_lineStatusCodeDescription");
+varsList.add("sarProcessing_validate_reportStatusCode");
+varsList.add("sarProcessing_validate_reportStatusCodeDescription");
+varsList.add("sarProcessing_validate_effectiveDate");
+varsList.add("sarProcessing_validate_isUpdateServiceOrderStatus");
+varsList.add("sarProcessing_validate_isPrintReport");
+
+
+varsList.each {
+if (vars.get("${it}") == null) vars.put("${it}", defaultValue);
+}</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="sarProcessing create">
+		<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/sarProcessings</stringProp>
+		<stringProp name="HTTPSampler.method">POST</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager enabled="true" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+		<collectionProp name="HeaderManager.headers">
+			<elementProp elementType="Header" name="Content-Type">
+				<stringProp name="Header.name">Content-Type</stringProp>
+				<stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Language">
+				<stringProp name="Header.name">Accept-Language</stringProp>
+				<stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept">
+				<stringProp name="Header.name">Accept</stringProp>
+				<stringProp name="Header.value">*/*</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Origin">
+				<stringProp name="Header.name">Origin</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="User-Agent">
+				<stringProp name="Header.name">User-Agent</stringProp>
+				<stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="DNT">
+				<stringProp name="Header.name">DNT</stringProp>
+				<stringProp name="Header.value">1</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="X-Requested-With">
+				<stringProp name="Header.name">X-Requested-With</stringProp>
+				<stringProp name="Header.value">XMLHttpRequest</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Referer">
+				<stringProp name="Header.name">Referer</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Encoding">
+				<stringProp name="Header.name">Accept-Encoding</stringProp>
+				<stringProp name="Header.value">gzip, deflate</stringProp>
+			</elementProp>
+		</collectionProp>
+	</HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor enabled="true" guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript">
+		<stringProp name="scriptLanguage">javascript</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if ("${sarProcessing_domainCode}" != "[N/A]") objRequest.sarProcessings[0].domainCode= "${sarProcessing_domainCode}";
+if ("${sarProcessing_serviceOrderNumber}" != "[N/A]") objRequest.sarProcessings[0].serviceOrderNumber= "${sarProcessing_serviceOrderNumber}";
+if ("${sarProcessing_reportID}" != "[N/A]") objRequest.sarProcessings[0].reportID= "${sarProcessing_reportID}";
+if ("${sarProcessing_serviceOrderLine}" != "[N/A]") objRequest.sarProcessings[0].serviceOrderLine= "${sarProcessing_serviceOrderLine}";
+if ("${sarProcessing_lineStatusCode}" != "[N/A]") objRequest.sarProcessings[0].lineStatusCode= "${sarProcessing_lineStatusCode}";
+if ("${sarProcessing_lineStatusCodeDescription}" != "[N/A]") objRequest.sarProcessings[0].lineStatusCodeDescription= "${sarProcessing_lineStatusCodeDescription}";
+if ("${sarProcessing_reportStatusCode}" != "[N/A]") objRequest.sarProcessings[0].reportStatusCode= "${sarProcessing_reportStatusCode}";
+if ("${sarProcessing_reportStatusCodeDescription}" != "[N/A]") objRequest.sarProcessings[0].reportStatusCodeDescription= "${sarProcessing_reportStatusCodeDescription}";
+if ("${sarProcessing_effectiveDate}" != "[N/A]") objRequest.sarProcessings[0].effectiveDate= "${sarProcessing_effectiveDate}";
+if ("${sarProcessing_isUpdateServiceOrderStatus}" != "[N/A]") objRequest.sarProcessings[0].isUpdateServiceOrderStatus= "${sarProcessing_isUpdateServiceOrderStatus}";
+if ("${sarProcessing_isPrintReport}" != "[N/A]") objRequest.sarProcessings[0].isPrintReport= "${sarProcessing_isPrintReport}";
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put("RequestData", strUpdatedRequest);</stringProp>
+	</JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse">
+		<stringProp name="VAR">RequestData</stringProp>
+		<stringProp name="JSONPATH">$.data</stringProp>
+		<stringProp name="DEFAULT">NotFound</stringProp>
+		<stringProp name="VARIABLE"/>
+		<stringProp name="SUBJECT">BODY</stringProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+		<stringProp name="EXPECTED_VALUE">true</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion enabled="true" guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion">
+		<stringProp name="cacheKey"/>
+		<stringProp name="filename"/>
+		<stringProp name="parameters"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+var failureMessage = "";
+
+// All the fields in dataset should be set here
+if ("${sarProcessing_validate_domainCode}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].domainCode!= "${sarProcessing_validate_domainCode}") { failureMessage = failureMessage + "Expect domainCode${sarProcessing_validate_domainCode} but got " + objRequest.sarProcessings[0].domainCode}
+if ("${sarProcessing_validate_serviceOrderNumber}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].serviceOrderNumber!= "${sarProcessing_validate_serviceOrderNumber}") { failureMessage = failureMessage + "Expect serviceOrderNumber${sarProcessing_validate_serviceOrderNumber} but got " + objRequest.sarProcessings[0].serviceOrderNumber}
+if ("${sarProcessing_validate_reportID}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].reportID!= "${sarProcessing_validate_reportID}") { failureMessage = failureMessage + "Expect reportID${sarProcessing_validate_reportID} but got " + objRequest.sarProcessings[0].reportID}
+if ("${sarProcessing_validate_serviceOrderLine}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].serviceOrderLine!= "${sarProcessing_validate_serviceOrderLine}") { failureMessage = failureMessage + "Expect serviceOrderLine${sarProcessing_validate_serviceOrderLine} but got " + objRequest.sarProcessings[0].serviceOrderLine}
+if ("${sarProcessing_validate_lineStatusCode}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].lineStatusCode!= "${sarProcessing_validate_lineStatusCode}") { failureMessage = failureMessage + "Expect lineStatusCode${sarProcessing_validate_lineStatusCode} but got " + objRequest.sarProcessings[0].lineStatusCode}
+if ("${sarProcessing_validate_lineStatusCodeDescription}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].lineStatusCodeDescription!= "${sarProcessing_validate_lineStatusCodeDescription}") { failureMessage = failureMessage + "Expect lineStatusCodeDescription${sarProcessing_validate_lineStatusCodeDescription} but got " + objRequest.sarProcessings[0].lineStatusCodeDescription}
+if ("${sarProcessing_validate_reportStatusCode}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].reportStatusCode!= "${sarProcessing_validate_reportStatusCode}") { failureMessage = failureMessage + "Expect reportStatusCode${sarProcessing_validate_reportStatusCode} but got " + objRequest.sarProcessings[0].reportStatusCode}
+if ("${sarProcessing_validate_reportStatusCodeDescription}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].reportStatusCodeDescription!= "${sarProcessing_validate_reportStatusCodeDescription}") { failureMessage = failureMessage + "Expect reportStatusCodeDescription${sarProcessing_validate_reportStatusCodeDescription} but got " + objRequest.sarProcessings[0].reportStatusCodeDescription}
+if ("${sarProcessing_validate_effectiveDate}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].effectiveDate!= "${sarProcessing_validate_effectiveDate}") { failureMessage = failureMessage + "Expect effectiveDate${sarProcessing_validate_effectiveDate} but got " + objRequest.sarProcessings[0].effectiveDate}
+if ("${sarProcessing_validate_isUpdateServiceOrderStatus}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].isUpdateServiceOrderStatus!= "${sarProcessing_validate_isUpdateServiceOrderStatus}") { failureMessage = failureMessage + "Expect isUpdateServiceOrderStatus${sarProcessing_validate_isUpdateServiceOrderStatus} but got " + objRequest.sarProcessings[0].isUpdateServiceOrderStatus}
+if ("${sarProcessing_validate_isPrintReport}" != "[N/A]" &amp;&amp; objRequest.sarProcessings[0].isPrintReport!= "${sarProcessing_validate_isPrintReport}") { failureMessage = failureMessage + "Expect isPrintReport${sarProcessing_validate_isPrintReport} but got " + objRequest.sarProcessings[0].isPrintReport}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != "");
+</stringProp>
+		<stringProp name="scriptLanguage">javascript</stringProp>
+	</JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String prefix = "sarProcessing_"
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, "[N/A]");
+}
+}
+</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

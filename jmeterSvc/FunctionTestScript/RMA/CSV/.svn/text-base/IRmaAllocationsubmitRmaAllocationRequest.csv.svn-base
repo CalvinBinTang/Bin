@@ -1,0 +1,6 @@
+rmaNumber,soldTo,purchaseOrder,isConfirmed,line,lineType,itemCode,quantity,netPrice,isConfirmedLine,siteCode,isDetailAllocations,quantityAllocated,dueDate
+RMBJ01,10c1001,jmeter1,true,1,Return,02001,1,10,true,10-100,true,,2019-10-11T00:00:00.000Z
+RMBJ01,,,,2,Replacement,02002,100,20,true,10-100,true,2,2019-10-11T00:00:00.000Z
+RMBJ02,10c1001,jmeter2,true,1,Replacement,02001,100,20,true,10-200,false,10,2019-10-20T00:00:00.000Z
+RMBJ02,,,,2,Replacement,02001,100,20,true,10-200,false,10,2019-10-20T00:00:00.000Z
+RMBJ03,10c1001,jmeter2,true,1,Replacement,02001,100,20,true,10-200,false,10,2019-10-20T00:00:00.000Z

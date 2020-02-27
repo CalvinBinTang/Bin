@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="installedBaseItem fieldDescription">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldDescription"/>
+      <hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String defaultValue = "[N/A]";
+List varsList = [];
+
+// URL Paremeters
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add("installedBaseItem_materialOrderHeader_expected_fieldDescription");
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add("installedBaseItem_validate_materialOrderHeader_expected_fieldDescription");
+
+
+varsList.each {
+if (vars.get("${it}") == null) vars.put("${it}", defaultValue);
+}</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="installedBaseItem fieldDescription">
+		
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="domainCode">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp elementType="HTTPArgument" name="fieldName">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">fieldName</stringProp>
+                <stringProp name="Argument.value">${installedBaseItem_url_fieldName}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp elementType="HTTPArgument" name="fieldValue">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">fieldValue</stringProp>
+                <stringProp name="Argument.value">${installedBaseItem_url_fieldValue}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldDescription</stringProp>
+		<stringProp name="HTTPSampler.method">GET</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager enabled="true" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+		<collectionProp name="HeaderManager.headers">
+			<elementProp elementType="Header" name="Content-Type">
+				<stringProp name="Header.name">Content-Type</stringProp>
+				<stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Language">
+				<stringProp name="Header.name">Accept-Language</stringProp>
+				<stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept">
+				<stringProp name="Header.name">Accept</stringProp>
+				<stringProp name="Header.value">*/*</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Origin">
+				<stringProp name="Header.name">Origin</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="User-Agent">
+				<stringProp name="Header.name">User-Agent</stringProp>
+				<stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="DNT">
+				<stringProp name="Header.name">DNT</stringProp>
+				<stringProp name="Header.value">1</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="X-Requested-With">
+				<stringProp name="Header.name">X-Requested-With</stringProp>
+				<stringProp name="Header.value">XMLHttpRequest</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Referer">
+				<stringProp name="Header.name">Referer</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Encoding">
+				<stringProp name="Header.name">Accept-Encoding</stringProp>
+				<stringProp name="Header.value">gzip, deflate</stringProp>
+			</elementProp>
+		</collectionProp>
+	</HeaderManager>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.descriptionValue</stringProp>
+		<stringProp name="EXPECTED_VALUE">${installedBaseItem_expected_fieldDescription}</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String prefix = "installedBaseItem_"
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, "[N/A]");
+}
+}
+</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,2 @@
+line,repairType,itemCode,quantity,lotSerial,estimatedCost,status,line1,repairType1,itemCode1,quantity1,lotSerial1,estimatedCost1,status1,validate_shipmentReceiptLine,validate_ship_quantity,validate_ship_lotSerial
+1,Replace,02002,5,lot2,0,10,2,Item Repl,01010,1,lot3,5,60,1,5,lot2,

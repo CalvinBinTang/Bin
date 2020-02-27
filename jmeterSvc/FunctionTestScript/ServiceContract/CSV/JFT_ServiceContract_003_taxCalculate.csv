@@ -1,0 +1,21 @@
+type,endUser,supportItem,startDate,endDate,quantity,netPrice,isTaxable,taxClass,isTaxIn,taxEnvironment,taxUsage,level,taxCode,trailerCode,taxRate,taxableBase,nontaxableBase,taxAmount,recoverableTax,nonRecoverableTax
+,,,,,,,,,,US/NJ,,Trailer,49,11,2,100,0,2,0,2
+,,,,,,,,,,US/NJ,,Trailer,00000000,20,0,0,50,0,0,0
+Line,10c1001,02002,2019-07-01,2020-06-30,1,50,true,,false,US/NJ,kkc,Header,51,,15,540,0,81,0,81
+Line,10c1001,05001,2019-07-01,2020-06-30,1,50,true,21,false,US/NJ,,Line 2,49,,2,600,0,12,0,12
+Line,10c1001,05001,2019-07-01,2020-02-29,1,2.5,true,,true,US/NJ,kkc,Line 3,51,,15,15.65,0,2.35,0,2.35
+AdditionalCharge,10c1001,02002,2019-08-01,2020-06-30,2,5,true,K,false,US/NJ,,Header,52,,20,110,0,22,0,22
+AdditionalCharge,10c1001,02002,2019-07-01,2020-04-30,1,6,true,21,false,US/NJ,,Charge Line 2,49,,2,60,0,1.2,0,1.2
+AdditionalCharge,10c1001,02002,2019-07-01,2020-06-30,1,3.2684,true,,true,US/NJ,kkc,Charge Line 3,51,,15,30.71,0,4.61,0,4.61
+AdditionalCharge,10c1001,01010,2019-07-01,2020-06-30,,9,true,,false,US/NJ,kkc,Header,51,,15,638.856,0,95.83,0,95.83
+AdditionalCharge,10c1001,01010,2019-07-01,2020-06-30,,20,true,,true,CAN/QUE,,Charge Line 5,4,,5,232.38,0,11.62,0,11.62
+,10c1001,,,,,,,,,CAN/QUE,,Charge Line 5,6,,7.5,226.98,0,17.02,0,17.02
+AdditionalCharge,,02002,2019-07-01,2020-06-30,1,15.36,true,21,false,US/NJ,IE,Header,48,,1,165.888,0,1.66,0,1.66
+AdditionalCharge,,01010,2019-07-01,2020-05-30,,15.25,true,,true,CAN/QUE,,Charge Line 2,4,,5,177.3,0,8.86,0,8.86
+,,,,,,,,,,CAN/QUE,,Charge Line 2,6,,7.5,173.17,0,12.99,0,12.99
+Line,30c1001,02002,2019-07-01,2020-06-30,1,40,true,21,false,US/NJ,,Line 1,49,,2,480,0,9.6,0,9.6
+Line,30c1001,05001,2019-07-01,2020-03-31,1,10.23,true,21,false,US/NJ,,Line 2,49,,2,92.07,0,1.84,0,1.84
+AdditionalCharge,30c1001,02002,2019-07-01,2020-06-30,1,88.06,true,21,false,US/NJ,IE,Header,48,,1,951.048,0,9.51,0,9.51
+AdditionalCharge,30c1001,02002,2019-07-01,2020-06-30,1,77.03,true,21,false,US/NJ,IE,Header,48,,1,1782.972,0,17.83,0,17.83
+Line,10c1001,02002,2019-07-01,2020-06-30,1,50,false,,false,US/NJ,,Line 4,00000000,,0,0,600,0,0,0
+AdditionalCharge,10c1001,02002,2019-07-01,2020-06-30,1,3.2684,false,,false,US/NJ,,Charge Line 6,00000000,,0,0,39.24,0,0,0

@@ -1,0 +1,3 @@
+line,repairType,itemCode,quantity,lotSerial,estimatedCost,status,line1,repairType1,itemCode1,quantity1,lotSerial1,estimatedCost1,status1,sarOperationNumber,sarActualRunTime,validate_fixedPrice,validate_isFixedPrice,validate_estimatedCost
+1,Repair,02002,1,lot1,0,10,,,,,,,,10,1,0,false,15,
+2,Replace,02002,1,lot2,0,10,3,Item Repl,01010,1,lot3,5,60,

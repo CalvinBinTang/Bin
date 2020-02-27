@@ -1,0 +1,8 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573286847969,0,Login,Non HTTP response code: java.net.URISyntaxException,"Number of samples in transaction : 1, number of failing samples : 1",Thread Group 1-1,,false,,1129,0,1,1,null,0,5,0
+1573286847973,0,Login,Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in path at index 28: https://vmlcmsh001.qad.com/${webapp}/login,Thread Group 1-1,text,false,,1129,0,1,1,https://vmlcmsh001.qad.com/${webapp}/login,0,0,0
+1573286847975,0,SwitchDomain,Non HTTP response code: java.net.URISyntaxException,"Number of samples in transaction : 1, number of failing samples : 1",Thread Group 1-1,,false,,1202,0,1,1,null,0,1,0
+1573286847975,0,SwitchDomain-Switch_to_10USA_${entity},Non HTTP response code: java.net.URISyntaxException,Non HTTP response message: Illegal character in path at index 28: https://vmlcmsh001.qad.com/${webapp}/api/webshell/workspaces/switch?workspaceId=qad-qracore%7C10USA_%24%7Bentity%7D,Thread Group 1-1,text,false,,1202,0,1,1,https://vmlcmsh001.qad.com/${webapp}/api/webshell/workspaces/switch?workspaceId=qad-qracore%7C10USA_%24%7Bentity%7D,0,0,0
+1573286847994,380,SoapUI - IRmaAllocation - GetFieldDescription,200,"Number of samples in transaction : 2, number of failing samples : 0",Thread Group 1-1,,true,,316543,1091,1,1,null,0,5,0
+1573286847996,121,Setup - IRmaAllocation : GetFieldDescription,200,OK,Thread Group 1-1,text,true,,315568,141,1,1,http://vmlcmsh001.qad.com:22000/wsa/wsa1/wsdl,94,0,4
+1573286848117,259,Call GetFieldDescription,200,OK,Thread Group 1-1,text,true,,975,950,1,1,http://vmlcmsh001.qad.com:22000/wsa/wsa1,259,0,0

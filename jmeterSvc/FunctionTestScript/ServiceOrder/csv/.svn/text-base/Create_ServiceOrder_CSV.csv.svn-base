@@ -1,0 +1,5 @@
+endUserCode,workCode,itemCode,fixedPrice,serial,quantity
+10c1001,3001,99020,1,test01,1
+11C1000,2000,05001,2,test02,2
+10c1001A,1000,02002,3,test03,3
+12C1000A,3001,02001,4,test04,4

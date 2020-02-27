@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Fragement_customerQuoteHeaderUI fetch" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fetch" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_url_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_url_revision&quot;);
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;customerQuoteHeaderUI_validate_domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_saveOptionKey&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_saveOptionValue&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_customerQuoteID&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_printRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_originalDocumentType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_originalDocumentNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isCombineDocument&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_statusCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_contact&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_email&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isReadyToSentEmail&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isUpdateOrderRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_phoneNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_purchaseOrderNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_quoteDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_expireDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_requiredDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_promiseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_followUpDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_acceptedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isTaxable&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remarks&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isReadyToRelease&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isPrintQuote&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remindersSent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remindersUpTo&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_releaseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_reasonLost&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_languageCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_dueDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipVia&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isCalculateFreight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightListCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_incoterms&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_currencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_daybookSetCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_channel&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_projectCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_discountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_pricingDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_pricedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_actionStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_prepaidAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditInitials&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditCard&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxClass&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxUsage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRate2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isFixedRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRateType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_baseCurrencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_nonTaxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lineTotal&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_discountAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalTrailerCharges&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalTax&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_commentIndex&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isManualDiscountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_initialTotalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isProcessQuoteSummary&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_completeStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isProcessPostTrailer&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isDoneLines&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_domainCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_revision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_printRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_originalDocumentType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_originalDocumentNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_soldToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_statusCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_statusCodeDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_contact&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_email&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isReadyToSentEmail&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isUpdateOrderRevision&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_phoneNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_purchaseOrderNumber&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_quoteDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_expireDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_requiredDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_promiseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_followUpDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_acceptedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isTaxable&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remarks&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isReadyToRelease&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isPrintQuote&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remindersSent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_remindersUpTo&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_releaseDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_reasonLost&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_reasonLostDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_languageCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_languageDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creatingUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creatingUserName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lastModifiedUser&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lastModifiedUserName&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_createdDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lastModifiedDateTime&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteEntityCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_siteEntityDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_dueDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipVia&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_shipViaDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isCalculateFreight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightListCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightListDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightWeight&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_freightTermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_incoterms&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_incotermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField4&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField5&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_billToAddressField6&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_currencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_currencyDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_daybookSetCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_daybookSetDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_channel&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_channelDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_projectCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_projectDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_discountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_pricingDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_pricedDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditTermsInterestPercentage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_actionStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_actionStatusDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_prepaidAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditInitials&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditInitialsDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditCard&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_creditCardDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxClass&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxClassDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxEnvironmentDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxUsage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxUsageDescription&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxDate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRate2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isFixedRate&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_exchangeRateType&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_baseCurrencyCode&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCodeDescription1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount1&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCodeDescription2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount2&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCode3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerCodeDescription3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_trailerAmount3&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_taxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_nonTaxableAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_lineTotal&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_discountAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalTrailerCharges&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalTax&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_totalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_commentIndex&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isManualDiscountPercent&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isDisplayTaxAmounts&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_initialTotalAmount&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isProcessQuoteSummary&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_completeStatus&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isProcessPostTrailer&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_isDoneLines&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_disallowedActions&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_disallowedActionsMessage&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_dataOperation&quot;);
+varsList.add(&quot;customerQuoteHeaderUI_validate_concurrencyHash&quot;);
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}
+//log.info(&quot;test it&quot;+${it});
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="customerQuoteHeader fetch ${customerQuoteHeaderUI_url_quoteNumber}" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="quoteNumber" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">quoteNumber</stringProp>
+                <stringProp name="Argument.value">${customerQuoteHeaderUI_url_quoteNumber}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="revision" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${customerQuoteHeaderUI_url_revision}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">revision</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var prefix = &quot;customerQuoteHeaderUI_validate_&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+
+// All the fields in dataset should be set here
+// Below code block is only for depotOrderHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix)){
+		var actValue = eval(&quot;objRequest.customerQuoteHeaderUIs[0].&quot; + varName.replace(prefix,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  actValue != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot; \n&quot;;
+		}
+	}
+}
+
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;customerQuoteHeaderUI_&quot;;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+	vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

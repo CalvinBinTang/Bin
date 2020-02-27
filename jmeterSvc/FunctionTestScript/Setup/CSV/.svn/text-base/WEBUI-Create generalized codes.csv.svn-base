@@ -1,0 +1,8 @@
+domain;fieldName;value;comments;group
+10USA;so_shipvia;;;SYSTEM
+10USA;fsskill;Maint;;SYSTEM
+10USA;pt_model;;default;SYSTEM
+10USA;pt_model;model1;model#1;SYSTEM
+10USA;pt_model;model2;model#2;SYSTEM
+10USA;sap_bom_type;A;Annually;SYSTEM
+10USA;sap_bom_type;M;Monthly;SYSTEM

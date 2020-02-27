@@ -1,0 +1,3 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573783423843,509, Login,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,12671,1089,1,1,null,0,11,0
+1573783423853,509,Login-001-login,200,OK,Thread Group 1-1,text,true,,12671,1089,1,1,https://vmlbft0002.qad.com:22011/qad-central/,466,0,17

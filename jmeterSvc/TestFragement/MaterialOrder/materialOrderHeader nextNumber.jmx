@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="materialOrderHeader nextNumber">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="materialOrderHeadernextNumber"/>
+      <hashTree>
+        <IfController enabled="true" guiclass="IfControllerPanel" testclass="IfController" testname="GetnextNumber">
+		<stringProp name="IfController.condition">"${materialOrderHeader_MaterialOrderNumber}" != "[N/A]"</stringProp>
+		<boolProp name="IfController.evaluateAll">false</boolProp>
+	</IfController>
+        <hashTree>
+          <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="materialOrderHeader nextNumber">
+		
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="domainCode">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">domainCode</stringProp>
+                  <stringProp name="Argument.value">${domainCode}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                </elementProp>
+              </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/materialOrderHeaders/nextMaterialOrderNumber</stringProp>
+		<stringProp name="HTTPSampler.method">GET</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor enabled="true" guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor">
+		<stringProp name="RegexExtractor.useHeaders">false</stringProp>
+		<stringProp name="RegexExtractor.refname">materialOrderHeader_nextNumber</stringProp>
+		<stringProp name="RegexExtractor.regex">"nextMaterialOrderNumber":"(.*)",</stringProp>
+		<stringProp name="RegexExtractor.template">$1$</stringProp>
+		<stringProp name="RegexExtractor.default"/>
+		<stringProp name="RegexExtractor.match_number">1</stringProp>
+	</RegexExtractor>
+            <hashTree/>
+            <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+		<stringProp name="EXPECTED_VALUE">true</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

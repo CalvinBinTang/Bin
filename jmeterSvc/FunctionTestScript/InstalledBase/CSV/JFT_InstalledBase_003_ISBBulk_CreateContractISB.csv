@@ -1,0 +1,2 @@
+customerCode,endUser,itemNumber,itemQuantity,itemLotSerial,startDate,endDate,serviceType,purchaseOrder,siteCode,billCycle
+10c1001,10c1001,01010,1.0,bulk02,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,sc-2,POBulkISB,10-100,MO

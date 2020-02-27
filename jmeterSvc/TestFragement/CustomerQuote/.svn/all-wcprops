@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/qadmodule_repository/!svn/ver/218246/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote
+END
+Fragment_customerQuoteLine Create.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/qadmodule_repository/!svn/ver/190922/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Create.jmx
+END
+Fragement_customerQuoteHeaderUI fieldChange.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/qadmodule_repository/!svn/ver/191543/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeaderUI%20fieldChange.jmx
+END
+Fragment_customerQuoteLine fetch RequiredItem Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20fetch%20RequiredItem%20Detail.jmx
+END
+Fragment_customerQuoteLine Verify the SAR Extended Price After Expense Update.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/qadmodule_repository/!svn/ver/218246/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Verify%20the%20SAR%20Extended%20Price%20After%20Expense%20Update.jmx
+END
+Fragement_customerQuoteLine fetch.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/qadmodule_repository/!svn/ver/217886/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteLine%20fetch.jmx
+END
+Fragement_CreateCustomerQuoteHeader.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/qadmodule_repository/!svn/ver/197130/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_CreateCustomerQuoteHeader.jmx
+END
+Fragment_customerQuoteLine fetch Labor Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 166
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20fetch%20Labor%20Detail.jmx
+END
+Fragment_customerQuoteLine after change workCode itemCode lotSerial save.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/qadmodule_repository/!svn/ver/210234/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20after%20change%20workCode%20itemCode%20lotSerial%20save.jmx
+END
+Fragment_customerQuoteLine after blank out lotSerial.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/qadmodule_repository/!svn/ver/203203/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20after%20blank%20out%20lotSerial.jmx
+END
+Fragment_customerQuoteLine after change lotSerial save.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 177
+/svn/qadmodule_repository/!svn/ver/210234/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20after%20change%20lotSerial%20save.jmx
+END
+Fragment_customerQuoteLine Verify the SAR Extended Price After Labor Delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Verify%20the%20SAR%20Extended%20Price%20After%20Labor%20Delete.jmx
+END
+Fragment_customerQuoteLine Verify the SAR Extended Price After RequiredItem Update.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 213
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Verify%20the%20SAR%20Extended%20Price%20After%20RequiredItem%20Update.jmx
+END
+Fragment_customerQuoteLine update endUser.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/qadmodule_repository/!svn/ver/203203/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20update%20endUser.jmx
+END
+Fragement_customerQuoteHeader update.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/qadmodule_repository/!svn/ver/181440/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeader%20update.jmx
+END
+Fragement_customerQuoteLine fieldChange.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/qadmodule_repository/!svn/ver/205445/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteLine%20fieldChange.jmx
+END
+Fragement_customerQuoteTax fetch.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/svn/qadmodule_repository/!svn/ver/170583/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteTax%20fetch.jmx
+END
+Fragement_customerQuoteLine_ fetch.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/qadmodule_repository/!svn/ver/205445/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteLine_%20fetch.jmx
+END
+Fragement_customerQuoteHeader fetch.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/qadmodule_repository/!svn/ver/170583/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeader%20fetch.jmx
+END
+Fragment_customerQuoteLine update workCode.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/qadmodule_repository/!svn/ver/185158/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20update%20workCode.jmx
+END
+Fragement_customerQuoteLine validation SAR Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 170
+/svn/qadmodule_repository/!svn/ver/190922/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteLine%20validation%20SAR%20Detail.jmx
+END
+Fragement_customerQuoteHeaderUI delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/qadmodule_repository/!svn/ver/190531/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeaderUI%20delete.jmx
+END
+Fragment_customerQuoteLine fetch Expense Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20fetch%20Expense%20Detail.jmx
+END
+Fragment_customerQuoteLine Verify the SAR Extended Price After Expense Delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Verify%20the%20SAR%20Extended%20Price%20After%20Expense%20Delete.jmx
+END
+Fragment_Initialize-CustomerQuoteLine.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/qadmodule_repository/!svn/ver/185158/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_Initialize-CustomerQuoteLine.jmx
+END
+Fragment_customerQuoteLine Verify the SAR Extended Price After Labor Update.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Verify%20the%20SAR%20Extended%20Price%20After%20Labor%20Update.jmx
+END
+Fragement_customerQuoteLine delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/svn/qadmodule_repository/!svn/ver/190531/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteLine%20delete.jmx
+END
+Fragement_customerQuoteHeaderUI delete_With_Confirmation.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/qadmodule_repository/!svn/ver/190531/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeaderUI%20delete_With_Confirmation.jmx
+END
+Fragment_ customerQuoteLine_Validation Required Items Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/qadmodule_repository/!svn/ver/218246/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_%20customerQuoteLine_Validation%20Required%20Items%20Detail.jmx
+END
+Fragment_ customerQuoteLine_Validation Labor Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 172
+/svn/qadmodule_repository/!svn/ver/218246/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_%20customerQuoteLine_Validation%20Labor%20Detail.jmx
+END
+Fragement_customerQuoteHeaderComments create.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/qadmodule_repository/!svn/ver/193346/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeaderComments%20create.jmx
+END
+Fragement_customerQuoteHeaderUI fetch.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/svn/qadmodule_repository/!svn/ver/191752/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeaderUI%20fetch.jmx
+END
+Fragment_customerQuoteLine update lotSerial.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/qadmodule_repository/!svn/ver/210234/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20update%20lotSerial.jmx
+END
+Fragement_CustomerQuoteLine initialize.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/qadmodule_repository/!svn/ver/193346/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_CustomerQuoteLine%20initialize.jmx
+END
+Fragment_customerQuoteLine Verify the SAR Extended Price After RequiredItem Delete.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 213
+/svn/qadmodule_repository/!svn/ver/217283/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20Verify%20the%20SAR%20Extended%20Price%20After%20RequiredItem%20Delete.jmx
+END
+Fragement_customerQuoteHeaderUI save.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/qadmodule_repository/!svn/ver/191752/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteHeaderUI%20save.jmx
+END
+Fragment_ customerQuoteLine_Validation Expenses Detail.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 175
+/svn/qadmodule_repository/!svn/ver/218246/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_%20customerQuoteLine_Validation%20Expenses%20Detail.jmx
+END
+Fragment_customerQuoteLine update_workCode_itemCode_lotSerial.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/qadmodule_repository/!svn/ver/185158/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragment_customerQuoteLine%20update_workCode_itemCode_lotSerial.jmx
+END
+Fragement_customerQuoteLine delete_With_Confirmation.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 169
+/svn/qadmodule_repository/!svn/ver/190531/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteLine%20delete_With_Confirmation.jmx
+END
+Fragement_CreateCustomerQuoteLine_ServiceOrDeporRepairType.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 173
+/svn/qadmodule_repository/!svn/ver/205445/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_CreateCustomerQuoteLine_ServiceOrDeporRepairType.jmx
+END
+Fragement_customerQuoteComments create.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/qadmodule_repository/!svn/ver/193346/service/autoScripts/trunk/JMeter_Service/TestFragement/CustomerQuote/Fragement_customerQuoteComments%20create.jmx
+END

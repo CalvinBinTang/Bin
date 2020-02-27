@@ -1,0 +1,8 @@
+type,limitType,workCode,serviceCategory,invoiceSort,startDate,endDate,limitAmount,percentCovered,listPriceLimit,chargeCode,overLimitChargeCode,errors
+LTT,T,,,,,,1,99,0,,,Limit date range must be within contract date range.
+LTWC,D,3001,,,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,2,98,20,Contract,Billable,Service category must exist.
+LTWC,D,3001,2001,,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,3,97,30,Billable,Billabe,Charge code must be contract.
+LTWC,D,2002,2001,,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,4,96,40,Contract,Billable,Limits do not apply to fixed price work codes.
+LTWC,D,3001,2001,,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,5,101,50,Contract,Billable,Percentage may not be larger than 100.
+LTIS,D,,,1,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,6,94,60,Contract,Billable,[N/A]
+LTIS,D,,,1,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,7,93,70,Contract,Billable,Overlap with existing coverage with open end date.

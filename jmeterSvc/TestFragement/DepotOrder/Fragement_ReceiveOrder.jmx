@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3.20180111">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Receive  Order" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Receive Order" enabled="false"/>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+            </elementProp>
+            <elementProp name="Accept-Language" elementType="Header">
+              <stringProp name="Header.name">Accept-Language</stringProp>
+              <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+            </elementProp>
+            <elementProp name="Accept" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">*/*</stringProp>
+            </elementProp>
+            <elementProp name="Origin" elementType="Header">
+              <stringProp name="Header.name">Origin</stringProp>
+              <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+            </elementProp>
+            <elementProp name="User-Agent" elementType="Header">
+              <stringProp name="Header.name">User-Agent</stringProp>
+              <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+            </elementProp>
+            <elementProp name="DNT" elementType="Header">
+              <stringProp name="Header.name">DNT</stringProp>
+              <stringProp name="Header.value">1</stringProp>
+            </elementProp>
+            <elementProp name="X-Requested-With" elementType="Header">
+              <stringProp name="Header.name">X-Requested-With</stringProp>
+              <stringProp name="Header.value">XMLHttpRequest</stringProp>
+            </elementProp>
+            <elementProp name="Referer" elementType="Header">
+              <stringProp name="Header.name">Referer</stringProp>
+              <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+            </elementProp>
+            <elementProp name="Accept-Encoding" elementType="Header">
+              <stringProp name="Header.name">Accept-Encoding</stringProp>
+              <stringProp name="Header.value">gzip, deflate</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+varsList.add(&quot;receive_depotOrderNumber&quot;);
+// Inputs
+varsList.add(&quot;receive_effectiveDate&quot;);
+varsList.add(&quot;receive_receiptDate&quot;);
+varsList.add(&quot;receive_siteCode&quot;);
+varsList.add(&quot;receive_quantityReceived&quot;);
+varsList.add(&quot;receive_unitOfMeasureReceived&quot;);
+varsList.add(&quot;receive_lotSerial&quot;);
+varsList.add(&quot;receive_creditAcct&quot;);
+varsList.add(&quot;receive_creditSubAcct&quot;);
+varsList.add(&quot;receive_creditCC&quot;);
+varsList.add(&quot;receive_creditProject&quot;);
+varsList.add(&quot;receive_receiptType&quot;);
+
+// Fields for validation
+varsList.add(&quot;receive_validate_precheckErrMsg&quot;);
+varsList.add(&quot;receive_validate_errMsg&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="precheck" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup data for precheck" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;depotOrder_depotOrderNumber&quot;,&quot;${receive_depotOrderNumber}&quot;);
+vars.put(&quot;depotOrder_receiptType&quot;,1);
+vars.put(&quot;depotOrder_validate_errMsg&quot;,&quot;${receive_validate_precheckErrMsg}&quot;);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="receipts precheck" enabled="true">
+            <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_receipts precheck.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Skip the following steps, if expect error in precheck" enabled="true">
+          <stringProp name="IfController.condition">&quot;${receive_validate_precheckErrMsg}&quot;==&quot;[N/A]&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="initialize" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup data for precheck" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;depotOrder_depotOrderNumber&quot;,&quot;${receive_depotOrderNumber}&quot;);
+vars.put(&quot;depotOrder_receiptType&quot;,1);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="receipts intialize" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_receipts initialize.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="create" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup data for create" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">// input
+vars.put(&quot;depotOrder_depotOrderNumber&quot;,&quot;${receive_depotOrderNumber}&quot;);
+vars.put(&quot;depotOrder_receiptType&quot;,1);
+vars.put(&quot;depotOrder_effectiveDate&quot;,&quot;${receive_effectiveDate}&quot;);
+vars.put(&quot;depotOrder_siteCode&quot;,&quot;${receive_siteCode}&quot;);
+vars.put(&quot;depotOrder_quantityReceived&quot;,&quot;${receive_quantityReceived}&quot;);
+vars.put(&quot;depotOrder_unitOfMeasureReceived&quot;,&quot;${receive_unitOfMeasureReceived}&quot;);
+vars.put(&quot;depotOrder_lotSerial&quot;,&quot;${receive_lotSerial}&quot;);
+vars.put(&quot;depotOrder_creditAcct&quot;,&quot;${receive_creditAcct}&quot;);
+vars.put(&quot;depotOrder_creditSubAcct&quot;,&quot;${receive_creditSubAcct}&quot;);
+vars.put(&quot;depotOrder_creditCC&quot;,&quot;${receive_creditCC}&quot;);
+vars.put(&quot;depotOrder_creditProject&quot;,&quot;${receive_creditProject}&quot;);
+vars.put(&quot;depotOrder_receiptDate&quot;,&quot;${receive_receiptDate}&quot;);
+// validate
+vars.put(&quot;depotOrder_validate_errMsg&quot;,&quot;${receive_validate_errMsg}&quot;);
+
+</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Remove row with qty = 0" enabled="false">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">// Got the request data
+var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+var objReceiptLines = objRequest.receiptHeaders[0].receiptLines;
+var i;
+for (i=0; i &lt; objReceiptLines.length; i++){
+	if (objReceiptLines[i].quantityReceived==0){
+		objReceiptLines.splice(i,1);
+	}
+}
+
+objRequest.receiptHeaders[0].receiptLines = objReceiptLines;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="create" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_receipts create.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;receive_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Receive Debug Sampler" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="customerQuoteLine fieldChange" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+// URL Paremeters
+varsList.add(&quot;customerQuoteLine_url_fieldName&quot;);
+varsList.add(&quot;customerQuoteLine_validate_message&quot;);
+varsList.add(&quot;customerQuoteLine_domainCode&quot;);
+varsList.add(&quot;customerQuoteLine_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteLine_revision&quot;);
+varsList.add(&quot;customerQuoteLine_quoteLine&quot;);
+
+varsList.add(&quot;customerQuoteLine_itemCode&quot;);
+varsList.add(&quot;customerQuoteLine_description&quot;);
+varsList.add(&quot;customerQuoteLine_lotSerial&quot;);
+varsList.add(&quot;customerQuoteLine_reference&quot;);
+varsList.add(&quot;customerQuoteLine_quantityQuoted&quot;);
+varsList.add(&quot;customerQuoteLine_netPrice&quot;);
+varsList.add(&quot;customerQuoteLine_extendedPrice&quot;);
+varsList.add(&quot;customerQuoteLine_quoteSubTotal&quot;);
+varsList.add(&quot;customerQuoteLine_referenceNumber&quot;);
+varsList.add(&quot;customerQuoteLine_referenceType&quot;);
+varsList.add(&quot;customerQuoteLine_referenceTypeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_itemRepairType&quot;);
+varsList.add(&quot;customerQuoteLine_itemRepairTypeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_itemRepairTypeDisplayValue&quot;);
+varsList.add(&quot;customerQuoteLine_serviceTypeCode&quot;);
+varsList.add(&quot;customerQuoteLine_serviceTypeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_siteCode&quot;);
+varsList.add(&quot;customerQuoteLine_siteDescription&quot;);
+varsList.add(&quot;customerQuoteLine_locationCode&quot;);
+varsList.add(&quot;customerQuoteLine_locationDescription&quot;);
+varsList.add(&quot;customerQuoteLine_priceListCode&quot;);
+varsList.add(&quot;customerQuoteLine_endUserCode&quot;);
+varsList.add(&quot;customerQuoteLine_endUserAddressField1&quot;);
+varsList.add(&quot;customerQuoteLine_engineerCode&quot;);
+varsList.add(&quot;customerQuoteLine_engineerName&quot;);
+varsList.add(&quot;customerQuoteLine_workCode&quot;);
+varsList.add(&quot;customerQuoteLine_workCodeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_referenceLine&quot;);
+varsList.add(&quot;customerQuoteLine_billOfMaterialCode&quot;);
+varsList.add(&quot;customerQuoteLine_bomCodeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_routingCode&quot;);
+varsList.add(&quot;customerQuoteLine_routingDescription&quot;);
+varsList.add(&quot;customerQuoteLine_unitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteLine_cost&quot;);
+//Item Replacement panel
+varsList.add(&quot;customerQuoteLine_replacementItemCode&quot;);
+varsList.add(&quot;customerQuoteLine_replacementDescription&quot;);
+varsList.add(&quot;customerQuoteLine_replacementLotSerial&quot;);
+varsList.add(&quot;customerQuoteLine_replacementSiteCode&quot;);
+varsList.add(&quot;customerQuoteLine_replacementSiteDescription&quot;);
+// Shipping
+varsList.add(&quot;customerQuoteLine_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteLine_shipToAddressField1&quot;);
+varsList.add(&quot;customerQuoteLine_freightListCode&quot;);
+varsList.add(&quot;customerQuoteLine_freightListDescription&quot;);
+varsList.add(&quot;customerQuoteLine_freightClassCode&quot;);
+varsList.add(&quot;customerQuoteLine_freightClassDescription&quot;);
+varsList.add(&quot;customerQuoteLine_freightWeight&quot;);
+varsList.add(&quot;customerQuoteLine_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteLine_itemShipWeight&quot;);
+varsList.add(&quot;customerQuoteLine_itemShipWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteLine_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteLine_freightCharge&quot;);
+varsList.add(&quot;customerQuoteLine_itemShipWeightExtended&quot;);
+varsList.add(&quot;customerQuoteLine_freightWeightExtended&quot;);
+
+//Line-Billing Panel
+varsList.add(&quot;customerQuoteLine_isFixedPrice&quot;);
+varsList.add(&quot;customerQuoteLine_fixedPrice&quot;);
+varsList.add(&quot;customerQuoteLine_salesAccount&quot;);
+varsList.add(&quot;customerQuoteLine_salesAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_salesCostCenter&quot;);
+varsList.add(&quot;customerQuoteLine_salesCostCenterDescription&quot;);
+varsList.add(&quot;customerQuoteLine_salesSubAccount&quot;);
+varsList.add(&quot;customerQuoteLine_salesSubAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_discountProject&quot;);
+varsList.add(&quot;customerQuoteLine_discountProjectDescription&quot;);
+varsList.add(&quot;customerQuoteLine_discountAccount&quot;);
+varsList.add(&quot;customerQuoteLine_discountAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_discountCostCenter&quot;);
+varsList.add(&quot;customerQuoteLine_discountCostCenterDescription&quot;);
+varsList.add(&quot;customerQuoteLine_discountSubAccount&quot;);
+varsList.add(&quot;customerQuoteLine_discountSubAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_salesProject&quot;);
+varsList.add(&quot;customerQuoteLine_salesProjectDescription&quot;);
+varsList.add(&quot;customerQuoteLine_taxClass&quot;);
+varsList.add(&quot;customerQuoteLine_taxClassDescription&quot;);
+varsList.add(&quot;customerQuoteLine_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteLine_taxEnvironmentDescription&quot;);
+varsList.add(&quot;customerQuoteLine_taxUsage&quot;);
+varsList.add(&quot;customerQuoteLine_taxUsageDescription&quot;);
+varsList.add(&quot;customerQuoteLine_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteLine_isTaxable&quot;);
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;customerQuoteLine_validate_domainCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_quoteLine&quot;);
+varsList.add(&quot;customerQuoteLine_validate_quoteNumber&quot;);
+varsList.add(&quot;customerQuoteLine_validate_revision&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_description&quot;);
+varsList.add(&quot;customerQuoteLine_validate_lotSerial&quot;);
+varsList.add(&quot;customerQuoteLine_validate_reference&quot;);
+varsList.add(&quot;customerQuoteLine_validate_quantityQuoted&quot;);
+varsList.add(&quot;customerQuoteLine_validate_netPrice&quot;);
+varsList.add(&quot;customerQuoteLine_validate_extendedPrice&quot;);
+varsList.add(&quot;customerQuoteLine_validate_quoteSubTotal&quot;);
+varsList.add(&quot;customerQuoteLine_validate_referenceNumber&quot;);
+varsList.add(&quot;customerQuoteLine_validate_referenceType&quot;);
+varsList.add(&quot;customerQuoteLine_validate_referenceTypeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemRepairType&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemRepairTypeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemRepairTypeDisplayValue&quot;);
+varsList.add(&quot;customerQuoteLine_validate_serviceTypeCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_serviceTypeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_siteCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_siteDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_locationCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_locationDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_priceListCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_endUserCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_endUserAddressField1&quot;);
+varsList.add(&quot;customerQuoteLine_validate_engineerCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_engineerName&quot;);
+varsList.add(&quot;customerQuoteLine_validate_workCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_workCodeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_referenceLine&quot;);
+varsList.add(&quot;customerQuoteLine_validate_billOfMaterialCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_bomCodeDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_routingCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_routingDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_unitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteLine_validate_cost&quot;);
+varsList.add(&quot;customerQuoteLine_validate_replacementItemCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_replacementDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_replacementLotSerial&quot;);
+varsList.add(&quot;customerQuoteLine_validate_replacementSiteCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_replacementSiteDescription&quot;);
+
+//Shipping Panel
+varsList.add(&quot;customerQuoteLine_validate_shipToCustomerCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_shipToAddressField1&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightListCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightListDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightClassCode&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightClassDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightWeight&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightMinimumWeight&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemShipWeight&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemShipWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightWeightUnitOfMeasure&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightCharge&quot;);
+varsList.add(&quot;customerQuoteLine_validate_itemShipWeightExtended&quot;);
+varsList.add(&quot;customerQuoteLine_validate_freightWeightExtended&quot;);
+
+//Line-Billing Panel
+varsList.add(&quot;customerQuoteLine_validate_isFixedPrice&quot;);
+varsList.add(&quot;customerQuoteLine_validate_fixedPrice&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesAccount&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesCostCenter&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesCostCenterDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesSubAccount&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesSubAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesProject&quot;);
+varsList.add(&quot;customerQuoteLine_validate_salesProjectDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountProject&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountProjectDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountAccount&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountCostCenter&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountCostCenterDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountSubAccount&quot;);
+varsList.add(&quot;customerQuoteLine_validate_discountSubAccountDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_taxClass&quot;);
+varsList.add(&quot;customerQuoteLine_validate_taxClassDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_taxEnvironment&quot;);
+varsList.add(&quot;customerQuoteLine_validate_taxEnvironmentDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_taxUsage&quot;);
+varsList.add(&quot;customerQuoteLine_validate_taxUsageDescription&quot;);
+varsList.add(&quot;customerQuoteLine_validate_isTaxIncluded&quot;);
+varsList.add(&quot;customerQuoteLine_validate_isTaxable&quot;);
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Not Quote Type Change" enabled="true">
+          <stringProp name="IfController.condition">&quot;${customerQuoteLine_url_fieldName}&quot;!=&quot;referenceType&quot;&amp;&amp;&quot;${customerQuoteLine_url_fieldName}&quot;!=&quot;customerQuoteLine_referenceTypeDescription&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="quoteLine fieldChange" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines/fieldChange?fieldName=${customerQuoteLine_url_fieldName}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${customerQuoteLine_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].domainCode= &quot;${customerQuoteLine_domainCode}&quot;;
+if (&quot;${customerQuoteLine_quoteNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].quoteNumber= &quot;${customerQuoteLine_quoteNumber}&quot;;
+if (&quot;${customerQuoteLine_revision}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].revision= &quot;${customerQuoteLine_revision}&quot;;
+if (&quot;${customerQuoteLine_referenceNumber}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].referenceNumber= &quot;${customerQuoteLine_referenceNumber}&quot;;
+if (&quot;${customerQuoteLine_referenceLine}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].referenceLine= &quot;${customerQuoteLine_referenceLine}&quot;;
+if (&quot;${customerQuoteLine_quoteLine}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].quoteLine= &quot;${customerQuoteLine_quoteLine}&quot;;
+if (&quot;${customerQuoteLine_itemCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemCode= &quot;${customerQuoteLine_itemCode}&quot;;
+if (&quot;${customerQuoteLine_itemRepairType}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemRepairType= &quot;${customerQuoteLine_itemRepairType}&quot;;
+if (&quot;${customerQuoteLine_itemRepairTypeDisplayValue}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemRepairTypeDisplayValue= &quot;${customerQuoteLine_itemRepairTypeDisplayValue}&quot;;
+if (&quot;${customerQuoteLine_itemRepairTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemRepairTypeDescription= &quot;${customerQuoteLine_itemRepairTypeDescription}&quot;;
+//if (&quot;${customerQuoteLine_referenceType}&quot; != &quot;[N/A]&quot; &amp;&amp;  objRequest.customerQuoteLines[0].referenceType ==&quot;${customerQuoteLine_referenceType}&quot;)
+//if (&quot;${customerQuoteLine_referenceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].referenceTypeDescription= &quot;${customerQuoteLine_referenceTypeDescription}&quot;;
+if (&quot;${customerQuoteLine_lotSerial}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].lotSerial= &quot;${customerQuoteLine_lotSerial}&quot;;
+if (&quot;${customerQuoteLine_reference}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].reference= &quot;${customerQuoteLine_reference}&quot;;
+if (&quot;${customerQuoteLine_workCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].workCode= &quot;${customerQuoteLine_workCode}&quot;;
+if (&quot;${customerQuoteLine_workCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].workCodeDescription= &quot;${customerQuoteLine_workCodeDescription}&quot;;
+if (&quot;${customerQuoteLine_serviceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].serviceTypeCode= &quot;${customerQuoteLine_serviceTypeCode}&quot;;
+if (&quot;${customerQuoteLine_serviceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].serviceTypeDescription= &quot;${customerQuoteLine_serviceTypeDescription}&quot;;
+if (&quot;${customerQuoteLine_engineerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].engineerCode= &quot;${customerQuoteLine_engineerCode}&quot;;
+if (&quot;${customerQuoteLine_endUserCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].endUserCode= &quot;${customerQuoteLine_endUserCode}&quot;;
+if (&quot;${customerQuoteLine_endUserAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].endUserAddressField1= &quot;${customerQuoteLine_endUserAddressField1}&quot;;
+if (&quot;${customerQuoteLine_isTaxable}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].isTaxable= &quot;${customerQuoteLine_isTaxable}&quot;;
+if (&quot;${customerQuoteLine_siteCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].siteCode= &quot;${customerQuoteLine_siteCode}&quot;;
+if (&quot;${customerQuoteLine_siteDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].siteDescription= &quot;${customerQuoteLine_siteDescription}&quot;;
+if (&quot;${customerQuoteLine_quantityQuoted}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].quantityQuoted= &quot;${customerQuoteLine_quantityQuoted}&quot;;
+if (&quot;${customerQuoteLine_unitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].unitOfMeasure= &quot;${customerQuoteLine_unitOfMeasure}&quot;;
+if (&quot;${customerQuoteLine_billOfMaterialCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].billOfMaterialCode= &quot;${customerQuoteLine_billOfMaterialCode}&quot;;
+if (&quot;${customerQuoteLine_bomCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].bomCodeDescription= &quot;${customerQuoteLine_bomCodeDescription}&quot;;
+if (&quot;${customerQuoteLine_routingCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].routingCode= &quot;${customerQuoteLine_routingCode}&quot;;
+if (&quot;${customerQuoteLine_routingDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].routingCodeDescription= &quot;${customerQuoteLine_routingDescription}&quot;;
+if (&quot;${customerQuoteLine_shipToCustomerCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].shipToCustomerCode= &quot;${customerQuoteLine_shipToCustomerCode}&quot;;
+if (&quot;${customerQuoteLine_shipToAddressField1}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].customerQuoteLine_shipToAddressField1= &quot;${customerQuoteLine_shipToAddressField1}&quot;;
+if (&quot;${customerQuoteLine_freightListCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightListCode= &quot;${customerQuoteLine_freightListCode}&quot;;
+if (&quot;${customerQuoteLine_freightListDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightListDescription= &quot;${customerQuoteLine_freightListDescription}&quot;;
+if (&quot;${customerQuoteLine_freightClassCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightClassCode= &quot;${customerQuoteLine_freightClassCode}&quot;;
+if (&quot;${customerQuoteLine_freightClassDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightClassDescription= &quot;${customerQuoteLine_freightClassDescription}&quot;;
+if (&quot;${customerQuoteLine_itemShipWeight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemShipWeight= &quot;${customerQuoteLine_itemShipWeight}&quot;;
+if (&quot;${customerQuoteLine_itemShipWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemShipWeightUnitOfMeasure= &quot;${customerQuoteLine_itemShipWeightUnitOfMeasure}&quot;;
+if (&quot;${customerQuoteLine_freightWeight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightWeight= &quot;${customerQuoteLine_freightWeight}&quot;;
+if (&quot;${customerQuoteLine_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightWeightUnitOfMeasure= &quot;${customerQuoteLine_freightWeightUnitOfMeasure}&quot;;
+if (&quot;${customerQuoteLine_freightMinimumWeight}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightMinimumWeight= &quot;${customerQuoteLine_freightMinimumWeight}&quot;;
+if (&quot;${customerQuoteLine_itemShipWeightExtended}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].itemShipWeightExtended= &quot;${customerQuoteLine_itemShipWeightExtended}&quot;;
+if (&quot;${customerQuoteLine_freightWeightExtended}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightWeightExtended= &quot;${customerQuoteLine_freightWeightExtended}&quot;;
+if (&quot;${customerQuoteLine_freightCharge}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].freightCharge= &quot;${customerQuoteLine_freightCharge}&quot;;
+if (&quot;${customerQuoteLine_fixedPrice}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].fixedPrice= &quot;${customerQuoteLine_fixedPrice}&quot;;
+if (&quot;${customerQuoteLine_isFixedPrice}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].isFixedPrice= &quot;${customerQuoteLine_isFixedPrice}&quot;;
+if (&quot;${customerQuoteLine_taxClass}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].taxClass= &quot;${customerQuoteLine_taxClass}&quot;;
+if (&quot;${customerQuoteLine_taxClassDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].taxClassDescription= &quot;${customerQuoteLine_taxClassDescription}&quot;;
+if (&quot;${customerQuoteLine_taxUsage}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].taxUsage= &quot;${customerQuoteLine_taxUsage}&quot;;
+if (&quot;${customerQuoteLine_taxUsageDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].taxUsageDescription= &quot;${customerQuoteLine_taxUsageDescription}&quot;;
+if (&quot;${customerQuoteLine_taxEnvironment}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].taxEnvironment= &quot;${customerQuoteLine_taxEnvironment}&quot;;
+if (&quot;${customerQuoteLine_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].taxEnvironmentDescription= &quot;${customerQuoteLine_taxEnvironmentDescription}&quot;;
+if (&quot;${customerQuoteLine_isTaxIncluded}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].isTaxIncluded= &quot;${customerQuoteLine_isTaxIncluded}&quot;;
+if (&quot;${customerQuoteLine_netPrice}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].netPrice= &quot;${customerQuoteLine_netPrice}&quot;;
+if (&quot;${customerQuoteLine_salesAccount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesAccount= &quot;${customerQuoteLine_salesAccount}&quot;;
+if (&quot;${customerQuoteLine_salesAccountDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesAccountDescription= &quot;${customerQuoteLine_salesAccountDescription}&quot;;
+if (&quot;${customerQuoteLine_salesSubAccount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesSubAccount= &quot;${customerQuoteLine_salesSubAccount}&quot;;
+if (&quot;${customerQuoteLine_salesSubAccountDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesSubAccountDescription= &quot;${customerQuoteLine_salesSubAccountDescription}&quot;;
+if (&quot;${customerQuoteLine_salesCostCenter}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesCostCenter= &quot;${customerQuoteLine_salesCostCenter}&quot;;
+if (&quot;${customerQuoteLine_salesCostCenterDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesCostCenterDescription= &quot;${customerQuoteLine_salesCostCenterDescription}&quot;;
+if (&quot;${customerQuoteLine_salesProject}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesProject= &quot;${customerQuoteLine_salesProject}&quot;;
+if (&quot;${customerQuoteLine_salesProjectDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].salesProjectDescription= &quot;${customerQuoteLine_salesProjectDescription}&quot;;
+if (&quot;${customerQuoteLine_discountAccount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountAccount= &quot;${customerQuoteLine_discountAccount}&quot;;
+if (&quot;${customerQuoteLine_discountAccountDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountAccountDescription= &quot;${customerQuoteLine_discountAccountDescription}&quot;;
+if (&quot;${customerQuoteLine_discountSubAccount}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountSubAccount= &quot;${customerQuoteLine_discountSubAccount}&quot;;
+if (&quot;${customerQuoteLine_discountSubAccountDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountSubAccountDescription= &quot;${customerQuoteLine_discountSubAccountDescription}&quot;;
+if (&quot;${customerQuoteLine_discountCostCenter}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountCostCenter= &quot;${customerQuoteLine_discountCostCenter}&quot;;
+if (&quot;${customerQuoteLine_discountCostCenterDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountCostCenterDescription= &quot;${customerQuoteLine_discountCostCenterDescription}&quot;;
+if (&quot;${customerQuoteLine_discountProject}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountProject= &quot;${customerQuoteLine_discountProject}&quot;;
+if (&quot;${customerQuoteLine_discountProjectDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].discountProjectDescription= &quot;${customerQuoteLine_discountProjectDescription}&quot;;
+if (&quot;${customerQuoteLine_locationCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].locationCode= &quot;${customerQuoteLine_locationCode}&quot;;
+if (&quot;${customerQuoteLine_locationDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].locationDescription= &quot;${customerQuoteLine_locationDescription}&quot;;
+if (&quot;${customerQuoteLine_priceListCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].priceListCode= &quot;${customerQuoteLine_priceListCode}&quot;;
+if (&quot;${customerQuoteLine_extendedPrice}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].extendedPrice= &quot;${customerQuoteLine_extendedPrice}&quot;;
+if (&quot;${customerQuoteLine_quoteSubTotal}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].quoteSubTotal= &quot;${customerQuoteLine_quoteSubTotal}&quot;;
+if (&quot;${customerQuoteLine_cost}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].cost= &quot;${customerQuoteLine_cost}&quot;;
+if (&quot;${customerQuoteLine_replacementItemCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].replacementItemCode= &quot;${customerQuoteLine_replacementItemCode}&quot;;
+if (&quot;${customerQuoteLine_replacementSiteCode}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].replacementSiteCode = &quot;${customerQuoteLine_replacementSiteCode}&quot;;
+if (&quot;${customerQuoteLine_replacementLotSerial}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].lotSerial= &quot;${customerQuoteLine_replacementLotSerial}&quot;;
+if (&quot;${customerQuoteLine_replacementSiteDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].replacementSiteDescription= &quot;${customerQuoteLine_replacementSiteDescription}&quot;;
+if (&quot;${customerQuoteLine_replacementDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].replacementDescription = &quot;${customerQuoteLine_replacementDescription}&quot;;
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+              <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">false</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">var failureMessage = &quot;&quot;;
+var temp = prev.getResponseDataAsString();
+vars.put(&quot;temp&quot;, temp);
+var errormessage = JSON.parse(temp);
+var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+if (&quot;${customerQuoteLine_validate_message}&quot; != &quot;[N/A]&quot;) 
+{ 
+	
+	if(&quot;${customerQuoteLine_validate_message}&quot;!=errormessage.submitResult.errors[0].message)
+	{
+		failureMessage = failureMessage + &quot;Expect customer quote line message ${customerQuoteLine_validate_message} but got &quot;+errormessage.submitResult.errors[0].message;
+	}
+}
+
+else if(errormessage.submitResult.success != true)
+{
+	failureMessage = failureMessage + &quot;Expect true but got &quot;+errormessage.submitResult.success+&quot;/n&quot;;
+}
+
+// All the fields in dataset should be set here
+if (&quot;${customerQuoteLine_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].domainCode!= &quot;${customerQuoteLine_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${customerQuoteLine_validate_domainCode} but got &quot; + objRequest.customerQuoteLines[0].domainCode}
+if (&quot;${customerQuoteLine_validate_quoteNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].quoteNumber!= &quot;${customerQuoteLine_validate_quoteNumber}&quot;) { failureMessage = failureMessage + &quot;Expect quoteNumber${customerQuoteLine_validate_quoteNumber} but got &quot; + objRequest.customerQuoteLines[0].quoteNumber}
+if (&quot;${customerQuoteLine_validate_revision}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].revision!= &quot;${customerQuoteLine_validate_revision}&quot;) { failureMessage = failureMessage + &quot;Expect revision${customerQuoteLine_validate_revision} but got &quot; + objRequest.customerQuoteLines[0].revision}
+if (&quot;${customerQuoteLine_validate_quoteLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].quoteLine!= &quot;${customerQuoteLine_validate_quoteLine}&quot;) { failureMessage = failureMessage + &quot;Expect Line${customerQuoteLine_validate_quoteLine} but got &quot; + objRequest.customerQuoteLines[0].quoteLine}
+if (&quot;${customerQuoteLine_validate_itemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemCode!= &quot;${customerQuoteLine_validate_itemCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemCode${customerQuoteLine_validate_itemCode} but got &quot; + objRequest.customerQuoteLines[0].itemCode}
+if (&quot;${customerQuoteLine_validate_description}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].description!= &quot;${customerQuoteLine_validate_description}&quot;) { failureMessage = failureMessage + &quot;Expect description${customerQuoteLine_validate_description} but got &quot; + objRequest.customerQuoteLines[0].description}
+if (&quot;${customerQuoteLine_validate_lotSerial}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].lotSerial!= &quot;${customerQuoteLine_validate_lotSerial}&quot;) { failureMessage = failureMessage + &quot;Expect lotSerial${customerQuoteLine_validate_lotSerial} but got &quot; + objRequest.customerQuoteLines[0].lotSerial}
+if (&quot;${customerQuoteLine_validate_reference}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].reference!= &quot;${customerQuoteLine_validate_reference}&quot;) { failureMessage = failureMessage + &quot;Expect reference${customerQuoteLine_validate_reference} but got &quot; + objRequest.customerQuoteLines[0].reference}
+if (&quot;${customerQuoteLine_validate_quantityQuoted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].quantityQuoted!= &quot;${customerQuoteLine_validate_quantityQuoted}&quot;) { failureMessage = failureMessage + &quot;Expect quantityQuoted${customerQuoteLine_validate_quantityQuoted} but got &quot; + objRequest.customerQuoteLines[0].quantityQuoted}
+if (&quot;${customerQuoteLine_validate_netPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].netPrice!= &quot;${customerQuoteLine_validate_netPrice}&quot;) { failureMessage = failureMessage + &quot;Expect netPrice${customerQuoteLine_validate_netPrice} but got &quot; + objRequest.customerQuoteLines[0].netPrice}
+if (&quot;${customerQuoteLine_validate_extendedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].extendedPrice!= &quot;${customerQuoteLine_validate_extendedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect extendedPrice${customerQuoteLine_validate_extendedPrice} but got &quot; + objRequest.customerQuoteLines[0].extendedPrice}
+if (&quot;${customerQuoteLine_validate_quoteSubTotal}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].quoteSubTotal!= &quot;${customerQuoteLine_validate_quoteSubTotal}&quot;) { failureMessage = failureMessage + &quot;Expect quoteSubTotal${customerQuoteLine_validate_quoteSubTotal} but got &quot; + objRequest.customerQuoteLines[0].quoteSubTotal}
+if (&quot;${customerQuoteLine_validate_referenceNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].referenceNumber!= &quot;${customerQuoteLine_validate_referenceNumber}&quot;) { failureMessage = failureMessage + &quot;Expect referenceNumber${customerQuoteLine_validate_referenceNumber} but got &quot; + objRequest.customerQuoteLines[0].referenceNumber}
+if (&quot;${customerQuoteLine_validate_referenceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].referenceType!= &quot;${customerQuoteLine_validate_referenceType}&quot;) { failureMessage = failureMessage + &quot;Expect referenceType${customerQuoteLine_validate_referenceType} but got &quot; + objRequest.customerQuoteLines[0].referenceType}
+if (&quot;${customerQuoteLine_validate_referenceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].referenceTypeDescription!= &quot;${customerQuoteLine_validate_referenceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect referenceTypeDescription${customerQuoteLine_validate_referenceTypeDescription} but got &quot; + objRequest.customerQuoteLines[0].referenceTypeDescription}
+if (&quot;${customerQuoteLine_validate_itemRepairType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemRepairType!= &quot;${customerQuoteLine_validate_itemRepairType}&quot;) { failureMessage = failureMessage + &quot;Expect itemRepairType${customerQuoteLine_validate_itemRepairType} but got &quot; + objRequest.customerQuoteLines[0].itemRepairType}
+if (&quot;${customerQuoteLine_validate_itemRepairTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemRepairTypeDescription!= &quot;${customerQuoteLine_validate_itemRepairTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect itemRepairTypeDescription${customerQuoteLine_validate_itemRepairTypeDescription} but got &quot; + objRequest.customerQuoteLines[0].itemRepairTypeDescription}
+if (&quot;${customerQuoteLine_validate_itemRepairTypeDisplayValue}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemRepairTypeDisplayValue!= &quot;${customerQuoteLine_validate_itemRepairTypeDisplayValue}&quot;) { failureMessage = failureMessage + &quot;Expect itemRepairTypeDisplayValue${customerQuoteLine_validate_itemRepairTypeDisplayValue} but got &quot; + objRequest.customerQuoteLines[0].itemRepairTypeDisplayValue}
+if (&quot;${customerQuoteLine_validate_serviceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].serviceTypeCode!= &quot;${customerQuoteLine_validate_serviceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeCode${customerQuoteLine_validate_serviceTypeCode} but got &quot; + objRequest.customerQuoteLines[0].serviceTypeCode}
+if (&quot;${customerQuoteLine_validate_serviceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].serviceTypeDescription!= &quot;${customerQuoteLine_validate_serviceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeDescription${customerQuoteLine_validate_serviceTypeDescription} but got &quot; + objRequest.customerQuoteLines[0].serviceTypeDescription}
+if (&quot;${customerQuoteLine_validate_siteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].siteCode!= &quot;${customerQuoteLine_validate_siteCode}&quot;) { failureMessage = failureMessage + &quot;Expect siteCode${customerQuoteLine_validate_siteCode} but got &quot; + objRequest.customerQuoteLines[0].siteCode}
+if (&quot;${customerQuoteLine_validate_siteDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].siteDescription!= &quot;${customerQuoteLine_validate_siteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect siteDescription${customerQuoteLine_validate_siteDescription} but got &quot; + objRequest.customerQuoteLines[0].siteDescription}
+if (&quot;${customerQuoteLine_validate_locationCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].locationCode!= &quot;${customerQuoteLine_validate_locationCode}&quot;) { failureMessage = failureMessage + &quot;Expect locationCode${customerQuoteLine_validate_locationCode} but got &quot; + objRequest.customerQuoteLines[0].locationCode}
+if (&quot;${customerQuoteLine_validate_locationDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].locationDescription!= &quot;${customerQuoteLine_validate_locationDescription}&quot;) { failureMessage = failureMessage + &quot;Expect locationDescription${customerQuoteLine_validate_locationDescription} but got &quot; + objRequest.customerQuoteLines[0].locationDescription}
+if (&quot;${customerQuoteLine_validate_priceListCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].priceListCode!= &quot;${customerQuoteLine_validate_priceListCode}&quot;) { failureMessage = failureMessage + &quot;Expect priceListCode${customerQuoteLine_validate_priceListCode} but got &quot; + objRequest.customerQuoteLines[0].priceListCode}
+if (&quot;${customerQuoteLine_validate_endUserCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].endUserCode!= &quot;${customerQuoteLine_validate_endUserCode}&quot;) { failureMessage = failureMessage + &quot;Expect endUserCode${customerQuoteLine_validate_endUserCode} but got &quot; + objRequest.customerQuoteLines[0].endUserCode}
+if (&quot;${customerQuoteLine_validate_endUserAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].endUserAddressField1!= &quot;${customerQuoteLine_validate_endUserAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect endUserAddressField1${customerQuoteLine_validate_endUserAddressField1} but got &quot; + objRequest.customerQuoteLines[0].endUserAddressField1}
+if (&quot;${customerQuoteLine_validate_engineerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].engineerCode!= &quot;${customerQuoteLine_validate_engineerCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerCode${customerQuoteLine_validate_engineerCode} but got &quot; + objRequest.customerQuoteLines[0].engineerCode}
+if (&quot;${customerQuoteLine_validate_isTaxable}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].isTaxable!= &quot;${customerQuoteLine_validate_isTaxable}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxable${customerQuoteLine_validate_isTaxable} but got &quot; + objRequest.customerQuoteLines[0].isTaxable}
+if (&quot;${customerQuoteLine_validate_workCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].workCode!= &quot;${customerQuoteLine_validate_workCode}&quot;) { failureMessage = failureMessage + &quot;Expect workCode${customerQuoteLine_validate_workCode} but got &quot; + objRequest.customerQuoteLines[0].workCode}
+if (&quot;${customerQuoteLine_validate_workCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].workCodeDescription!= &quot;${customerQuoteLine_validate_workCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect workCodeDescription${customerQuoteLine_validate_workCodeDescription} but got &quot; + objRequest.customerQuoteLines[0].workCodeDescription}
+if (&quot;${customerQuoteLine_validate_referenceLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].referenceLine!= &quot;${customerQuoteLine_validate_referenceLine}&quot;) { failureMessage = failureMessage + &quot;Expect referenceLine${customerQuoteLine_validate_referenceLine} but got &quot; + objRequest.customerQuoteLines[0].referenceLine}
+if (&quot;${customerQuoteLine_validate_billOfMaterialCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].billOfMaterialCode!= &quot;${customerQuoteLine_validate_billOfMaterialCode}&quot;) { failureMessage = failureMessage + &quot;Expect billOfMaterialCode${customerQuoteLine_validate_billOfMaterialCode} but got &quot; + objRequest.customerQuoteLines[0].billOfMaterialCode}
+if (&quot;${customerQuoteLine_validate_bomCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].bomCodeDescription!= &quot;${customerQuoteLine_validate_bomCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect bomCodeDescription${customerQuoteLine_validate_bomCodeDescription} but got &quot; + objRequest.customerQuoteLines[0].bomCodeDescription}
+if (&quot;${customerQuoteLine_validate_routingCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].routingCode!= &quot;${customerQuoteLine_validate_routingCode}&quot;) { failureMessage = failureMessage + &quot;Expect routingCode${customerQuoteLine_validate_routingCode} but got &quot; + objRequest.customerQuoteLines[0].routingCode}
+if (&quot;${customerQuoteLine_validate_routingDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].routingDescription!= &quot;${customerQuoteLine_validate_routingDescription}&quot;) { failureMessage = failureMessage + &quot;Expect routingDescription${customerQuoteLine_validate_routingDescription} but got &quot; + objRequest.customerQuoteLines[0].routingDescription}
+if (&quot;${customerQuoteLine_validate_unitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].unitOfMeasure!= &quot;${customerQuoteLine_validate_unitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect unitOfMeasure${customerQuoteLine_validate_unitOfMeasure} but got &quot; + objRequest.customerQuoteLines[0].unitOfMeasure}
+if (&quot;${customerQuoteLine_validate_cost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].cost!= &quot;${customerQuoteLine_validate_cost}&quot;) { failureMessage = failureMessage + &quot;Expect cost${customerQuoteLine_validate_cost} but got &quot; + objRequest.customerQuoteLines[0].cost}
+if (&quot;${customerQuoteLine_validate_shipToCustomerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].shipToCustomerCode!= &quot;${customerQuoteLine_validate_shipToCustomerCode}&quot;) { failureMessage = failureMessage + &quot;Expect shipToCustomerCode${customerQuoteLine_validate_shipToCustomerCode} but got &quot; + objRequest.customerQuoteLines[0].shipToCustomerCode}
+if (&quot;${customerQuoteLine_validate_shipToAddressField1}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].shipToAddressField1!= &quot;${customerQuoteLine_validate_shipToAddressField1}&quot;) { failureMessage = failureMessage + &quot;Expect shipToAddressField1${customerQuoteLine_validate_shipToAddressField1} but got &quot; + objRequest.customerQuoteLines[0].shipToAddressField1}
+if (&quot;${customerQuoteLine_validate_freightListCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightListCode!= &quot;${customerQuoteLine_validate_freightListCode}&quot;) { failureMessage = failureMessage + &quot;Expect freightListCode${customerQuoteLine_validate_freightListCode} but got &quot; + objRequest.customerQuoteLines[0].freightListCode}
+if (&quot;${customerQuoteLine_validate_freightListDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightListDescription!= &quot;${customerQuoteLine_validate_freightListDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freightListDescription${customerQuoteLine_validate_freightListDescription} but got &quot; + objRequest.customerQuoteLines[0].freightListDescription}
+if (&quot;${customerQuoteLine_validate_freightMinimumWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightMinimumWeight!= &quot;${customerQuoteLine_validate_freightMinimumWeight}&quot;) { failureMessage = failureMessage + &quot;Expect freightMinimumWeight${customerQuoteLine_validate_freightMinimumWeight} but got &quot; + objRequest.customerQuoteLines[0].freightMinimumWeight}
+if (&quot;${customerQuoteLine_validate_freightWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightWeight!= &quot;${customerQuoteLine_validate_freightWeight}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeight${customerQuoteLine_validate_freightWeight} but got &quot; + objRequest.customerQuoteLines[0].freightWeight}
+if (&quot;${customerQuoteLine_validate_freightWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightWeightUnitOfMeasure!= &quot;${customerQuoteLine_validate_freightWeightUnitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeightUnitOfMeasure${customerQuoteLine_validate_freightWeightUnitOfMeasure} but got &quot; + objRequest.customerQuoteLines[0].freightWeightUnitOfMeasure}
+if (&quot;${customerQuoteLine_validate_freightClassCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightClassCode!= &quot;${customerQuoteLine_validate_freightClassCode}&quot;) { failureMessage = failureMessage + &quot;Expect freightClassCode${customerQuoteLine_validate_freightClassCode} but got &quot; + objRequest.customerQuoteLines[0].freightClassCode}
+if (&quot;${customerQuoteLine_validate_freightClassDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightClassDescription!= &quot;${customerQuoteLine_validate_freightClassDescription}&quot;) { failureMessage = failureMessage + &quot;Expect freightClassDescription${customerQuoteLine_validate_freightClassDescription} but got &quot; + objRequest.customerQuoteLines[0].freightClassDescription}
+if (&quot;${customerQuoteLine_validate_itemShipWeight}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemShipWeight!= &quot;${customerQuoteLine_validate_itemShipWeight}&quot;) { failureMessage = failureMessage + &quot;Expect itemShipWeight${customerQuoteLine_validate_itemShipWeight} but got &quot; + objRequest.customerQuoteLines[0].itemShipWeight}
+if (&quot;${customerQuoteLine_validate_freightCharge}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightCharge!= &quot;${customerQuoteLine_validate_freightCharge}&quot;) { failureMessage = failureMessage + &quot;Expect freightCharge${customerQuoteLine_validate_freightCharge} but got &quot; + objRequest.customerQuoteLines[0].freightCharge}
+if (&quot;${customerQuoteLine_validate_itemShipWeightUnitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemShipWeightUnitOfMeasure!= &quot;${customerQuoteLine_validate_itemShipWeightUnitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect itemShipWeightUnitOfMeasure${customerQuoteLine_validate_itemShipWeightUnitOfMeasure} but got &quot; + objRequest.customerQuoteLines[0].itemShipWeightUnitOfMeasure}
+if (&quot;${customerQuoteLine_validate_itemShipWeightExtended}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].itemShipWeightExtended!= &quot;${customerQuoteLine_validate_itemShipWeightExtended}&quot;) { failureMessage = failureMessage + &quot;Expect itemShipWeightExtended}${customerQuoteLine_validate_itemShipWeightExtended} but got &quot; + objRequest.customerQuoteLines[0].itemShipWeightExtended}
+if (&quot;${customerQuoteLine_validate_freightWeightExtended}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].freightWeightExtended!= &quot;${customerQuoteLine_validate_freightWeightExtended}&quot;) { failureMessage = failureMessage + &quot;Expect freightWeightExtended${customerQuoteLine_validate_freightWeightExtended} but got &quot; + objRequest.customerQuoteLines[0].freightWeightExtended}
+if (&quot;${customerQuoteLine_validate_fixedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].fixedPrice!= &quot;${customerQuoteLine_validate_fixedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect fixedPrice${customerQuoteLine_validate_fixedPrice} but got &quot; + objRequest.customerQuoteLines[0].fixedPrice}
+if (&quot;${customerQuoteLine_validate_isFixedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].isFixedPrice!= &quot;${customerQuoteLine_validate_isFixedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect isFixedPrice${customerQuoteLine_validate_isFixedPrice} but got &quot; + objRequest.customerQuoteLines[0].isFixedPrice}
+if (&quot;${customerQuoteLine_validate_salesAccount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesAccount!= &quot;${customerQuoteLine_validate_salesAccount}&quot;) { failureMessage = failureMessage + &quot;Expect salesAccount${customerQuoteLine_validate_salesAccount} but got &quot; + objRequest.customerQuoteLines[0].salesAccount}
+if (&quot;${customerQuoteLine_validate_salesAccountDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesAccountDescription!= &quot;${customerQuoteLine_validate_salesAccountDescription}&quot;) { failureMessage = failureMessage + &quot;Expect salesAccountDescription${customerQuoteLine_validate_salesAccountDescription} but got &quot; + objRequest.customerQuoteLines[0].salesAccountDescription}
+if (&quot;${customerQuoteLine_validate_salesSubAccount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesSubAccount!= &quot;${customerQuoteLine_validate_salesSubAccount}&quot;) { failureMessage = failureMessage + &quot;Expect salesSubAccount${customerQuoteLine_validate_salesSubAccount} but got &quot; + objRequest.customerQuoteLines[0].salesSubAccount}
+if (&quot;${customerQuoteLine_validate_salesSubAccountDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesSubAccountDescription!= &quot;${customerQuoteLine_validate_salesSubAccountDescription}&quot;) { failureMessage = failureMessage + &quot;Expect salesSubAccountDescription${customerQuoteLine_validate_salesSubAccountDescription} but got &quot; + objRequest.customerQuoteLines[0].salesSubAccountDescription}
+if (&quot;${customerQuoteLine_validate_salesCostCenter}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesCostCenter!= &quot;${customerQuoteLine_validate_salesCostCenter}&quot;) { failureMessage = failureMessage + &quot;Expect salesCostCenter${customerQuoteLine_validate_salesCostCenter} but got &quot; + objRequest.customerQuoteLines[0].salesCostCenter}
+if (&quot;${customerQuoteLine_validate_salesCostCenterDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesCostCenterDescription!= &quot;${customerQuoteLine_validate_salesCostCenterDescription}&quot;) { failureMessage = failureMessage + &quot;Expect salesCostCenterDescription${customerQuoteLine_validate_salesCostCenterDescription} but got &quot; + objRequest.customerQuoteLines[0].salesCostCenterDescription}
+if (&quot;${customerQuoteLine_validate_salesProject}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesProject!= &quot;${customerQuoteLine_validate_salesProject}&quot;) { failureMessage = failureMessage + &quot;Expect salesProject${customerQuoteLine_validate_salesProject} but got &quot; + objRequest.customerQuoteLines[0].salesProject}
+if (&quot;${customerQuoteLine_validate_salesProjectDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].salesProjectDescription!= &quot;${customerQuoteLine_validate_salesProjectDescription}&quot;) { failureMessage = failureMessage + &quot;Expect salesProjectDescription${customerQuoteLine_validate_salesProjectDescription} but got &quot; + objRequest.customerQuoteLines[0].salesProjectDescription}
+if (&quot;${customerQuoteLine_validate_discountAccount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountAccount!= &quot;${customerQuoteLine_validate_discountAccount}&quot;) { failureMessage = failureMessage + &quot;Expect discountAccount${customerQuoteLine_validate_discountAccount} but got &quot; + objRequest.customerQuoteLines[0].discountAccount}
+if (&quot;${customerQuoteLine_validate_discountAccountDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountAccountDescription!= &quot;${customerQuoteLine_validate_discountAccountDescription}&quot;) { failureMessage = failureMessage + &quot;Expect discountAccountDescription${customerQuoteLine_validate_discountAccountDescription} but got &quot; + objRequest.customerQuoteLines[0].discountAccountDescription}
+if (&quot;${customerQuoteLine_validate_discountSubAccount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountSubAccount!= &quot;${customerQuoteLine_validate_discountSubAccount}&quot;) { failureMessage = failureMessage + &quot;Expect discountSubAccount${customerQuoteLine_validate_discountSubAccount} but got &quot; + objRequest.customerQuoteLines[0].discountSubAccount}
+if (&quot;${customerQuoteLine_validate_discountSubAccountDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountSubAccountDescription!= &quot;${customerQuoteLine_validate_discountSubAccountDescription}&quot;) { failureMessage = failureMessage + &quot;Expect discountSubAccountDescription${customerQuoteLine_validate_discountSubAccountDescription} but got &quot; + objRequest.customerQuoteLines[0].discountSubAccountDescription}
+if (&quot;${customerQuoteLine_validate_discountCostCenter}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountCostCenter!= &quot;${customerQuoteLine_validate_discountCostCenter}&quot;) { failureMessage = failureMessage + &quot;Expect discountCostCenter${customerQuoteLine_validate_discountCostCenter} but got &quot; + objRequest.customerQuoteLines[0].discountCostCenter}
+if (&quot;${customerQuoteLine_validate_discountCostCenterDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountCostCenterDescription!= &quot;${customerQuoteLine_validate_discountCostCenterDescription}&quot;) { failureMessage = failureMessage + &quot;Expect discountCostCenterDescription${customerQuoteLine_validate_discountCostCenterDescription} but got &quot; + objRequest.customerQuoteLines[0].discountCostCenterDescription}
+if (&quot;${customerQuoteLine_validate_discountProject}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountProject!= &quot;${customerQuoteLine_validate_discountProject}&quot;) { failureMessage = failureMessage + &quot;Expect discountProject${customerQuoteLine_validate_discountProject} but got &quot; + objRequest.customerQuoteLines[0].discountProject}
+if (&quot;${customerQuoteLine_validate_discountProjectDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].discountProjectDescription!= &quot;${customerQuoteLine_validate_discountProjectDescription}&quot;) { failureMessage = failureMessage + &quot;Expect discountProjectDescription${customerQuoteLine_validate_discountProjectDescription} but got &quot; + objRequest.customerQuoteLines[0].discountProjectDescription}
+if (&quot;${customerQuoteLine_validate_taxClass}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].taxClass!= &quot;${customerQuoteLine_validate_taxClass}&quot;) { failureMessage = failureMessage + &quot;Expect taxClass${customerQuoteLine_validate_taxClass} but got &quot; + objRequest.customerQuoteLines[0].taxClass}
+if (&quot;${customerQuoteLine_validate_taxClassDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].taxClassDescription!= &quot;${customerQuoteLine_validate_taxClassDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxClassDescription${customerQuoteLine_validate_taxClassDescription} but got &quot; + objRequest.customerQuoteLines[0].taxClassDescription}
+if (&quot;${customerQuoteLine_validate_taxEnvironment}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].taxEnvironment!= &quot;${customerQuoteLine_validate_taxEnvironment}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironment${customerQuoteLine_validate_taxEnvironment} but got &quot; + objRequest.customerQuoteLines[0].taxEnvironment}
+if (&quot;${customerQuoteLine_validate_taxEnvironmentDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].taxEnvironmentDescription!= &quot;${customerQuoteLine_validate_taxEnvironmentDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxEnvironmentDescription${customerQuoteLine_validate_taxEnvironmentDescription} but got &quot; + objRequest.customerQuoteLines[0].taxEnvironmentDescription}
+if (&quot;${customerQuoteLine_validate_isTaxIncluded}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].isTaxIncluded!= &quot;${customerQuoteLine_validate_isTaxIncluded}&quot;) { failureMessage = failureMessage + &quot;Expect isTaxIncluded${customerQuoteLine_validate_isTaxIncluded} but got &quot; + objRequest.customerQuoteLines[0].isTaxIncluded}
+if (&quot;${customerQuoteLine_validate_taxUsage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].taxUsage!= &quot;${customerQuoteLine_validate_taxUsage}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsage${customerQuoteLine_validate_taxUsage} but got &quot; + objRequest.customerQuoteLines[0].taxUsage}
+if (&quot;${customerQuoteLine_validate_taxUsageDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].taxUsageDescription!= &quot;${customerQuoteLine_validate_taxUsageDescription}&quot;) { failureMessage = failureMessage + &quot;Expect taxUsageDescription${customerQuoteLine_validate_taxUsageDescription} but got &quot; + objRequest.customerQuoteLines[0].taxUsageDescription}
+if (&quot;${customerQuoteLine_validate_replacementItemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].replacementItemCode!= &quot;${customerQuoteLine_validate_replacementItemCode}&quot;) { failureMessage = failureMessage + &quot;Expect replacementItemCode {customerQuoteLine_validate_replacementItemCode} but got &quot; + objRequest.customerQuoteLines[0].replacementItemCode}
+if (&quot;${customerQuoteLine_validate_replacementDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].replacementDescription!= &quot;${customerQuoteLine_validate_replacementDescription}&quot;) { failureMessage = failureMessage + &quot;Expect replacementDescription{customerQuoteLine_validate_replacementDescription} but got &quot; + objRequest.customerQuoteLines[0].replacementDescription}
+if (&quot;${customerQuoteLine_validate_replacementSiteCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].replacementSiteCode!= &quot;${customerQuoteLine_validate_replacementSiteCode}&quot;) { failureMessage = failureMessage + &quot;Expect replacementItemCode {customerQuoteLine_validate_replacementSiteCode} but got &quot; + objRequest.customerQuoteLines[0].replacementSiteCode}
+if (&quot;${customerQuoteLine_validate_replacementSiteDescription}&quot;!=&quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].replacementSiteDescription!= &quot;${customerQuoteLine_validate_replacementSiteDescription}&quot;) { failureMessage = failureMessage + &quot;Expect customerQuoteLine_validate_replacementSiteDescription {customerQuoteLine_validate_replacementSiteDescription} but got&quot; + objRequest.customerQuoteLines[0].replacementSiteDescription}
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+              <stringProp name="scriptLanguage">javascript</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Quote Type Change" enabled="true">
+          <stringProp name="IfController.condition">&quot;${customerQuoteLine_url_fieldName}&quot;==&quot;referenceType&quot;||&quot;${customerQuoteLine_url_fieldNameoteLine_referenceTypeDescription}&quot;==&quot;customerQuoteLine_referenceTypeDescription&quot;</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="quoteLine fieldChange" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines/fieldChange?fieldName=${customerQuoteLine_url_fieldName}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${customerQuoteLine_referenceType}&quot; != &quot;[N/A]&quot; &amp;&amp;  objRequest.customerQuoteLines[0].referenceType =&quot;${customerQuoteLine_referenceType}&quot;)
+if (&quot;${customerQuoteLine_referenceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.customerQuoteLines[0].referenceTypeDescription= &quot;${customerQuoteLine_referenceTypeDescription}&quot;;
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="quoteLine fieldChange" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines/fieldChange?fieldName=${customerQuoteLine_url_fieldName}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+objRequest.customerQuoteLines[0].referenceType =&quot;${customerQuoteLine_referenceType}&quot;
+objRequest.customerQuoteLines[0].referenceTypeDescription= &quot;${customerQuoteLine_referenceTypeDescription}&quot;;
+objRequest.customerQuoteLineConfs[0].isProcessedByBL =&quot;false&quot;;
+objRequest.customerQuoteLineConfs[0].isProcessedByClient =&quot;true&quot;;
+objRequest.customerQuoteLineConfs[0].isResponseAffirmative =&quot;false&quot;;
+	
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+              <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">false</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+            <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">var failureMessage = &quot;&quot;;
+var temp = prev.getResponseDataAsString();
+vars.put(&quot;temp&quot;, temp);
+var errormessage = JSON.parse(temp);
+var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+if (&quot;${customerQuoteLine_validate_message}&quot; != &quot;[N/A]&quot;) 
+{ 
+	
+	if(&quot;${customerQuoteLine_validate_message}&quot;!=errormessage.submitResult.errors[0].message)
+	{
+		failureMessage = failureMessage + &quot;Expect customer quote line message ${customerQuoteLine_validate_message} but got &quot;+errormessage.submitResult.errors[0].message;
+	}
+}
+
+else if(errormessage.submitResult.success != true)
+{
+	failureMessage = failureMessage + &quot;Expect true but got &quot;+errormessage.submitResult.success+&quot;/n&quot;;
+}
+
+// All the fields in dataset should be set here
+if (&quot;${customerQuoteLine_validate_referenceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].referenceType!= &quot;${customerQuoteLine_validate_referenceType}&quot;) { failureMessage = failureMessage + &quot;Expect referenceType${customerQuoteLine_validate_referenceType} but got &quot; + objRequest.customerQuoteLines[0].referenceType}
+if (&quot;${customerQuoteLine_validate_referenceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.customerQuoteLines[0].referenceTypeDescription!= &quot;${customerQuoteLine_validate_referenceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect referenceTypeDescription${customerQuoteLine_validate_referenceTypeDescription} but got &quot; + objRequest.customerQuoteLines[0].referenceTypeDescription}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+              <stringProp name="scriptLanguage">javascript</stringProp>
+            </JSR223Assertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="false">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;customerQuoteLine_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

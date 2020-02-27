@@ -1,0 +1,27 @@
+ <property name="mvn.home" value="/qad/web/server/apache-maven-3.1.1"/>
+    <property name="mvn.home.win" value="U:/maven/3.1.1"/>
+endUserCode,item,lotSerial,ref,qty,parentItem,parentSerial,parentRef,isComponent,isParent,itemType,isbRevision,model,warrantyCode,installedDate,warrantyExpiration,lastPMDate,PMDays,isbStatus,ownerShip,location
+30C1001,01010,bulk03,,,,,,,,O,,,180-A,2019-06-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk04,,,,,,,,O,,,180-A,2019-01-01T00:00:00.000Z,2019-07-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk5,,,,,,,,O,,,180-A,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk06,,,,,,,,O,,,365-S,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk07,,,,,,,,O,,MODEL 01,365-S,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk08,,,,,,,,O,,,180-A,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,01010,bulk09,,,,,,,,O,,,365-S,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+10C1001,99020,,,2,,,,,,O,,,365-S,2019-01-01T00:00:00.000Z,2020-01-01T00:00:00.000Z,,,,,
+      <condition property="M2_HOME" value="${env.M2_HOME}">
+            <isset property="env.M2_HOME"/>
+        </condition>
+        <condition property="M2_HOME" value="${mvn.home}">
+            <os family="unix" />
+        </condition>
+        <condition property="M2_HOME" value="${mvn.home.win}">
+            <os family="windows" />
+        </condition>
+
+        <fail message="A M2_HOME variable must be configured to point to a Maven installation.">
+            <condition>
+                <not>
+                    <available file="${M2_HOME}/bin/mvn"/>
+                </not>
+            </condition>

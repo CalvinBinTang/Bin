@@ -1,0 +1,10 @@
+<XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="Extractor {Field Name}" enabled="true">
+  <stringProp name="XPathExtractor.default"></stringProp>
+  <stringProp name="XPathExtractor.refname">{Field Name}</stringProp>
+  <stringProp name="XPathExtractor.matchNumber">-1</stringProp>
+  <stringProp name="XPathExtractor.xpathQuery">//{Field Name}</stringProp>
+  <boolProp name="XPathExtractor.validate">false</boolProp>
+  <boolProp name="XPathExtractor.tolerant">false</boolProp>
+  <boolProp name="XPathExtractor.namespace">false</boolProp>
+</XPathExtractor>
+<hashTree/>

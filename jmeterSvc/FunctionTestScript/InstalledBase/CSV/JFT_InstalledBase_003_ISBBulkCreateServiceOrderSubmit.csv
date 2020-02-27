@@ -1,0 +1,4 @@
+EndUser,ItemCode,LotSerial,Reference,Quantity,ItemRevision,InstallDate,WarrantyCode,WarrantyExpiration,ItemModel,IsSelected,IsParent,ISBParentItemCode
+30C1001,01010,bulk01,0,1.0,,2019-06-01T00:00:00.000Z,180-A,2020-01-01T00:00:00.000Z,O,true,false,
+10C1001,01010,bulk02,0,1.0,,2019-01-01T00:00:00.000Z,180-A,2019-07-01T00:00:00.000Z,O,true,false,
+10C1001,01010,bulk03,0,1.0,,2019-01-01T00:00:00.000Z,180-A,2020-01-01T00:00:00.000Z,O,true,false,

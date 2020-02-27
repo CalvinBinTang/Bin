@@ -1,0 +1,2 @@
+domainCode,PreShipperSequenceID,ShipperSequenceID,MasterBillSequenceID,IsRequireInventoryMovementCodes,DocumentFormat,IsShipmentInfoForReceipts,RSSCalendarOption,IsUseProofOfDelivery,IsProofOfDeliveryOrders,MasterBillDocumentFormat,MixedLoadLabel,MasterLoadLabel,SingleLoadLabel,IsAutomaticCumPegging,IsUseShipPlanPCR,IsCustomerRefIsCustomerItem,IsReallocate,InTransitLocation,IsConsolidateInvoices
+10USA,PRE,SHIP,MBOL,false,01,true,1,false,false,01,XX,XXX,XXX,true,false,false,false,010,true

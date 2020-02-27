@@ -1,0 +1,25 @@
+FieldName,FieldValue
+domainCode,10USA
+customerCode,cust2
+businessRelationCode,10-C1001
+billToCustomer,10c1001
+addressName,
+addressSearchName,
+address1,
+address2,ARcontrolIC
+address3,AR control intercompany
+stateCode,
+city,
+country,
+controlGLInvoice,ARcontrolIC
+controlGLCreditNote,ARcontrolIC
+controlGLPrepayment,ARcontrolIC
+controlGLDeduction,DedProfile
+salesAccountGL,Sales
+invoiceStatusCode,C-OK
+creditTerm,3M
+isTaxable,TRUE
+taxZone,US-NJ
+taxClass,
+taxUsage,
+isActive,TRUE

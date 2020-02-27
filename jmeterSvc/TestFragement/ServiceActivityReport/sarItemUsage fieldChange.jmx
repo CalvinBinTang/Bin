@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="sarItemUsage fieldChange">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange"/>
+      <hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String defaultValue = "[N/A]";
+List varsList = [];
+
+// URL Paremeters
+varsList.add("sarItemUsage_url_fieldName");
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add("sarItemUsage_domainCode");
+varsList.add("sarItemUsage_reportID");
+varsList.add("sarItemUsage_itemType");
+varsList.add("sarItemUsage_itemCode");
+varsList.add("sarItemUsage_itemDescription");
+varsList.add("sarItemUsage_itemDescription2");
+varsList.add("sarItemUsage_operationNumber");
+varsList.add("sarItemUsage_operationDescription");
+varsList.add("sarItemUsage_serviceOrderNumber");
+varsList.add("sarItemUsage_issueDate");
+varsList.add("sarItemUsage_quantityRequired");
+varsList.add("sarItemUsage_quantityAllocated");
+varsList.add("sarItemUsage_quantityPicked");
+varsList.add("sarItemUsage_quantityIssued");
+varsList.add("sarItemUsage_quantityAvailable");
+varsList.add("sarItemUsage_standardCost");
+varsList.add("sarItemUsage_quantityToIssue");
+varsList.add("sarItemUsage_quantityBackOrdered");
+varsList.add("sarItemUsage_locationCode");
+varsList.add("sarItemUsage_locationDescription");
+varsList.add("sarItemUsage_lotSerial");
+varsList.add("sarItemUsage_commentIndex");
+varsList.add("sarItemUsage_siteCode");
+varsList.add("sarItemUsage_siteDescription");
+varsList.add("sarItemUsage_frozenBOMQuantity");
+varsList.add("sarItemUsage_standardFrozenBOMCost");
+varsList.add("sarItemUsage_materialRateVarPosted");
+varsList.add("sarItemUsage_materialRateVarAccrued");
+varsList.add("sarItemUsage_workCode");
+varsList.add("sarItemUsage_workCodeDescription");
+varsList.add("sarItemUsage_coveredAmount");
+varsList.add("sarItemUsage_engineerCode");
+varsList.add("sarItemUsage_engineerName");
+varsList.add("sarItemUsage_chargeCode");
+varsList.add("sarItemUsage_chargeCodeDescription");
+varsList.add("sarItemUsage_chargeCodeIndex");
+varsList.add("sarItemUsage_invoiceType");
+varsList.add("sarItemUsage_invoiceSortCode");
+varsList.add("sarItemUsage_serviceCategoryCode");
+varsList.add("sarItemUsage_serviceCategoryDescription");
+varsList.add("sarItemUsage_serviceOrderType");
+varsList.add("sarItemUsage_listPrice");
+varsList.add("sarItemUsage_netPrice");
+varsList.add("sarItemUsage_productLine");
+varsList.add("sarItemUsage_productLineDescription");
+varsList.add("sarItemUsage_quantityPosted");
+varsList.add("sarItemUsage_quantityReturned");
+varsList.add("sarItemUsage_statusCode");
+varsList.add("sarItemUsage_coveredAmountPosted");
+varsList.add("sarItemUsage_serviceTypeCode");
+varsList.add("sarItemUsage_serviceTypeDescription");
+varsList.add("sarItemUsage_projectCode");
+varsList.add("sarItemUsage_projectDescription");
+varsList.add("sarItemUsage_quantityReturnedPosted");
+varsList.add("sarItemUsage_exchangePrice");
+varsList.add("sarItemUsage_returnSiteCode");
+varsList.add("sarItemUsage_returnLocationCode");
+varsList.add("sarItemUsage_standardUnitCost");
+varsList.add("sarItemUsage_serviceOrderLine");
+varsList.add("sarItemUsage_salesOrderLine");
+varsList.add("sarItemUsage_salesOrderNumber");
+varsList.add("sarItemUsage_isLoadedFromMO");
+varsList.add("sarItemUsage_fromLocationCode");
+varsList.add("sarItemUsage_fromSiteCode");
+varsList.add("sarItemUsage_reference");
+varsList.add("sarItemUsage_returnLotSerial");
+varsList.add("sarItemUsage_installedBaseReference");
+varsList.add("sarItemUsage_returnReference");
+varsList.add("sarItemUsage_legalDocumentID");
+varsList.add("sarItemUsage_isSwap");
+varsList.add("sarItemUsage_isManualPrice");
+varsList.add("sarItemUsage_wodDetUser1");
+varsList.add("sarItemUsage_wodDetUser2");
+varsList.add("sarItemUsage_wodDetChr01");
+varsList.add("sarItemUsage_wodDetChr02");
+varsList.add("sarItemUsage_wodDetChr03");
+varsList.add("sarItemUsage_wodDetChr04");
+varsList.add("sarItemUsage_wodDetChr05");
+varsList.add("sarItemUsage_wodDetDte01");
+varsList.add("sarItemUsage_wodDetDte02");
+varsList.add("sarItemUsage_wodDetDec01");
+varsList.add("sarItemUsage_wodDetDec02");
+varsList.add("sarItemUsage_extendedPrice");
+varsList.add("sarItemUsage_currencyCode");
+varsList.add("sarItemUsage_isRepairable");
+varsList.add("sarItemUsage_lineIsOverrideLimits");
+varsList.add("sarItemUsage_disallowedActions");
+varsList.add("sarItemUsage_disallowedActionsMessage");
+varsList.add("sarItemUsage_oldInvoiceSortCode");
+varsList.add("sarItemUsage_oldWorkCode");
+varsList.add("sarItemUsage_oldServiceCategoryCode");
+varsList.add("sarItemUsage_oldQty");
+varsList.add("sarItemUsage_oldChargeCode");
+varsList.add("sarItemUsage_oldCoveredAmt");
+varsList.add("sarItemUsage_oldServiceType");
+varsList.add("sarItemUsage_limitUnpostedAmt");
+varsList.add("sarItemUsage_limitFirstActDate");
+varsList.add("sarItemUsage_limitLastActDate");
+varsList.add("sarItemUsage_isAskOver");
+varsList.add("sarItemUsage_isAskDefault");
+varsList.add("sarItemUsage_isLimitDefault");
+varsList.add("sarItemUsage_isCoveredAmountChanged");
+varsList.add("sarItemUsage_dataOperation");
+varsList.add("sarItemUsage_workOrderDetailConcurrencyHash");
+varsList.add("sarItemUsage_concurrencyHash");
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add("sarItemUsage_validate_domainCode");
+varsList.add("sarItemUsage_validate_reportID");
+varsList.add("sarItemUsage_validate_itemType");
+varsList.add("sarItemUsage_validate_itemCode");
+varsList.add("sarItemUsage_validate_itemDescription");
+varsList.add("sarItemUsage_validate_itemDescription2");
+varsList.add("sarItemUsage_validate_operationNumber");
+varsList.add("sarItemUsage_validate_operationDescription");
+varsList.add("sarItemUsage_validate_serviceOrderNumber");
+varsList.add("sarItemUsage_validate_issueDate");
+varsList.add("sarItemUsage_validate_quantityRequired");
+varsList.add("sarItemUsage_validate_quantityAllocated");
+varsList.add("sarItemUsage_validate_quantityPicked");
+varsList.add("sarItemUsage_validate_quantityIssued");
+varsList.add("sarItemUsage_validate_quantityAvailable");
+varsList.add("sarItemUsage_validate_standardCost");
+varsList.add("sarItemUsage_validate_quantityToIssue");
+varsList.add("sarItemUsage_validate_quantityBackOrdered");
+varsList.add("sarItemUsage_validate_locationCode");
+varsList.add("sarItemUsage_validate_locationDescription");
+varsList.add("sarItemUsage_validate_lotSerial");
+varsList.add("sarItemUsage_validate_commentIndex");
+varsList.add("sarItemUsage_validate_siteCode");
+varsList.add("sarItemUsage_validate_siteDescription");
+varsList.add("sarItemUsage_validate_frozenBOMQuantity");
+varsList.add("sarItemUsage_validate_standardFrozenBOMCost");
+varsList.add("sarItemUsage_validate_materialRateVarPosted");
+varsList.add("sarItemUsage_validate_materialRateVarAccrued");
+varsList.add("sarItemUsage_validate_workCode");
+varsList.add("sarItemUsage_validate_workCodeDescription");
+varsList.add("sarItemUsage_validate_coveredAmount");
+varsList.add("sarItemUsage_validate_engineerCode");
+varsList.add("sarItemUsage_validate_engineerName");
+varsList.add("sarItemUsage_validate_chargeCode");
+varsList.add("sarItemUsage_validate_chargeCodeDescription");
+varsList.add("sarItemUsage_validate_chargeCodeIndex");
+varsList.add("sarItemUsage_validate_invoiceType");
+varsList.add("sarItemUsage_validate_invoiceSortCode");
+varsList.add("sarItemUsage_validate_serviceCategoryCode");
+varsList.add("sarItemUsage_validate_serviceCategoryDescription");
+varsList.add("sarItemUsage_validate_serviceOrderType");
+varsList.add("sarItemUsage_validate_listPrice");
+varsList.add("sarItemUsage_validate_netPrice");
+varsList.add("sarItemUsage_validate_productLine");
+varsList.add("sarItemUsage_validate_productLineDescription");
+varsList.add("sarItemUsage_validate_quantityPosted");
+varsList.add("sarItemUsage_validate_quantityReturned");
+varsList.add("sarItemUsage_validate_statusCode");
+varsList.add("sarItemUsage_validate_coveredAmountPosted");
+varsList.add("sarItemUsage_validate_serviceTypeCode");
+varsList.add("sarItemUsage_validate_serviceTypeDescription");
+varsList.add("sarItemUsage_validate_projectCode");
+varsList.add("sarItemUsage_validate_projectDescription");
+varsList.add("sarItemUsage_validate_quantityReturnedPosted");
+varsList.add("sarItemUsage_validate_exchangePrice");
+varsList.add("sarItemUsage_validate_returnSiteCode");
+varsList.add("sarItemUsage_validate_returnLocationCode");
+varsList.add("sarItemUsage_validate_standardUnitCost");
+varsList.add("sarItemUsage_validate_serviceOrderLine");
+varsList.add("sarItemUsage_validate_salesOrderLine");
+varsList.add("sarItemUsage_validate_salesOrderNumber");
+varsList.add("sarItemUsage_validate_isLoadedFromMO");
+varsList.add("sarItemUsage_validate_fromLocationCode");
+varsList.add("sarItemUsage_validate_fromSiteCode");
+varsList.add("sarItemUsage_validate_reference");
+varsList.add("sarItemUsage_validate_returnLotSerial");
+varsList.add("sarItemUsage_validate_installedBaseReference");
+varsList.add("sarItemUsage_validate_returnReference");
+varsList.add("sarItemUsage_validate_legalDocumentID");
+varsList.add("sarItemUsage_validate_isSwap");
+varsList.add("sarItemUsage_validate_isManualPrice");
+varsList.add("sarItemUsage_validate_wodDetUser1");
+varsList.add("sarItemUsage_validate_wodDetUser2");
+varsList.add("sarItemUsage_validate_wodDetChr01");
+varsList.add("sarItemUsage_validate_wodDetChr02");
+varsList.add("sarItemUsage_validate_wodDetChr03");
+varsList.add("sarItemUsage_validate_wodDetChr04");
+varsList.add("sarItemUsage_validate_wodDetChr05");
+varsList.add("sarItemUsage_validate_wodDetDte01");
+varsList.add("sarItemUsage_validate_wodDetDte02");
+varsList.add("sarItemUsage_validate_wodDetDec01");
+varsList.add("sarItemUsage_validate_wodDetDec02");
+varsList.add("sarItemUsage_validate_extendedPrice");
+varsList.add("sarItemUsage_validate_currencyCode");
+varsList.add("sarItemUsage_validate_isRepairable");
+varsList.add("sarItemUsage_validate_lineIsOverrideLimits");
+varsList.add("sarItemUsage_validate_disallowedActions");
+varsList.add("sarItemUsage_validate_disallowedActionsMessage");
+varsList.add("sarItemUsage_validate_oldInvoiceSortCode");
+varsList.add("sarItemUsage_validate_oldWorkCode");
+varsList.add("sarItemUsage_validate_oldServiceCategoryCode");
+varsList.add("sarItemUsage_validate_oldQty");
+varsList.add("sarItemUsage_validate_oldChargeCode");
+varsList.add("sarItemUsage_validate_oldCoveredAmt");
+varsList.add("sarItemUsage_validate_oldServiceType");
+varsList.add("sarItemUsage_validate_limitUnpostedAmt");
+varsList.add("sarItemUsage_validate_limitFirstActDate");
+varsList.add("sarItemUsage_validate_limitLastActDate");
+varsList.add("sarItemUsage_validate_isAskOver");
+varsList.add("sarItemUsage_validate_isAskDefault");
+varsList.add("sarItemUsage_validate_isLimitDefault");
+varsList.add("sarItemUsage_validate_isCoveredAmountChanged");
+varsList.add("sarItemUsage_validate_dataOperation");
+varsList.add("sarItemUsage_validate_workOrderDetailConcurrencyHash");
+varsList.add("sarItemUsage_validate_concurrencyHash");
+
+
+varsList.each {
+if (vars.get("${it}") == null) vars.put("${it}", defaultValue);
+}</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="sarItemUsage fieldChange">
+		<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/sarItemUsages/fieldChange?fieldName=${sarItemUsage_url_fieldName}</stringProp>
+		<stringProp name="HTTPSampler.method">POST</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager enabled="true" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+		<collectionProp name="HeaderManager.headers">
+			<elementProp elementType="Header" name="Content-Type">
+				<stringProp name="Header.name">Content-Type</stringProp>
+				<stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Language">
+				<stringProp name="Header.name">Accept-Language</stringProp>
+				<stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept">
+				<stringProp name="Header.name">Accept</stringProp>
+				<stringProp name="Header.value">*/*</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Origin">
+				<stringProp name="Header.name">Origin</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="User-Agent">
+				<stringProp name="Header.name">User-Agent</stringProp>
+				<stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="DNT">
+				<stringProp name="Header.name">DNT</stringProp>
+				<stringProp name="Header.value">1</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="X-Requested-With">
+				<stringProp name="Header.name">X-Requested-With</stringProp>
+				<stringProp name="Header.value">XMLHttpRequest</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Referer">
+				<stringProp name="Header.name">Referer</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Encoding">
+				<stringProp name="Header.name">Accept-Encoding</stringProp>
+				<stringProp name="Header.value">gzip, deflate</stringProp>
+			</elementProp>
+		</collectionProp>
+	</HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor enabled="true" guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript">
+		<stringProp name="scriptLanguage">javascript</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if ("${sarItemUsage_domainCode}" != "[N/A]") objRequest.sarItemUsages[0].domainCode= "${sarItemUsage_domainCode}";
+if ("${sarItemUsage_reportID}" != "[N/A]") objRequest.sarItemUsages[0].reportID= "${sarItemUsage_reportID}";
+if ("${sarItemUsage_itemType}" != "[N/A]") objRequest.sarItemUsages[0].itemType= "${sarItemUsage_itemType}";
+if ("${sarItemUsage_itemCode}" != "[N/A]") objRequest.sarItemUsages[0].itemCode= "${sarItemUsage_itemCode}";
+if ("${sarItemUsage_itemDescription}" != "[N/A]") objRequest.sarItemUsages[0].itemDescription= "${sarItemUsage_itemDescription}";
+if ("${sarItemUsage_itemDescription2}" != "[N/A]") objRequest.sarItemUsages[0].itemDescription2= "${sarItemUsage_itemDescription2}";
+if ("${sarItemUsage_operationNumber}" != "[N/A]") objRequest.sarItemUsages[0].operationNumber= "${sarItemUsage_operationNumber}";
+if ("${sarItemUsage_operationDescription}" != "[N/A]") objRequest.sarItemUsages[0].operationDescription= "${sarItemUsage_operationDescription}";
+if ("${sarItemUsage_serviceOrderNumber}" != "[N/A]") objRequest.sarItemUsages[0].serviceOrderNumber= "${sarItemUsage_serviceOrderNumber}";
+if ("${sarItemUsage_issueDate}" != "[N/A]") objRequest.sarItemUsages[0].issueDate= "${sarItemUsage_issueDate}";
+if ("${sarItemUsage_quantityRequired}" != "[N/A]") objRequest.sarItemUsages[0].quantityRequired= "${sarItemUsage_quantityRequired}";
+if ("${sarItemUsage_quantityAllocated}" != "[N/A]") objRequest.sarItemUsages[0].quantityAllocated= "${sarItemUsage_quantityAllocated}";
+if ("${sarItemUsage_quantityPicked}" != "[N/A]") objRequest.sarItemUsages[0].quantityPicked= "${sarItemUsage_quantityPicked}";
+if ("${sarItemUsage_quantityIssued}" != "[N/A]") objRequest.sarItemUsages[0].quantityIssued= "${sarItemUsage_quantityIssued}";
+if ("${sarItemUsage_quantityAvailable}" != "[N/A]") objRequest.sarItemUsages[0].quantityAvailable= "${sarItemUsage_quantityAvailable}";
+if ("${sarItemUsage_standardCost}" != "[N/A]") objRequest.sarItemUsages[0].standardCost= "${sarItemUsage_standardCost}";
+if ("${sarItemUsage_quantityToIssue}" != "[N/A]") objRequest.sarItemUsages[0].quantityToIssue= "${sarItemUsage_quantityToIssue}";
+if ("${sarItemUsage_quantityBackOrdered}" != "[N/A]") objRequest.sarItemUsages[0].quantityBackOrdered= "${sarItemUsage_quantityBackOrdered}";
+if ("${sarItemUsage_locationCode}" != "[N/A]") objRequest.sarItemUsages[0].locationCode= "${sarItemUsage_locationCode}";
+if ("${sarItemUsage_locationDescription}" != "[N/A]") objRequest.sarItemUsages[0].locationDescription= "${sarItemUsage_locationDescription}";
+if ("${sarItemUsage_lotSerial}" != "[N/A]") objRequest.sarItemUsages[0].lotSerial= "${sarItemUsage_lotSerial}";
+if ("${sarItemUsage_commentIndex}" != "[N/A]") objRequest.sarItemUsages[0].commentIndex= "${sarItemUsage_commentIndex}";
+if ("${sarItemUsage_siteCode}" != "[N/A]") objRequest.sarItemUsages[0].siteCode= "${sarItemUsage_siteCode}";
+if ("${sarItemUsage_siteDescription}" != "[N/A]") objRequest.sarItemUsages[0].siteDescription= "${sarItemUsage_siteDescription}";
+if ("${sarItemUsage_frozenBOMQuantity}" != "[N/A]") objRequest.sarItemUsages[0].frozenBOMQuantity= "${sarItemUsage_frozenBOMQuantity}";
+if ("${sarItemUsage_standardFrozenBOMCost}" != "[N/A]") objRequest.sarItemUsages[0].standardFrozenBOMCost= "${sarItemUsage_standardFrozenBOMCost}";
+if ("${sarItemUsage_materialRateVarPosted}" != "[N/A]") objRequest.sarItemUsages[0].materialRateVarPosted= "${sarItemUsage_materialRateVarPosted}";
+if ("${sarItemUsage_materialRateVarAccrued}" != "[N/A]") objRequest.sarItemUsages[0].materialRateVarAccrued= "${sarItemUsage_materialRateVarAccrued}";
+if ("${sarItemUsage_workCode}" != "[N/A]") objRequest.sarItemUsages[0].workCode= "${sarItemUsage_workCode}";
+if ("${sarItemUsage_workCodeDescription}" != "[N/A]") objRequest.sarItemUsages[0].workCodeDescription= "${sarItemUsage_workCodeDescription}";
+if ("${sarItemUsage_coveredAmount}" != "[N/A]") objRequest.sarItemUsages[0].coveredAmount= "${sarItemUsage_coveredAmount}";
+if ("${sarItemUsage_engineerCode}" != "[N/A]") objRequest.sarItemUsages[0].engineerCode= "${sarItemUsage_engineerCode}";
+if ("${sarItemUsage_engineerName}" != "[N/A]") objRequest.sarItemUsages[0].engineerName= "${sarItemUsage_engineerName}";
+if ("${sarItemUsage_chargeCode}" != "[N/A]") objRequest.sarItemUsages[0].chargeCode= "${sarItemUsage_chargeCode}";
+if ("${sarItemUsage_chargeCodeDescription}" != "[N/A]") objRequest.sarItemUsages[0].chargeCodeDescription= "${sarItemUsage_chargeCodeDescription}";
+if ("${sarItemUsage_chargeCodeIndex}" != "[N/A]") objRequest.sarItemUsages[0].chargeCodeIndex= "${sarItemUsage_chargeCodeIndex}";
+if ("${sarItemUsage_invoiceType}" != "[N/A]") objRequest.sarItemUsages[0].invoiceType= "${sarItemUsage_invoiceType}";
+if ("${sarItemUsage_invoiceSortCode}" != "[N/A]") objRequest.sarItemUsages[0].invoiceSortCode= "${sarItemUsage_invoiceSortCode}";
+if ("${sarItemUsage_serviceCategoryCode}" != "[N/A]") objRequest.sarItemUsages[0].serviceCategoryCode= "${sarItemUsage_serviceCategoryCode}";
+if ("${sarItemUsage_serviceCategoryDescription}" != "[N/A]") objRequest.sarItemUsages[0].serviceCategoryDescription= "${sarItemUsage_serviceCategoryDescription}";
+if ("${sarItemUsage_serviceOrderType}" != "[N/A]") objRequest.sarItemUsages[0].serviceOrderType= "${sarItemUsage_serviceOrderType}";
+if ("${sarItemUsage_listPrice}" != "[N/A]") objRequest.sarItemUsages[0].listPrice= "${sarItemUsage_listPrice}";
+if ("${sarItemUsage_netPrice}" != "[N/A]") objRequest.sarItemUsages[0].netPrice= "${sarItemUsage_netPrice}";
+if ("${sarItemUsage_productLine}" != "[N/A]") objRequest.sarItemUsages[0].productLine= "${sarItemUsage_productLine}";
+if ("${sarItemUsage_productLineDescription}" != "[N/A]") objRequest.sarItemUsages[0].productLineDescription= "${sarItemUsage_productLineDescription}";
+if ("${sarItemUsage_quantityPosted}" != "[N/A]") objRequest.sarItemUsages[0].quantityPosted= "${sarItemUsage_quantityPosted}";
+if ("${sarItemUsage_quantityReturned}" != "[N/A]") objRequest.sarItemUsages[0].quantityReturned= "${sarItemUsage_quantityReturned}";
+if ("${sarItemUsage_statusCode}" != "[N/A]") objRequest.sarItemUsages[0].statusCode= "${sarItemUsage_statusCode}";
+if ("${sarItemUsage_coveredAmountPosted}" != "[N/A]") objRequest.sarItemUsages[0].coveredAmountPosted= "${sarItemUsage_coveredAmountPosted}";
+if ("${sarItemUsage_serviceTypeCode}" != "[N/A]") objRequest.sarItemUsages[0].serviceTypeCode= "${sarItemUsage_serviceTypeCode}";
+if ("${sarItemUsage_serviceTypeDescription}" != "[N/A]") objRequest.sarItemUsages[0].serviceTypeDescription= "${sarItemUsage_serviceTypeDescription}";
+if ("${sarItemUsage_projectCode}" != "[N/A]") objRequest.sarItemUsages[0].projectCode= "${sarItemUsage_projectCode}";
+if ("${sarItemUsage_projectDescription}" != "[N/A]") objRequest.sarItemUsages[0].projectDescription= "${sarItemUsage_projectDescription}";
+if ("${sarItemUsage_quantityReturnedPosted}" != "[N/A]") objRequest.sarItemUsages[0].quantityReturnedPosted= "${sarItemUsage_quantityReturnedPosted}";
+if ("${sarItemUsage_exchangePrice}" != "[N/A]") objRequest.sarItemUsages[0].exchangePrice= "${sarItemUsage_exchangePrice}";
+if ("${sarItemUsage_returnSiteCode}" != "[N/A]") objRequest.sarItemUsages[0].returnSiteCode= "${sarItemUsage_returnSiteCode}";
+if ("${sarItemUsage_returnLocationCode}" != "[N/A]") objRequest.sarItemUsages[0].returnLocationCode= "${sarItemUsage_returnLocationCode}";
+if ("${sarItemUsage_standardUnitCost}" != "[N/A]") objRequest.sarItemUsages[0].standardUnitCost= "${sarItemUsage_standardUnitCost}";
+if ("${sarItemUsage_serviceOrderLine}" != "[N/A]") objRequest.sarItemUsages[0].serviceOrderLine= "${sarItemUsage_serviceOrderLine}";
+if ("${sarItemUsage_salesOrderLine}" != "[N/A]") objRequest.sarItemUsages[0].salesOrderLine= "${sarItemUsage_salesOrderLine}";
+if ("${sarItemUsage_salesOrderNumber}" != "[N/A]") objRequest.sarItemUsages[0].salesOrderNumber= "${sarItemUsage_salesOrderNumber}";
+if ("${sarItemUsage_isLoadedFromMO}" != "[N/A]") objRequest.sarItemUsages[0].isLoadedFromMO= "${sarItemUsage_isLoadedFromMO}";
+if ("${sarItemUsage_fromLocationCode}" != "[N/A]") objRequest.sarItemUsages[0].fromLocationCode= "${sarItemUsage_fromLocationCode}";
+if ("${sarItemUsage_fromSiteCode}" != "[N/A]") objRequest.sarItemUsages[0].fromSiteCode= "${sarItemUsage_fromSiteCode}";
+if ("${sarItemUsage_reference}" != "[N/A]") objRequest.sarItemUsages[0].reference= "${sarItemUsage_reference}";
+if ("${sarItemUsage_returnLotSerial}" != "[N/A]") objRequest.sarItemUsages[0].returnLotSerial= "${sarItemUsage_returnLotSerial}";
+if ("${sarItemUsage_installedBaseReference}" != "[N/A]") objRequest.sarItemUsages[0].installedBaseReference= "${sarItemUsage_installedBaseReference}";
+if ("${sarItemUsage_returnReference}" != "[N/A]") objRequest.sarItemUsages[0].returnReference= "${sarItemUsage_returnReference}";
+if ("${sarItemUsage_legalDocumentID}" != "[N/A]") objRequest.sarItemUsages[0].legalDocumentID= "${sarItemUsage_legalDocumentID}";
+if ("${sarItemUsage_isSwap}" != "[N/A]") objRequest.sarItemUsages[0].isSwap= "${sarItemUsage_isSwap}";
+if ("${sarItemUsage_isManualPrice}" != "[N/A]") objRequest.sarItemUsages[0].isManualPrice= "${sarItemUsage_isManualPrice}";
+if ("${sarItemUsage_wodDetUser1}" != "[N/A]") objRequest.sarItemUsages[0].wodDetUser1= "${sarItemUsage_wodDetUser1}";
+if ("${sarItemUsage_wodDetUser2}" != "[N/A]") objRequest.sarItemUsages[0].wodDetUser2= "${sarItemUsage_wodDetUser2}";
+if ("${sarItemUsage_wodDetChr01}" != "[N/A]") objRequest.sarItemUsages[0].wodDetChr01= "${sarItemUsage_wodDetChr01}";
+if ("${sarItemUsage_wodDetChr02}" != "[N/A]") objRequest.sarItemUsages[0].wodDetChr02= "${sarItemUsage_wodDetChr02}";
+if ("${sarItemUsage_wodDetChr03}" != "[N/A]") objRequest.sarItemUsages[0].wodDetChr03= "${sarItemUsage_wodDetChr03}";
+if ("${sarItemUsage_wodDetChr04}" != "[N/A]") objRequest.sarItemUsages[0].wodDetChr04= "${sarItemUsage_wodDetChr04}";
+if ("${sarItemUsage_wodDetChr05}" != "[N/A]") objRequest.sarItemUsages[0].wodDetChr05= "${sarItemUsage_wodDetChr05}";
+if ("${sarItemUsage_wodDetDte01}" != "[N/A]") objRequest.sarItemUsages[0].wodDetDte01= "${sarItemUsage_wodDetDte01}";
+if ("${sarItemUsage_wodDetDte02}" != "[N/A]") objRequest.sarItemUsages[0].wodDetDte02= "${sarItemUsage_wodDetDte02}";
+if ("${sarItemUsage_wodDetDec01}" != "[N/A]") objRequest.sarItemUsages[0].wodDetDec01= "${sarItemUsage_wodDetDec01}";
+if ("${sarItemUsage_wodDetDec02}" != "[N/A]") objRequest.sarItemUsages[0].wodDetDec02= "${sarItemUsage_wodDetDec02}";
+if ("${sarItemUsage_extendedPrice}" != "[N/A]") objRequest.sarItemUsages[0].extendedPrice= "${sarItemUsage_extendedPrice}";
+if ("${sarItemUsage_currencyCode}" != "[N/A]") objRequest.sarItemUsages[0].currencyCode= "${sarItemUsage_currencyCode}";
+if ("${sarItemUsage_isRepairable}" != "[N/A]") objRequest.sarItemUsages[0].isRepairable= "${sarItemUsage_isRepairable}";
+if ("${sarItemUsage_lineIsOverrideLimits}" != "[N/A]") objRequest.sarItemUsages[0].lineIsOverrideLimits= "${sarItemUsage_lineIsOverrideLimits}";
+if ("${sarItemUsage_disallowedActions}" != "[N/A]") objRequest.sarItemUsages[0].disallowedActions= "${sarItemUsage_disallowedActions}";
+if ("${sarItemUsage_disallowedActionsMessage}" != "[N/A]") objRequest.sarItemUsages[0].disallowedActionsMessage= "${sarItemUsage_disallowedActionsMessage}";
+if ("${sarItemUsage_oldInvoiceSortCode}" != "[N/A]") objRequest.sarItemUsages[0].oldInvoiceSortCode= "${sarItemUsage_oldInvoiceSortCode}";
+if ("${sarItemUsage_oldWorkCode}" != "[N/A]") objRequest.sarItemUsages[0].oldWorkCode= "${sarItemUsage_oldWorkCode}";
+if ("${sarItemUsage_oldServiceCategoryCode}" != "[N/A]") objRequest.sarItemUsages[0].oldServiceCategoryCode= "${sarItemUsage_oldServiceCategoryCode}";
+if ("${sarItemUsage_oldQty}" != "[N/A]") objRequest.sarItemUsages[0].oldQty= "${sarItemUsage_oldQty}";
+if ("${sarItemUsage_oldChargeCode}" != "[N/A]") objRequest.sarItemUsages[0].oldChargeCode= "${sarItemUsage_oldChargeCode}";
+if ("${sarItemUsage_oldCoveredAmt}" != "[N/A]") objRequest.sarItemUsages[0].oldCoveredAmt= "${sarItemUsage_oldCoveredAmt}";
+if ("${sarItemUsage_oldServiceType}" != "[N/A]") objRequest.sarItemUsages[0].oldServiceType= "${sarItemUsage_oldServiceType}";
+if ("${sarItemUsage_limitUnpostedAmt}" != "[N/A]") objRequest.sarItemUsages[0].limitUnpostedAmt= "${sarItemUsage_limitUnpostedAmt}";
+if ("${sarItemUsage_limitFirstActDate}" != "[N/A]") objRequest.sarItemUsages[0].limitFirstActDate= "${sarItemUsage_limitFirstActDate}";
+if ("${sarItemUsage_limitLastActDate}" != "[N/A]") objRequest.sarItemUsages[0].limitLastActDate= "${sarItemUsage_limitLastActDate}";
+if ("${sarItemUsage_isAskOver}" != "[N/A]") objRequest.sarItemUsages[0].isAskOver= "${sarItemUsage_isAskOver}";
+if ("${sarItemUsage_isAskDefault}" != "[N/A]") objRequest.sarItemUsages[0].isAskDefault= "${sarItemUsage_isAskDefault}";
+if ("${sarItemUsage_isLimitDefault}" != "[N/A]") objRequest.sarItemUsages[0].isLimitDefault= "${sarItemUsage_isLimitDefault}";
+if ("${sarItemUsage_isCoveredAmountChanged}" != "[N/A]") objRequest.sarItemUsages[0].isCoveredAmountChanged= "${sarItemUsage_isCoveredAmountChanged}";
+if ("${sarItemUsage_dataOperation}" != "[N/A]") objRequest.sarItemUsages[0].dataOperation= "${sarItemUsage_dataOperation}";
+if ("${sarItemUsage_workOrderDetailConcurrencyHash}" != "[N/A]") objRequest.sarItemUsages[0].workOrderDetailConcurrencyHash= "${sarItemUsage_workOrderDetailConcurrencyHash}";
+if ("${sarItemUsage_concurrencyHash}" != "[N/A]") objRequest.sarItemUsages[0].concurrencyHash= "${sarItemUsage_concurrencyHash}";
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put("RequestData", strUpdatedRequest);</stringProp>
+	</JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse">
+		<stringProp name="VAR">RequestData</stringProp>
+		<stringProp name="JSONPATH">$.data</stringProp>
+		<stringProp name="DEFAULT">NotFound</stringProp>
+		<stringProp name="VARIABLE"/>
+		<stringProp name="SUBJECT">BODY</stringProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+		<stringProp name="EXPECTED_VALUE">true</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion enabled="true" guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion">
+		<stringProp name="cacheKey"/>
+		<stringProp name="filename"/>
+		<stringProp name="parameters"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+var failureMessage = "";
+
+// All the fields in dataset should be set here
+if ("${sarItemUsage_validate_domainCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].domainCode!= "${sarItemUsage_validate_domainCode}") { failureMessage = failureMessage + "Expect domainCode${sarItemUsage_validate_domainCode} but got " + objRequest.sarItemUsages[0].domainCode}
+if ("${sarItemUsage_validate_reportID}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].reportID!= "${sarItemUsage_validate_reportID}") { failureMessage = failureMessage + "Expect reportID${sarItemUsage_validate_reportID} but got " + objRequest.sarItemUsages[0].reportID}
+if ("${sarItemUsage_validate_itemType}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].itemType!= "${sarItemUsage_validate_itemType}") { failureMessage = failureMessage + "Expect itemType${sarItemUsage_validate_itemType} but got " + objRequest.sarItemUsages[0].itemType}
+if ("${sarItemUsage_validate_itemCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].itemCode!= "${sarItemUsage_validate_itemCode}") { failureMessage = failureMessage + "Expect itemCode${sarItemUsage_validate_itemCode} but got " + objRequest.sarItemUsages[0].itemCode}
+if ("${sarItemUsage_validate_itemDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].itemDescription!= "${sarItemUsage_validate_itemDescription}") { failureMessage = failureMessage + "Expect itemDescription${sarItemUsage_validate_itemDescription} but got " + objRequest.sarItemUsages[0].itemDescription}
+if ("${sarItemUsage_validate_itemDescription2}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].itemDescription2!= "${sarItemUsage_validate_itemDescription2}") { failureMessage = failureMessage + "Expect itemDescription2${sarItemUsage_validate_itemDescription2} but got " + objRequest.sarItemUsages[0].itemDescription2}
+if ("${sarItemUsage_validate_operationNumber}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].operationNumber!= "${sarItemUsage_validate_operationNumber}") { failureMessage = failureMessage + "Expect operationNumber${sarItemUsage_validate_operationNumber} but got " + objRequest.sarItemUsages[0].operationNumber}
+if ("${sarItemUsage_validate_operationDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].operationDescription!= "${sarItemUsage_validate_operationDescription}") { failureMessage = failureMessage + "Expect operationDescription${sarItemUsage_validate_operationDescription} but got " + objRequest.sarItemUsages[0].operationDescription}
+if ("${sarItemUsage_validate_serviceOrderNumber}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceOrderNumber!= "${sarItemUsage_validate_serviceOrderNumber}") { failureMessage = failureMessage + "Expect serviceOrderNumber${sarItemUsage_validate_serviceOrderNumber} but got " + objRequest.sarItemUsages[0].serviceOrderNumber}
+if ("${sarItemUsage_validate_issueDate}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].issueDate!= "${sarItemUsage_validate_issueDate}") { failureMessage = failureMessage + "Expect issueDate${sarItemUsage_validate_issueDate} but got " + objRequest.sarItemUsages[0].issueDate}
+if ("${sarItemUsage_validate_quantityRequired}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityRequired!= "${sarItemUsage_validate_quantityRequired}") { failureMessage = failureMessage + "Expect quantityRequired${sarItemUsage_validate_quantityRequired} but got " + objRequest.sarItemUsages[0].quantityRequired}
+if ("${sarItemUsage_validate_quantityAllocated}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityAllocated!= "${sarItemUsage_validate_quantityAllocated}") { failureMessage = failureMessage + "Expect quantityAllocated${sarItemUsage_validate_quantityAllocated} but got " + objRequest.sarItemUsages[0].quantityAllocated}
+if ("${sarItemUsage_validate_quantityPicked}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityPicked!= "${sarItemUsage_validate_quantityPicked}") { failureMessage = failureMessage + "Expect quantityPicked${sarItemUsage_validate_quantityPicked} but got " + objRequest.sarItemUsages[0].quantityPicked}
+if ("${sarItemUsage_validate_quantityIssued}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityIssued!= "${sarItemUsage_validate_quantityIssued}") { failureMessage = failureMessage + "Expect quantityIssued${sarItemUsage_validate_quantityIssued} but got " + objRequest.sarItemUsages[0].quantityIssued}
+if ("${sarItemUsage_validate_quantityAvailable}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityAvailable!= "${sarItemUsage_validate_quantityAvailable}") { failureMessage = failureMessage + "Expect quantityAvailable${sarItemUsage_validate_quantityAvailable} but got " + objRequest.sarItemUsages[0].quantityAvailable}
+if ("${sarItemUsage_validate_standardCost}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].standardCost!= "${sarItemUsage_validate_standardCost}") { failureMessage = failureMessage + "Expect standardCost${sarItemUsage_validate_standardCost} but got " + objRequest.sarItemUsages[0].standardCost}
+if ("${sarItemUsage_validate_quantityToIssue}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityToIssue!= "${sarItemUsage_validate_quantityToIssue}") { failureMessage = failureMessage + "Expect quantityToIssue${sarItemUsage_validate_quantityToIssue} but got " + objRequest.sarItemUsages[0].quantityToIssue}
+if ("${sarItemUsage_validate_quantityBackOrdered}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityBackOrdered!= "${sarItemUsage_validate_quantityBackOrdered}") { failureMessage = failureMessage + "Expect quantityBackOrdered${sarItemUsage_validate_quantityBackOrdered} but got " + objRequest.sarItemUsages[0].quantityBackOrdered}
+if ("${sarItemUsage_validate_locationCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].locationCode!= "${sarItemUsage_validate_locationCode}") { failureMessage = failureMessage + "Expect locationCode${sarItemUsage_validate_locationCode} but got " + objRequest.sarItemUsages[0].locationCode}
+if ("${sarItemUsage_validate_locationDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].locationDescription!= "${sarItemUsage_validate_locationDescription}") { failureMessage = failureMessage + "Expect locationDescription${sarItemUsage_validate_locationDescription} but got " + objRequest.sarItemUsages[0].locationDescription}
+if ("${sarItemUsage_validate_lotSerial}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].lotSerial!= "${sarItemUsage_validate_lotSerial}") { failureMessage = failureMessage + "Expect lotSerial${sarItemUsage_validate_lotSerial} but got " + objRequest.sarItemUsages[0].lotSerial}
+if ("${sarItemUsage_validate_commentIndex}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].commentIndex!= "${sarItemUsage_validate_commentIndex}") { failureMessage = failureMessage + "Expect commentIndex${sarItemUsage_validate_commentIndex} but got " + objRequest.sarItemUsages[0].commentIndex}
+if ("${sarItemUsage_validate_siteCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].siteCode!= "${sarItemUsage_validate_siteCode}") { failureMessage = failureMessage + "Expect siteCode${sarItemUsage_validate_siteCode} but got " + objRequest.sarItemUsages[0].siteCode}
+if ("${sarItemUsage_validate_siteDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].siteDescription!= "${sarItemUsage_validate_siteDescription}") { failureMessage = failureMessage + "Expect siteDescription${sarItemUsage_validate_siteDescription} but got " + objRequest.sarItemUsages[0].siteDescription}
+if ("${sarItemUsage_validate_frozenBOMQuantity}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].frozenBOMQuantity!= "${sarItemUsage_validate_frozenBOMQuantity}") { failureMessage = failureMessage + "Expect frozenBOMQuantity${sarItemUsage_validate_frozenBOMQuantity} but got " + objRequest.sarItemUsages[0].frozenBOMQuantity}
+if ("${sarItemUsage_validate_standardFrozenBOMCost}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].standardFrozenBOMCost!= "${sarItemUsage_validate_standardFrozenBOMCost}") { failureMessage = failureMessage + "Expect standardFrozenBOMCost${sarItemUsage_validate_standardFrozenBOMCost} but got " + objRequest.sarItemUsages[0].standardFrozenBOMCost}
+if ("${sarItemUsage_validate_materialRateVarPosted}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].materialRateVarPosted!= "${sarItemUsage_validate_materialRateVarPosted}") { failureMessage = failureMessage + "Expect materialRateVarPosted${sarItemUsage_validate_materialRateVarPosted} but got " + objRequest.sarItemUsages[0].materialRateVarPosted}
+if ("${sarItemUsage_validate_materialRateVarAccrued}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].materialRateVarAccrued!= "${sarItemUsage_validate_materialRateVarAccrued}") { failureMessage = failureMessage + "Expect materialRateVarAccrued${sarItemUsage_validate_materialRateVarAccrued} but got " + objRequest.sarItemUsages[0].materialRateVarAccrued}
+if ("${sarItemUsage_validate_workCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].workCode!= "${sarItemUsage_validate_workCode}") { failureMessage = failureMessage + "Expect workCode${sarItemUsage_validate_workCode} but got " + objRequest.sarItemUsages[0].workCode}
+if ("${sarItemUsage_validate_workCodeDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].workCodeDescription!= "${sarItemUsage_validate_workCodeDescription}") { failureMessage = failureMessage + "Expect workCodeDescription${sarItemUsage_validate_workCodeDescription} but got " + objRequest.sarItemUsages[0].workCodeDescription}
+if ("${sarItemUsage_validate_coveredAmount}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].coveredAmount!= "${sarItemUsage_validate_coveredAmount}") { failureMessage = failureMessage + "Expect coveredAmount${sarItemUsage_validate_coveredAmount} but got " + objRequest.sarItemUsages[0].coveredAmount}
+if ("${sarItemUsage_validate_engineerCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].engineerCode!= "${sarItemUsage_validate_engineerCode}") { failureMessage = failureMessage + "Expect engineerCode${sarItemUsage_validate_engineerCode} but got " + objRequest.sarItemUsages[0].engineerCode}
+if ("${sarItemUsage_validate_engineerName}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].engineerName!= "${sarItemUsage_validate_engineerName}") { failureMessage = failureMessage + "Expect engineerName${sarItemUsage_validate_engineerName} but got " + objRequest.sarItemUsages[0].engineerName}
+if ("${sarItemUsage_validate_chargeCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].chargeCode!= "${sarItemUsage_validate_chargeCode}") { failureMessage = failureMessage + "Expect chargeCode${sarItemUsage_validate_chargeCode} but got " + objRequest.sarItemUsages[0].chargeCode}
+if ("${sarItemUsage_validate_chargeCodeDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].chargeCodeDescription!= "${sarItemUsage_validate_chargeCodeDescription}") { failureMessage = failureMessage + "Expect chargeCodeDescription${sarItemUsage_validate_chargeCodeDescription} but got " + objRequest.sarItemUsages[0].chargeCodeDescription}
+if ("${sarItemUsage_validate_chargeCodeIndex}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].chargeCodeIndex!= "${sarItemUsage_validate_chargeCodeIndex}") { failureMessage = failureMessage + "Expect chargeCodeIndex${sarItemUsage_validate_chargeCodeIndex} but got " + objRequest.sarItemUsages[0].chargeCodeIndex}
+if ("${sarItemUsage_validate_invoiceType}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].invoiceType!= "${sarItemUsage_validate_invoiceType}") { failureMessage = failureMessage + "Expect invoiceType${sarItemUsage_validate_invoiceType} but got " + objRequest.sarItemUsages[0].invoiceType}
+if ("${sarItemUsage_validate_invoiceSortCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].invoiceSortCode!= "${sarItemUsage_validate_invoiceSortCode}") { failureMessage = failureMessage + "Expect invoiceSortCode${sarItemUsage_validate_invoiceSortCode} but got " + objRequest.sarItemUsages[0].invoiceSortCode}
+if ("${sarItemUsage_validate_serviceCategoryCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceCategoryCode!= "${sarItemUsage_validate_serviceCategoryCode}") { failureMessage = failureMessage + "Expect serviceCategoryCode${sarItemUsage_validate_serviceCategoryCode} but got " + objRequest.sarItemUsages[0].serviceCategoryCode}
+if ("${sarItemUsage_validate_serviceCategoryDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceCategoryDescription!= "${sarItemUsage_validate_serviceCategoryDescription}") { failureMessage = failureMessage + "Expect serviceCategoryDescription${sarItemUsage_validate_serviceCategoryDescription} but got " + objRequest.sarItemUsages[0].serviceCategoryDescription}
+if ("${sarItemUsage_validate_serviceOrderType}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceOrderType!= "${sarItemUsage_validate_serviceOrderType}") { failureMessage = failureMessage + "Expect serviceOrderType${sarItemUsage_validate_serviceOrderType} but got " + objRequest.sarItemUsages[0].serviceOrderType}
+if ("${sarItemUsage_validate_listPrice}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].listPrice!= "${sarItemUsage_validate_listPrice}") { failureMessage = failureMessage + "Expect listPrice${sarItemUsage_validate_listPrice} but got " + objRequest.sarItemUsages[0].listPrice}
+if ("${sarItemUsage_validate_netPrice}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].netPrice!= "${sarItemUsage_validate_netPrice}") { failureMessage = failureMessage + "Expect netPrice${sarItemUsage_validate_netPrice} but got " + objRequest.sarItemUsages[0].netPrice}
+if ("${sarItemUsage_validate_productLine}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].productLine!= "${sarItemUsage_validate_productLine}") { failureMessage = failureMessage + "Expect productLine${sarItemUsage_validate_productLine} but got " + objRequest.sarItemUsages[0].productLine}
+if ("${sarItemUsage_validate_productLineDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].productLineDescription!= "${sarItemUsage_validate_productLineDescription}") { failureMessage = failureMessage + "Expect productLineDescription${sarItemUsage_validate_productLineDescription} but got " + objRequest.sarItemUsages[0].productLineDescription}
+if ("${sarItemUsage_validate_quantityPosted}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityPosted!= "${sarItemUsage_validate_quantityPosted}") { failureMessage = failureMessage + "Expect quantityPosted${sarItemUsage_validate_quantityPosted} but got " + objRequest.sarItemUsages[0].quantityPosted}
+if ("${sarItemUsage_validate_quantityReturned}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityReturned!= "${sarItemUsage_validate_quantityReturned}") { failureMessage = failureMessage + "Expect quantityReturned${sarItemUsage_validate_quantityReturned} but got " + objRequest.sarItemUsages[0].quantityReturned}
+if ("${sarItemUsage_validate_statusCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].statusCode!= "${sarItemUsage_validate_statusCode}") { failureMessage = failureMessage + "Expect statusCode${sarItemUsage_validate_statusCode} but got " + objRequest.sarItemUsages[0].statusCode}
+if ("${sarItemUsage_validate_coveredAmountPosted}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].coveredAmountPosted!= "${sarItemUsage_validate_coveredAmountPosted}") { failureMessage = failureMessage + "Expect coveredAmountPosted${sarItemUsage_validate_coveredAmountPosted} but got " + objRequest.sarItemUsages[0].coveredAmountPosted}
+if ("${sarItemUsage_validate_serviceTypeCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceTypeCode!= "${sarItemUsage_validate_serviceTypeCode}") { failureMessage = failureMessage + "Expect serviceTypeCode${sarItemUsage_validate_serviceTypeCode} but got " + objRequest.sarItemUsages[0].serviceTypeCode}
+if ("${sarItemUsage_validate_serviceTypeDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceTypeDescription!= "${sarItemUsage_validate_serviceTypeDescription}") { failureMessage = failureMessage + "Expect serviceTypeDescription${sarItemUsage_validate_serviceTypeDescription} but got " + objRequest.sarItemUsages[0].serviceTypeDescription}
+if ("${sarItemUsage_validate_projectCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].projectCode!= "${sarItemUsage_validate_projectCode}") { failureMessage = failureMessage + "Expect projectCode${sarItemUsage_validate_projectCode} but got " + objRequest.sarItemUsages[0].projectCode}
+if ("${sarItemUsage_validate_projectDescription}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].projectDescription!= "${sarItemUsage_validate_projectDescription}") { failureMessage = failureMessage + "Expect projectDescription${sarItemUsage_validate_projectDescription} but got " + objRequest.sarItemUsages[0].projectDescription}
+if ("${sarItemUsage_validate_quantityReturnedPosted}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].quantityReturnedPosted!= "${sarItemUsage_validate_quantityReturnedPosted}") { failureMessage = failureMessage + "Expect quantityReturnedPosted${sarItemUsage_validate_quantityReturnedPosted} but got " + objRequest.sarItemUsages[0].quantityReturnedPosted}
+if ("${sarItemUsage_validate_exchangePrice}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].exchangePrice!= "${sarItemUsage_validate_exchangePrice}") { failureMessage = failureMessage + "Expect exchangePrice${sarItemUsage_validate_exchangePrice} but got " + objRequest.sarItemUsages[0].exchangePrice}
+if ("${sarItemUsage_validate_returnSiteCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].returnSiteCode!= "${sarItemUsage_validate_returnSiteCode}") { failureMessage = failureMessage + "Expect returnSiteCode${sarItemUsage_validate_returnSiteCode} but got " + objRequest.sarItemUsages[0].returnSiteCode}
+if ("${sarItemUsage_validate_returnLocationCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].returnLocationCode!= "${sarItemUsage_validate_returnLocationCode}") { failureMessage = failureMessage + "Expect returnLocationCode${sarItemUsage_validate_returnLocationCode} but got " + objRequest.sarItemUsages[0].returnLocationCode}
+if ("${sarItemUsage_validate_standardUnitCost}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].standardUnitCost!= "${sarItemUsage_validate_standardUnitCost}") { failureMessage = failureMessage + "Expect standardUnitCost${sarItemUsage_validate_standardUnitCost} but got " + objRequest.sarItemUsages[0].standardUnitCost}
+if ("${sarItemUsage_validate_serviceOrderLine}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].serviceOrderLine!= "${sarItemUsage_validate_serviceOrderLine}") { failureMessage = failureMessage + "Expect serviceOrderLine${sarItemUsage_validate_serviceOrderLine} but got " + objRequest.sarItemUsages[0].serviceOrderLine}
+if ("${sarItemUsage_validate_salesOrderLine}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].salesOrderLine!= "${sarItemUsage_validate_salesOrderLine}") { failureMessage = failureMessage + "Expect salesOrderLine${sarItemUsage_validate_salesOrderLine} but got " + objRequest.sarItemUsages[0].salesOrderLine}
+if ("${sarItemUsage_validate_salesOrderNumber}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].salesOrderNumber!= "${sarItemUsage_validate_salesOrderNumber}") { failureMessage = failureMessage + "Expect salesOrderNumber${sarItemUsage_validate_salesOrderNumber} but got " + objRequest.sarItemUsages[0].salesOrderNumber}
+if ("${sarItemUsage_validate_isLoadedFromMO}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isLoadedFromMO!= "${sarItemUsage_validate_isLoadedFromMO}") { failureMessage = failureMessage + "Expect isLoadedFromMO${sarItemUsage_validate_isLoadedFromMO} but got " + objRequest.sarItemUsages[0].isLoadedFromMO}
+if ("${sarItemUsage_validate_fromLocationCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].fromLocationCode!= "${sarItemUsage_validate_fromLocationCode}") { failureMessage = failureMessage + "Expect fromLocationCode${sarItemUsage_validate_fromLocationCode} but got " + objRequest.sarItemUsages[0].fromLocationCode}
+if ("${sarItemUsage_validate_fromSiteCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].fromSiteCode!= "${sarItemUsage_validate_fromSiteCode}") { failureMessage = failureMessage + "Expect fromSiteCode${sarItemUsage_validate_fromSiteCode} but got " + objRequest.sarItemUsages[0].fromSiteCode}
+if ("${sarItemUsage_validate_reference}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].reference!= "${sarItemUsage_validate_reference}") { failureMessage = failureMessage + "Expect reference${sarItemUsage_validate_reference} but got " + objRequest.sarItemUsages[0].reference}
+if ("${sarItemUsage_validate_returnLotSerial}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].returnLotSerial!= "${sarItemUsage_validate_returnLotSerial}") { failureMessage = failureMessage + "Expect returnLotSerial${sarItemUsage_validate_returnLotSerial} but got " + objRequest.sarItemUsages[0].returnLotSerial}
+if ("${sarItemUsage_validate_installedBaseReference}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].installedBaseReference!= "${sarItemUsage_validate_installedBaseReference}") { failureMessage = failureMessage + "Expect installedBaseReference${sarItemUsage_validate_installedBaseReference} but got " + objRequest.sarItemUsages[0].installedBaseReference}
+if ("${sarItemUsage_validate_returnReference}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].returnReference!= "${sarItemUsage_validate_returnReference}") { failureMessage = failureMessage + "Expect returnReference${sarItemUsage_validate_returnReference} but got " + objRequest.sarItemUsages[0].returnReference}
+if ("${sarItemUsage_validate_legalDocumentID}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].legalDocumentID!= "${sarItemUsage_validate_legalDocumentID}") { failureMessage = failureMessage + "Expect legalDocumentID${sarItemUsage_validate_legalDocumentID} but got " + objRequest.sarItemUsages[0].legalDocumentID}
+if ("${sarItemUsage_validate_isSwap}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isSwap!= "${sarItemUsage_validate_isSwap}") { failureMessage = failureMessage + "Expect isSwap${sarItemUsage_validate_isSwap} but got " + objRequest.sarItemUsages[0].isSwap}
+if ("${sarItemUsage_validate_isManualPrice}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isManualPrice!= "${sarItemUsage_validate_isManualPrice}") { failureMessage = failureMessage + "Expect isManualPrice${sarItemUsage_validate_isManualPrice} but got " + objRequest.sarItemUsages[0].isManualPrice}
+if ("${sarItemUsage_validate_wodDetUser1}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetUser1!= "${sarItemUsage_validate_wodDetUser1}") { failureMessage = failureMessage + "Expect wodDetUser1${sarItemUsage_validate_wodDetUser1} but got " + objRequest.sarItemUsages[0].wodDetUser1}
+if ("${sarItemUsage_validate_wodDetUser2}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetUser2!= "${sarItemUsage_validate_wodDetUser2}") { failureMessage = failureMessage + "Expect wodDetUser2${sarItemUsage_validate_wodDetUser2} but got " + objRequest.sarItemUsages[0].wodDetUser2}
+if ("${sarItemUsage_validate_wodDetChr01}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetChr01!= "${sarItemUsage_validate_wodDetChr01}") { failureMessage = failureMessage + "Expect wodDetChr01${sarItemUsage_validate_wodDetChr01} but got " + objRequest.sarItemUsages[0].wodDetChr01}
+if ("${sarItemUsage_validate_wodDetChr02}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetChr02!= "${sarItemUsage_validate_wodDetChr02}") { failureMessage = failureMessage + "Expect wodDetChr02${sarItemUsage_validate_wodDetChr02} but got " + objRequest.sarItemUsages[0].wodDetChr02}
+if ("${sarItemUsage_validate_wodDetChr03}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetChr03!= "${sarItemUsage_validate_wodDetChr03}") { failureMessage = failureMessage + "Expect wodDetChr03${sarItemUsage_validate_wodDetChr03} but got " + objRequest.sarItemUsages[0].wodDetChr03}
+if ("${sarItemUsage_validate_wodDetChr04}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetChr04!= "${sarItemUsage_validate_wodDetChr04}") { failureMessage = failureMessage + "Expect wodDetChr04${sarItemUsage_validate_wodDetChr04} but got " + objRequest.sarItemUsages[0].wodDetChr04}
+if ("${sarItemUsage_validate_wodDetChr05}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetChr05!= "${sarItemUsage_validate_wodDetChr05}") { failureMessage = failureMessage + "Expect wodDetChr05${sarItemUsage_validate_wodDetChr05} but got " + objRequest.sarItemUsages[0].wodDetChr05}
+if ("${sarItemUsage_validate_wodDetDte01}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetDte01!= "${sarItemUsage_validate_wodDetDte01}") { failureMessage = failureMessage + "Expect wodDetDte01${sarItemUsage_validate_wodDetDte01} but got " + objRequest.sarItemUsages[0].wodDetDte01}
+if ("${sarItemUsage_validate_wodDetDte02}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetDte02!= "${sarItemUsage_validate_wodDetDte02}") { failureMessage = failureMessage + "Expect wodDetDte02${sarItemUsage_validate_wodDetDte02} but got " + objRequest.sarItemUsages[0].wodDetDte02}
+if ("${sarItemUsage_validate_wodDetDec01}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetDec01!= "${sarItemUsage_validate_wodDetDec01}") { failureMessage = failureMessage + "Expect wodDetDec01${sarItemUsage_validate_wodDetDec01} but got " + objRequest.sarItemUsages[0].wodDetDec01}
+if ("${sarItemUsage_validate_wodDetDec02}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].wodDetDec02!= "${sarItemUsage_validate_wodDetDec02}") { failureMessage = failureMessage + "Expect wodDetDec02${sarItemUsage_validate_wodDetDec02} but got " + objRequest.sarItemUsages[0].wodDetDec02}
+if ("${sarItemUsage_validate_extendedPrice}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].extendedPrice!= "${sarItemUsage_validate_extendedPrice}") { failureMessage = failureMessage + "Expect extendedPrice${sarItemUsage_validate_extendedPrice} but got " + objRequest.sarItemUsages[0].extendedPrice}
+if ("${sarItemUsage_validate_currencyCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].currencyCode!= "${sarItemUsage_validate_currencyCode}") { failureMessage = failureMessage + "Expect currencyCode${sarItemUsage_validate_currencyCode} but got " + objRequest.sarItemUsages[0].currencyCode}
+if ("${sarItemUsage_validate_isRepairable}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isRepairable!= "${sarItemUsage_validate_isRepairable}") { failureMessage = failureMessage + "Expect isRepairable${sarItemUsage_validate_isRepairable} but got " + objRequest.sarItemUsages[0].isRepairable}
+if ("${sarItemUsage_validate_lineIsOverrideLimits}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].lineIsOverrideLimits!= "${sarItemUsage_validate_lineIsOverrideLimits}") { failureMessage = failureMessage + "Expect lineIsOverrideLimits${sarItemUsage_validate_lineIsOverrideLimits} but got " + objRequest.sarItemUsages[0].lineIsOverrideLimits}
+if ("${sarItemUsage_validate_disallowedActions}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].disallowedActions!= "${sarItemUsage_validate_disallowedActions}") { failureMessage = failureMessage + "Expect disallowedActions${sarItemUsage_validate_disallowedActions} but got " + objRequest.sarItemUsages[0].disallowedActions}
+if ("${sarItemUsage_validate_disallowedActionsMessage}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].disallowedActionsMessage!= "${sarItemUsage_validate_disallowedActionsMessage}") { failureMessage = failureMessage + "Expect disallowedActionsMessage${sarItemUsage_validate_disallowedActionsMessage} but got " + objRequest.sarItemUsages[0].disallowedActionsMessage}
+if ("${sarItemUsage_validate_oldInvoiceSortCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldInvoiceSortCode!= "${sarItemUsage_validate_oldInvoiceSortCode}") { failureMessage = failureMessage + "Expect oldInvoiceSortCode${sarItemUsage_validate_oldInvoiceSortCode} but got " + objRequest.sarItemUsages[0].oldInvoiceSortCode}
+if ("${sarItemUsage_validate_oldWorkCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldWorkCode!= "${sarItemUsage_validate_oldWorkCode}") { failureMessage = failureMessage + "Expect oldWorkCode${sarItemUsage_validate_oldWorkCode} but got " + objRequest.sarItemUsages[0].oldWorkCode}
+if ("${sarItemUsage_validate_oldServiceCategoryCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldServiceCategoryCode!= "${sarItemUsage_validate_oldServiceCategoryCode}") { failureMessage = failureMessage + "Expect oldServiceCategoryCode${sarItemUsage_validate_oldServiceCategoryCode} but got " + objRequest.sarItemUsages[0].oldServiceCategoryCode}
+if ("${sarItemUsage_validate_oldQty}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldQty!= "${sarItemUsage_validate_oldQty}") { failureMessage = failureMessage + "Expect oldQty${sarItemUsage_validate_oldQty} but got " + objRequest.sarItemUsages[0].oldQty}
+if ("${sarItemUsage_validate_oldChargeCode}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldChargeCode!= "${sarItemUsage_validate_oldChargeCode}") { failureMessage = failureMessage + "Expect oldChargeCode${sarItemUsage_validate_oldChargeCode} but got " + objRequest.sarItemUsages[0].oldChargeCode}
+if ("${sarItemUsage_validate_oldCoveredAmt}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldCoveredAmt!= "${sarItemUsage_validate_oldCoveredAmt}") { failureMessage = failureMessage + "Expect oldCoveredAmt${sarItemUsage_validate_oldCoveredAmt} but got " + objRequest.sarItemUsages[0].oldCoveredAmt}
+if ("${sarItemUsage_validate_oldServiceType}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].oldServiceType!= "${sarItemUsage_validate_oldServiceType}") { failureMessage = failureMessage + "Expect oldServiceType${sarItemUsage_validate_oldServiceType} but got " + objRequest.sarItemUsages[0].oldServiceType}
+if ("${sarItemUsage_validate_limitUnpostedAmt}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].limitUnpostedAmt!= "${sarItemUsage_validate_limitUnpostedAmt}") { failureMessage = failureMessage + "Expect limitUnpostedAmt${sarItemUsage_validate_limitUnpostedAmt} but got " + objRequest.sarItemUsages[0].limitUnpostedAmt}
+if ("${sarItemUsage_validate_limitFirstActDate}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].limitFirstActDate!= "${sarItemUsage_validate_limitFirstActDate}") { failureMessage = failureMessage + "Expect limitFirstActDate${sarItemUsage_validate_limitFirstActDate} but got " + objRequest.sarItemUsages[0].limitFirstActDate}
+if ("${sarItemUsage_validate_limitLastActDate}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].limitLastActDate!= "${sarItemUsage_validate_limitLastActDate}") { failureMessage = failureMessage + "Expect limitLastActDate${sarItemUsage_validate_limitLastActDate} but got " + objRequest.sarItemUsages[0].limitLastActDate}
+if ("${sarItemUsage_validate_isAskOver}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isAskOver!= "${sarItemUsage_validate_isAskOver}") { failureMessage = failureMessage + "Expect isAskOver${sarItemUsage_validate_isAskOver} but got " + objRequest.sarItemUsages[0].isAskOver}
+if ("${sarItemUsage_validate_isAskDefault}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isAskDefault!= "${sarItemUsage_validate_isAskDefault}") { failureMessage = failureMessage + "Expect isAskDefault${sarItemUsage_validate_isAskDefault} but got " + objRequest.sarItemUsages[0].isAskDefault}
+if ("${sarItemUsage_validate_isLimitDefault}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isLimitDefault!= "${sarItemUsage_validate_isLimitDefault}") { failureMessage = failureMessage + "Expect isLimitDefault${sarItemUsage_validate_isLimitDefault} but got " + objRequest.sarItemUsages[0].isLimitDefault}
+if ("${sarItemUsage_validate_isCoveredAmountChanged}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].isCoveredAmountChanged!= "${sarItemUsage_validate_isCoveredAmountChanged}") { failureMessage = failureMessage + "Expect isCoveredAmountChanged${sarItemUsage_validate_isCoveredAmountChanged} but got " + objRequest.sarItemUsages[0].isCoveredAmountChanged}
+if ("${sarItemUsage_validate_dataOperation}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].dataOperation!= "${sarItemUsage_validate_dataOperation}") { failureMessage = failureMessage + "Expect dataOperation${sarItemUsage_validate_dataOperation} but got " + objRequest.sarItemUsages[0].dataOperation}
+if ("${sarItemUsage_validate_workOrderDetailConcurrencyHash}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].workOrderDetailConcurrencyHash!= "${sarItemUsage_validate_workOrderDetailConcurrencyHash}") { failureMessage = failureMessage + "Expect workOrderDetailConcurrencyHash${sarItemUsage_validate_workOrderDetailConcurrencyHash} but got " + objRequest.sarItemUsages[0].workOrderDetailConcurrencyHash}
+if ("${sarItemUsage_validate_concurrencyHash}" != "[N/A]" &amp;&amp; objRequest.sarItemUsages[0].concurrencyHash!= "${sarItemUsage_validate_concurrencyHash}") { failureMessage = failureMessage + "Expect concurrencyHash${sarItemUsage_validate_concurrencyHash} but got " + objRequest.sarItemUsages[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != "");
+</stringProp>
+		<stringProp name="scriptLanguage">javascript</stringProp>
+	</JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String prefix = "sarItemUsage_"
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, "[N/A]");
+}
+}
+</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

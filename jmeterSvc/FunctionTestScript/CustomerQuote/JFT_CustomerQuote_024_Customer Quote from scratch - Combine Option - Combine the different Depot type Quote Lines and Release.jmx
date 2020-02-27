@@ -1,0 +1,2175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="JFT_CustomerQuote_024_Customer Quote from scratch - Combine Option - Combine the different Depot type Quote Lines and Release.jmx" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1479226785000</longProp>
+        <longProp name="ThreadGroup.end_time">1479226785000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.001 - Web UI - LogIn" enabled="true">
+          <stringProp name="IncludeController.includepath">../../TestFragement/Common/Login-Fragment.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="SetUpEnvironment" enabled="true">
+          <stringProp name="filename">../../CSV/LogIn.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="domainCode" elementType="Argument">
+              <stringProp name="Argument.name">domainCode</stringProp>
+              <stringProp name="Argument.value">10USA</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="Sold-To" elementType="Argument">
+              <stringProp name="Argument.name">Sold-To</stringProp>
+              <stringProp name="Argument.value">10c1001</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="revision" elementType="Argument">
+              <stringProp name="Argument.name">revision</stringProp>
+              <stringProp name="Argument.value">1</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocolRest}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout">60000</stringProp>
+          <stringProp name="HTTPSampler.response_timeout">60000</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">~/log/${__TestPlanName}_${__time(YMDHMS)}.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.002 - Create Customer Quote from scratch- Quote Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for create customer quote from scratch" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">//vars.put(&quot;CreateSrOfromISB_Serial&quot;,&quot;01010-0111-1&quot;);
+vars.put(&quot;customerQuoteHeaderUI_soldToCustomerCode&quot;,&quot;${Sold-To}&quot;);
+vars.put(&quot;customerQuoteHeaderUI_revision&quot;,&quot;${revision}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;${domainCode}&quot;);
+
+vars.put(&quot;customerQuoteHeaderUI_isCombineDocument&quot;,&quot;true&quot;);
+vars.put(&quot;customerQuoteHeaderUI_purchaseOrderNumber&quot;,&quot;POJFT024&quot;);</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.002 - Create Customer Quote Header-001-Create" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\CustomerQuote\Fragement_CreateCustomerQuoteHeader.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.003 - Create Customer Quote Line 1-Depot Type line" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.003- 1-Create depot type quote line" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for create customer quote line " enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">
+vars.put(&quot;customerQuoteLine_domainCode&quot;,&quot;${domainCode}&quot;);//Manadatory
+vars.put(&quot;customerQuoteLine_quoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);//Mandatory
+vars.put(&quot;customerQuoteLine_revision&quot;,&quot;${revision}&quot;);//Madatory
+vars.put(&quot;customerQuoteLine_referenceType&quot;,&quot;0&quot;);//Depot Type
+
+vars.put(&quot;customerQuoteLine_endUserCode&quot;, &quot;10c1001&quot;);
+vars.put(&quot;customerQuoteLine_workCode&quot;,&quot;5000&quot;);//Fixed
+vars.put(&quot;customerQuoteLine_itemCode&quot;,&quot;01010&quot;);
+vars.put(&quot;customerQuoteLine_lotSerial&quot;,&quot;ynz-JFT024-1&quot;);
+
+
+
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.003- 1- Create Depot Type Quote Line and input data" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\CustomerQuote\Fragement_CreateCustomerQuoteLine_ServiceOrDeporRepairType.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.003- 3- Fetch quote line ${customerQuoteLine}" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="1.003- 3- Fetch the customer quote Line ${customerQuoteLine} line just created" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">vars.put(&quot;quoteLine_url_quoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;quoteLine_url_quoteLine&quot;,&quot;${customerQuoteLine}&quot;);
+vars.put(&quot;quoteLine_url_revision&quot;, &quot;${revision}&quot;);
+vars.put(&quot;domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;quoteLine_validate_fixedPrice&quot;,&quot;1987.45&quot;);
+vars.put(&quot;quoteLine_validate_netPrice&quot;,&quot;1987.45&quot;);
+//vars.put(&quot;quoteLine_validate_cost&quot;,&quot;1,806.77157&quot;);//Should be 0
+</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.003 -3 - Fetch and validate the customer quote line ${customerQuoteLine} just created" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\CustomerQuote\Fragement_customerQuoteLine_ fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Record customerQuoteLine1" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">customerQuoteLine1</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteLines[0].quoteLine</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.004- Create Depot Type Line 2-non-fixed" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.004- 1-Create second depot type quote line" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for create customer quote line " enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">
+vars.put(&quot;customerQuoteLine_domainCode&quot;,&quot;${domainCode}&quot;);//Manadatory
+vars.put(&quot;customerQuoteLine_quoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);//Mandatory
+vars.put(&quot;customerQuoteLine_revision&quot;,&quot;${revision}&quot;);//Madatory
+vars.put(&quot;customerQuoteLine_referenceType&quot;,&quot;0&quot;);//Depot Type
+
+vars.put(&quot;customerQuoteLine_endUserCode&quot;, &quot;10c1001a&quot;);
+vars.put(&quot;customerQuoteLine_workCode&quot;,&quot;4003&quot;);//non-fixed
+vars.put(&quot;customerQuoteLine_itemCode&quot;,&quot;01010&quot;);
+vars.put(&quot;customerQuoteLine_lotSerial&quot;,&quot;ynz-JFT024-2&quot;);
+
+
+
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.004- 1- Create Depot Type Quote Line and input data" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\CustomerQuote\Fragement_CreateCustomerQuoteLine_ServiceOrDeporRepairType.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.004 - 2- Save quote line ${customerQuoteLine}" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="1.004- 2- Fetch the customer quote Line ${customerQuoteLine} line just created" enabled="true">
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">vars.put(&quot;quoteLine_url_quoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;quoteLine_url_quoteLine&quot;,&quot;${customerQuoteLine}&quot;);
+vars.put(&quot;quoteLine_url_revision&quot;, &quot;${revision}&quot;);
+vars.put(&quot;domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;quoteLine_validate_netPrice&quot;,&quot;713.75&quot;);
+vars.put(&quot;quoteLine_validate_cost&quot;,&quot;1.76&quot;);</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.004 -2 - Fetch and validate the customer quote line ${customerQuoteLine} just created" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\CustomerQuote\Fragement_customerQuoteLine_ fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="Record customerQuoteLine2" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">customerQuoteLine2</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteLines[0].quoteLine</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.005 - Save Quote Header." enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.005 - 1- Fetch quote header" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.005 -1- CustomerQuoteHeader Fetch" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="domainCode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">domainCode</stringProp>
+                    <stringProp name="Argument.value">${domainCode}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="quoteNumber" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">quoteNumber</stringProp>
+                    <stringProp name="Argument.value">${output_customerQuoteHeaderUI_quoteNumber}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="revision" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${revision}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">revision</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="DNT" elementType="Header">
+                    <stringProp name="Header.name">DNT</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.005 - 2- Search Quote Line" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.005- 2- Search Quote Line" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="page" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">page</stringProp>
+                  </elementProp>
+                  <elementProp name="pageSize" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">pageSize</stringProp>
+                  </elementProp>
+                  <elementProp name="PageAction" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value"></stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">PageAction</stringProp>
+                  </elementProp>
+                  <elementProp name="filter" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">domainCode,eq,${domainCode},literal</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">filter</stringProp>
+                  </elementProp>
+                  <elementProp name="filter" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">quoteNumber,eq,${output_customerQuoteHeaderUI_quoteNumber},literal</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">filter</stringProp>
+                  </elementProp>
+                  <elementProp name="filter" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">revision,eq,${revision},literal</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">filter</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">page=&amp;pageSize=&amp;pageAction=&amp;filter=domainCode%2Ceq%2C10USA%2Cliteral&amp;filter=quoteNumber%2Ceq%2CCQ-00040%2Cliteral&amp;filter=revision%2Ceq%2C1%2Cliteral</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="DNT" elementType="Header">
+                    <stringProp name="Header.name">DNT</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Count=2" enabled="true">
+                <stringProp name="JSON_PATH">$.count</stringProp>
+                <stringProp name="EXPECTED_VALUE">2</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">false</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.005 - 3 -Post Customer Quote Header" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="customerQuoteHeader save" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${RequestData}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders?domainCode=${domainCode}&amp;quoteNumber=${output_customerQuoteHeaderUI_quoteNumber}&amp;revision=${revision}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">
+var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+objRequest.customerQuoteHeaderUIs[0].isCalculateFreight= &quot;true&quot;;
+objRequest.customerQuoteHeaderUIs[0].isProcessQuoteSummary=&quot;true&quot;;
+//Convert the data object back to a JSON string 
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+              </JSR223PreProcessor>
+              <hashTree/>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="DNT" elementType="Header">
+                    <stringProp name="Header.name">DNT</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="false">
+                <stringProp name="JSON_PATH">submitResult.success</stringProp>
+                <stringProp name="EXPECTED_VALUE">true</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">false</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.006 - Click Release AND Check" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.006- 1- Customer Quote Release Check" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteHeaders/releasePrecheck?domainCode=${domainCode}&amp;quoteNumber=${output_customerQuoteHeaderUI_quoteNumber}&amp;revision=${revision}</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="isValidForRelease" enabled="true">
+              <stringProp name="JSON_PATH">$.isValidForRelease</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.006 - 2- Quote Release" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <stringProp name="TestPlan.comments">	</stringProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.006 -2- CustomerQuoteHeader Fetch" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="domainCode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">domainCode</stringProp>
+                    <stringProp name="Argument.value">${domainCode}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="quoteNumber" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">quoteNumber</stringProp>
+                    <stringProp name="Argument.value">${output_customerQuoteHeaderUI_quoteNumber}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="revision" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">${revision}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    <stringProp name="Argument.name">revision</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/CustomerQuoteReleases</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Content-Type" elementType="Header">
+                    <stringProp name="Header.name">Content-Type</stringProp>
+                    <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="Origin" elementType="Header">
+                    <stringProp name="Header.name">Origin</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                  </elementProp>
+                  <elementProp name="DNT" elementType="Header">
+                    <stringProp name="Header.name">DNT</stringProp>
+                    <stringProp name="Header.value">1</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.006 - 3- Input Engineer" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteReleases/fieldChange?fieldName=engineerCode</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/?menu=none&amp;sessionid=null&amp;ifrl=2</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.9</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+                </elementProp>
+                <elementProp name="x-qadcalluid" elementType="Header">
+                  <stringProp name="Header.name">x-qadcalluid</stringProp>
+                  <stringProp name="Header.value">0f5ad93d-7922-43e5-b52f-29185db4dfbc</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="false">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+//Update Reqeust data
+objRequest.customerQuoteReleases[0].engineerCode= &quot;10-ENG01&quot;;
+//Convert the data object back to a JSON string 
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="false">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="1.006 - 4 - Release" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/CustomerQuoteReleases</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout">600000</stringProp>
+            <stringProp name="HTTPSampler.response_timeout">600000</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) 					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 					Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ReleaseOrderNumber1" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">Output_ReleaseOrderNumber1</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteReleases[0].CQLineToReleases[0].originalDocumentNumber</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ReleaseOrderLine1" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">Output_ReleaseOrderLine1</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteReleases[0].CQLineToReleases[0].originalDocumentLine</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ReleaseOrderNumber2" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">Output_ReleaseOrderNumber2</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteReleases[0].CQLineToReleases[1].originalDocumentNumber</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ReleaseOrderLine2" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">Output_ReleaseOrderLine2</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data.customerQuoteReleases[0].CQLineToReleases[1].originalDocumentLine</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="449966367">Released to Order ${Output_ReleaseOrderNumber1}.</stringProp>
+                <stringProp name="430157070">Released to Order ${Output_ReleaseOrderNumber2}</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+              <stringProp name="Assertion.scope">all</stringProp>
+              <stringProp name="Scope.variable"></stringProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+              <stringProp name="JSON_PATH">submitResult.success</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="1.007 Verify status updated" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Validate the customer quote just released" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">vars.put(&quot;customerQuoteHeaderUI_url_quoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;customerQuoteHeaderUI_url_revision&quot;,&quot;${revision}&quot;);
+vars.put(&quot;domainCode&quot;, &quot;${domainCode}&quot;);
+//Verify the Billing Panel default data
+vars.put(&quot;customerQuoteHeaderUI_validate_statusCodeDescription&quot;, &quot;Released to an order&quot;);
+vars.put(&quot;customerQuoteHeaderUI_validate_isReadyToRelease&quot;,&quot;0&quot;);
+vars.put(&quot;customerQuoteHeaderUI_validate_isUpdateOrderRevision&quot;,&quot;0&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.007 - Fetch and validate the customer quote just released" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\CustomerQuote\Fragement_customerQuoteHeaderUI fetch.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2.001- Fetch and verified the depot order -${Output_ReleaseOrderNumber1} released by quote-${output_customerQuoteHeaderUI_quoteNumber}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2.001- fetch and verified the depot order" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <stringProp name="TestPlan.comments">	</stringProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Fragement_depotOrderHeader fetch" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+
+
+vars.put(&quot;depotOrderHeader_validate_depotOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+vars.put(&quot;depotOrderHeader_validate_serviceQuoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;depotOrderHeader_validate_assigned&quot;,&quot;10-ENG01&quot;);
+vars.put(&quot;depotOrderHeader_validate_endUserCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_statusCode&quot;,&quot;10&quot;);
+vars.put(&quot;depotOrderHeader_validate_typeCode&quot;,&quot;DEFECT&quot;);
+vars.put(&quot;depotOrderHeader_validate_itemCode&quot;,&quot;01010&quot;);
+//vars.put(&quot;depotOrderHeader_validate_serial&quot;,&quot;ynz-JFT021&quot;);
+vars.put(&quot;depotOrderHeader_validate_billToCustomerCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_shipToCustomerCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_customerCode&quot;,&quot;10C1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_priceListCode&quot;,&quot;RP10-100&quot;);
+//vars.put(&quot;depotOrderHeader_validate_problemSkillCode&quot;,&quot;Maint&quot;);
+vars.put(&quot;depotOrderHeader_validate_purchaseOrderNumber&quot;,&quot;POJFT024&quot;);
+vars.put(&quot;depotOrderHeader_validate_serviceTypeCode&quot;,&quot;STD&quot;);
+vars.put(&quot;depotOrderHeader_validate_severityCode&quot;,&quot;B&quot;);
+vars.put(&quot;depotOrderHeader_validate_workCode&quot;,&quot;5000&quot;);
+vars.put(&quot;depotOrderHeader_validate_routingCode&quot;,&quot;RP-1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_billOfMaterialCode&quot;,&quot;RP-1002&quot;);
+vars.put(&quot;depotOrderHeader_validate_siteCode&quot;,&quot;10-100&quot;);
+vars.put(&quot;depotOrderHeader_validate_isTaxable&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderHeader_validate_isConfirmed&quot;,&quot;1&quot;);
+//Depot Order has Shipping panel
+vars.put(&quot;depotOrderHeader_validate_freightListCode&quot;,&quot;10FRT&quot;);
+vars.put(&quot;depotOrderHeader_validate_freightTermsCode&quot;,&quot;ADD&quot;);
+//Depot Order has total panel
+vars.put(&quot;depotOrderHeader_validate_trailerCode1&quot;,&quot;20&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode2&quot;,&quot;11&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode3&quot;,&quot;31&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fragement_depotOrderHeader fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderHeader fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2.002- Depot Order Line validation" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Fragement_depotOrderLine fetch" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;depotOrderLine_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderLine&quot;,&quot;${Output_ReleaseOrderLine1}&quot;);
+
+
+
+vars.put(&quot;depotOrderLine_validate_itemRepairType&quot;,&quot;1&quot;);//Repair
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDisplayValue&quot;,&quot;Repair&quot;);
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDescription&quot;,&quot;Repair&quot;);
+vars.put(&quot;depotOrderLine_validate_itemCode&quot;,&quot;01010&quot;);
+vars.put(&quot;depotOrderLine_validate_serial&quot;,&quot;ynz-JFT024-1&quot;);
+vars.put(&quot;depotOrderLine_validate_workCode&quot;,&quot;5000&quot;);
+vars.put(&quot;depotOrderLine_validate_serviceTypeCode&quot;,&quot;STD&quot;);
+vars.put(&quot;depotOrderLine_validate_modelCode&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_assigned&quot;,&quot;10-ENG01&quot;);
+vars.put(&quot;depotOrderLine_validate_endUserCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderLine_validate_statusCode&quot;,&quot;10&quot;);
+vars.put(&quot;depotOrderLine_validate_isTaxable&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_siteCode&quot;,&quot;10-100&quot;);
+//vars.put(&quot;depotOrderLine_validate_isUpdateInstalledBase&quot;,&quot;true&quot;);
+vars.put(&quot;depotOrderLine_validate_alternateItemCode&quot;,&quot;01010&quot;);
+vars.put(&quot;depotOrderLine_validate_estimatedCost&quot;,&quot;1987.45&quot;);
+vars.put(&quot;depotOrderLine_validate_isConfirmed&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_replaceLine&quot;,&quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_quantity&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_unitOfMeasure&quot;,&quot;ea&quot;);
+vars.put(&quot;depotOrderLine_validate_routingCode&quot;,&quot;RP-1001&quot;);
+vars.put(&quot;depotOrderLine_validate_billOfMaterialCode&quot;,&quot;RP-1002&quot;);
+vars.put(&quot;depotOrderLine_validate_materialOrderNumber&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_materialOrderLine&quot;,&quot;&quot;);
+//Shipping panel
+vars.put(&quot;depotOrderLine_validate_shipToAddressCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderLine_validate_freightListCode&quot;,&quot;10FRT&quot;);
+vars.put(&quot;depotOrderLine_validate_fixedPrice&quot;,&quot;1987.45&quot;);
+vars.put(&quot;depotOrderLine_validate_isFixedPrice&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_wipProductLine&quot;,&quot;10&quot;);
+vars.put(&quot;depotOrderLine_validate_taxEnvironment&quot;,&quot;US/NJ&quot;);
+
+
+//Billing
+vars.put(&quot;depotOrderLine_validate_salesAccount&quot;,&quot;4000&quot;);
+vars.put(&quot;depotOrderLine_validate_salesAccountDescription&quot;,&quot;Sales&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenter&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenterDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccount&quot;,&quot;mech&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccountDescription&quot;,&quot;Mechanical&quot;);
+vars.put(&quot;depotOrderLine_validate_salesProject&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_salesProjectDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountProject&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountProjectDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountAccount&quot;,&quot;4200&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountAccountDescription&quot;,&quot;Sales Discount&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountCostCenter&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountCostCenterDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountSubAccount&quot;,&quot;Mech&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountSubAccountDescription&quot;,&quot;Mechanical&quot;);
+
+
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fragement_depotOrderLine fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderLine fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Fetch Depot Order Line 1" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="domainCode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">domainCode</stringProp>
+                    <stringProp name="Argument.value">${domainCode}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="depotOrderNumber" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">depotOrderNumber</stringProp>
+                    <stringProp name="Argument.value">${Output_ReleaseOrderNumber1}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="depotOrderLine" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">depotOrderLine</stringProp>
+                    <stringProp name="Argument.value">${Output_ReleaseOrderLine1}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/depotOrderLines</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/qad-central/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9,und;q=0.8,fr;q=0.7</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Check first item in parts list" enabled="true">
+                <stringProp name="JSON_PATH">$.data.depotOrderLines[0].depotOrderLinePartsLists[0].itemCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">60051</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Check second item in parts list" enabled="true">
+                <stringProp name="JSON_PATH">$.data.depotOrderLines[0].depotOrderLinePartsLists[1].itemCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">99020</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Check third item in parts list" enabled="true">
+                <stringProp name="JSON_PATH">$.data.depotOrderLines[0].depotOrderLinePartsLists[2].itemCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">99030</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2.002- Fetch and verified the depot order -${Output_ReleaseOrderNumber2} released by quote-${output_customerQuoteHeaderUI_quoteNumber}" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2.002- fetch and verified the depot order" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <stringProp name="TestPlan.comments">	</stringProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Fragement_depotOrderHeader fetch" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;depotOrderHeader_depotOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+
+
+vars.put(&quot;depotOrderHeader_validate_depotOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+vars.put(&quot;depotOrderHeader_validate_serviceQuoteNumber&quot;,&quot;${output_customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;depotOrderHeader_validate_assigned&quot;,&quot;10-ENG04&quot;);
+vars.put(&quot;depotOrderHeader_validate_endUserCode&quot;,&quot;10c1001a&quot;);
+vars.put(&quot;depotOrderHeader_validate_statusCode&quot;,&quot;10&quot;);
+vars.put(&quot;depotOrderHeader_validate_typeCode&quot;,&quot;DEFECT&quot;);
+vars.put(&quot;depotOrderHeader_validate_itemCode&quot;,&quot;01010&quot;);
+//vars.put(&quot;depotOrderHeader_validate_serial&quot;,&quot;ynz-JFT021&quot;);
+vars.put(&quot;depotOrderHeader_validate_billToCustomerCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_shipToCustomerCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_customerCode&quot;,&quot;10C1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_priceListCode&quot;,&quot;RP10-100&quot;);
+//vars.put(&quot;depotOrderHeader_validate_problemSkillCode&quot;,&quot;Maint&quot;);
+vars.put(&quot;depotOrderHeader_validate_purchaseOrderNumber&quot;,&quot;POJFT024&quot;);
+vars.put(&quot;depotOrderHeader_validate_serviceTypeCode&quot;,&quot;STD&quot;);
+vars.put(&quot;depotOrderHeader_validate_severityCode&quot;,&quot;B&quot;);
+vars.put(&quot;depotOrderHeader_validate_workCode&quot;,&quot;4003&quot;);
+vars.put(&quot;depotOrderHeader_validate_routingCode&quot;,&quot;RP-1001&quot;);
+vars.put(&quot;depotOrderHeader_validate_billOfMaterialCode&quot;,&quot;RP-1002&quot;);
+vars.put(&quot;depotOrderHeader_validate_siteCode&quot;,&quot;10-100&quot;);
+vars.put(&quot;depotOrderHeader_validate_isTaxable&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderHeader_validate_isConfirmed&quot;,&quot;1&quot;);
+//Depot Order has Shipping panel
+vars.put(&quot;depotOrderHeader_validate_freightListCode&quot;,&quot;10FRT&quot;);
+vars.put(&quot;depotOrderHeader_validate_freightTermsCode&quot;,&quot;ADD&quot;);
+//Depot Order has total panel
+vars.put(&quot;depotOrderHeader_validate_trailerCode1&quot;,&quot;20&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode2&quot;,&quot;11&quot;);
+vars.put(&quot;depotOrderHeader_validate_trailerCode3&quot;,&quot;31&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fragement_depotOrderHeader fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderHeader fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="2.002- Depot Order Line validation" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Fragement_depotOrderLine fetch" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;depotOrderLine_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+vars.put(&quot;depotOrderLine_url_depotOrderLine&quot;,&quot;${Output_ReleaseOrderLine2}&quot;);
+
+
+
+vars.put(&quot;depotOrderLine_validate_itemRepairType&quot;,&quot;1&quot;);//Repair
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDisplayValue&quot;,&quot;Repair&quot;);
+vars.put(&quot;depotOrderLine_validate_itemRepairTypeDescription&quot;,&quot;Repair&quot;);
+vars.put(&quot;depotOrderLine_validate_itemCode&quot;,&quot;01010&quot;);
+vars.put(&quot;depotOrderLine_validate_serial&quot;,&quot;ynz-JFT024-2&quot;);
+vars.put(&quot;depotOrderLine_validate_workCode&quot;,&quot;4003&quot;);
+vars.put(&quot;depotOrderLine_validate_serviceTypeCode&quot;,&quot;STD&quot;);
+vars.put(&quot;depotOrderLine_validate_modelCode&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_assigned&quot;,${__P(&quot;10-eng04&quot;,&quot;10-ENG04&quot;)});
+vars.put(&quot;depotOrderLine_validate_endUserCode&quot;,&quot;10c1001a&quot;);
+vars.put(&quot;depotOrderLine_validate_statusCode&quot;,&quot;10&quot;);
+vars.put(&quot;depotOrderLine_validate_isTaxable&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_siteCode&quot;,&quot;10-500&quot;);
+//vars.put(&quot;depotOrderLine_validate_isUpdateInstalledBase&quot;,&quot;true&quot;);
+vars.put(&quot;depotOrderLine_validate_alternateItemCode&quot;,&quot;01010&quot;);
+vars.put(&quot;depotOrderLine_validate_estimatedCost&quot;,&quot;713.75&quot;);//Now =0, defect CME-14512
+vars.put(&quot;depotOrderLine_validate_isConfirmed&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_replaceLine&quot;,&quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_quantity&quot;,&quot;1&quot;);
+vars.put(&quot;depotOrderLine_validate_unitOfMeasure&quot;,&quot;EA&quot;);
+vars.put(&quot;depotOrderLine_validate_routingCode&quot;,&quot;RP-1001&quot;);
+vars.put(&quot;depotOrderLine_validate_billOfMaterialCode&quot;,&quot;RP-1002&quot;);
+vars.put(&quot;depotOrderLine_validate_materialOrderNumber&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_materialOrderLine&quot;,&quot;&quot;);
+//Shipping panel
+vars.put(&quot;depotOrderLine_validate_shipToAddressCode&quot;,&quot;10c1001&quot;);
+vars.put(&quot;depotOrderLine_validate_freightListCode&quot;,&quot;10FRT&quot;);
+vars.put(&quot;depotOrderLine_validate_fixedPrice&quot;,&quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_isFixedPrice&quot;,&quot;0&quot;);
+vars.put(&quot;depotOrderLine_validate_wipProductLine&quot;,&quot;10&quot;);
+vars.put(&quot;depotOrderLine_validate_taxEnvironment&quot;,&quot;US/NJ&quot;);
+
+
+//Billing
+vars.put(&quot;depotOrderLine_validate_salesAccount&quot;,&quot;4000&quot;);
+vars.put(&quot;depotOrderLine_validate_salesAccountDescription&quot;,&quot;Sales&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenter&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_salesCostCenterDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccount&quot;,&quot;mech&quot;);
+vars.put(&quot;depotOrderLine_validate_salesSubAccountDescription&quot;,&quot;Mechanical&quot;);
+vars.put(&quot;depotOrderLine_validate_salesProject&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_validate_salesProjectDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountProject&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountProjectDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountAccount&quot;,&quot;4200&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountAccountDescription&quot;,&quot;Sales Discount&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountCostCenter&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountCostCenterDescription&quot;,&quot;&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountSubAccount&quot;,&quot;Mech&quot;);
+vars.put(&quot;depotOrderLine_Validate_discountSubAccountDescription&quot;,&quot;Mechanical&quot;);
+
+</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fragement_depotOrderLine fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">../../TestFragement/DepotOrder/Fragement_depotOrderLine fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Fetch Depot Order Line 1" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="domainCode" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">domainCode</stringProp>
+                    <stringProp name="Argument.value">${domainCode}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="depotOrderNumber" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">depotOrderNumber</stringProp>
+                    <stringProp name="Argument.value">${Output_ReleaseOrderNumber2}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                  <elementProp name="depotOrderLine" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.name">depotOrderLine</stringProp>
+                    <stringProp name="Argument.value">${Output_ReleaseOrderLine2}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                    <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${server}</stringProp>
+              <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+              <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+              <stringProp name="HTTPSampler.path">/${webapp}/api/erp/depotOrderLines</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="Referer" elementType="Header">
+                    <stringProp name="Header.name">Referer</stringProp>
+                    <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/qad-central/</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Language" elementType="Header">
+                    <stringProp name="Header.name">Accept-Language</stringProp>
+                    <stringProp name="Header.value">en-US,en;q=0.9,und;q=0.8,fr;q=0.7</stringProp>
+                  </elementProp>
+                  <elementProp name="X-Requested-With" elementType="Header">
+                    <stringProp name="Header.name">X-Requested-With</stringProp>
+                    <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept-Encoding" elementType="Header">
+                    <stringProp name="Header.name">Accept-Encoding</stringProp>
+                    <stringProp name="Header.value">gzip, deflate</stringProp>
+                  </elementProp>
+                  <elementProp name="Accept" elementType="Header">
+                    <stringProp name="Header.name">Accept</stringProp>
+                    <stringProp name="Header.value">*/*</stringProp>
+                  </elementProp>
+                  <elementProp name="User-Agent" elementType="Header">
+                    <stringProp name="Header.name">User-Agent</stringProp>
+                    <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+              <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+              </JSONPostProcessor>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Check first item in parts list" enabled="true">
+                <stringProp name="JSON_PATH">$.data.depotOrderLines[0].depotOrderLinePartsLists[0].itemCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">60051</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Check second item in parts list" enabled="true">
+                <stringProp name="JSON_PATH">$.data.depotOrderLines[0].depotOrderLinePartsLists[1].itemCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">99020</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="Check third item in parts list" enabled="true">
+                <stringProp name="JSON_PATH">$.data.depotOrderLines[0].depotOrderLinePartsLists[2].itemCode</stringProp>
+                <stringProp name="EXPECTED_VALUE">99030</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.001- Fetch and validate Depot Order&apos;s SAR1 Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.001- 1- Fetch SAR1 released by quote" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.001- 1-Fetch SAR1" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="3.001- 1- Fetch SAR  by search" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="browseId" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">urn:browse:mfg:fs160</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">browseId</stringProp>
+                    </elementProp>
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="pageSize" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">100</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pageSize</stringProp>
+                    </elementProp>
+                    <elementProp name="pageAction" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">first</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pageAction</stringProp>
+                    </elementProp>
+                    <elementProp name="sort" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">wo_mstr.wo_nbr.asc,</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">sort</stringProp>
+                    </elementProp>
+                    <elementProp name="filter" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">wo_mstr.wo_nbr,eq,${Output_ReleaseOrderNumber1},literal</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">filter</stringProp>
+                    </elementProp>
+                    <elementProp name="filter" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">wo_mstr.wo_itm_line,eq,${Output_ReleaseOrderLine1},literal</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">filter</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${webapp}/api/qracore/browses</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="TestPlan.comments">&amp;sort=wo_mstr.wo_nbr.asc%2C&amp;filter=wo_mstr.wo_nbr%2Ceq%${Output_ReleaseOrderNumber}2Cliteral&amp;filter=wo_mstr.wo_itm_line%2Ceq%2C${Output_ReleaseOrderLine}%2Cliteral</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">*/*</stringProp>
+                    </elementProp>
+                    <elementProp name="Origin" elementType="Header">
+                      <stringProp name="Header.name">Origin</stringProp>
+                      <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                    </elementProp>
+                    <elementProp name="DNT" elementType="Header">
+                      <stringProp name="Header.name">DNT</stringProp>
+                      <stringProp name="Header.value">1</stringProp>
+                    </elementProp>
+                    <elementProp name="X-Requested-With" elementType="Header">
+                      <stringProp name="Header.name">X-Requested-With</stringProp>
+                      <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                    </elementProp>
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractREPORTID1" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">Output_ReportID1</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data[0][&apos;wo_mstr.wo_lot&apos;]</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+                  <stringProp name="TestPlan.comments">data[&quot;&quot;0&quot;&quot;][&quot;&quot;wo_mstr.wo_lot&quot;&quot;]</stringProp>
+                  <stringProp name="Sample.scope">all</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.001- 2- Verify SAR detail" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Fetch record created in Labor Panel- Released SAR ID: ${Output_ReportID1}" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Labor" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarRouteLabor_url_reportID&quot;,&quot;${Output_ReportID1}&quot;);
+vars.put(&quot;sarRouteLabor_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+vars.put(&quot;domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarRouteLabor_url_operationNumber&quot;,&quot;10&quot;);
+
+//values entered below for validation purpose.
+vars.put(&quot;sarRouteLabor_validate_actualRunTime&quot;, &quot;0.25&quot;);
+vars.put(&quot;sarRouteLabor_validate_chargeCode&quot;, &quot;Fixed&quot;);
+vars.put(&quot;sarRouteLabor_validate_serviceCategoryCode&quot;, &quot;2000&quot;);
+vars.put(&quot;sarRouteLabor_validate_serviceCategoryDescription&quot;,&quot;Labor Costs&quot;);
+vars.put(&quot;sarRouteLabor_validate_description&quot;, &quot;In-House Testing&quot;);
+vars.put(&quot;sarRouteLabor_validate_engineerCode&quot;, &quot;10-ENG01&quot;);
+vars.put(&quot;sarRouteLabor_validate_actualRunTime&quot;, &quot;0.25&quot;);
+vars.put(&quot;sarRouteLabor_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarRouteLabor_validate_serviceCategoryCode&quot;, &quot;2000&quot;);
+vars.put(&quot;sarRouteLabor_validate_extendedPrice&quot;,&quot;0&quot;);
+vars.put(&quot;sarRouteLabor_validate_listPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarRouteLabor_validate_netPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarRouteLabor_validate_standardCost&quot;,&quot;1.75&quot;);
+vars.put(&quot;sarRouteLabor_validate_standardRunTime&quot;, &quot;0.25&quot;);
+vars.put(&quot;sarRouteLabor_validate_standardUnitCost&quot;, &quot;7.0207&quot;);
+//vars.put(&quot;sarRouteLabor_validate_unprocessedAmount&quot;, &quot;0.25&quot;); Defect which is doubled https://projects.qad.com/browse/CME-14466
+vars.put(&quot;sarRouteLabor_validate_workCode&quot;, &quot;5000&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Labor panel" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarRouteLabor fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Fetch record created in Item Usage panel" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Item Usage1" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarItemUsage_url_reportID&quot;,&quot;${Output_ReportID1}&quot;);
+vars.put(&quot;sarItemUsage_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+vars.put(&quot;sarItemUsage_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarItemUsage_url_itemCode&quot;,&quot;60051&quot;);
+vars.put(&quot;sarItemUsage_url_operationNumber&quot;,&quot;20&quot;);
+
+vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;60051&quot;);
+vars.put(&quot;sarItemUsage_validate_extendedPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_listPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_oldChargeCode&quot;, &quot;Fixed&quot;);
+vars.put(&quot;sarItemUsage_validate_operationNumber&quot;, &quot;20&quot;);
+vars.put(&quot;sarItemUsage_validate_quantityRequired&quot;, &quot;1&quot;);
+vars.put(&quot;sarItemUsage_validate_standardUnitCost&quot;, &quot;275&quot;);
+</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Item Usage" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarItemUsage fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Item Usage2" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarItemUsage_url_reportID&quot;,&quot;${Output_ReportID1}&quot;);
+vars.put(&quot;sarItemUsage_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+vars.put(&quot;sarItemUsage_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarItemUsage_url_itemCode&quot;,&quot;99020&quot;);
+vars.put(&quot;sarItemUsage_url_operationNumber&quot;,&quot;20&quot;);
+
+
+//values entered below for validation purpose.vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99020&quot;);
+vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99020&quot;);
+vars.put(&quot;sarItemUsage_validate_extendedPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_listPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_oldChargeCode&quot;, &quot;Fixed&quot;);
+vars.put(&quot;sarItemUsage_validate_operationNumber&quot;, &quot;20&quot;);
+vars.put(&quot;sarItemUsage_validate_quantityRequired&quot;, &quot;1&quot;);
+vars.put(&quot;sarItemUsage_validate_standardUnitCost&quot;, &quot;75&quot;);
+</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Item Usage" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarItemUsage fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Item Usage3" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarItemUsage_url_reportID&quot;,&quot;${Output_ReportID1}&quot;);
+vars.put(&quot;sarItemUsage_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber1}&quot;);
+vars.put(&quot;sarItemUsage_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarItemUsage_url_itemCode&quot;,&quot;99030&quot;);
+vars.put(&quot;sarItemUsage_url_operationNumber&quot;,&quot;20&quot;);
+
+
+//values entered below for validation purpose.vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99020&quot;);
+vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99030&quot;);
+vars.put(&quot;sarItemUsage_validate_extendedPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_listPrice&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_oldChargeCode&quot;, &quot;Fixed&quot;);
+vars.put(&quot;sarItemUsage_validate_operationNumber&quot;, &quot;20&quot;);
+vars.put(&quot;sarItemUsage_validate_quantityRequired&quot;, &quot;1&quot;);
+vars.put(&quot;sarItemUsage_validate_standardUnitCost&quot;, &quot;190&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Item Usage" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarItemUsage fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.002- Fetch and validate Depot Order&apos;s SAR2 Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.002- 1- Fetch SAR2 released by quote" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.002- 1-Fetch SAR2" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="3.002- 1- Fetch SAR  by search" enabled="true">
+                <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                  <collectionProp name="Arguments.arguments">
+                    <elementProp name="browseId" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">urn:browse:mfg:fs160</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">browseId</stringProp>
+                    </elementProp>
+                    <elementProp name="page" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">1</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">page</stringProp>
+                    </elementProp>
+                    <elementProp name="pageSize" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">100</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pageSize</stringProp>
+                    </elementProp>
+                    <elementProp name="pageAction" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">first</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">pageAction</stringProp>
+                    </elementProp>
+                    <elementProp name="sort" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">wo_mstr.wo_nbr.asc,</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">sort</stringProp>
+                    </elementProp>
+                    <elementProp name="filter" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">wo_mstr.wo_nbr,eq,${Output_ReleaseOrderNumber2},literal</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">filter</stringProp>
+                    </elementProp>
+                    <elementProp name="filter" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.value">wo_mstr.wo_itm_line,eq,${Output_ReleaseOrderLine2},literal</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                      <stringProp name="Argument.name">filter</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </elementProp>
+                <stringProp name="HTTPSampler.domain">${server}</stringProp>
+                <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+                <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+                <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+                <stringProp name="HTTPSampler.path">/${webapp}/api/qracore/browses</stringProp>
+                <stringProp name="HTTPSampler.method">GET</stringProp>
+                <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                <stringProp name="TestPlan.comments">&amp;sort=wo_mstr.wo_nbr.asc%2C&amp;filter=wo_mstr.wo_nbr%2Ceq%${Output_ReleaseOrderNumber}2Cliteral&amp;filter=wo_mstr.wo_itm_line%2Ceq%2C${Output_ReleaseOrderLine}%2Cliteral</stringProp>
+              </HTTPSamplerProxy>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">*/*</stringProp>
+                    </elementProp>
+                    <elementProp name="Origin" elementType="Header">
+                      <stringProp name="Header.name">Origin</stringProp>
+                      <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+                    </elementProp>
+                    <elementProp name="DNT" elementType="Header">
+                      <stringProp name="Header.name">DNT</stringProp>
+                      <stringProp name="Header.value">1</stringProp>
+                    </elementProp>
+                    <elementProp name="X-Requested-With" elementType="Header">
+                      <stringProp name="Header.name">X-Requested-With</stringProp>
+                      <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                    </elementProp>
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractREPORTID2" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">Output_ReportID2</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data[0][&apos;wo_mstr.wo_lot&apos;]</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+                  <stringProp name="TestPlan.comments">data[&quot;&quot;0&quot;&quot;][&quot;&quot;wo_mstr.wo_lot&quot;&quot;]</stringProp>
+                  <stringProp name="Sample.scope">all</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+                <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+                  <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+                  <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+                  <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+                  <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+                </JSONPostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="3.002- 2- Verify SAR detail" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Fetch record created in Labor Panel- Released SAR ID: ${Output_ReportID2}" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Labor" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarRouteLabor_url_reportID&quot;,&quot;${Output_ReportID2}&quot;);
+vars.put(&quot;sarRouteLabor_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+vars.put(&quot;domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarRouteLabor_url_operationNumber&quot;,&quot;10&quot;);
+
+//values entered below for validation purpose.
+vars.put(&quot;sarRouteLabor_validate_actualRunTime&quot;, &quot;0.25&quot;);
+vars.put(&quot;sarRouteLabor_validate_chargeCode&quot;, &quot;Billable&quot;);
+vars.put(&quot;sarRouteLabor_validate_serviceCategoryCode&quot;, &quot;2000&quot;);
+vars.put(&quot;sarRouteLabor_validate_serviceCategoryDescription&quot;,&quot;Labor Costs&quot;);
+vars.put(&quot;sarRouteLabor_validate_description&quot;, &quot;In-House Testing&quot;);
+vars.put(&quot;sarRouteLabor_validate_engineerCode&quot;, ${__P(&quot;10-eng04&quot;,&quot;10-ENG04&quot;)});
+vars.put(&quot;sarRouteLabor_validate_actualRunTime&quot;, &quot;0.25&quot;);
+vars.put(&quot;sarRouteLabor_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarRouteLabor_validate_serviceCategoryCode&quot;, &quot;2000&quot;);
+vars.put(&quot;sarRouteLabor_validate_extendedPrice&quot;,&quot;3.75&quot;);
+vars.put(&quot;sarRouteLabor_validate_listPrice&quot;, &quot;15&quot;);
+vars.put(&quot;sarRouteLabor_validate_netPrice&quot;, &quot;15&quot;);
+vars.put(&quot;sarRouteLabor_validate_standardCost&quot;,&quot;1.75&quot;);
+vars.put(&quot;sarRouteLabor_validate_standardRunTime&quot;, &quot;0.25&quot;);
+vars.put(&quot;sarRouteLabor_validate_standardUnitCost&quot;, &quot;7.0207&quot;);
+//vars.put(&quot;sarRouteLabor_validate_unprocessedAmount&quot;, &quot;0.25&quot;); Defect which is doubled https://projects.qad.com/browse/CME-14466
+vars.put(&quot;sarRouteLabor_validate_workCode&quot;, &quot;4003&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Labor panel" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarRouteLabor fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+            <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Fetch record created in Item Usage panel" enabled="true">
+              <boolProp name="TransactionController.includeTimers">false</boolProp>
+              <boolProp name="TransactionController.parent">true</boolProp>
+            </TransactionController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Item Usage1" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarItemUsage_url_reportID&quot;,&quot;${Output_ReportID2}&quot;);
+vars.put(&quot;sarItemUsage_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+vars.put(&quot;sarItemUsage_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarItemUsage_url_itemCode&quot;,&quot;60051&quot;);
+vars.put(&quot;sarItemUsage_url_operationNumber&quot;,&quot;20&quot;);
+
+vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;60051&quot;);
+vars.put(&quot;sarItemUsage_validate_extendedPrice&quot;, &quot;285&quot;);
+vars.put(&quot;sarItemUsage_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_listPrice&quot;, &quot;285&quot;);
+vars.put(&quot;sarItemUsage_validate_oldChargeCode&quot;, &quot;Billable&quot;);
+vars.put(&quot;sarItemUsage_validate_operationNumber&quot;, &quot;20&quot;);
+vars.put(&quot;sarItemUsage_validate_quantityRequired&quot;, &quot;1&quot;);
+vars.put(&quot;sarItemUsage_validate_standardUnitCost&quot;, &quot;0&quot;);
+</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Item Usage" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarItemUsage fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Item Usage2" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarItemUsage_url_reportID&quot;,&quot;${Output_ReportID2}&quot;);
+vars.put(&quot;sarItemUsage_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+vars.put(&quot;sarItemUsage_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarItemUsage_url_itemCode&quot;,&quot;99020&quot;);
+vars.put(&quot;sarItemUsage_url_operationNumber&quot;,&quot;20&quot;);
+
+
+//values entered below for validation purpose.vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99020&quot;);
+vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99020&quot;);
+vars.put(&quot;sarItemUsage_validate_extendedPrice&quot;, &quot;150&quot;);
+vars.put(&quot;sarItemUsage_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_listPrice&quot;, &quot;150&quot;);
+vars.put(&quot;sarItemUsage_validate_oldChargeCode&quot;, &quot;Billable&quot;);
+vars.put(&quot;sarItemUsage_validate_operationNumber&quot;, &quot;20&quot;);
+vars.put(&quot;sarItemUsage_validate_quantityRequired&quot;, &quot;1&quot;);
+vars.put(&quot;sarItemUsage_validate_standardUnitCost&quot;, &quot;0&quot;);
+</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Item Usage" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarItemUsage fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Item Usage3" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">//var Output_ReportID=(Number(Output_ReleaseReportID)+1).toString();
+vars.put(&quot;sarItemUsage_url_reportID&quot;,&quot;${Output_ReportID2}&quot;);
+vars.put(&quot;sarItemUsage_url_serviceOrderNumber&quot;,&quot;${Output_ReleaseOrderNumber2}&quot;);
+vars.put(&quot;sarItemUsage_url_domainCode&quot;,&quot;${domainCode}&quot;);
+vars.put(&quot;sarItemUsage_url_itemCode&quot;,&quot;99030&quot;);
+vars.put(&quot;sarItemUsage_url_operationNumber&quot;,&quot;20&quot;);
+
+
+//values entered below for validation purpose.vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99020&quot;);
+vars.put(&quot;sarItemUsage_validate_itemCode&quot;, &quot;99030&quot;);
+vars.put(&quot;sarItemUsage_validate_extendedPrice&quot;, &quot;275&quot;);
+vars.put(&quot;sarItemUsage_validate_coveredAmount&quot;, &quot;0&quot;);
+vars.put(&quot;sarItemUsage_validate_listPrice&quot;, &quot;275&quot;);
+vars.put(&quot;sarItemUsage_validate_oldChargeCode&quot;, &quot;Billable&quot;);
+vars.put(&quot;sarItemUsage_validate_operationNumber&quot;, &quot;20&quot;);
+vars.put(&quot;sarItemUsage_validate_quantityRequired&quot;, &quot;1&quot;);
+vars.put(&quot;sarItemUsage_validate_standardUnitCost&quot;, &quot;0&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Fetch record created in Item Usage" enabled="true">
+                <stringProp name="IncludeController.includepath">../../TestFragement/ServiceActivityReport/sarItemUsage fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname=" Web UI - LogOut" enabled="true">
+          <stringProp name="IncludeController.includepath">../../TestFragement/Common/Logout Fragment.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

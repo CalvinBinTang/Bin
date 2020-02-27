@@ -1,0 +1,20 @@
+import java.text.SimpleDateFormat;
+import java.util.*;
+Date today=new Date();
+SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd'T00:00:00.000Z'");
+SimpleDateFormat sdf1= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+TimeZone tz1=TimeZone.getDefault();//Gets the default TimeZone for this host.
+log.info(tz1.getID()); //Gets the ID of this time zone.
+String LocalTimeZoneDate=sdf.format(today);
+log.info("Local Timezone Date is "+LocalTimeZoneDate);
+String LocalTimeZoneDateTime=sdf1.format(today);
+log.info("Local Timezone Date Time is "+LocalTimeZoneDateTime);
+
+TimeZone tz2=TimeZone.getTimeZone("America/New_York");
+log.info(tz2.getID());
+sdf.setTimeZone(tz2);//Sets the time zone for the calendar of this DateFormat object.
+String TimeZoneDate=sdf.format(today);
+String TimeZoneDateTime=sdf.format(today);
+log.info("Server Timezone is "+TimeZoneDate);
+vars.put("serverDate", TimeZoneDate);
+vars.put("serverDateTime", TimeZoneDateTime);

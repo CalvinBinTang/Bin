@@ -1,0 +1,6 @@
+soldTo,isConfirmed,line,lineType,itemCode,siteCode,quantity,netPrice,dueDate,isForecastConsumed,isConfirmedLine,validateMRP,validateBookingHistory,validatePromiseDate,validateForecast
+10C1001,true,1,Return,02002,10-100,-1,15,,false,true,true,true,,false
+10C1001,true,1,Replacement,02002,10-200,5,25,2019-10-10T00:00:00.000Z,false,true,true,true,[N/A],true
+10C1001,true,2,Replacement,01030,10-100,5,35,today+16,false,true,true,true,[N/A],true
+10C1001,false,1,Replacement,atp01,10-200,5,25,2019-10-10T00:00:00.000Z,false,false,false,false,[N/A],false
+10C1001,true,1,Replacement,atp01,10-200,5,25,today+51,false,true,true,true,[N/A],false

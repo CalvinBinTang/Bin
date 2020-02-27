@@ -1,0 +1,3 @@
+prodLine,serviceGroup,workCode,itemNumber,area,desc,returnSite,returnLoc,repairSite,repairLoc,scrapSite,scrapLoc,spareSite,spareLoc
+,,,,,Spare Site,,,,,,,10-100,
+50,,,,,,,,,,,,10-200,

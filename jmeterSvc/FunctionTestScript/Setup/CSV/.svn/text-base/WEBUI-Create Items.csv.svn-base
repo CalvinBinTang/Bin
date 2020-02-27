@@ -1,0 +1,10 @@
+Item;Class;Description;unitOfMeasure;ProdLine;Status;Site;Price;ShipWeight;isTaxable;GLMaterial;GLLabor;GLBurden;GLOverhead;GLSubcontract
+systest01;A;system test 01;EA;10;ACTIVE;10-100;0;1;false;50;0;0;0;0
+systest02;A;system test 02;EA;10;ACTIVE;10-100;0;2;false;100;0;0;0;0
+SAR-Itm-01;A;;EA;11;ACTIVE;10-100;123.45;0;false;0;0;0;0;0
+k-item01;A;;EA;10;ACTIVE;10-100;1000;0;false;100;400;0;0;0
+jh555;A;test end User Iterm;EA;10;ACTIVE;10-100;0;0;false;0;0;0;0;0
+demo01;A;;EA;10;ACTIVE;10-100;0;0;true;100;0;0;0;0
+demo02;A;;EA;10;ACTIVE;10-100;0;0;true;200;0;0;0;0
+dpt01;A;depot order item 01;EA;50;ACTIVE;10-100;0;0;false;0;0;0;0;0
+sys01;A;system test item 01;EA;10;ACTIVE;10-100;200;0;true;0;0;0;0;0

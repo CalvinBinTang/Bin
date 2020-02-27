@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jmeterTestPlan jmeter="3.2 r1790748" properties="3.2" version="1.2">
+  <hashTree>
+    <TestPlan enabled="true" guiclass="TestPlanGui" testclass="TestPlan" testname="depotOrderHeader fieldChange">
+	<stringProp name="TestPlan.comments"/>
+	<boolProp name="TestPlan.functional_mode">false</boolProp>
+	<boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+	<elementProp elementType="Arguments" enabled="true" guiclass="ArgumentsPanel" name="TestPlan.user_defined_variables" testclass="Arguments" testname="User Defined Variables">
+		<collectionProp name="Arguments.arguments"/>
+	</elementProp>
+	<stringProp name="TestPlan.user_define_classpath"/>
+</TestPlan>
+    <hashTree>
+      <TestFragmentController enabled="false" guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange"/>
+      <hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String defaultValue = "[N/A]";
+List varsList = [];
+
+// URL Paremeters
+varsList.add("depotOrderHeader_url_fieldName");
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add("depotOrderHeader_domainCode");
+varsList.add("depotOrderHeader_depotOrderNumber");
+varsList.add("depotOrderHeader_sequenceNumber");
+varsList.add("depotOrderHeader_category");
+varsList.add("depotOrderHeader_endUserCode");
+varsList.add("depotOrderHeader_endUserAddressField1");
+varsList.add("depotOrderHeader_endUserAddressField2");
+varsList.add("depotOrderHeader_endUserAddressField3");
+varsList.add("depotOrderHeader_endUserAddressField4");
+varsList.add("depotOrderHeader_endUserAddressField5");
+varsList.add("depotOrderHeader_endUserAddressField6");
+varsList.add("depotOrderHeader_endUserMessage");
+varsList.add("depotOrderHeader_soldToCustomerCode");
+varsList.add("depotOrderHeader_soldToAddressField1");
+varsList.add("depotOrderHeader_soldToAddressField2");
+varsList.add("depotOrderHeader_soldToAddressField3");
+varsList.add("depotOrderHeader_soldToAddressField4");
+varsList.add("depotOrderHeader_soldToAddressField5");
+varsList.add("depotOrderHeader_soldToAddressField6");
+varsList.add("depotOrderHeader_revision");
+varsList.add("depotOrderHeader_workCode");
+varsList.add("depotOrderHeader_workCodeDescription");
+varsList.add("depotOrderHeader_severityCode");
+varsList.add("depotOrderHeader_severityCodeDescription");
+varsList.add("depotOrderHeader_purchaseOrderNumber");
+varsList.add("depotOrderHeader_orderDate");
+varsList.add("depotOrderHeader_requiredDate");
+varsList.add("depotOrderHeader_requiredTime");
+varsList.add("depotOrderHeader_promiseDate");
+varsList.add("depotOrderHeader_pricingDate");
+varsList.add("depotOrderHeader_remarks");
+varsList.add("depotOrderHeader_isConfirmed");
+varsList.add("depotOrderHeader_confirmedDate");
+varsList.add("depotOrderHeader_isTaxable");
+varsList.add("depotOrderHeader_languageCode");
+varsList.add("depotOrderHeader_languageDescription");
+varsList.add("depotOrderHeader_serviceQuoteNumber");
+varsList.add("depotOrderHeader_isEDIPurchaseOrderAck");
+varsList.add("depotOrderHeader_isEndUserChanged");
+varsList.add("depotOrderHeader_serviceGroup");
+varsList.add("depotOrderHeader_timeZoneCode");
+varsList.add("depotOrderHeader_defaultTimeZoneCode");
+varsList.add("depotOrderHeader_isMultipleTimeZoneEnabled");
+varsList.add("depotOrderHeader_assigned");
+varsList.add("depotOrderHeader_assignedDescription");
+varsList.add("depotOrderHeader_queueCode");
+varsList.add("depotOrderHeader_queueDescription");
+varsList.add("depotOrderHeader_responseTime");
+varsList.add("depotOrderHeader_responseUnitOfMeasureDisplay");
+varsList.add("depotOrderHeader_escalationNumber");
+varsList.add("depotOrderHeader_escalationSequence");
+varsList.add("depotOrderHeader_statusCode");
+varsList.add("depotOrderHeader_statusCodeDescription");
+varsList.add("depotOrderHeader_nextStatusCode");
+varsList.add("depotOrderHeader_nextStatusCodeDescription");
+varsList.add("depotOrderHeader_nextStatusDateTime");
+varsList.add("depotOrderHeader_eventDate");
+varsList.add("depotOrderHeader_eventTime");
+varsList.add("depotOrderHeader_eventDateTime");
+varsList.add("depotOrderHeader_shipToCustomerCode");
+varsList.add("depotOrderHeader_shipToAddressField1");
+varsList.add("depotOrderHeader_shipToAddressField2");
+varsList.add("depotOrderHeader_shipToAddressField3");
+varsList.add("depotOrderHeader_shipToAddressField4");
+varsList.add("depotOrderHeader_shipToAddressField5");
+varsList.add("depotOrderHeader_shipToAddressField6");
+varsList.add("depotOrderHeader_siteCode");
+varsList.add("depotOrderHeader_siteDescription");
+varsList.add("depotOrderHeader_siteEntityCode");
+varsList.add("depotOrderHeader_siteEntityDescription");
+varsList.add("depotOrderHeader_dueDate");
+varsList.add("depotOrderHeader_shipVia");
+varsList.add("depotOrderHeader_shipViaDescription");
+varsList.add("depotOrderHeader_isCalculateFreight");
+varsList.add("depotOrderHeader_freightListCode");
+varsList.add("depotOrderHeader_freightListDescription");
+varsList.add("depotOrderHeader_freightMinimumWeight");
+varsList.add("depotOrderHeader_freightWeightUnitOfMeasure");
+varsList.add("depotOrderHeader_freightTermsCode");
+varsList.add("depotOrderHeader_freightTermsDescription");
+varsList.add("depotOrderHeader_billOfLading");
+varsList.add("depotOrderHeader_incoterms");
+varsList.add("depotOrderHeader_incotermsDescription");
+varsList.add("depotOrderHeader_isPartialOK");
+varsList.add("depotOrderHeader_isPrintPackList");
+varsList.add("depotOrderHeader_billToCustomerCode");
+varsList.add("depotOrderHeader_billToAddressField1");
+varsList.add("depotOrderHeader_billToAddressField2");
+varsList.add("depotOrderHeader_billToAddressField3");
+varsList.add("depotOrderHeader_billToAddressField4");
+varsList.add("depotOrderHeader_billToAddressField5");
+varsList.add("depotOrderHeader_billToAddressField6");
+varsList.add("depotOrderHeader_currencyCode");
+varsList.add("depotOrderHeader_currencyDescription");
+varsList.add("depotOrderHeader_daybookSetCode");
+varsList.add("depotOrderHeader_daybookSetDescription");
+varsList.add("depotOrderHeader_modelCode");
+varsList.add("depotOrderHeader_discountPercent");
+varsList.add("depotOrderHeader_priceListCode");
+varsList.add("depotOrderHeader_isEDIInvoiceHistory");
+varsList.add("depotOrderHeader_isReadyToInvoice");
+varsList.add("depotOrderHeader_isPrintInvoiceHistory");
+varsList.add("depotOrderHeader_channel");
+varsList.add("depotOrderHeader_channelDescription");
+varsList.add("depotOrderHeader_creditTermsCode");
+varsList.add("depotOrderHeader_creditTermsCodeDescription");
+varsList.add("depotOrderHeader_actionStatus");
+varsList.add("depotOrderHeader_actionStatusDescription");
+varsList.add("depotOrderHeader_prepaidAmount");
+varsList.add("depotOrderHeader_isCreditReviewed");
+varsList.add("depotOrderHeader_creditInitials");
+varsList.add("depotOrderHeader_creditInitialsDescription");
+varsList.add("depotOrderHeader_creditCard");
+varsList.add("depotOrderHeader_creditCardDescription");
+varsList.add("depotOrderHeader_taxClass");
+varsList.add("depotOrderHeader_taxClassDescription");
+varsList.add("depotOrderHeader_taxEnvironment");
+varsList.add("depotOrderHeader_taxEnvironmentDescription");
+varsList.add("depotOrderHeader_isTaxIncluded");
+varsList.add("depotOrderHeader_taxUsage");
+varsList.add("depotOrderHeader_taxUsageDescription");
+varsList.add("depotOrderHeader_taxDate");
+varsList.add("depotOrderHeader_trailerCode1");
+varsList.add("depotOrderHeader_trailerCodeDescription1");
+varsList.add("depotOrderHeader_trailerAmount1");
+varsList.add("depotOrderHeader_trailerCode2");
+varsList.add("depotOrderHeader_trailerCodeDescription2");
+varsList.add("depotOrderHeader_trailerAmount2");
+varsList.add("depotOrderHeader_trailerCode3");
+varsList.add("depotOrderHeader_trailerCodeDescription3");
+varsList.add("depotOrderHeader_trailerAmount3");
+varsList.add("depotOrderHeader_taxableAmount");
+varsList.add("depotOrderHeader_nonTaxableAmount");
+varsList.add("depotOrderHeader_lineTotal");
+varsList.add("depotOrderHeader_discountAmount");
+varsList.add("depotOrderHeader_totalTrailerCharges");
+varsList.add("depotOrderHeader_totalTax");
+varsList.add("depotOrderHeader_initialTotalAmount");
+varsList.add("depotOrderHeader_totalAmount");
+varsList.add("depotOrderHeader_transactionType");
+varsList.add("depotOrderHeader_itemRevision");
+varsList.add("depotOrderHeader_itemCode");
+varsList.add("depotOrderHeader_serial");
+varsList.add("depotOrderHeader_reference");
+varsList.add("depotOrderHeader_servicePendingInvoiceNumber");
+varsList.add("depotOrderHeader_description");
+varsList.add("depotOrderHeader_commentIndex");
+varsList.add("depotOrderHeader_serviceTypeCode");
+varsList.add("depotOrderHeader_serviceTypeDescription");
+varsList.add("depotOrderHeader_callDate");
+varsList.add("depotOrderHeader_openedDate");
+varsList.add("depotOrderHeader_openedTime");
+varsList.add("depotOrderHeader_closedDate");
+varsList.add("depotOrderHeader_closedTime");
+varsList.add("depotOrderHeader_creationDateStamp");
+varsList.add("depotOrderHeader_creationTimeStamp");
+varsList.add("depotOrderHeader_isCommentsModified");
+varsList.add("depotOrderHeader_routingCode");
+varsList.add("depotOrderHeader_billOfMaterialCode");
+varsList.add("depotOrderHeader_completeDate");
+varsList.add("depotOrderHeader_completeTime");
+varsList.add("depotOrderHeader_baseCurrencyCode");
+varsList.add("depotOrderHeader_exchangeRate");
+varsList.add("depotOrderHeader_exchangeRate2");
+varsList.add("depotOrderHeader_exchangeRateDescription");
+varsList.add("depotOrderHeader_exchangeRateType");
+varsList.add("depotOrderHeader_exchangeRateSequence");
+varsList.add("depotOrderHeader_projectCode");
+varsList.add("depotOrderHeader_defaultWorksheet");
+varsList.add("depotOrderHeader_isUpdateInstalledBase");
+varsList.add("depotOrderHeader_isDepotOrderPrinted");
+varsList.add("depotOrderHeader_repairCenterSiteCode");
+varsList.add("depotOrderHeader_serviceType");
+varsList.add("depotOrderHeader_taxPercentage");
+varsList.add("depotOrderHeader_lastModifiedUser");
+varsList.add("depotOrderHeader_lastModifiedDate");
+varsList.add("depotOrderHeader_customerCode");
+varsList.add("depotOrderHeader_isFixedRate");
+varsList.add("depotOrderHeader_enteredBy");
+varsList.add("depotOrderHeader_typeCode");
+varsList.add("depotOrderHeader_typeCodeDescription");
+varsList.add("depotOrderHeader_callerName");
+varsList.add("depotOrderHeader_phoneNumber");
+varsList.add("depotOrderHeader_priority");
+varsList.add("depotOrderHeader_problemSkillCode");
+varsList.add("depotOrderHeader_resolutionCode");
+varsList.add("depotOrderHeader_resolutionDescription");
+varsList.add("depotOrderHeader_timeSpent");
+varsList.add("depotOrderHeader_timeSpentDescription");
+varsList.add("depotOrderHeader_estimatedTime");
+varsList.add("depotOrderHeader_estimatedHours");
+varsList.add("depotOrderHeader_estimatedMinutes");
+varsList.add("depotOrderHeader_isProcessOrderSummary");
+varsList.add("depotOrderHeader_isProcessPostTrailer");
+varsList.add("depotOrderHeader_isManualDiscountPercent");
+varsList.add("depotOrderHeader_isDisplayTaxAmounts");
+varsList.add("depotOrderHeader_completeStatus");
+varsList.add("depotOrderHeader_caMstrUser1");
+varsList.add("depotOrderHeader_caMstrUser2");
+varsList.add("depotOrderHeader_caMstrChr01");
+varsList.add("depotOrderHeader_caMstrChr02");
+varsList.add("depotOrderHeader_caMstrChr03");
+varsList.add("depotOrderHeader_caMstrChr04");
+varsList.add("depotOrderHeader_caMstrChr05");
+varsList.add("depotOrderHeader_caMstrChr06");
+varsList.add("depotOrderHeader_caMstrChr07");
+varsList.add("depotOrderHeader_caMstrChr08");
+varsList.add("depotOrderHeader_caMstrChr09");
+varsList.add("depotOrderHeader_caMstrChr10");
+varsList.add("depotOrderHeader_caMstrDec01");
+varsList.add("depotOrderHeader_caMstrDec02");
+varsList.add("depotOrderHeader_caMstrDec03");
+varsList.add("depotOrderHeader_caMstrDte01");
+varsList.add("depotOrderHeader_caMstrDte02");
+varsList.add("depotOrderHeader_caMstrDte03");
+varsList.add("depotOrderHeader_caMstrDte04");
+varsList.add("depotOrderHeader_caMstrDte05");
+varsList.add("depotOrderHeader_caMstrLog01");
+varsList.add("depotOrderHeader_caMstrLog02");
+varsList.add("depotOrderHeader_caMstrLog03");
+varsList.add("depotOrderHeader_caMstrLog04");
+varsList.add("depotOrderHeader_caMstrLog05");
+varsList.add("depotOrderHeader_dataOperation");
+varsList.add("depotOrderHeader_concurrencyHash");
+varsList.add("depotOrderHeader_pendingInvoiceConcurrencyHash");
+varsList.add("depotOrderHeader_hasShippingTransaction");
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add("depotOrderHeader_validate_domainCode");
+varsList.add("depotOrderHeader_validate_depotOrderNumber");
+varsList.add("depotOrderHeader_validate_sequenceNumber");
+varsList.add("depotOrderHeader_validate_category");
+varsList.add("depotOrderHeader_validate_endUserCode");
+varsList.add("depotOrderHeader_validate_endUserAddressField1");
+varsList.add("depotOrderHeader_validate_endUserAddressField2");
+varsList.add("depotOrderHeader_validate_endUserAddressField3");
+varsList.add("depotOrderHeader_validate_endUserAddressField4");
+varsList.add("depotOrderHeader_validate_endUserAddressField5");
+varsList.add("depotOrderHeader_validate_endUserAddressField6");
+varsList.add("depotOrderHeader_validate_endUserMessage");
+varsList.add("depotOrderHeader_validate_soldToCustomerCode");
+varsList.add("depotOrderHeader_validate_soldToAddressField1");
+varsList.add("depotOrderHeader_validate_soldToAddressField2");
+varsList.add("depotOrderHeader_validate_soldToAddressField3");
+varsList.add("depotOrderHeader_validate_soldToAddressField4");
+varsList.add("depotOrderHeader_validate_soldToAddressField5");
+varsList.add("depotOrderHeader_validate_soldToAddressField6");
+varsList.add("depotOrderHeader_validate_revision");
+varsList.add("depotOrderHeader_validate_workCode");
+varsList.add("depotOrderHeader_validate_workCodeDescription");
+varsList.add("depotOrderHeader_validate_severityCode");
+varsList.add("depotOrderHeader_validate_severityCodeDescription");
+varsList.add("depotOrderHeader_validate_purchaseOrderNumber");
+varsList.add("depotOrderHeader_validate_orderDate");
+varsList.add("depotOrderHeader_validate_requiredDate");
+varsList.add("depotOrderHeader_validate_requiredTime");
+varsList.add("depotOrderHeader_validate_promiseDate");
+varsList.add("depotOrderHeader_validate_pricingDate");
+varsList.add("depotOrderHeader_validate_remarks");
+varsList.add("depotOrderHeader_validate_isConfirmed");
+varsList.add("depotOrderHeader_validate_confirmedDate");
+varsList.add("depotOrderHeader_validate_isTaxable");
+varsList.add("depotOrderHeader_validate_languageCode");
+varsList.add("depotOrderHeader_validate_languageDescription");
+varsList.add("depotOrderHeader_validate_serviceQuoteNumber");
+varsList.add("depotOrderHeader_validate_isEDIPurchaseOrderAck");
+varsList.add("depotOrderHeader_validate_isEndUserChanged");
+varsList.add("depotOrderHeader_validate_serviceGroup");
+varsList.add("depotOrderHeader_validate_timeZoneCode");
+varsList.add("depotOrderHeader_validate_defaultTimeZoneCode");
+varsList.add("depotOrderHeader_validate_isMultipleTimeZoneEnabled");
+varsList.add("depotOrderHeader_validate_assigned");
+varsList.add("depotOrderHeader_validate_assignedDescription");
+varsList.add("depotOrderHeader_validate_queueCode");
+varsList.add("depotOrderHeader_validate_queueDescription");
+varsList.add("depotOrderHeader_validate_responseTime");
+varsList.add("depotOrderHeader_validate_responseUnitOfMeasureDisplay");
+varsList.add("depotOrderHeader_validate_escalationNumber");
+varsList.add("depotOrderHeader_validate_escalationSequence");
+varsList.add("depotOrderHeader_validate_statusCode");
+varsList.add("depotOrderHeader_validate_statusCodeDescription");
+varsList.add("depotOrderHeader_validate_nextStatusCode");
+varsList.add("depotOrderHeader_validate_nextStatusCodeDescription");
+varsList.add("depotOrderHeader_validate_nextStatusDateTime");
+varsList.add("depotOrderHeader_validate_eventDate");
+varsList.add("depotOrderHeader_validate_eventTime");
+varsList.add("depotOrderHeader_validate_eventDateTime");
+varsList.add("depotOrderHeader_validate_shipToCustomerCode");
+varsList.add("depotOrderHeader_validate_shipToAddressField1");
+varsList.add("depotOrderHeader_validate_shipToAddressField2");
+varsList.add("depotOrderHeader_validate_shipToAddressField3");
+varsList.add("depotOrderHeader_validate_shipToAddressField4");
+varsList.add("depotOrderHeader_validate_shipToAddressField5");
+varsList.add("depotOrderHeader_validate_shipToAddressField6");
+varsList.add("depotOrderHeader_validate_siteCode");
+varsList.add("depotOrderHeader_validate_siteDescription");
+varsList.add("depotOrderHeader_validate_siteEntityCode");
+varsList.add("depotOrderHeader_validate_siteEntityDescription");
+varsList.add("depotOrderHeader_validate_dueDate");
+varsList.add("depotOrderHeader_validate_shipVia");
+varsList.add("depotOrderHeader_validate_shipViaDescription");
+varsList.add("depotOrderHeader_validate_isCalculateFreight");
+varsList.add("depotOrderHeader_validate_freightListCode");
+varsList.add("depotOrderHeader_validate_freightListDescription");
+varsList.add("depotOrderHeader_validate_freightMinimumWeight");
+varsList.add("depotOrderHeader_validate_freightWeightUnitOfMeasure");
+varsList.add("depotOrderHeader_validate_freightTermsCode");
+varsList.add("depotOrderHeader_validate_freightTermsDescription");
+varsList.add("depotOrderHeader_validate_billOfLading");
+varsList.add("depotOrderHeader_validate_incoterms");
+varsList.add("depotOrderHeader_validate_incotermsDescription");
+varsList.add("depotOrderHeader_validate_isPartialOK");
+varsList.add("depotOrderHeader_validate_isPrintPackList");
+varsList.add("depotOrderHeader_validate_billToCustomerCode");
+varsList.add("depotOrderHeader_validate_billToAddressField1");
+varsList.add("depotOrderHeader_validate_billToAddressField2");
+varsList.add("depotOrderHeader_validate_billToAddressField3");
+varsList.add("depotOrderHeader_validate_billToAddressField4");
+varsList.add("depotOrderHeader_validate_billToAddressField5");
+varsList.add("depotOrderHeader_validate_billToAddressField6");
+varsList.add("depotOrderHeader_validate_currencyCode");
+varsList.add("depotOrderHeader_validate_currencyDescription");
+varsList.add("depotOrderHeader_validate_daybookSetCode");
+varsList.add("depotOrderHeader_validate_daybookSetDescription");
+varsList.add("depotOrderHeader_validate_modelCode");
+varsList.add("depotOrderHeader_validate_discountPercent");
+varsList.add("depotOrderHeader_validate_priceListCode");
+varsList.add("depotOrderHeader_validate_isEDIInvoiceHistory");
+varsList.add("depotOrderHeader_validate_isReadyToInvoice");
+varsList.add("depotOrderHeader_validate_isPrintInvoiceHistory");
+varsList.add("depotOrderHeader_validate_channel");
+varsList.add("depotOrderHeader_validate_channelDescription");
+varsList.add("depotOrderHeader_validate_creditTermsCode");
+varsList.add("depotOrderHeader_validate_creditTermsCodeDescription");
+varsList.add("depotOrderHeader_validate_actionStatus");
+varsList.add("depotOrderHeader_validate_actionStatusDescription");
+varsList.add("depotOrderHeader_validate_prepaidAmount");
+varsList.add("depotOrderHeader_validate_isCreditReviewed");
+varsList.add("depotOrderHeader_validate_creditInitials");
+varsList.add("depotOrderHeader_validate_creditInitialsDescription");
+varsList.add("depotOrderHeader_validate_creditCard");
+varsList.add("depotOrderHeader_validate_creditCardDescription");
+varsList.add("depotOrderHeader_validate_taxClass");
+varsList.add("depotOrderHeader_validate_taxClassDescription");
+varsList.add("depotOrderHeader_validate_taxEnvironment");
+varsList.add("depotOrderHeader_validate_taxEnvironmentDescription");
+varsList.add("depotOrderHeader_validate_isTaxIncluded");
+varsList.add("depotOrderHeader_validate_taxUsage");
+varsList.add("depotOrderHeader_validate_taxUsageDescription");
+varsList.add("depotOrderHeader_validate_taxDate");
+varsList.add("depotOrderHeader_validate_trailerCode1");
+varsList.add("depotOrderHeader_validate_trailerCodeDescription1");
+varsList.add("depotOrderHeader_validate_trailerAmount1");
+varsList.add("depotOrderHeader_validate_trailerCode2");
+varsList.add("depotOrderHeader_validate_trailerCodeDescription2");
+varsList.add("depotOrderHeader_validate_trailerAmount2");
+varsList.add("depotOrderHeader_validate_trailerCode3");
+varsList.add("depotOrderHeader_validate_trailerCodeDescription3");
+varsList.add("depotOrderHeader_validate_trailerAmount3");
+varsList.add("depotOrderHeader_validate_taxableAmount");
+varsList.add("depotOrderHeader_validate_nonTaxableAmount");
+varsList.add("depotOrderHeader_validate_lineTotal");
+varsList.add("depotOrderHeader_validate_discountAmount");
+varsList.add("depotOrderHeader_validate_totalTrailerCharges");
+varsList.add("depotOrderHeader_validate_totalTax");
+varsList.add("depotOrderHeader_validate_initialTotalAmount");
+varsList.add("depotOrderHeader_validate_totalAmount");
+varsList.add("depotOrderHeader_validate_transactionType");
+varsList.add("depotOrderHeader_validate_itemRevision");
+varsList.add("depotOrderHeader_validate_itemCode");
+varsList.add("depotOrderHeader_validate_serial");
+varsList.add("depotOrderHeader_validate_reference");
+varsList.add("depotOrderHeader_validate_servicePendingInvoiceNumber");
+varsList.add("depotOrderHeader_validate_description");
+varsList.add("depotOrderHeader_validate_commentIndex");
+varsList.add("depotOrderHeader_validate_serviceTypeCode");
+varsList.add("depotOrderHeader_validate_serviceTypeDescription");
+varsList.add("depotOrderHeader_validate_callDate");
+varsList.add("depotOrderHeader_validate_openedDate");
+varsList.add("depotOrderHeader_validate_openedTime");
+varsList.add("depotOrderHeader_validate_closedDate");
+varsList.add("depotOrderHeader_validate_closedTime");
+varsList.add("depotOrderHeader_validate_creationDateStamp");
+varsList.add("depotOrderHeader_validate_creationTimeStamp");
+varsList.add("depotOrderHeader_validate_isCommentsModified");
+varsList.add("depotOrderHeader_validate_routingCode");
+varsList.add("depotOrderHeader_validate_billOfMaterialCode");
+varsList.add("depotOrderHeader_validate_completeDate");
+varsList.add("depotOrderHeader_validate_completeTime");
+varsList.add("depotOrderHeader_validate_baseCurrencyCode");
+varsList.add("depotOrderHeader_validate_exchangeRate");
+varsList.add("depotOrderHeader_validate_exchangeRate2");
+varsList.add("depotOrderHeader_validate_exchangeRateDescription");
+varsList.add("depotOrderHeader_validate_exchangeRateType");
+varsList.add("depotOrderHeader_validate_exchangeRateSequence");
+varsList.add("depotOrderHeader_validate_projectCode");
+varsList.add("depotOrderHeader_validate_defaultWorksheet");
+varsList.add("depotOrderHeader_validate_isUpdateInstalledBase");
+varsList.add("depotOrderHeader_validate_isDepotOrderPrinted");
+varsList.add("depotOrderHeader_validate_repairCenterSiteCode");
+varsList.add("depotOrderHeader_validate_serviceType");
+varsList.add("depotOrderHeader_validate_taxPercentage");
+varsList.add("depotOrderHeader_validate_lastModifiedUser");
+varsList.add("depotOrderHeader_validate_lastModifiedDate");
+varsList.add("depotOrderHeader_validate_customerCode");
+varsList.add("depotOrderHeader_validate_isFixedRate");
+varsList.add("depotOrderHeader_validate_enteredBy");
+varsList.add("depotOrderHeader_validate_typeCode");
+varsList.add("depotOrderHeader_validate_typeCodeDescription");
+varsList.add("depotOrderHeader_validate_callerName");
+varsList.add("depotOrderHeader_validate_phoneNumber");
+varsList.add("depotOrderHeader_validate_priority");
+varsList.add("depotOrderHeader_validate_problemSkillCode");
+varsList.add("depotOrderHeader_validate_resolutionCode");
+varsList.add("depotOrderHeader_validate_resolutionDescription");
+varsList.add("depotOrderHeader_validate_timeSpent");
+varsList.add("depotOrderHeader_validate_timeSpentDescription");
+varsList.add("depotOrderHeader_validate_estimatedTime");
+varsList.add("depotOrderHeader_validate_estimatedHours");
+varsList.add("depotOrderHeader_validate_estimatedMinutes");
+varsList.add("depotOrderHeader_validate_isProcessOrderSummary");
+varsList.add("depotOrderHeader_validate_isProcessPostTrailer");
+varsList.add("depotOrderHeader_validate_isManualDiscountPercent");
+varsList.add("depotOrderHeader_validate_isDisplayTaxAmounts");
+varsList.add("depotOrderHeader_validate_completeStatus");
+varsList.add("depotOrderHeader_validate_caMstrUser1");
+varsList.add("depotOrderHeader_validate_caMstrUser2");
+varsList.add("depotOrderHeader_validate_caMstrChr01");
+varsList.add("depotOrderHeader_validate_caMstrChr02");
+varsList.add("depotOrderHeader_validate_caMstrChr03");
+varsList.add("depotOrderHeader_validate_caMstrChr04");
+varsList.add("depotOrderHeader_validate_caMstrChr05");
+varsList.add("depotOrderHeader_validate_caMstrChr06");
+varsList.add("depotOrderHeader_validate_caMstrChr07");
+varsList.add("depotOrderHeader_validate_caMstrChr08");
+varsList.add("depotOrderHeader_validate_caMstrChr09");
+varsList.add("depotOrderHeader_validate_caMstrChr10");
+varsList.add("depotOrderHeader_validate_caMstrDec01");
+varsList.add("depotOrderHeader_validate_caMstrDec02");
+varsList.add("depotOrderHeader_validate_caMstrDec03");
+varsList.add("depotOrderHeader_validate_caMstrDte01");
+varsList.add("depotOrderHeader_validate_caMstrDte02");
+varsList.add("depotOrderHeader_validate_caMstrDte03");
+varsList.add("depotOrderHeader_validate_caMstrDte04");
+varsList.add("depotOrderHeader_validate_caMstrDte05");
+varsList.add("depotOrderHeader_validate_caMstrLog01");
+varsList.add("depotOrderHeader_validate_caMstrLog02");
+varsList.add("depotOrderHeader_validate_caMstrLog03");
+varsList.add("depotOrderHeader_validate_caMstrLog04");
+varsList.add("depotOrderHeader_validate_caMstrLog05");
+varsList.add("depotOrderHeader_validate_dataOperation");
+varsList.add("depotOrderHeader_validate_concurrencyHash");
+varsList.add("depotOrderHeader_validate_pendingInvoiceConcurrencyHash");
+varsList.add("depotOrderHeader_validate_hasShippingTransaction");
+
+
+varsList.each {
+if (vars.get("${it}") == null) vars.put("${it}", defaultValue);
+}</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy enabled="true" guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="depotOrderHeader fieldChange">
+		<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+		<elementProp elementType="Arguments" name="HTTPsampler.Arguments">
+			<collectionProp name="Arguments.arguments">
+			<elementProp elementType="HTTPArgument" name="">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+		</elementProp>
+		<stringProp name="HTTPSampler.domain">${server}</stringProp>
+		<stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+		<stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+		<stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+		<stringProp name="HTTPSampler.path">/${webapp}/api/erp/depotOrderHeaders/fieldChange?fieldName=${depotOrderHeader_url_fieldName}</stringProp>
+		<stringProp name="HTTPSampler.method">POST</stringProp>
+		<boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		<boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		<boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		<boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		<stringProp name="HTTPSampler.embedded_url_re"/>
+		<stringProp name="HTTPSampler.connect_timeout"/>
+		<stringProp name="HTTPSampler.response_timeout"/>
+	</HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager enabled="true" guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+		<collectionProp name="HeaderManager.headers">
+			<elementProp elementType="Header" name="Content-Type">
+				<stringProp name="Header.name">Content-Type</stringProp>
+				<stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Language">
+				<stringProp name="Header.name">Accept-Language</stringProp>
+				<stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept">
+				<stringProp name="Header.name">Accept</stringProp>
+				<stringProp name="Header.value">*/*</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Origin">
+				<stringProp name="Header.name">Origin</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="User-Agent">
+				<stringProp name="Header.name">User-Agent</stringProp>
+				<stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="DNT">
+				<stringProp name="Header.name">DNT</stringProp>
+				<stringProp name="Header.value">1</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="X-Requested-With">
+				<stringProp name="Header.name">X-Requested-With</stringProp>
+				<stringProp name="Header.value">XMLHttpRequest</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Referer">
+				<stringProp name="Header.name">Referer</stringProp>
+				<stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+			</elementProp>
+			<elementProp elementType="Header" name="Accept-Encoding">
+				<stringProp name="Header.name">Accept-Encoding</stringProp>
+				<stringProp name="Header.value">gzip, deflate</stringProp>
+			</elementProp>
+		</collectionProp>
+	</HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor enabled="true" guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Setup Step Data">
+		<stringProp name="scriptLanguage">javascript</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if ("${depotOrderHeader_domainCode}" != "[N/A]") objRequest.depotOrderHeaders[0].domainCode= "${depotOrderHeader_domainCode}";
+if ("${depotOrderHeader_depotOrderNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].depotOrderNumber= "${depotOrderHeader_depotOrderNumber}";
+if ("${depotOrderHeader_sequenceNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].sequenceNumber= "${depotOrderHeader_sequenceNumber}";
+if ("${depotOrderHeader_category}" != "[N/A]") objRequest.depotOrderHeaders[0].category= "${depotOrderHeader_category}";
+if ("${depotOrderHeader_endUserCode}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserCode= "${depotOrderHeader_endUserCode}";
+if ("${depotOrderHeader_endUserAddressField1}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserAddressField1= "${depotOrderHeader_endUserAddressField1}";
+if ("${depotOrderHeader_endUserAddressField2}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserAddressField2= "${depotOrderHeader_endUserAddressField2}";
+if ("${depotOrderHeader_endUserAddressField3}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserAddressField3= "${depotOrderHeader_endUserAddressField3}";
+if ("${depotOrderHeader_endUserAddressField4}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserAddressField4= "${depotOrderHeader_endUserAddressField4}";
+if ("${depotOrderHeader_endUserAddressField5}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserAddressField5= "${depotOrderHeader_endUserAddressField5}";
+if ("${depotOrderHeader_endUserAddressField6}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserAddressField6= "${depotOrderHeader_endUserAddressField6}";
+if ("${depotOrderHeader_endUserMessage}" != "[N/A]") objRequest.depotOrderHeaders[0].endUserMessage= "${depotOrderHeader_endUserMessage}";
+if ("${depotOrderHeader_soldToCustomerCode}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToCustomerCode= "${depotOrderHeader_soldToCustomerCode}";
+if ("${depotOrderHeader_soldToAddressField1}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToAddressField1= "${depotOrderHeader_soldToAddressField1}";
+if ("${depotOrderHeader_soldToAddressField2}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToAddressField2= "${depotOrderHeader_soldToAddressField2}";
+if ("${depotOrderHeader_soldToAddressField3}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToAddressField3= "${depotOrderHeader_soldToAddressField3}";
+if ("${depotOrderHeader_soldToAddressField4}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToAddressField4= "${depotOrderHeader_soldToAddressField4}";
+if ("${depotOrderHeader_soldToAddressField5}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToAddressField5= "${depotOrderHeader_soldToAddressField5}";
+if ("${depotOrderHeader_soldToAddressField6}" != "[N/A]") objRequest.depotOrderHeaders[0].soldToAddressField6= "${depotOrderHeader_soldToAddressField6}";
+if ("${depotOrderHeader_revision}" != "[N/A]") objRequest.depotOrderHeaders[0].revision= "${depotOrderHeader_revision}";
+if ("${depotOrderHeader_workCode}" != "[N/A]") objRequest.depotOrderHeaders[0].workCode= "${depotOrderHeader_workCode}";
+if ("${depotOrderHeader_workCodeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].workCodeDescription= "${depotOrderHeader_workCodeDescription}";
+if ("${depotOrderHeader_severityCode}" != "[N/A]") objRequest.depotOrderHeaders[0].severityCode= "${depotOrderHeader_severityCode}";
+if ("${depotOrderHeader_severityCodeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].severityCodeDescription= "${depotOrderHeader_severityCodeDescription}";
+if ("${depotOrderHeader_purchaseOrderNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].purchaseOrderNumber= "${depotOrderHeader_purchaseOrderNumber}";
+if ("${depotOrderHeader_orderDate}" != "[N/A]") objRequest.depotOrderHeaders[0].orderDate= "${depotOrderHeader_orderDate}";
+if ("${depotOrderHeader_requiredDate}" != "[N/A]") objRequest.depotOrderHeaders[0].requiredDate= "${depotOrderHeader_requiredDate}";
+if ("${depotOrderHeader_requiredTime}" != "[N/A]") objRequest.depotOrderHeaders[0].requiredTime= "${depotOrderHeader_requiredTime}";
+if ("${depotOrderHeader_promiseDate}" != "[N/A]") objRequest.depotOrderHeaders[0].promiseDate= "${depotOrderHeader_promiseDate}";
+if ("${depotOrderHeader_pricingDate}" != "[N/A]") objRequest.depotOrderHeaders[0].pricingDate= "${depotOrderHeader_pricingDate}";
+if ("${depotOrderHeader_remarks}" != "[N/A]") objRequest.depotOrderHeaders[0].remarks= "${depotOrderHeader_remarks}";
+if ("${depotOrderHeader_isConfirmed}" != "[N/A]") objRequest.depotOrderHeaders[0].isConfirmed= "${depotOrderHeader_isConfirmed}";
+if ("${depotOrderHeader_confirmedDate}" != "[N/A]") objRequest.depotOrderHeaders[0].confirmedDate= "${depotOrderHeader_confirmedDate}";
+if ("${depotOrderHeader_isTaxable}" != "[N/A]") objRequest.depotOrderHeaders[0].isTaxable= "${depotOrderHeader_isTaxable}";
+if ("${depotOrderHeader_languageCode}" != "[N/A]") objRequest.depotOrderHeaders[0].languageCode= "${depotOrderHeader_languageCode}";
+if ("${depotOrderHeader_languageDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].languageDescription= "${depotOrderHeader_languageDescription}";
+if ("${depotOrderHeader_serviceQuoteNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].serviceQuoteNumber= "${depotOrderHeader_serviceQuoteNumber}";
+if ("${depotOrderHeader_isEDIPurchaseOrderAck}" != "[N/A]") objRequest.depotOrderHeaders[0].isEDIPurchaseOrderAck= "${depotOrderHeader_isEDIPurchaseOrderAck}";
+if ("${depotOrderHeader_isEndUserChanged}" != "[N/A]") objRequest.depotOrderHeaders[0].isEndUserChanged= "${depotOrderHeader_isEndUserChanged}";
+if ("${depotOrderHeader_serviceGroup}" != "[N/A]") objRequest.depotOrderHeaders[0].serviceGroup= "${depotOrderHeader_serviceGroup}";
+if ("${depotOrderHeader_timeZoneCode}" != "[N/A]") objRequest.depotOrderHeaders[0].timeZoneCode= "${depotOrderHeader_timeZoneCode}";
+if ("${depotOrderHeader_defaultTimeZoneCode}" != "[N/A]") objRequest.depotOrderHeaders[0].defaultTimeZoneCode= "${depotOrderHeader_defaultTimeZoneCode}";
+if ("${depotOrderHeader_isMultipleTimeZoneEnabled}" != "[N/A]") objRequest.depotOrderHeaders[0].isMultipleTimeZoneEnabled= "${depotOrderHeader_isMultipleTimeZoneEnabled}";
+if ("${depotOrderHeader_assigned}" != "[N/A]") objRequest.depotOrderHeaders[0].assigned= "${depotOrderHeader_assigned}";
+if ("${depotOrderHeader_assignedDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].assignedDescription= "${depotOrderHeader_assignedDescription}";
+if ("${depotOrderHeader_queueCode}" != "[N/A]") objRequest.depotOrderHeaders[0].queueCode= "${depotOrderHeader_queueCode}";
+if ("${depotOrderHeader_queueDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].queueDescription= "${depotOrderHeader_queueDescription}";
+if ("${depotOrderHeader_responseTime}" != "[N/A]") objRequest.depotOrderHeaders[0].responseTime= "${depotOrderHeader_responseTime}";
+if ("${depotOrderHeader_responseUnitOfMeasureDisplay}" != "[N/A]") objRequest.depotOrderHeaders[0].responseUnitOfMeasureDisplay= "${depotOrderHeader_responseUnitOfMeasureDisplay}";
+if ("${depotOrderHeader_escalationNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].escalationNumber= "${depotOrderHeader_escalationNumber}";
+if ("${depotOrderHeader_escalationSequence}" != "[N/A]") objRequest.depotOrderHeaders[0].escalationSequence= "${depotOrderHeader_escalationSequence}";
+if ("${depotOrderHeader_statusCode}" != "[N/A]") objRequest.depotOrderHeaders[0].statusCode= "${depotOrderHeader_statusCode}";
+if ("${depotOrderHeader_statusCodeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].statusCodeDescription= "${depotOrderHeader_statusCodeDescription}";
+if ("${depotOrderHeader_nextStatusCode}" != "[N/A]") objRequest.depotOrderHeaders[0].nextStatusCode= "${depotOrderHeader_nextStatusCode}";
+if ("${depotOrderHeader_nextStatusCodeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].nextStatusCodeDescription= "${depotOrderHeader_nextStatusCodeDescription}";
+if ("${depotOrderHeader_nextStatusDateTime}" != "[N/A]") objRequest.depotOrderHeaders[0].nextStatusDateTime= "${depotOrderHeader_nextStatusDateTime}";
+if ("${depotOrderHeader_eventDate}" != "[N/A]") objRequest.depotOrderHeaders[0].eventDate= "${depotOrderHeader_eventDate}";
+if ("${depotOrderHeader_eventTime}" != "[N/A]") objRequest.depotOrderHeaders[0].eventTime= "${depotOrderHeader_eventTime}";
+if ("${depotOrderHeader_eventDateTime}" != "[N/A]") objRequest.depotOrderHeaders[0].eventDateTime= "${depotOrderHeader_eventDateTime}";
+if ("${depotOrderHeader_shipToCustomerCode}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToCustomerCode= "${depotOrderHeader_shipToCustomerCode}";
+if ("${depotOrderHeader_shipToAddressField1}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToAddressField1= "${depotOrderHeader_shipToAddressField1}";
+if ("${depotOrderHeader_shipToAddressField2}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToAddressField2= "${depotOrderHeader_shipToAddressField2}";
+if ("${depotOrderHeader_shipToAddressField3}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToAddressField3= "${depotOrderHeader_shipToAddressField3}";
+if ("${depotOrderHeader_shipToAddressField4}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToAddressField4= "${depotOrderHeader_shipToAddressField4}";
+if ("${depotOrderHeader_shipToAddressField5}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToAddressField5= "${depotOrderHeader_shipToAddressField5}";
+if ("${depotOrderHeader_shipToAddressField6}" != "[N/A]") objRequest.depotOrderHeaders[0].shipToAddressField6= "${depotOrderHeader_shipToAddressField6}";
+if ("${depotOrderHeader_siteCode}" != "[N/A]") objRequest.depotOrderHeaders[0].siteCode= "${depotOrderHeader_siteCode}";
+if ("${depotOrderHeader_siteDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].siteDescription= "${depotOrderHeader_siteDescription}";
+if ("${depotOrderHeader_siteEntityCode}" != "[N/A]") objRequest.depotOrderHeaders[0].siteEntityCode= "${depotOrderHeader_siteEntityCode}";
+if ("${depotOrderHeader_siteEntityDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].siteEntityDescription= "${depotOrderHeader_siteEntityDescription}";
+if ("${depotOrderHeader_dueDate}" != "[N/A]") objRequest.depotOrderHeaders[0].dueDate= "${depotOrderHeader_dueDate}";
+if ("${depotOrderHeader_shipVia}" != "[N/A]") objRequest.depotOrderHeaders[0].shipVia= "${depotOrderHeader_shipVia}";
+if ("${depotOrderHeader_shipViaDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].shipViaDescription= "${depotOrderHeader_shipViaDescription}";
+if ("${depotOrderHeader_isCalculateFreight}" != "[N/A]") objRequest.depotOrderHeaders[0].isCalculateFreight= "${depotOrderHeader_isCalculateFreight}";
+if ("${depotOrderHeader_freightListCode}" != "[N/A]") objRequest.depotOrderHeaders[0].freightListCode= "${depotOrderHeader_freightListCode}";
+if ("${depotOrderHeader_freightListDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].freightListDescription= "${depotOrderHeader_freightListDescription}";
+if ("${depotOrderHeader_freightMinimumWeight}" != "[N/A]") objRequest.depotOrderHeaders[0].freightMinimumWeight= "${depotOrderHeader_freightMinimumWeight}";
+if ("${depotOrderHeader_freightWeightUnitOfMeasure}" != "[N/A]") objRequest.depotOrderHeaders[0].freightWeightUnitOfMeasure= "${depotOrderHeader_freightWeightUnitOfMeasure}";
+if ("${depotOrderHeader_freightTermsCode}" != "[N/A]") objRequest.depotOrderHeaders[0].freightTermsCode= "${depotOrderHeader_freightTermsCode}";
+if ("${depotOrderHeader_freightTermsDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].freightTermsDescription= "${depotOrderHeader_freightTermsDescription}";
+if ("${depotOrderHeader_billOfLading}" != "[N/A]") objRequest.depotOrderHeaders[0].billOfLading= "${depotOrderHeader_billOfLading}";
+if ("${depotOrderHeader_incoterms}" != "[N/A]") objRequest.depotOrderHeaders[0].incoterms= "${depotOrderHeader_incoterms}";
+if ("${depotOrderHeader_incotermsDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].incotermsDescription= "${depotOrderHeader_incotermsDescription}";
+if ("${depotOrderHeader_isPartialOK}" != "[N/A]") objRequest.depotOrderHeaders[0].isPartialOK= "${depotOrderHeader_isPartialOK}";
+if ("${depotOrderHeader_isPrintPackList}" != "[N/A]") objRequest.depotOrderHeaders[0].isPrintPackList= "${depotOrderHeader_isPrintPackList}";
+if ("${depotOrderHeader_billToCustomerCode}" != "[N/A]") objRequest.depotOrderHeaders[0].billToCustomerCode= "${depotOrderHeader_billToCustomerCode}";
+if ("${depotOrderHeader_billToAddressField1}" != "[N/A]") objRequest.depotOrderHeaders[0].billToAddressField1= "${depotOrderHeader_billToAddressField1}";
+if ("${depotOrderHeader_billToAddressField2}" != "[N/A]") objRequest.depotOrderHeaders[0].billToAddressField2= "${depotOrderHeader_billToAddressField2}";
+if ("${depotOrderHeader_billToAddressField3}" != "[N/A]") objRequest.depotOrderHeaders[0].billToAddressField3= "${depotOrderHeader_billToAddressField3}";
+if ("${depotOrderHeader_billToAddressField4}" != "[N/A]") objRequest.depotOrderHeaders[0].billToAddressField4= "${depotOrderHeader_billToAddressField4}";
+if ("${depotOrderHeader_billToAddressField5}" != "[N/A]") objRequest.depotOrderHeaders[0].billToAddressField5= "${depotOrderHeader_billToAddressField5}";
+if ("${depotOrderHeader_billToAddressField6}" != "[N/A]") objRequest.depotOrderHeaders[0].billToAddressField6= "${depotOrderHeader_billToAddressField6}";
+if ("${depotOrderHeader_currencyCode}" != "[N/A]") objRequest.depotOrderHeaders[0].currencyCode= "${depotOrderHeader_currencyCode}";
+if ("${depotOrderHeader_currencyDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].currencyDescription= "${depotOrderHeader_currencyDescription}";
+if ("${depotOrderHeader_daybookSetCode}" != "[N/A]") objRequest.depotOrderHeaders[0].daybookSetCode= "${depotOrderHeader_daybookSetCode}";
+if ("${depotOrderHeader_daybookSetDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].daybookSetDescription= "${depotOrderHeader_daybookSetDescription}";
+if ("${depotOrderHeader_modelCode}" != "[N/A]") objRequest.depotOrderHeaders[0].modelCode= "${depotOrderHeader_modelCode}";
+if ("${depotOrderHeader_discountPercent}" != "[N/A]") objRequest.depotOrderHeaders[0].discountPercent= "${depotOrderHeader_discountPercent}";
+if ("${depotOrderHeader_priceListCode}" != "[N/A]") objRequest.depotOrderHeaders[0].priceListCode= "${depotOrderHeader_priceListCode}";
+if ("${depotOrderHeader_isEDIInvoiceHistory}" != "[N/A]") objRequest.depotOrderHeaders[0].isEDIInvoiceHistory= "${depotOrderHeader_isEDIInvoiceHistory}";
+if ("${depotOrderHeader_isReadyToInvoice}" != "[N/A]") objRequest.depotOrderHeaders[0].isReadyToInvoice= "${depotOrderHeader_isReadyToInvoice}";
+if ("${depotOrderHeader_isPrintInvoiceHistory}" != "[N/A]") objRequest.depotOrderHeaders[0].isPrintInvoiceHistory= "${depotOrderHeader_isPrintInvoiceHistory}";
+if ("${depotOrderHeader_channel}" != "[N/A]") objRequest.depotOrderHeaders[0].channel= "${depotOrderHeader_channel}";
+if ("${depotOrderHeader_channelDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].channelDescription= "${depotOrderHeader_channelDescription}";
+if ("${depotOrderHeader_creditTermsCode}" != "[N/A]") objRequest.depotOrderHeaders[0].creditTermsCode= "${depotOrderHeader_creditTermsCode}";
+if ("${depotOrderHeader_creditTermsCodeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].creditTermsCodeDescription= "${depotOrderHeader_creditTermsCodeDescription}";
+if ("${depotOrderHeader_actionStatus}" != "[N/A]") objRequest.depotOrderHeaders[0].actionStatus= "${depotOrderHeader_actionStatus}";
+if ("${depotOrderHeader_actionStatusDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].actionStatusDescription= "${depotOrderHeader_actionStatusDescription}";
+if ("${depotOrderHeader_prepaidAmount}" != "[N/A]") objRequest.depotOrderHeaders[0].prepaidAmount= "${depotOrderHeader_prepaidAmount}";
+if ("${depotOrderHeader_isCreditReviewed}" != "[N/A]") objRequest.depotOrderHeaders[0].isCreditReviewed= "${depotOrderHeader_isCreditReviewed}";
+if ("${depotOrderHeader_creditInitials}" != "[N/A]") objRequest.depotOrderHeaders[0].creditInitials= "${depotOrderHeader_creditInitials}";
+if ("${depotOrderHeader_creditInitialsDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].creditInitialsDescription= "${depotOrderHeader_creditInitialsDescription}";
+if ("${depotOrderHeader_creditCard}" != "[N/A]") objRequest.depotOrderHeaders[0].creditCard= "${depotOrderHeader_creditCard}";
+if ("${depotOrderHeader_creditCardDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].creditCardDescription= "${depotOrderHeader_creditCardDescription}";
+if ("${depotOrderHeader_taxClass}" != "[N/A]") objRequest.depotOrderHeaders[0].taxClass= "${depotOrderHeader_taxClass}";
+if ("${depotOrderHeader_taxClassDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].taxClassDescription= "${depotOrderHeader_taxClassDescription}";
+if ("${depotOrderHeader_taxEnvironment}" != "[N/A]") objRequest.depotOrderHeaders[0].taxEnvironment= "${depotOrderHeader_taxEnvironment}";
+if ("${depotOrderHeader_taxEnvironmentDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].taxEnvironmentDescription= "${depotOrderHeader_taxEnvironmentDescription}";
+if ("${depotOrderHeader_isTaxIncluded}" != "[N/A]") objRequest.depotOrderHeaders[0].isTaxIncluded= "${depotOrderHeader_isTaxIncluded}";
+if ("${depotOrderHeader_taxUsage}" != "[N/A]") objRequest.depotOrderHeaders[0].taxUsage= "${depotOrderHeader_taxUsage}";
+if ("${depotOrderHeader_taxUsageDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].taxUsageDescription= "${depotOrderHeader_taxUsageDescription}";
+if ("${depotOrderHeader_taxDate}" != "[N/A]") objRequest.depotOrderHeaders[0].taxDate= "${depotOrderHeader_taxDate}";
+if ("${depotOrderHeader_trailerCode1}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerCode1= "${depotOrderHeader_trailerCode1}";
+if ("${depotOrderHeader_trailerCodeDescription1}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerCodeDescription1= "${depotOrderHeader_trailerCodeDescription1}";
+if ("${depotOrderHeader_trailerAmount1}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerAmount1= "${depotOrderHeader_trailerAmount1}";
+if ("${depotOrderHeader_trailerCode2}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerCode2= "${depotOrderHeader_trailerCode2}";
+if ("${depotOrderHeader_trailerCodeDescription2}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerCodeDescription2= "${depotOrderHeader_trailerCodeDescription2}";
+if ("${depotOrderHeader_trailerAmount2}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerAmount2= "${depotOrderHeader_trailerAmount2}";
+if ("${depotOrderHeader_trailerCode3}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerCode3= "${depotOrderHeader_trailerCode3}";
+if ("${depotOrderHeader_trailerCodeDescription3}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerCodeDescription3= "${depotOrderHeader_trailerCodeDescription3}";
+if ("${depotOrderHeader_trailerAmount3}" != "[N/A]") objRequest.depotOrderHeaders[0].trailerAmount3= "${depotOrderHeader_trailerAmount3}";
+if ("${depotOrderHeader_taxableAmount}" != "[N/A]") objRequest.depotOrderHeaders[0].taxableAmount= "${depotOrderHeader_taxableAmount}";
+if ("${depotOrderHeader_nonTaxableAmount}" != "[N/A]") objRequest.depotOrderHeaders[0].nonTaxableAmount= "${depotOrderHeader_nonTaxableAmount}";
+if ("${depotOrderHeader_lineTotal}" != "[N/A]") objRequest.depotOrderHeaders[0].lineTotal= "${depotOrderHeader_lineTotal}";
+if ("${depotOrderHeader_discountAmount}" != "[N/A]") objRequest.depotOrderHeaders[0].discountAmount= "${depotOrderHeader_discountAmount}";
+if ("${depotOrderHeader_totalTrailerCharges}" != "[N/A]") objRequest.depotOrderHeaders[0].totalTrailerCharges= "${depotOrderHeader_totalTrailerCharges}";
+if ("${depotOrderHeader_totalTax}" != "[N/A]") objRequest.depotOrderHeaders[0].totalTax= "${depotOrderHeader_totalTax}";
+if ("${depotOrderHeader_initialTotalAmount}" != "[N/A]") objRequest.depotOrderHeaders[0].initialTotalAmount= "${depotOrderHeader_initialTotalAmount}";
+if ("${depotOrderHeader_totalAmount}" != "[N/A]") objRequest.depotOrderHeaders[0].totalAmount= "${depotOrderHeader_totalAmount}";
+if ("${depotOrderHeader_transactionType}" != "[N/A]") objRequest.depotOrderHeaders[0].transactionType= "${depotOrderHeader_transactionType}";
+if ("${depotOrderHeader_itemRevision}" != "[N/A]") objRequest.depotOrderHeaders[0].itemRevision= "${depotOrderHeader_itemRevision}";
+if ("${depotOrderHeader_itemCode}" != "[N/A]") objRequest.depotOrderHeaders[0].itemCode= "${depotOrderHeader_itemCode}";
+if ("${depotOrderHeader_serial}" != "[N/A]") objRequest.depotOrderHeaders[0].serial= "${depotOrderHeader_serial}";
+if ("${depotOrderHeader_reference}" != "[N/A]") objRequest.depotOrderHeaders[0].reference= "${depotOrderHeader_reference}";
+if ("${depotOrderHeader_servicePendingInvoiceNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].servicePendingInvoiceNumber= "${depotOrderHeader_servicePendingInvoiceNumber}";
+if ("${depotOrderHeader_description}" != "[N/A]") objRequest.depotOrderHeaders[0].description= "${depotOrderHeader_description}";
+if ("${depotOrderHeader_commentIndex}" != "[N/A]") objRequest.depotOrderHeaders[0].commentIndex= "${depotOrderHeader_commentIndex}";
+if ("${depotOrderHeader_serviceTypeCode}" != "[N/A]") objRequest.depotOrderHeaders[0].serviceTypeCode= "${depotOrderHeader_serviceTypeCode}";
+if ("${depotOrderHeader_serviceTypeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].serviceTypeDescription= "${depotOrderHeader_serviceTypeDescription}";
+if ("${depotOrderHeader_callDate}" != "[N/A]") objRequest.depotOrderHeaders[0].callDate= "${depotOrderHeader_callDate}";
+if ("${depotOrderHeader_openedDate}" != "[N/A]") objRequest.depotOrderHeaders[0].openedDate= "${depotOrderHeader_openedDate}";
+if ("${depotOrderHeader_openedTime}" != "[N/A]") objRequest.depotOrderHeaders[0].openedTime= "${depotOrderHeader_openedTime}";
+if ("${depotOrderHeader_closedDate}" != "[N/A]") objRequest.depotOrderHeaders[0].closedDate= "${depotOrderHeader_closedDate}";
+if ("${depotOrderHeader_closedTime}" != "[N/A]") objRequest.depotOrderHeaders[0].closedTime= "${depotOrderHeader_closedTime}";
+if ("${depotOrderHeader_creationDateStamp}" != "[N/A]") objRequest.depotOrderHeaders[0].creationDateStamp= "${depotOrderHeader_creationDateStamp}";
+if ("${depotOrderHeader_creationTimeStamp}" != "[N/A]") objRequest.depotOrderHeaders[0].creationTimeStamp= "${depotOrderHeader_creationTimeStamp}";
+if ("${depotOrderHeader_isCommentsModified}" != "[N/A]") objRequest.depotOrderHeaders[0].isCommentsModified= "${depotOrderHeader_isCommentsModified}";
+if ("${depotOrderHeader_routingCode}" != "[N/A]") objRequest.depotOrderHeaders[0].routingCode= "${depotOrderHeader_routingCode}";
+if ("${depotOrderHeader_billOfMaterialCode}" != "[N/A]") objRequest.depotOrderHeaders[0].billOfMaterialCode= "${depotOrderHeader_billOfMaterialCode}";
+if ("${depotOrderHeader_completeDate}" != "[N/A]") objRequest.depotOrderHeaders[0].completeDate= "${depotOrderHeader_completeDate}";
+if ("${depotOrderHeader_completeTime}" != "[N/A]") objRequest.depotOrderHeaders[0].completeTime= "${depotOrderHeader_completeTime}";
+if ("${depotOrderHeader_baseCurrencyCode}" != "[N/A]") objRequest.depotOrderHeaders[0].baseCurrencyCode= "${depotOrderHeader_baseCurrencyCode}";
+if ("${depotOrderHeader_exchangeRate}" != "[N/A]") objRequest.depotOrderHeaders[0].exchangeRate= "${depotOrderHeader_exchangeRate}";
+if ("${depotOrderHeader_exchangeRate2}" != "[N/A]") objRequest.depotOrderHeaders[0].exchangeRate2= "${depotOrderHeader_exchangeRate2}";
+if ("${depotOrderHeader_exchangeRateDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].exchangeRateDescription= "${depotOrderHeader_exchangeRateDescription}";
+if ("${depotOrderHeader_exchangeRateType}" != "[N/A]") objRequest.depotOrderHeaders[0].exchangeRateType= "${depotOrderHeader_exchangeRateType}";
+if ("${depotOrderHeader_exchangeRateSequence}" != "[N/A]") objRequest.depotOrderHeaders[0].exchangeRateSequence= "${depotOrderHeader_exchangeRateSequence}";
+if ("${depotOrderHeader_projectCode}" != "[N/A]") objRequest.depotOrderHeaders[0].projectCode= "${depotOrderHeader_projectCode}";
+if ("${depotOrderHeader_defaultWorksheet}" != "[N/A]") objRequest.depotOrderHeaders[0].defaultWorksheet= "${depotOrderHeader_defaultWorksheet}";
+if ("${depotOrderHeader_isUpdateInstalledBase}" != "[N/A]") objRequest.depotOrderHeaders[0].isUpdateInstalledBase= "${depotOrderHeader_isUpdateInstalledBase}";
+if ("${depotOrderHeader_isDepotOrderPrinted}" != "[N/A]") objRequest.depotOrderHeaders[0].isDepotOrderPrinted= "${depotOrderHeader_isDepotOrderPrinted}";
+if ("${depotOrderHeader_repairCenterSiteCode}" != "[N/A]") objRequest.depotOrderHeaders[0].repairCenterSiteCode= "${depotOrderHeader_repairCenterSiteCode}";
+if ("${depotOrderHeader_serviceType}" != "[N/A]") objRequest.depotOrderHeaders[0].serviceType= "${depotOrderHeader_serviceType}";
+if ("${depotOrderHeader_taxPercentage}" != "[N/A]") objRequest.depotOrderHeaders[0].taxPercentage= "${depotOrderHeader_taxPercentage}";
+if ("${depotOrderHeader_lastModifiedUser}" != "[N/A]") objRequest.depotOrderHeaders[0].lastModifiedUser= "${depotOrderHeader_lastModifiedUser}";
+if ("${depotOrderHeader_lastModifiedDate}" != "[N/A]") objRequest.depotOrderHeaders[0].lastModifiedDate= "${depotOrderHeader_lastModifiedDate}";
+if ("${depotOrderHeader_customerCode}" != "[N/A]") objRequest.depotOrderHeaders[0].customerCode= "${depotOrderHeader_customerCode}";
+if ("${depotOrderHeader_isFixedRate}" != "[N/A]") objRequest.depotOrderHeaders[0].isFixedRate= "${depotOrderHeader_isFixedRate}";
+if ("${depotOrderHeader_enteredBy}" != "[N/A]") objRequest.depotOrderHeaders[0].enteredBy= "${depotOrderHeader_enteredBy}";
+if ("${depotOrderHeader_typeCode}" != "[N/A]") objRequest.depotOrderHeaders[0].typeCode= "${depotOrderHeader_typeCode}";
+if ("${depotOrderHeader_typeCodeDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].typeCodeDescription= "${depotOrderHeader_typeCodeDescription}";
+if ("${depotOrderHeader_callerName}" != "[N/A]") objRequest.depotOrderHeaders[0].callerName= "${depotOrderHeader_callerName}";
+if ("${depotOrderHeader_phoneNumber}" != "[N/A]") objRequest.depotOrderHeaders[0].phoneNumber= "${depotOrderHeader_phoneNumber}";
+if ("${depotOrderHeader_priority}" != "[N/A]") objRequest.depotOrderHeaders[0].priority= "${depotOrderHeader_priority}";
+if ("${depotOrderHeader_problemSkillCode}" != "[N/A]") objRequest.depotOrderHeaders[0].problemSkillCode= "${depotOrderHeader_problemSkillCode}";
+if ("${depotOrderHeader_resolutionCode}" != "[N/A]") objRequest.depotOrderHeaders[0].resolutionCode= "${depotOrderHeader_resolutionCode}";
+if ("${depotOrderHeader_resolutionDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].resolutionDescription= "${depotOrderHeader_resolutionDescription}";
+if ("${depotOrderHeader_timeSpent}" != "[N/A]") objRequest.depotOrderHeaders[0].timeSpent= "${depotOrderHeader_timeSpent}";
+if ("${depotOrderHeader_timeSpentDescription}" != "[N/A]") objRequest.depotOrderHeaders[0].timeSpentDescription= "${depotOrderHeader_timeSpentDescription}";
+if ("${depotOrderHeader_estimatedTime}" != "[N/A]") objRequest.depotOrderHeaders[0].estimatedTime= "${depotOrderHeader_estimatedTime}";
+if ("${depotOrderHeader_estimatedHours}" != "[N/A]") objRequest.depotOrderHeaders[0].estimatedHours= "${depotOrderHeader_estimatedHours}";
+if ("${depotOrderHeader_estimatedMinutes}" != "[N/A]") objRequest.depotOrderHeaders[0].estimatedMinutes= "${depotOrderHeader_estimatedMinutes}";
+if ("${depotOrderHeader_isProcessOrderSummary}" != "[N/A]") objRequest.depotOrderHeaders[0].isProcessOrderSummary= "${depotOrderHeader_isProcessOrderSummary}";
+if ("${depotOrderHeader_isProcessPostTrailer}" != "[N/A]") objRequest.depotOrderHeaders[0].isProcessPostTrailer= "${depotOrderHeader_isProcessPostTrailer}";
+if ("${depotOrderHeader_isManualDiscountPercent}" != "[N/A]") objRequest.depotOrderHeaders[0].isManualDiscountPercent= "${depotOrderHeader_isManualDiscountPercent}";
+if ("${depotOrderHeader_isDisplayTaxAmounts}" != "[N/A]") objRequest.depotOrderHeaders[0].isDisplayTaxAmounts= "${depotOrderHeader_isDisplayTaxAmounts}";
+if ("${depotOrderHeader_completeStatus}" != "[N/A]") objRequest.depotOrderHeaders[0].completeStatus= "${depotOrderHeader_completeStatus}";
+if ("${depotOrderHeader_caMstrUser1}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrUser1= "${depotOrderHeader_caMstrUser1}";
+if ("${depotOrderHeader_caMstrUser2}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrUser2= "${depotOrderHeader_caMstrUser2}";
+if ("${depotOrderHeader_caMstrChr01}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr01= "${depotOrderHeader_caMstrChr01}";
+if ("${depotOrderHeader_caMstrChr02}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr02= "${depotOrderHeader_caMstrChr02}";
+if ("${depotOrderHeader_caMstrChr03}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr03= "${depotOrderHeader_caMstrChr03}";
+if ("${depotOrderHeader_caMstrChr04}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr04= "${depotOrderHeader_caMstrChr04}";
+if ("${depotOrderHeader_caMstrChr05}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr05= "${depotOrderHeader_caMstrChr05}";
+if ("${depotOrderHeader_caMstrChr06}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr06= "${depotOrderHeader_caMstrChr06}";
+if ("${depotOrderHeader_caMstrChr07}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr07= "${depotOrderHeader_caMstrChr07}";
+if ("${depotOrderHeader_caMstrChr08}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr08= "${depotOrderHeader_caMstrChr08}";
+if ("${depotOrderHeader_caMstrChr09}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr09= "${depotOrderHeader_caMstrChr09}";
+if ("${depotOrderHeader_caMstrChr10}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrChr10= "${depotOrderHeader_caMstrChr10}";
+if ("${depotOrderHeader_caMstrDec01}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDec01= "${depotOrderHeader_caMstrDec01}";
+if ("${depotOrderHeader_caMstrDec02}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDec02= "${depotOrderHeader_caMstrDec02}";
+if ("${depotOrderHeader_caMstrDec03}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDec03= "${depotOrderHeader_caMstrDec03}";
+if ("${depotOrderHeader_caMstrDte01}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDte01= "${depotOrderHeader_caMstrDte01}";
+if ("${depotOrderHeader_caMstrDte02}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDte02= "${depotOrderHeader_caMstrDte02}";
+if ("${depotOrderHeader_caMstrDte03}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDte03= "${depotOrderHeader_caMstrDte03}";
+if ("${depotOrderHeader_caMstrDte04}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDte04= "${depotOrderHeader_caMstrDte04}";
+if ("${depotOrderHeader_caMstrDte05}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrDte05= "${depotOrderHeader_caMstrDte05}";
+if ("${depotOrderHeader_caMstrLog01}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrLog01= "${depotOrderHeader_caMstrLog01}";
+if ("${depotOrderHeader_caMstrLog02}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrLog02= "${depotOrderHeader_caMstrLog02}";
+if ("${depotOrderHeader_caMstrLog03}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrLog03= "${depotOrderHeader_caMstrLog03}";
+if ("${depotOrderHeader_caMstrLog04}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrLog04= "${depotOrderHeader_caMstrLog04}";
+if ("${depotOrderHeader_caMstrLog05}" != "[N/A]") objRequest.depotOrderHeaders[0].caMstrLog05= "${depotOrderHeader_caMstrLog05}";
+if ("${depotOrderHeader_dataOperation}" != "[N/A]") objRequest.depotOrderHeaders[0].dataOperation= "${depotOrderHeader_dataOperation}";
+if ("${depotOrderHeader_concurrencyHash}" != "[N/A]") objRequest.depotOrderHeaders[0].concurrencyHash= "${depotOrderHeader_concurrencyHash}";
+if ("${depotOrderHeader_pendingInvoiceConcurrencyHash}" != "[N/A]") objRequest.depotOrderHeaders[0].pendingInvoiceConcurrencyHash= "${depotOrderHeader_pendingInvoiceConcurrencyHash}";
+if ("${depotOrderHeader_hasShippingTransaction}" != "[N/A]") objRequest.depotOrderHeaders[0].hasShippingTransaction= "${depotOrderHeader_hasShippingTransaction}";
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put("RequestData", strUpdatedRequest);</stringProp>
+	</JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse">
+		<stringProp name="VAR">RequestData</stringProp>
+		<stringProp name="JSONPATH">$.data</stringProp>
+		<stringProp name="DEFAULT">NotFound</stringProp>
+		<stringProp name="VARIABLE"/>
+		<stringProp name="SUBJECT">BODY</stringProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion enabled="true" guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result">
+		<stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+		<stringProp name="EXPECTED_VALUE">true</stringProp>
+		<boolProp name="JSONVALIDATION">true</boolProp>
+		<boolProp name="EXPECT_NULL">false</boolProp>
+		<boolProp name="INVERT">false</boolProp>
+		<boolProp name="ISREGEX">false</boolProp>
+	</com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion enabled="true" guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion">
+		<stringProp name="cacheKey"/>
+		<stringProp name="filename"/>
+		<stringProp name="parameters"/>
+		<stringProp name="script">var requestData = vars.get("RequestData");
+var objRequest = JSON.parse(requestData);
+var failureMessage = "";
+
+// All the fields in dataset should be set here
+if ("${depotOrderHeader_validate_domainCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].domainCode!= "${depotOrderHeader_validate_domainCode}") { failureMessage = failureMessage + "Expect domainCode${depotOrderHeader_validate_domainCode} but got " + objRequest.depotOrderHeaders[0].domainCode}
+if ("${depotOrderHeader_validate_depotOrderNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].depotOrderNumber!= "${depotOrderHeader_validate_depotOrderNumber}") { failureMessage = failureMessage + "Expect depotOrderNumber${depotOrderHeader_validate_depotOrderNumber} but got " + objRequest.depotOrderHeaders[0].depotOrderNumber}
+if ("${depotOrderHeader_validate_sequenceNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].sequenceNumber!= "${depotOrderHeader_validate_sequenceNumber}") { failureMessage = failureMessage + "Expect sequenceNumber${depotOrderHeader_validate_sequenceNumber} but got " + objRequest.depotOrderHeaders[0].sequenceNumber}
+if ("${depotOrderHeader_validate_category}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].category!= "${depotOrderHeader_validate_category}") { failureMessage = failureMessage + "Expect category${depotOrderHeader_validate_category} but got " + objRequest.depotOrderHeaders[0].category}
+if ("${depotOrderHeader_validate_endUserCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserCode!= "${depotOrderHeader_validate_endUserCode}") { failureMessage = failureMessage + "Expect endUserCode${depotOrderHeader_validate_endUserCode} but got " + objRequest.depotOrderHeaders[0].endUserCode}
+if ("${depotOrderHeader_validate_endUserAddressField1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserAddressField1!= "${depotOrderHeader_validate_endUserAddressField1}") { failureMessage = failureMessage + "Expect endUserAddressField1${depotOrderHeader_validate_endUserAddressField1} but got " + objRequest.depotOrderHeaders[0].endUserAddressField1}
+if ("${depotOrderHeader_validate_endUserAddressField2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserAddressField2!= "${depotOrderHeader_validate_endUserAddressField2}") { failureMessage = failureMessage + "Expect endUserAddressField2${depotOrderHeader_validate_endUserAddressField2} but got " + objRequest.depotOrderHeaders[0].endUserAddressField2}
+if ("${depotOrderHeader_validate_endUserAddressField3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserAddressField3!= "${depotOrderHeader_validate_endUserAddressField3}") { failureMessage = failureMessage + "Expect endUserAddressField3${depotOrderHeader_validate_endUserAddressField3} but got " + objRequest.depotOrderHeaders[0].endUserAddressField3}
+if ("${depotOrderHeader_validate_endUserAddressField4}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserAddressField4!= "${depotOrderHeader_validate_endUserAddressField4}") { failureMessage = failureMessage + "Expect endUserAddressField4${depotOrderHeader_validate_endUserAddressField4} but got " + objRequest.depotOrderHeaders[0].endUserAddressField4}
+if ("${depotOrderHeader_validate_endUserAddressField5}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserAddressField5!= "${depotOrderHeader_validate_endUserAddressField5}") { failureMessage = failureMessage + "Expect endUserAddressField5${depotOrderHeader_validate_endUserAddressField5} but got " + objRequest.depotOrderHeaders[0].endUserAddressField5}
+if ("${depotOrderHeader_validate_endUserAddressField6}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserAddressField6!= "${depotOrderHeader_validate_endUserAddressField6}") { failureMessage = failureMessage + "Expect endUserAddressField6${depotOrderHeader_validate_endUserAddressField6} but got " + objRequest.depotOrderHeaders[0].endUserAddressField6}
+if ("${depotOrderHeader_validate_endUserMessage}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].endUserMessage!= "${depotOrderHeader_validate_endUserMessage}") { failureMessage = failureMessage + "Expect endUserMessage${depotOrderHeader_validate_endUserMessage} but got " + objRequest.depotOrderHeaders[0].endUserMessage}
+if ("${depotOrderHeader_validate_soldToCustomerCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToCustomerCode!= "${depotOrderHeader_validate_soldToCustomerCode}") { failureMessage = failureMessage + "Expect soldToCustomerCode${depotOrderHeader_validate_soldToCustomerCode} but got " + objRequest.depotOrderHeaders[0].soldToCustomerCode}
+if ("${depotOrderHeader_validate_soldToAddressField1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToAddressField1!= "${depotOrderHeader_validate_soldToAddressField1}") { failureMessage = failureMessage + "Expect soldToAddressField1${depotOrderHeader_validate_soldToAddressField1} but got " + objRequest.depotOrderHeaders[0].soldToAddressField1}
+if ("${depotOrderHeader_validate_soldToAddressField2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToAddressField2!= "${depotOrderHeader_validate_soldToAddressField2}") { failureMessage = failureMessage + "Expect soldToAddressField2${depotOrderHeader_validate_soldToAddressField2} but got " + objRequest.depotOrderHeaders[0].soldToAddressField2}
+if ("${depotOrderHeader_validate_soldToAddressField3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToAddressField3!= "${depotOrderHeader_validate_soldToAddressField3}") { failureMessage = failureMessage + "Expect soldToAddressField3${depotOrderHeader_validate_soldToAddressField3} but got " + objRequest.depotOrderHeaders[0].soldToAddressField3}
+if ("${depotOrderHeader_validate_soldToAddressField4}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToAddressField4!= "${depotOrderHeader_validate_soldToAddressField4}") { failureMessage = failureMessage + "Expect soldToAddressField4${depotOrderHeader_validate_soldToAddressField4} but got " + objRequest.depotOrderHeaders[0].soldToAddressField4}
+if ("${depotOrderHeader_validate_soldToAddressField5}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToAddressField5!= "${depotOrderHeader_validate_soldToAddressField5}") { failureMessage = failureMessage + "Expect soldToAddressField5${depotOrderHeader_validate_soldToAddressField5} but got " + objRequest.depotOrderHeaders[0].soldToAddressField5}
+if ("${depotOrderHeader_validate_soldToAddressField6}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].soldToAddressField6!= "${depotOrderHeader_validate_soldToAddressField6}") { failureMessage = failureMessage + "Expect soldToAddressField6${depotOrderHeader_validate_soldToAddressField6} but got " + objRequest.depotOrderHeaders[0].soldToAddressField6}
+if ("${depotOrderHeader_validate_revision}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].revision!= "${depotOrderHeader_validate_revision}") { failureMessage = failureMessage + "Expect revision${depotOrderHeader_validate_revision} but got " + objRequest.depotOrderHeaders[0].revision}
+if ("${depotOrderHeader_validate_workCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].workCode!= "${depotOrderHeader_validate_workCode}") { failureMessage = failureMessage + "Expect workCode${depotOrderHeader_validate_workCode} but got " + objRequest.depotOrderHeaders[0].workCode}
+if ("${depotOrderHeader_validate_workCodeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].workCodeDescription!= "${depotOrderHeader_validate_workCodeDescription}") { failureMessage = failureMessage + "Expect workCodeDescription${depotOrderHeader_validate_workCodeDescription} but got " + objRequest.depotOrderHeaders[0].workCodeDescription}
+if ("${depotOrderHeader_validate_severityCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].severityCode!= "${depotOrderHeader_validate_severityCode}") { failureMessage = failureMessage + "Expect severityCode${depotOrderHeader_validate_severityCode} but got " + objRequest.depotOrderHeaders[0].severityCode}
+if ("${depotOrderHeader_validate_severityCodeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].severityCodeDescription!= "${depotOrderHeader_validate_severityCodeDescription}") { failureMessage = failureMessage + "Expect severityCodeDescription${depotOrderHeader_validate_severityCodeDescription} but got " + objRequest.depotOrderHeaders[0].severityCodeDescription}
+if ("${depotOrderHeader_validate_purchaseOrderNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].purchaseOrderNumber!= "${depotOrderHeader_validate_purchaseOrderNumber}") { failureMessage = failureMessage + "Expect purchaseOrderNumber${depotOrderHeader_validate_purchaseOrderNumber} but got " + objRequest.depotOrderHeaders[0].purchaseOrderNumber}
+if ("${depotOrderHeader_validate_orderDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].orderDate!= "${depotOrderHeader_validate_orderDate}") { failureMessage = failureMessage + "Expect orderDate${depotOrderHeader_validate_orderDate} but got " + objRequest.depotOrderHeaders[0].orderDate}
+if ("${depotOrderHeader_validate_requiredDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].requiredDate!= "${depotOrderHeader_validate_requiredDate}") { failureMessage = failureMessage + "Expect requiredDate${depotOrderHeader_validate_requiredDate} but got " + objRequest.depotOrderHeaders[0].requiredDate}
+if ("${depotOrderHeader_validate_requiredTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].requiredTime!= "${depotOrderHeader_validate_requiredTime}") { failureMessage = failureMessage + "Expect requiredTime${depotOrderHeader_validate_requiredTime} but got " + objRequest.depotOrderHeaders[0].requiredTime}
+if ("${depotOrderHeader_validate_promiseDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].promiseDate!= "${depotOrderHeader_validate_promiseDate}") { failureMessage = failureMessage + "Expect promiseDate${depotOrderHeader_validate_promiseDate} but got " + objRequest.depotOrderHeaders[0].promiseDate}
+if ("${depotOrderHeader_validate_pricingDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].pricingDate!= "${depotOrderHeader_validate_pricingDate}") { failureMessage = failureMessage + "Expect pricingDate${depotOrderHeader_validate_pricingDate} but got " + objRequest.depotOrderHeaders[0].pricingDate}
+if ("${depotOrderHeader_validate_remarks}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].remarks!= "${depotOrderHeader_validate_remarks}") { failureMessage = failureMessage + "Expect remarks${depotOrderHeader_validate_remarks} but got " + objRequest.depotOrderHeaders[0].remarks}
+if ("${depotOrderHeader_validate_isConfirmed}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isConfirmed!= "${depotOrderHeader_validate_isConfirmed}") { failureMessage = failureMessage + "Expect isConfirmed${depotOrderHeader_validate_isConfirmed} but got " + objRequest.depotOrderHeaders[0].isConfirmed}
+if ("${depotOrderHeader_validate_confirmedDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].confirmedDate!= "${depotOrderHeader_validate_confirmedDate}") { failureMessage = failureMessage + "Expect confirmedDate${depotOrderHeader_validate_confirmedDate} but got " + objRequest.depotOrderHeaders[0].confirmedDate}
+if ("${depotOrderHeader_validate_isTaxable}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isTaxable!= "${depotOrderHeader_validate_isTaxable}") { failureMessage = failureMessage + "Expect isTaxable${depotOrderHeader_validate_isTaxable} but got " + objRequest.depotOrderHeaders[0].isTaxable}
+if ("${depotOrderHeader_validate_languageCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].languageCode!= "${depotOrderHeader_validate_languageCode}") { failureMessage = failureMessage + "Expect languageCode${depotOrderHeader_validate_languageCode} but got " + objRequest.depotOrderHeaders[0].languageCode}
+if ("${depotOrderHeader_validate_languageDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].languageDescription!= "${depotOrderHeader_validate_languageDescription}") { failureMessage = failureMessage + "Expect languageDescription${depotOrderHeader_validate_languageDescription} but got " + objRequest.depotOrderHeaders[0].languageDescription}
+if ("${depotOrderHeader_validate_serviceQuoteNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].serviceQuoteNumber!= "${depotOrderHeader_validate_serviceQuoteNumber}") { failureMessage = failureMessage + "Expect serviceQuoteNumber${depotOrderHeader_validate_serviceQuoteNumber} but got " + objRequest.depotOrderHeaders[0].serviceQuoteNumber}
+if ("${depotOrderHeader_validate_isEDIPurchaseOrderAck}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isEDIPurchaseOrderAck!= "${depotOrderHeader_validate_isEDIPurchaseOrderAck}") { failureMessage = failureMessage + "Expect isEDIPurchaseOrderAck${depotOrderHeader_validate_isEDIPurchaseOrderAck} but got " + objRequest.depotOrderHeaders[0].isEDIPurchaseOrderAck}
+if ("${depotOrderHeader_validate_isEndUserChanged}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isEndUserChanged!= "${depotOrderHeader_validate_isEndUserChanged}") { failureMessage = failureMessage + "Expect isEndUserChanged${depotOrderHeader_validate_isEndUserChanged} but got " + objRequest.depotOrderHeaders[0].isEndUserChanged}
+if ("${depotOrderHeader_validate_serviceGroup}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].serviceGroup!= "${depotOrderHeader_validate_serviceGroup}") { failureMessage = failureMessage + "Expect serviceGroup${depotOrderHeader_validate_serviceGroup} but got " + objRequest.depotOrderHeaders[0].serviceGroup}
+if ("${depotOrderHeader_validate_timeZoneCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].timeZoneCode!= "${depotOrderHeader_validate_timeZoneCode}") { failureMessage = failureMessage + "Expect timeZoneCode${depotOrderHeader_validate_timeZoneCode} but got " + objRequest.depotOrderHeaders[0].timeZoneCode}
+if ("${depotOrderHeader_validate_defaultTimeZoneCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].defaultTimeZoneCode!= "${depotOrderHeader_validate_defaultTimeZoneCode}") { failureMessage = failureMessage + "Expect defaultTimeZoneCode${depotOrderHeader_validate_defaultTimeZoneCode} but got " + objRequest.depotOrderHeaders[0].defaultTimeZoneCode}
+if ("${depotOrderHeader_validate_isMultipleTimeZoneEnabled}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isMultipleTimeZoneEnabled!= "${depotOrderHeader_validate_isMultipleTimeZoneEnabled}") { failureMessage = failureMessage + "Expect isMultipleTimeZoneEnabled${depotOrderHeader_validate_isMultipleTimeZoneEnabled} but got " + objRequest.depotOrderHeaders[0].isMultipleTimeZoneEnabled}
+if ("${depotOrderHeader_validate_assigned}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].assigned!= "${depotOrderHeader_validate_assigned}") { failureMessage = failureMessage + "Expect assigned${depotOrderHeader_validate_assigned} but got " + objRequest.depotOrderHeaders[0].assigned}
+if ("${depotOrderHeader_validate_assignedDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].assignedDescription!= "${depotOrderHeader_validate_assignedDescription}") { failureMessage = failureMessage + "Expect assignedDescription${depotOrderHeader_validate_assignedDescription} but got " + objRequest.depotOrderHeaders[0].assignedDescription}
+if ("${depotOrderHeader_validate_queueCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].queueCode!= "${depotOrderHeader_validate_queueCode}") { failureMessage = failureMessage + "Expect queueCode${depotOrderHeader_validate_queueCode} but got " + objRequest.depotOrderHeaders[0].queueCode}
+if ("${depotOrderHeader_validate_queueDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].queueDescription!= "${depotOrderHeader_validate_queueDescription}") { failureMessage = failureMessage + "Expect queueDescription${depotOrderHeader_validate_queueDescription} but got " + objRequest.depotOrderHeaders[0].queueDescription}
+if ("${depotOrderHeader_validate_responseTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].responseTime!= "${depotOrderHeader_validate_responseTime}") { failureMessage = failureMessage + "Expect responseTime${depotOrderHeader_validate_responseTime} but got " + objRequest.depotOrderHeaders[0].responseTime}
+if ("${depotOrderHeader_validate_responseUnitOfMeasureDisplay}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].responseUnitOfMeasureDisplay!= "${depotOrderHeader_validate_responseUnitOfMeasureDisplay}") { failureMessage = failureMessage + "Expect responseUnitOfMeasureDisplay${depotOrderHeader_validate_responseUnitOfMeasureDisplay} but got " + objRequest.depotOrderHeaders[0].responseUnitOfMeasureDisplay}
+if ("${depotOrderHeader_validate_escalationNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].escalationNumber!= "${depotOrderHeader_validate_escalationNumber}") { failureMessage = failureMessage + "Expect escalationNumber${depotOrderHeader_validate_escalationNumber} but got " + objRequest.depotOrderHeaders[0].escalationNumber}
+if ("${depotOrderHeader_validate_escalationSequence}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].escalationSequence!= "${depotOrderHeader_validate_escalationSequence}") { failureMessage = failureMessage + "Expect escalationSequence${depotOrderHeader_validate_escalationSequence} but got " + objRequest.depotOrderHeaders[0].escalationSequence}
+if ("${depotOrderHeader_validate_statusCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].statusCode!= "${depotOrderHeader_validate_statusCode}") { failureMessage = failureMessage + "Expect statusCode${depotOrderHeader_validate_statusCode} but got " + objRequest.depotOrderHeaders[0].statusCode}
+if ("${depotOrderHeader_validate_statusCodeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].statusCodeDescription!= "${depotOrderHeader_validate_statusCodeDescription}") { failureMessage = failureMessage + "Expect statusCodeDescription${depotOrderHeader_validate_statusCodeDescription} but got " + objRequest.depotOrderHeaders[0].statusCodeDescription}
+if ("${depotOrderHeader_validate_nextStatusCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].nextStatusCode!= "${depotOrderHeader_validate_nextStatusCode}") { failureMessage = failureMessage + "Expect nextStatusCode${depotOrderHeader_validate_nextStatusCode} but got " + objRequest.depotOrderHeaders[0].nextStatusCode}
+if ("${depotOrderHeader_validate_nextStatusCodeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].nextStatusCodeDescription!= "${depotOrderHeader_validate_nextStatusCodeDescription}") { failureMessage = failureMessage + "Expect nextStatusCodeDescription${depotOrderHeader_validate_nextStatusCodeDescription} but got " + objRequest.depotOrderHeaders[0].nextStatusCodeDescription}
+if ("${depotOrderHeader_validate_nextStatusDateTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].nextStatusDateTime!= "${depotOrderHeader_validate_nextStatusDateTime}") { failureMessage = failureMessage + "Expect nextStatusDateTime${depotOrderHeader_validate_nextStatusDateTime} but got " + objRequest.depotOrderHeaders[0].nextStatusDateTime}
+if ("${depotOrderHeader_validate_eventDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].eventDate!= "${depotOrderHeader_validate_eventDate}") { failureMessage = failureMessage + "Expect eventDate${depotOrderHeader_validate_eventDate} but got " + objRequest.depotOrderHeaders[0].eventDate}
+if ("${depotOrderHeader_validate_eventTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].eventTime!= "${depotOrderHeader_validate_eventTime}") { failureMessage = failureMessage + "Expect eventTime${depotOrderHeader_validate_eventTime} but got " + objRequest.depotOrderHeaders[0].eventTime}
+if ("${depotOrderHeader_validate_eventDateTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].eventDateTime!= "${depotOrderHeader_validate_eventDateTime}") { failureMessage = failureMessage + "Expect eventDateTime${depotOrderHeader_validate_eventDateTime} but got " + objRequest.depotOrderHeaders[0].eventDateTime}
+if ("${depotOrderHeader_validate_shipToCustomerCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToCustomerCode!= "${depotOrderHeader_validate_shipToCustomerCode}") { failureMessage = failureMessage + "Expect shipToCustomerCode${depotOrderHeader_validate_shipToCustomerCode} but got " + objRequest.depotOrderHeaders[0].shipToCustomerCode}
+if ("${depotOrderHeader_validate_shipToAddressField1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToAddressField1!= "${depotOrderHeader_validate_shipToAddressField1}") { failureMessage = failureMessage + "Expect shipToAddressField1${depotOrderHeader_validate_shipToAddressField1} but got " + objRequest.depotOrderHeaders[0].shipToAddressField1}
+if ("${depotOrderHeader_validate_shipToAddressField2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToAddressField2!= "${depotOrderHeader_validate_shipToAddressField2}") { failureMessage = failureMessage + "Expect shipToAddressField2${depotOrderHeader_validate_shipToAddressField2} but got " + objRequest.depotOrderHeaders[0].shipToAddressField2}
+if ("${depotOrderHeader_validate_shipToAddressField3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToAddressField3!= "${depotOrderHeader_validate_shipToAddressField3}") { failureMessage = failureMessage + "Expect shipToAddressField3${depotOrderHeader_validate_shipToAddressField3} but got " + objRequest.depotOrderHeaders[0].shipToAddressField3}
+if ("${depotOrderHeader_validate_shipToAddressField4}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToAddressField4!= "${depotOrderHeader_validate_shipToAddressField4}") { failureMessage = failureMessage + "Expect shipToAddressField4${depotOrderHeader_validate_shipToAddressField4} but got " + objRequest.depotOrderHeaders[0].shipToAddressField4}
+if ("${depotOrderHeader_validate_shipToAddressField5}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToAddressField5!= "${depotOrderHeader_validate_shipToAddressField5}") { failureMessage = failureMessage + "Expect shipToAddressField5${depotOrderHeader_validate_shipToAddressField5} but got " + objRequest.depotOrderHeaders[0].shipToAddressField5}
+if ("${depotOrderHeader_validate_shipToAddressField6}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipToAddressField6!= "${depotOrderHeader_validate_shipToAddressField6}") { failureMessage = failureMessage + "Expect shipToAddressField6${depotOrderHeader_validate_shipToAddressField6} but got " + objRequest.depotOrderHeaders[0].shipToAddressField6}
+if ("${depotOrderHeader_validate_siteCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].siteCode!= "${depotOrderHeader_validate_siteCode}") { failureMessage = failureMessage + "Expect siteCode${depotOrderHeader_validate_siteCode} but got " + objRequest.depotOrderHeaders[0].siteCode}
+if ("${depotOrderHeader_validate_siteDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].siteDescription!= "${depotOrderHeader_validate_siteDescription}") { failureMessage = failureMessage + "Expect siteDescription${depotOrderHeader_validate_siteDescription} but got " + objRequest.depotOrderHeaders[0].siteDescription}
+if ("${depotOrderHeader_validate_siteEntityCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].siteEntityCode!= "${depotOrderHeader_validate_siteEntityCode}") { failureMessage = failureMessage + "Expect siteEntityCode${depotOrderHeader_validate_siteEntityCode} but got " + objRequest.depotOrderHeaders[0].siteEntityCode}
+if ("${depotOrderHeader_validate_siteEntityDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].siteEntityDescription!= "${depotOrderHeader_validate_siteEntityDescription}") { failureMessage = failureMessage + "Expect siteEntityDescription${depotOrderHeader_validate_siteEntityDescription} but got " + objRequest.depotOrderHeaders[0].siteEntityDescription}
+if ("${depotOrderHeader_validate_dueDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].dueDate!= "${depotOrderHeader_validate_dueDate}") { failureMessage = failureMessage + "Expect dueDate${depotOrderHeader_validate_dueDate} but got " + objRequest.depotOrderHeaders[0].dueDate}
+if ("${depotOrderHeader_validate_shipVia}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipVia!= "${depotOrderHeader_validate_shipVia}") { failureMessage = failureMessage + "Expect shipVia${depotOrderHeader_validate_shipVia} but got " + objRequest.depotOrderHeaders[0].shipVia}
+if ("${depotOrderHeader_validate_shipViaDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].shipViaDescription!= "${depotOrderHeader_validate_shipViaDescription}") { failureMessage = failureMessage + "Expect shipViaDescription${depotOrderHeader_validate_shipViaDescription} but got " + objRequest.depotOrderHeaders[0].shipViaDescription}
+if ("${depotOrderHeader_validate_isCalculateFreight}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isCalculateFreight!= "${depotOrderHeader_validate_isCalculateFreight}") { failureMessage = failureMessage + "Expect isCalculateFreight${depotOrderHeader_validate_isCalculateFreight} but got " + objRequest.depotOrderHeaders[0].isCalculateFreight}
+if ("${depotOrderHeader_validate_freightListCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].freightListCode!= "${depotOrderHeader_validate_freightListCode}") { failureMessage = failureMessage + "Expect freightListCode${depotOrderHeader_validate_freightListCode} but got " + objRequest.depotOrderHeaders[0].freightListCode}
+if ("${depotOrderHeader_validate_freightListDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].freightListDescription!= "${depotOrderHeader_validate_freightListDescription}") { failureMessage = failureMessage + "Expect freightListDescription${depotOrderHeader_validate_freightListDescription} but got " + objRequest.depotOrderHeaders[0].freightListDescription}
+if ("${depotOrderHeader_validate_freightMinimumWeight}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].freightMinimumWeight!= "${depotOrderHeader_validate_freightMinimumWeight}") { failureMessage = failureMessage + "Expect freightMinimumWeight${depotOrderHeader_validate_freightMinimumWeight} but got " + objRequest.depotOrderHeaders[0].freightMinimumWeight}
+if ("${depotOrderHeader_validate_freightWeightUnitOfMeasure}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].freightWeightUnitOfMeasure!= "${depotOrderHeader_validate_freightWeightUnitOfMeasure}") { failureMessage = failureMessage + "Expect freightWeightUnitOfMeasure${depotOrderHeader_validate_freightWeightUnitOfMeasure} but got " + objRequest.depotOrderHeaders[0].freightWeightUnitOfMeasure}
+if ("${depotOrderHeader_validate_freightTermsCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].freightTermsCode!= "${depotOrderHeader_validate_freightTermsCode}") { failureMessage = failureMessage + "Expect freightTermsCode${depotOrderHeader_validate_freightTermsCode} but got " + objRequest.depotOrderHeaders[0].freightTermsCode}
+if ("${depotOrderHeader_validate_freightTermsDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].freightTermsDescription!= "${depotOrderHeader_validate_freightTermsDescription}") { failureMessage = failureMessage + "Expect freightTermsDescription${depotOrderHeader_validate_freightTermsDescription} but got " + objRequest.depotOrderHeaders[0].freightTermsDescription}
+if ("${depotOrderHeader_validate_billOfLading}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billOfLading!= "${depotOrderHeader_validate_billOfLading}") { failureMessage = failureMessage + "Expect billOfLading${depotOrderHeader_validate_billOfLading} but got " + objRequest.depotOrderHeaders[0].billOfLading}
+if ("${depotOrderHeader_validate_incoterms}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].incoterms!= "${depotOrderHeader_validate_incoterms}") { failureMessage = failureMessage + "Expect incoterms${depotOrderHeader_validate_incoterms} but got " + objRequest.depotOrderHeaders[0].incoterms}
+if ("${depotOrderHeader_validate_incotermsDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].incotermsDescription!= "${depotOrderHeader_validate_incotermsDescription}") { failureMessage = failureMessage + "Expect incotermsDescription${depotOrderHeader_validate_incotermsDescription} but got " + objRequest.depotOrderHeaders[0].incotermsDescription}
+if ("${depotOrderHeader_validate_isPartialOK}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isPartialOK!= "${depotOrderHeader_validate_isPartialOK}") { failureMessage = failureMessage + "Expect isPartialOK${depotOrderHeader_validate_isPartialOK} but got " + objRequest.depotOrderHeaders[0].isPartialOK}
+if ("${depotOrderHeader_validate_isPrintPackList}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isPrintPackList!= "${depotOrderHeader_validate_isPrintPackList}") { failureMessage = failureMessage + "Expect isPrintPackList${depotOrderHeader_validate_isPrintPackList} but got " + objRequest.depotOrderHeaders[0].isPrintPackList}
+if ("${depotOrderHeader_validate_billToCustomerCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToCustomerCode!= "${depotOrderHeader_validate_billToCustomerCode}") { failureMessage = failureMessage + "Expect billToCustomerCode${depotOrderHeader_validate_billToCustomerCode} but got " + objRequest.depotOrderHeaders[0].billToCustomerCode}
+if ("${depotOrderHeader_validate_billToAddressField1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToAddressField1!= "${depotOrderHeader_validate_billToAddressField1}") { failureMessage = failureMessage + "Expect billToAddressField1${depotOrderHeader_validate_billToAddressField1} but got " + objRequest.depotOrderHeaders[0].billToAddressField1}
+if ("${depotOrderHeader_validate_billToAddressField2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToAddressField2!= "${depotOrderHeader_validate_billToAddressField2}") { failureMessage = failureMessage + "Expect billToAddressField2${depotOrderHeader_validate_billToAddressField2} but got " + objRequest.depotOrderHeaders[0].billToAddressField2}
+if ("${depotOrderHeader_validate_billToAddressField3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToAddressField3!= "${depotOrderHeader_validate_billToAddressField3}") { failureMessage = failureMessage + "Expect billToAddressField3${depotOrderHeader_validate_billToAddressField3} but got " + objRequest.depotOrderHeaders[0].billToAddressField3}
+if ("${depotOrderHeader_validate_billToAddressField4}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToAddressField4!= "${depotOrderHeader_validate_billToAddressField4}") { failureMessage = failureMessage + "Expect billToAddressField4${depotOrderHeader_validate_billToAddressField4} but got " + objRequest.depotOrderHeaders[0].billToAddressField4}
+if ("${depotOrderHeader_validate_billToAddressField5}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToAddressField5!= "${depotOrderHeader_validate_billToAddressField5}") { failureMessage = failureMessage + "Expect billToAddressField5${depotOrderHeader_validate_billToAddressField5} but got " + objRequest.depotOrderHeaders[0].billToAddressField5}
+if ("${depotOrderHeader_validate_billToAddressField6}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billToAddressField6!= "${depotOrderHeader_validate_billToAddressField6}") { failureMessage = failureMessage + "Expect billToAddressField6${depotOrderHeader_validate_billToAddressField6} but got " + objRequest.depotOrderHeaders[0].billToAddressField6}
+if ("${depotOrderHeader_validate_currencyCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].currencyCode!= "${depotOrderHeader_validate_currencyCode}") { failureMessage = failureMessage + "Expect currencyCode${depotOrderHeader_validate_currencyCode} but got " + objRequest.depotOrderHeaders[0].currencyCode}
+if ("${depotOrderHeader_validate_currencyDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].currencyDescription!= "${depotOrderHeader_validate_currencyDescription}") { failureMessage = failureMessage + "Expect currencyDescription${depotOrderHeader_validate_currencyDescription} but got " + objRequest.depotOrderHeaders[0].currencyDescription}
+if ("${depotOrderHeader_validate_daybookSetCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].daybookSetCode!= "${depotOrderHeader_validate_daybookSetCode}") { failureMessage = failureMessage + "Expect daybookSetCode${depotOrderHeader_validate_daybookSetCode} but got " + objRequest.depotOrderHeaders[0].daybookSetCode}
+if ("${depotOrderHeader_validate_daybookSetDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].daybookSetDescription!= "${depotOrderHeader_validate_daybookSetDescription}") { failureMessage = failureMessage + "Expect daybookSetDescription${depotOrderHeader_validate_daybookSetDescription} but got " + objRequest.depotOrderHeaders[0].daybookSetDescription}
+if ("${depotOrderHeader_validate_modelCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].modelCode!= "${depotOrderHeader_validate_modelCode}") { failureMessage = failureMessage + "Expect modelCode${depotOrderHeader_validate_modelCode} but got " + objRequest.depotOrderHeaders[0].modelCode}
+if ("${depotOrderHeader_validate_discountPercent}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].discountPercent!= "${depotOrderHeader_validate_discountPercent}") { failureMessage = failureMessage + "Expect discountPercent${depotOrderHeader_validate_discountPercent} but got " + objRequest.depotOrderHeaders[0].discountPercent}
+if ("${depotOrderHeader_validate_priceListCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].priceListCode!= "${depotOrderHeader_validate_priceListCode}") { failureMessage = failureMessage + "Expect priceListCode${depotOrderHeader_validate_priceListCode} but got " + objRequest.depotOrderHeaders[0].priceListCode}
+if ("${depotOrderHeader_validate_isEDIInvoiceHistory}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isEDIInvoiceHistory!= "${depotOrderHeader_validate_isEDIInvoiceHistory}") { failureMessage = failureMessage + "Expect isEDIInvoiceHistory${depotOrderHeader_validate_isEDIInvoiceHistory} but got " + objRequest.depotOrderHeaders[0].isEDIInvoiceHistory}
+if ("${depotOrderHeader_validate_isReadyToInvoice}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isReadyToInvoice!= "${depotOrderHeader_validate_isReadyToInvoice}") { failureMessage = failureMessage + "Expect isReadyToInvoice${depotOrderHeader_validate_isReadyToInvoice} but got " + objRequest.depotOrderHeaders[0].isReadyToInvoice}
+if ("${depotOrderHeader_validate_isPrintInvoiceHistory}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isPrintInvoiceHistory!= "${depotOrderHeader_validate_isPrintInvoiceHistory}") { failureMessage = failureMessage + "Expect isPrintInvoiceHistory${depotOrderHeader_validate_isPrintInvoiceHistory} but got " + objRequest.depotOrderHeaders[0].isPrintInvoiceHistory}
+if ("${depotOrderHeader_validate_channel}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].channel!= "${depotOrderHeader_validate_channel}") { failureMessage = failureMessage + "Expect channel${depotOrderHeader_validate_channel} but got " + objRequest.depotOrderHeaders[0].channel}
+if ("${depotOrderHeader_validate_channelDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].channelDescription!= "${depotOrderHeader_validate_channelDescription}") { failureMessage = failureMessage + "Expect channelDescription${depotOrderHeader_validate_channelDescription} but got " + objRequest.depotOrderHeaders[0].channelDescription}
+if ("${depotOrderHeader_validate_creditTermsCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creditTermsCode!= "${depotOrderHeader_validate_creditTermsCode}") { failureMessage = failureMessage + "Expect creditTermsCode${depotOrderHeader_validate_creditTermsCode} but got " + objRequest.depotOrderHeaders[0].creditTermsCode}
+if ("${depotOrderHeader_validate_creditTermsCodeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creditTermsCodeDescription!= "${depotOrderHeader_validate_creditTermsCodeDescription}") { failureMessage = failureMessage + "Expect creditTermsCodeDescription${depotOrderHeader_validate_creditTermsCodeDescription} but got " + objRequest.depotOrderHeaders[0].creditTermsCodeDescription}
+if ("${depotOrderHeader_validate_actionStatus}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].actionStatus!= "${depotOrderHeader_validate_actionStatus}") { failureMessage = failureMessage + "Expect actionStatus${depotOrderHeader_validate_actionStatus} but got " + objRequest.depotOrderHeaders[0].actionStatus}
+if ("${depotOrderHeader_validate_actionStatusDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].actionStatusDescription!= "${depotOrderHeader_validate_actionStatusDescription}") { failureMessage = failureMessage + "Expect actionStatusDescription${depotOrderHeader_validate_actionStatusDescription} but got " + objRequest.depotOrderHeaders[0].actionStatusDescription}
+if ("${depotOrderHeader_validate_prepaidAmount}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].prepaidAmount!= "${depotOrderHeader_validate_prepaidAmount}") { failureMessage = failureMessage + "Expect prepaidAmount${depotOrderHeader_validate_prepaidAmount} but got " + objRequest.depotOrderHeaders[0].prepaidAmount}
+if ("${depotOrderHeader_validate_isCreditReviewed}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isCreditReviewed!= "${depotOrderHeader_validate_isCreditReviewed}") { failureMessage = failureMessage + "Expect isCreditReviewed${depotOrderHeader_validate_isCreditReviewed} but got " + objRequest.depotOrderHeaders[0].isCreditReviewed}
+if ("${depotOrderHeader_validate_creditInitials}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creditInitials!= "${depotOrderHeader_validate_creditInitials}") { failureMessage = failureMessage + "Expect creditInitials${depotOrderHeader_validate_creditInitials} but got " + objRequest.depotOrderHeaders[0].creditInitials}
+if ("${depotOrderHeader_validate_creditInitialsDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creditInitialsDescription!= "${depotOrderHeader_validate_creditInitialsDescription}") { failureMessage = failureMessage + "Expect creditInitialsDescription${depotOrderHeader_validate_creditInitialsDescription} but got " + objRequest.depotOrderHeaders[0].creditInitialsDescription}
+if ("${depotOrderHeader_validate_creditCard}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creditCard!= "${depotOrderHeader_validate_creditCard}") { failureMessage = failureMessage + "Expect creditCard${depotOrderHeader_validate_creditCard} but got " + objRequest.depotOrderHeaders[0].creditCard}
+if ("${depotOrderHeader_validate_creditCardDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creditCardDescription!= "${depotOrderHeader_validate_creditCardDescription}") { failureMessage = failureMessage + "Expect creditCardDescription${depotOrderHeader_validate_creditCardDescription} but got " + objRequest.depotOrderHeaders[0].creditCardDescription}
+if ("${depotOrderHeader_validate_taxClass}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxClass!= "${depotOrderHeader_validate_taxClass}") { failureMessage = failureMessage + "Expect taxClass${depotOrderHeader_validate_taxClass} but got " + objRequest.depotOrderHeaders[0].taxClass}
+if ("${depotOrderHeader_validate_taxClassDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxClassDescription!= "${depotOrderHeader_validate_taxClassDescription}") { failureMessage = failureMessage + "Expect taxClassDescription${depotOrderHeader_validate_taxClassDescription} but got " + objRequest.depotOrderHeaders[0].taxClassDescription}
+if ("${depotOrderHeader_validate_taxEnvironment}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxEnvironment!= "${depotOrderHeader_validate_taxEnvironment}") { failureMessage = failureMessage + "Expect taxEnvironment${depotOrderHeader_validate_taxEnvironment} but got " + objRequest.depotOrderHeaders[0].taxEnvironment}
+if ("${depotOrderHeader_validate_taxEnvironmentDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxEnvironmentDescription!= "${depotOrderHeader_validate_taxEnvironmentDescription}") { failureMessage = failureMessage + "Expect taxEnvironmentDescription${depotOrderHeader_validate_taxEnvironmentDescription} but got " + objRequest.depotOrderHeaders[0].taxEnvironmentDescription}
+if ("${depotOrderHeader_validate_isTaxIncluded}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isTaxIncluded!= "${depotOrderHeader_validate_isTaxIncluded}") { failureMessage = failureMessage + "Expect isTaxIncluded${depotOrderHeader_validate_isTaxIncluded} but got " + objRequest.depotOrderHeaders[0].isTaxIncluded}
+if ("${depotOrderHeader_validate_taxUsage}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxUsage!= "${depotOrderHeader_validate_taxUsage}") { failureMessage = failureMessage + "Expect taxUsage${depotOrderHeader_validate_taxUsage} but got " + objRequest.depotOrderHeaders[0].taxUsage}
+if ("${depotOrderHeader_validate_taxUsageDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxUsageDescription!= "${depotOrderHeader_validate_taxUsageDescription}") { failureMessage = failureMessage + "Expect taxUsageDescription${depotOrderHeader_validate_taxUsageDescription} but got " + objRequest.depotOrderHeaders[0].taxUsageDescription}
+if ("${depotOrderHeader_validate_taxDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxDate!= "${depotOrderHeader_validate_taxDate}") { failureMessage = failureMessage + "Expect taxDate${depotOrderHeader_validate_taxDate} but got " + objRequest.depotOrderHeaders[0].taxDate}
+if ("${depotOrderHeader_validate_trailerCode1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerCode1!= "${depotOrderHeader_validate_trailerCode1}") { failureMessage = failureMessage + "Expect trailerCode1${depotOrderHeader_validate_trailerCode1} but got " + objRequest.depotOrderHeaders[0].trailerCode1}
+if ("${depotOrderHeader_validate_trailerCodeDescription1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerCodeDescription1!= "${depotOrderHeader_validate_trailerCodeDescription1}") { failureMessage = failureMessage + "Expect trailerCodeDescription1${depotOrderHeader_validate_trailerCodeDescription1} but got " + objRequest.depotOrderHeaders[0].trailerCodeDescription1}
+if ("${depotOrderHeader_validate_trailerAmount1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerAmount1!= "${depotOrderHeader_validate_trailerAmount1}") { failureMessage = failureMessage + "Expect trailerAmount1${depotOrderHeader_validate_trailerAmount1} but got " + objRequest.depotOrderHeaders[0].trailerAmount1}
+if ("${depotOrderHeader_validate_trailerCode2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerCode2!= "${depotOrderHeader_validate_trailerCode2}") { failureMessage = failureMessage + "Expect trailerCode2${depotOrderHeader_validate_trailerCode2} but got " + objRequest.depotOrderHeaders[0].trailerCode2}
+if ("${depotOrderHeader_validate_trailerCodeDescription2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerCodeDescription2!= "${depotOrderHeader_validate_trailerCodeDescription2}") { failureMessage = failureMessage + "Expect trailerCodeDescription2${depotOrderHeader_validate_trailerCodeDescription2} but got " + objRequest.depotOrderHeaders[0].trailerCodeDescription2}
+if ("${depotOrderHeader_validate_trailerAmount2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerAmount2!= "${depotOrderHeader_validate_trailerAmount2}") { failureMessage = failureMessage + "Expect trailerAmount2${depotOrderHeader_validate_trailerAmount2} but got " + objRequest.depotOrderHeaders[0].trailerAmount2}
+if ("${depotOrderHeader_validate_trailerCode3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerCode3!= "${depotOrderHeader_validate_trailerCode3}") { failureMessage = failureMessage + "Expect trailerCode3${depotOrderHeader_validate_trailerCode3} but got " + objRequest.depotOrderHeaders[0].trailerCode3}
+if ("${depotOrderHeader_validate_trailerCodeDescription3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerCodeDescription3!= "${depotOrderHeader_validate_trailerCodeDescription3}") { failureMessage = failureMessage + "Expect trailerCodeDescription3${depotOrderHeader_validate_trailerCodeDescription3} but got " + objRequest.depotOrderHeaders[0].trailerCodeDescription3}
+if ("${depotOrderHeader_validate_trailerAmount3}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].trailerAmount3!= "${depotOrderHeader_validate_trailerAmount3}") { failureMessage = failureMessage + "Expect trailerAmount3${depotOrderHeader_validate_trailerAmount3} but got " + objRequest.depotOrderHeaders[0].trailerAmount3}
+if ("${depotOrderHeader_validate_taxableAmount}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxableAmount!= "${depotOrderHeader_validate_taxableAmount}") { failureMessage = failureMessage + "Expect taxableAmount${depotOrderHeader_validate_taxableAmount} but got " + objRequest.depotOrderHeaders[0].taxableAmount}
+if ("${depotOrderHeader_validate_nonTaxableAmount}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].nonTaxableAmount!= "${depotOrderHeader_validate_nonTaxableAmount}") { failureMessage = failureMessage + "Expect nonTaxableAmount${depotOrderHeader_validate_nonTaxableAmount} but got " + objRequest.depotOrderHeaders[0].nonTaxableAmount}
+if ("${depotOrderHeader_validate_lineTotal}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].lineTotal!= "${depotOrderHeader_validate_lineTotal}") { failureMessage = failureMessage + "Expect lineTotal${depotOrderHeader_validate_lineTotal} but got " + objRequest.depotOrderHeaders[0].lineTotal}
+if ("${depotOrderHeader_validate_discountAmount}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].discountAmount!= "${depotOrderHeader_validate_discountAmount}") { failureMessage = failureMessage + "Expect discountAmount${depotOrderHeader_validate_discountAmount} but got " + objRequest.depotOrderHeaders[0].discountAmount}
+if ("${depotOrderHeader_validate_totalTrailerCharges}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].totalTrailerCharges!= "${depotOrderHeader_validate_totalTrailerCharges}") { failureMessage = failureMessage + "Expect totalTrailerCharges${depotOrderHeader_validate_totalTrailerCharges} but got " + objRequest.depotOrderHeaders[0].totalTrailerCharges}
+if ("${depotOrderHeader_validate_totalTax}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].totalTax!= "${depotOrderHeader_validate_totalTax}") { failureMessage = failureMessage + "Expect totalTax${depotOrderHeader_validate_totalTax} but got " + objRequest.depotOrderHeaders[0].totalTax}
+if ("${depotOrderHeader_validate_initialTotalAmount}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].initialTotalAmount!= "${depotOrderHeader_validate_initialTotalAmount}") { failureMessage = failureMessage + "Expect initialTotalAmount${depotOrderHeader_validate_initialTotalAmount} but got " + objRequest.depotOrderHeaders[0].initialTotalAmount}
+if ("${depotOrderHeader_validate_totalAmount}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].totalAmount!= "${depotOrderHeader_validate_totalAmount}") { failureMessage = failureMessage + "Expect totalAmount${depotOrderHeader_validate_totalAmount} but got " + objRequest.depotOrderHeaders[0].totalAmount}
+if ("${depotOrderHeader_validate_transactionType}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].transactionType!= "${depotOrderHeader_validate_transactionType}") { failureMessage = failureMessage + "Expect transactionType${depotOrderHeader_validate_transactionType} but got " + objRequest.depotOrderHeaders[0].transactionType}
+if ("${depotOrderHeader_validate_itemRevision}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].itemRevision!= "${depotOrderHeader_validate_itemRevision}") { failureMessage = failureMessage + "Expect itemRevision${depotOrderHeader_validate_itemRevision} but got " + objRequest.depotOrderHeaders[0].itemRevision}
+if ("${depotOrderHeader_validate_itemCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].itemCode!= "${depotOrderHeader_validate_itemCode}") { failureMessage = failureMessage + "Expect itemCode${depotOrderHeader_validate_itemCode} but got " + objRequest.depotOrderHeaders[0].itemCode}
+if ("${depotOrderHeader_validate_serial}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].serial!= "${depotOrderHeader_validate_serial}") { failureMessage = failureMessage + "Expect serial${depotOrderHeader_validate_serial} but got " + objRequest.depotOrderHeaders[0].serial}
+if ("${depotOrderHeader_validate_reference}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].reference!= "${depotOrderHeader_validate_reference}") { failureMessage = failureMessage + "Expect reference${depotOrderHeader_validate_reference} but got " + objRequest.depotOrderHeaders[0].reference}
+if ("${depotOrderHeader_validate_servicePendingInvoiceNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].servicePendingInvoiceNumber!= "${depotOrderHeader_validate_servicePendingInvoiceNumber}") { failureMessage = failureMessage + "Expect servicePendingInvoiceNumber${depotOrderHeader_validate_servicePendingInvoiceNumber} but got " + objRequest.depotOrderHeaders[0].servicePendingInvoiceNumber}
+if ("${depotOrderHeader_validate_description}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].description!= "${depotOrderHeader_validate_description}") { failureMessage = failureMessage + "Expect description${depotOrderHeader_validate_description} but got " + objRequest.depotOrderHeaders[0].description}
+if ("${depotOrderHeader_validate_commentIndex}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].commentIndex!= "${depotOrderHeader_validate_commentIndex}") { failureMessage = failureMessage + "Expect commentIndex${depotOrderHeader_validate_commentIndex} but got " + objRequest.depotOrderHeaders[0].commentIndex}
+if ("${depotOrderHeader_validate_serviceTypeCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].serviceTypeCode!= "${depotOrderHeader_validate_serviceTypeCode}") { failureMessage = failureMessage + "Expect serviceTypeCode${depotOrderHeader_validate_serviceTypeCode} but got " + objRequest.depotOrderHeaders[0].serviceTypeCode}
+if ("${depotOrderHeader_validate_serviceTypeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].serviceTypeDescription!= "${depotOrderHeader_validate_serviceTypeDescription}") { failureMessage = failureMessage + "Expect serviceTypeDescription${depotOrderHeader_validate_serviceTypeDescription} but got " + objRequest.depotOrderHeaders[0].serviceTypeDescription}
+if ("${depotOrderHeader_validate_callDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].callDate!= "${depotOrderHeader_validate_callDate}") { failureMessage = failureMessage + "Expect callDate${depotOrderHeader_validate_callDate} but got " + objRequest.depotOrderHeaders[0].callDate}
+if ("${depotOrderHeader_validate_openedDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].openedDate!= "${depotOrderHeader_validate_openedDate}") { failureMessage = failureMessage + "Expect openedDate${depotOrderHeader_validate_openedDate} but got " + objRequest.depotOrderHeaders[0].openedDate}
+if ("${depotOrderHeader_validate_openedTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].openedTime!= "${depotOrderHeader_validate_openedTime}") { failureMessage = failureMessage + "Expect openedTime${depotOrderHeader_validate_openedTime} but got " + objRequest.depotOrderHeaders[0].openedTime}
+if ("${depotOrderHeader_validate_closedDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].closedDate!= "${depotOrderHeader_validate_closedDate}") { failureMessage = failureMessage + "Expect closedDate${depotOrderHeader_validate_closedDate} but got " + objRequest.depotOrderHeaders[0].closedDate}
+if ("${depotOrderHeader_validate_closedTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].closedTime!= "${depotOrderHeader_validate_closedTime}") { failureMessage = failureMessage + "Expect closedTime${depotOrderHeader_validate_closedTime} but got " + objRequest.depotOrderHeaders[0].closedTime}
+if ("${depotOrderHeader_validate_creationDateStamp}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creationDateStamp!= "${depotOrderHeader_validate_creationDateStamp}") { failureMessage = failureMessage + "Expect creationDateStamp${depotOrderHeader_validate_creationDateStamp} but got " + objRequest.depotOrderHeaders[0].creationDateStamp}
+if ("${depotOrderHeader_validate_creationTimeStamp}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].creationTimeStamp!= "${depotOrderHeader_validate_creationTimeStamp}") { failureMessage = failureMessage + "Expect creationTimeStamp${depotOrderHeader_validate_creationTimeStamp} but got " + objRequest.depotOrderHeaders[0].creationTimeStamp}
+if ("${depotOrderHeader_validate_isCommentsModified}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isCommentsModified!= "${depotOrderHeader_validate_isCommentsModified}") { failureMessage = failureMessage + "Expect isCommentsModified${depotOrderHeader_validate_isCommentsModified} but got " + objRequest.depotOrderHeaders[0].isCommentsModified}
+if ("${depotOrderHeader_validate_routingCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].routingCode!= "${depotOrderHeader_validate_routingCode}") { failureMessage = failureMessage + "Expect routingCode${depotOrderHeader_validate_routingCode} but got " + objRequest.depotOrderHeaders[0].routingCode}
+if ("${depotOrderHeader_validate_billOfMaterialCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].billOfMaterialCode!= "${depotOrderHeader_validate_billOfMaterialCode}") { failureMessage = failureMessage + "Expect billOfMaterialCode${depotOrderHeader_validate_billOfMaterialCode} but got " + objRequest.depotOrderHeaders[0].billOfMaterialCode}
+if ("${depotOrderHeader_validate_completeDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].completeDate!= "${depotOrderHeader_validate_completeDate}") { failureMessage = failureMessage + "Expect completeDate${depotOrderHeader_validate_completeDate} but got " + objRequest.depotOrderHeaders[0].completeDate}
+if ("${depotOrderHeader_validate_completeTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].completeTime!= "${depotOrderHeader_validate_completeTime}") { failureMessage = failureMessage + "Expect completeTime${depotOrderHeader_validate_completeTime} but got " + objRequest.depotOrderHeaders[0].completeTime}
+if ("${depotOrderHeader_validate_baseCurrencyCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].baseCurrencyCode!= "${depotOrderHeader_validate_baseCurrencyCode}") { failureMessage = failureMessage + "Expect baseCurrencyCode${depotOrderHeader_validate_baseCurrencyCode} but got " + objRequest.depotOrderHeaders[0].baseCurrencyCode}
+if ("${depotOrderHeader_validate_exchangeRate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].exchangeRate!= "${depotOrderHeader_validate_exchangeRate}") { failureMessage = failureMessage + "Expect exchangeRate${depotOrderHeader_validate_exchangeRate} but got " + objRequest.depotOrderHeaders[0].exchangeRate}
+if ("${depotOrderHeader_validate_exchangeRate2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].exchangeRate2!= "${depotOrderHeader_validate_exchangeRate2}") { failureMessage = failureMessage + "Expect exchangeRate2${depotOrderHeader_validate_exchangeRate2} but got " + objRequest.depotOrderHeaders[0].exchangeRate2}
+if ("${depotOrderHeader_validate_exchangeRateDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].exchangeRateDescription!= "${depotOrderHeader_validate_exchangeRateDescription}") { failureMessage = failureMessage + "Expect exchangeRateDescription${depotOrderHeader_validate_exchangeRateDescription} but got " + objRequest.depotOrderHeaders[0].exchangeRateDescription}
+if ("${depotOrderHeader_validate_exchangeRateType}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].exchangeRateType!= "${depotOrderHeader_validate_exchangeRateType}") { failureMessage = failureMessage + "Expect exchangeRateType${depotOrderHeader_validate_exchangeRateType} but got " + objRequest.depotOrderHeaders[0].exchangeRateType}
+if ("${depotOrderHeader_validate_exchangeRateSequence}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].exchangeRateSequence!= "${depotOrderHeader_validate_exchangeRateSequence}") { failureMessage = failureMessage + "Expect exchangeRateSequence${depotOrderHeader_validate_exchangeRateSequence} but got " + objRequest.depotOrderHeaders[0].exchangeRateSequence}
+if ("${depotOrderHeader_validate_projectCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].projectCode!= "${depotOrderHeader_validate_projectCode}") { failureMessage = failureMessage + "Expect projectCode${depotOrderHeader_validate_projectCode} but got " + objRequest.depotOrderHeaders[0].projectCode}
+if ("${depotOrderHeader_validate_defaultWorksheet}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].defaultWorksheet!= "${depotOrderHeader_validate_defaultWorksheet}") { failureMessage = failureMessage + "Expect defaultWorksheet${depotOrderHeader_validate_defaultWorksheet} but got " + objRequest.depotOrderHeaders[0].defaultWorksheet}
+if ("${depotOrderHeader_validate_isUpdateInstalledBase}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isUpdateInstalledBase!= "${depotOrderHeader_validate_isUpdateInstalledBase}") { failureMessage = failureMessage + "Expect isUpdateInstalledBase${depotOrderHeader_validate_isUpdateInstalledBase} but got " + objRequest.depotOrderHeaders[0].isUpdateInstalledBase}
+if ("${depotOrderHeader_validate_isDepotOrderPrinted}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isDepotOrderPrinted!= "${depotOrderHeader_validate_isDepotOrderPrinted}") { failureMessage = failureMessage + "Expect isDepotOrderPrinted${depotOrderHeader_validate_isDepotOrderPrinted} but got " + objRequest.depotOrderHeaders[0].isDepotOrderPrinted}
+if ("${depotOrderHeader_validate_repairCenterSiteCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].repairCenterSiteCode!= "${depotOrderHeader_validate_repairCenterSiteCode}") { failureMessage = failureMessage + "Expect repairCenterSiteCode${depotOrderHeader_validate_repairCenterSiteCode} but got " + objRequest.depotOrderHeaders[0].repairCenterSiteCode}
+if ("${depotOrderHeader_validate_serviceType}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].serviceType!= "${depotOrderHeader_validate_serviceType}") { failureMessage = failureMessage + "Expect serviceType${depotOrderHeader_validate_serviceType} but got " + objRequest.depotOrderHeaders[0].serviceType}
+if ("${depotOrderHeader_validate_taxPercentage}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].taxPercentage!= "${depotOrderHeader_validate_taxPercentage}") { failureMessage = failureMessage + "Expect taxPercentage${depotOrderHeader_validate_taxPercentage} but got " + objRequest.depotOrderHeaders[0].taxPercentage}
+if ("${depotOrderHeader_validate_lastModifiedUser}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].lastModifiedUser!= "${depotOrderHeader_validate_lastModifiedUser}") { failureMessage = failureMessage + "Expect lastModifiedUser${depotOrderHeader_validate_lastModifiedUser} but got " + objRequest.depotOrderHeaders[0].lastModifiedUser}
+if ("${depotOrderHeader_validate_lastModifiedDate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].lastModifiedDate!= "${depotOrderHeader_validate_lastModifiedDate}") { failureMessage = failureMessage + "Expect lastModifiedDate${depotOrderHeader_validate_lastModifiedDate} but got " + objRequest.depotOrderHeaders[0].lastModifiedDate}
+if ("${depotOrderHeader_validate_customerCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].customerCode!= "${depotOrderHeader_validate_customerCode}") { failureMessage = failureMessage + "Expect customerCode${depotOrderHeader_validate_customerCode} but got " + objRequest.depotOrderHeaders[0].customerCode}
+if ("${depotOrderHeader_validate_isFixedRate}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isFixedRate!= "${depotOrderHeader_validate_isFixedRate}") { failureMessage = failureMessage + "Expect isFixedRate${depotOrderHeader_validate_isFixedRate} but got " + objRequest.depotOrderHeaders[0].isFixedRate}
+if ("${depotOrderHeader_validate_enteredBy}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].enteredBy!= "${depotOrderHeader_validate_enteredBy}") { failureMessage = failureMessage + "Expect enteredBy${depotOrderHeader_validate_enteredBy} but got " + objRequest.depotOrderHeaders[0].enteredBy}
+if ("${depotOrderHeader_validate_typeCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].typeCode!= "${depotOrderHeader_validate_typeCode}") { failureMessage = failureMessage + "Expect typeCode${depotOrderHeader_validate_typeCode} but got " + objRequest.depotOrderHeaders[0].typeCode}
+if ("${depotOrderHeader_validate_typeCodeDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].typeCodeDescription!= "${depotOrderHeader_validate_typeCodeDescription}") { failureMessage = failureMessage + "Expect typeCodeDescription${depotOrderHeader_validate_typeCodeDescription} but got " + objRequest.depotOrderHeaders[0].typeCodeDescription}
+if ("${depotOrderHeader_validate_callerName}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].callerName!= "${depotOrderHeader_validate_callerName}") { failureMessage = failureMessage + "Expect callerName${depotOrderHeader_validate_callerName} but got " + objRequest.depotOrderHeaders[0].callerName}
+if ("${depotOrderHeader_validate_phoneNumber}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].phoneNumber!= "${depotOrderHeader_validate_phoneNumber}") { failureMessage = failureMessage + "Expect phoneNumber${depotOrderHeader_validate_phoneNumber} but got " + objRequest.depotOrderHeaders[0].phoneNumber}
+if ("${depotOrderHeader_validate_priority}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].priority!= "${depotOrderHeader_validate_priority}") { failureMessage = failureMessage + "Expect priority${depotOrderHeader_validate_priority} but got " + objRequest.depotOrderHeaders[0].priority}
+if ("${depotOrderHeader_validate_problemSkillCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].problemSkillCode!= "${depotOrderHeader_validate_problemSkillCode}") { failureMessage = failureMessage + "Expect problemSkillCode${depotOrderHeader_validate_problemSkillCode} but got " + objRequest.depotOrderHeaders[0].problemSkillCode}
+if ("${depotOrderHeader_validate_resolutionCode}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].resolutionCode!= "${depotOrderHeader_validate_resolutionCode}") { failureMessage = failureMessage + "Expect resolutionCode${depotOrderHeader_validate_resolutionCode} but got " + objRequest.depotOrderHeaders[0].resolutionCode}
+if ("${depotOrderHeader_validate_resolutionDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].resolutionDescription!= "${depotOrderHeader_validate_resolutionDescription}") { failureMessage = failureMessage + "Expect resolutionDescription${depotOrderHeader_validate_resolutionDescription} but got " + objRequest.depotOrderHeaders[0].resolutionDescription}
+if ("${depotOrderHeader_validate_timeSpent}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].timeSpent!= "${depotOrderHeader_validate_timeSpent}") { failureMessage = failureMessage + "Expect timeSpent${depotOrderHeader_validate_timeSpent} but got " + objRequest.depotOrderHeaders[0].timeSpent}
+if ("${depotOrderHeader_validate_timeSpentDescription}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].timeSpentDescription!= "${depotOrderHeader_validate_timeSpentDescription}") { failureMessage = failureMessage + "Expect timeSpentDescription${depotOrderHeader_validate_timeSpentDescription} but got " + objRequest.depotOrderHeaders[0].timeSpentDescription}
+if ("${depotOrderHeader_validate_estimatedTime}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].estimatedTime!= "${depotOrderHeader_validate_estimatedTime}") { failureMessage = failureMessage + "Expect estimatedTime${depotOrderHeader_validate_estimatedTime} but got " + objRequest.depotOrderHeaders[0].estimatedTime}
+if ("${depotOrderHeader_validate_estimatedHours}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].estimatedHours!= "${depotOrderHeader_validate_estimatedHours}") { failureMessage = failureMessage + "Expect estimatedHours${depotOrderHeader_validate_estimatedHours} but got " + objRequest.depotOrderHeaders[0].estimatedHours}
+if ("${depotOrderHeader_validate_estimatedMinutes}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].estimatedMinutes!= "${depotOrderHeader_validate_estimatedMinutes}") { failureMessage = failureMessage + "Expect estimatedMinutes${depotOrderHeader_validate_estimatedMinutes} but got " + objRequest.depotOrderHeaders[0].estimatedMinutes}
+if ("${depotOrderHeader_validate_isProcessOrderSummary}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isProcessOrderSummary!= "${depotOrderHeader_validate_isProcessOrderSummary}") { failureMessage = failureMessage + "Expect isProcessOrderSummary${depotOrderHeader_validate_isProcessOrderSummary} but got " + objRequest.depotOrderHeaders[0].isProcessOrderSummary}
+if ("${depotOrderHeader_validate_isProcessPostTrailer}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isProcessPostTrailer!= "${depotOrderHeader_validate_isProcessPostTrailer}") { failureMessage = failureMessage + "Expect isProcessPostTrailer${depotOrderHeader_validate_isProcessPostTrailer} but got " + objRequest.depotOrderHeaders[0].isProcessPostTrailer}
+if ("${depotOrderHeader_validate_isManualDiscountPercent}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isManualDiscountPercent!= "${depotOrderHeader_validate_isManualDiscountPercent}") { failureMessage = failureMessage + "Expect isManualDiscountPercent${depotOrderHeader_validate_isManualDiscountPercent} but got " + objRequest.depotOrderHeaders[0].isManualDiscountPercent}
+if ("${depotOrderHeader_validate_isDisplayTaxAmounts}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].isDisplayTaxAmounts!= "${depotOrderHeader_validate_isDisplayTaxAmounts}") { failureMessage = failureMessage + "Expect isDisplayTaxAmounts${depotOrderHeader_validate_isDisplayTaxAmounts} but got " + objRequest.depotOrderHeaders[0].isDisplayTaxAmounts}
+if ("${depotOrderHeader_validate_completeStatus}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].completeStatus!= "${depotOrderHeader_validate_completeStatus}") { failureMessage = failureMessage + "Expect completeStatus${depotOrderHeader_validate_completeStatus} but got " + objRequest.depotOrderHeaders[0].completeStatus}
+if ("${depotOrderHeader_validate_caMstrUser1}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrUser1!= "${depotOrderHeader_validate_caMstrUser1}") { failureMessage = failureMessage + "Expect caMstrUser1${depotOrderHeader_validate_caMstrUser1} but got " + objRequest.depotOrderHeaders[0].caMstrUser1}
+if ("${depotOrderHeader_validate_caMstrUser2}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrUser2!= "${depotOrderHeader_validate_caMstrUser2}") { failureMessage = failureMessage + "Expect caMstrUser2${depotOrderHeader_validate_caMstrUser2} but got " + objRequest.depotOrderHeaders[0].caMstrUser2}
+if ("${depotOrderHeader_validate_caMstrChr01}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr01!= "${depotOrderHeader_validate_caMstrChr01}") { failureMessage = failureMessage + "Expect caMstrChr01${depotOrderHeader_validate_caMstrChr01} but got " + objRequest.depotOrderHeaders[0].caMstrChr01}
+if ("${depotOrderHeader_validate_caMstrChr02}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr02!= "${depotOrderHeader_validate_caMstrChr02}") { failureMessage = failureMessage + "Expect caMstrChr02${depotOrderHeader_validate_caMstrChr02} but got " + objRequest.depotOrderHeaders[0].caMstrChr02}
+if ("${depotOrderHeader_validate_caMstrChr03}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr03!= "${depotOrderHeader_validate_caMstrChr03}") { failureMessage = failureMessage + "Expect caMstrChr03${depotOrderHeader_validate_caMstrChr03} but got " + objRequest.depotOrderHeaders[0].caMstrChr03}
+if ("${depotOrderHeader_validate_caMstrChr04}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr04!= "${depotOrderHeader_validate_caMstrChr04}") { failureMessage = failureMessage + "Expect caMstrChr04${depotOrderHeader_validate_caMstrChr04} but got " + objRequest.depotOrderHeaders[0].caMstrChr04}
+if ("${depotOrderHeader_validate_caMstrChr05}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr05!= "${depotOrderHeader_validate_caMstrChr05}") { failureMessage = failureMessage + "Expect caMstrChr05${depotOrderHeader_validate_caMstrChr05} but got " + objRequest.depotOrderHeaders[0].caMstrChr05}
+if ("${depotOrderHeader_validate_caMstrChr06}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr06!= "${depotOrderHeader_validate_caMstrChr06}") { failureMessage = failureMessage + "Expect caMstrChr06${depotOrderHeader_validate_caMstrChr06} but got " + objRequest.depotOrderHeaders[0].caMstrChr06}
+if ("${depotOrderHeader_validate_caMstrChr07}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr07!= "${depotOrderHeader_validate_caMstrChr07}") { failureMessage = failureMessage + "Expect caMstrChr07${depotOrderHeader_validate_caMstrChr07} but got " + objRequest.depotOrderHeaders[0].caMstrChr07}
+if ("${depotOrderHeader_validate_caMstrChr08}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr08!= "${depotOrderHeader_validate_caMstrChr08}") { failureMessage = failureMessage + "Expect caMstrChr08${depotOrderHeader_validate_caMstrChr08} but got " + objRequest.depotOrderHeaders[0].caMstrChr08}
+if ("${depotOrderHeader_validate_caMstrChr09}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr09!= "${depotOrderHeader_validate_caMstrChr09}") { failureMessage = failureMessage + "Expect caMstrChr09${depotOrderHeader_validate_caMstrChr09} but got " + objRequest.depotOrderHeaders[0].caMstrChr09}
+if ("${depotOrderHeader_validate_caMstrChr10}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrChr10!= "${depotOrderHeader_validate_caMstrChr10}") { failureMessage = failureMessage + "Expect caMstrChr10${depotOrderHeader_validate_caMstrChr10} but got " + objRequest.depotOrderHeaders[0].caMstrChr10}
+if ("${depotOrderHeader_validate_caMstrDec01}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDec01!= "${depotOrderHeader_validate_caMstrDec01}") { failureMessage = failureMessage + "Expect caMstrDec01${depotOrderHeader_validate_caMstrDec01} but got " + objRequest.depotOrderHeaders[0].caMstrDec01}
+if ("${depotOrderHeader_validate_caMstrDec02}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDec02!= "${depotOrderHeader_validate_caMstrDec02}") { failureMessage = failureMessage + "Expect caMstrDec02${depotOrderHeader_validate_caMstrDec02} but got " + objRequest.depotOrderHeaders[0].caMstrDec02}
+if ("${depotOrderHeader_validate_caMstrDec03}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDec03!= "${depotOrderHeader_validate_caMstrDec03}") { failureMessage = failureMessage + "Expect caMstrDec03${depotOrderHeader_validate_caMstrDec03} but got " + objRequest.depotOrderHeaders[0].caMstrDec03}
+if ("${depotOrderHeader_validate_caMstrDte01}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDte01!= "${depotOrderHeader_validate_caMstrDte01}") { failureMessage = failureMessage + "Expect caMstrDte01${depotOrderHeader_validate_caMstrDte01} but got " + objRequest.depotOrderHeaders[0].caMstrDte01}
+if ("${depotOrderHeader_validate_caMstrDte02}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDte02!= "${depotOrderHeader_validate_caMstrDte02}") { failureMessage = failureMessage + "Expect caMstrDte02${depotOrderHeader_validate_caMstrDte02} but got " + objRequest.depotOrderHeaders[0].caMstrDte02}
+if ("${depotOrderHeader_validate_caMstrDte03}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDte03!= "${depotOrderHeader_validate_caMstrDte03}") { failureMessage = failureMessage + "Expect caMstrDte03${depotOrderHeader_validate_caMstrDte03} but got " + objRequest.depotOrderHeaders[0].caMstrDte03}
+if ("${depotOrderHeader_validate_caMstrDte04}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDte04!= "${depotOrderHeader_validate_caMstrDte04}") { failureMessage = failureMessage + "Expect caMstrDte04${depotOrderHeader_validate_caMstrDte04} but got " + objRequest.depotOrderHeaders[0].caMstrDte04}
+if ("${depotOrderHeader_validate_caMstrDte05}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrDte05!= "${depotOrderHeader_validate_caMstrDte05}") { failureMessage = failureMessage + "Expect caMstrDte05${depotOrderHeader_validate_caMstrDte05} but got " + objRequest.depotOrderHeaders[0].caMstrDte05}
+if ("${depotOrderHeader_validate_caMstrLog01}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrLog01!= "${depotOrderHeader_validate_caMstrLog01}") { failureMessage = failureMessage + "Expect caMstrLog01${depotOrderHeader_validate_caMstrLog01} but got " + objRequest.depotOrderHeaders[0].caMstrLog01}
+if ("${depotOrderHeader_validate_caMstrLog02}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrLog02!= "${depotOrderHeader_validate_caMstrLog02}") { failureMessage = failureMessage + "Expect caMstrLog02${depotOrderHeader_validate_caMstrLog02} but got " + objRequest.depotOrderHeaders[0].caMstrLog02}
+if ("${depotOrderHeader_validate_caMstrLog03}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrLog03!= "${depotOrderHeader_validate_caMstrLog03}") { failureMessage = failureMessage + "Expect caMstrLog03${depotOrderHeader_validate_caMstrLog03} but got " + objRequest.depotOrderHeaders[0].caMstrLog03}
+if ("${depotOrderHeader_validate_caMstrLog04}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrLog04!= "${depotOrderHeader_validate_caMstrLog04}") { failureMessage = failureMessage + "Expect caMstrLog04${depotOrderHeader_validate_caMstrLog04} but got " + objRequest.depotOrderHeaders[0].caMstrLog04}
+if ("${depotOrderHeader_validate_caMstrLog05}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].caMstrLog05!= "${depotOrderHeader_validate_caMstrLog05}") { failureMessage = failureMessage + "Expect caMstrLog05${depotOrderHeader_validate_caMstrLog05} but got " + objRequest.depotOrderHeaders[0].caMstrLog05}
+if ("${depotOrderHeader_validate_dataOperation}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].dataOperation!= "${depotOrderHeader_validate_dataOperation}") { failureMessage = failureMessage + "Expect dataOperation${depotOrderHeader_validate_dataOperation} but got " + objRequest.depotOrderHeaders[0].dataOperation}
+if ("${depotOrderHeader_validate_concurrencyHash}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].concurrencyHash!= "${depotOrderHeader_validate_concurrencyHash}") { failureMessage = failureMessage + "Expect concurrencyHash${depotOrderHeader_validate_concurrencyHash} but got " + objRequest.depotOrderHeaders[0].concurrencyHash}
+if ("${depotOrderHeader_validate_pendingInvoiceConcurrencyHash}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].pendingInvoiceConcurrencyHash!= "${depotOrderHeader_validate_pendingInvoiceConcurrencyHash}") { failureMessage = failureMessage + "Expect pendingInvoiceConcurrencyHash${depotOrderHeader_validate_pendingInvoiceConcurrencyHash} but got " + objRequest.depotOrderHeaders[0].pendingInvoiceConcurrencyHash}
+if ("${depotOrderHeader_validate_hasShippingTransaction}" != "[N/A]" &amp;&amp; objRequest.depotOrderHeaders[0].hasShippingTransaction!= "${depotOrderHeader_validate_hasShippingTransaction}") { failureMessage = failureMessage + "Expect hasShippingTransaction${depotOrderHeader_validate_hasShippingTransaction} but got " + objRequest.depotOrderHeaders[0].hasShippingTransaction}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != "");
+</stringProp>
+		<stringProp name="scriptLanguage">javascript</stringProp>
+	</JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler enabled="true" guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData">
+		<stringProp name="scriptLanguage">groovy</stringProp>
+		<stringProp name="parameters"/>
+		<stringProp name="filename"/>
+		<stringProp name="cacheKey"/>
+		<stringProp name="script">String prefix = "depotOrderHeader_"
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, "[N/A]");
+}
+}
+</stringProp>
+	</JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench enabled="true" guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench">
+	  <boolProp name="WorkBench.save">true</boolProp>
+	</WorkBench>
+  </hashTree>
+</jmeterTestPlan>

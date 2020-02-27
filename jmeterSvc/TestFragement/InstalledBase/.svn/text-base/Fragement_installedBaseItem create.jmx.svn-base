@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="installedBaseItem create" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="create" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;&quot;;
+List varsList = [];
+
+// URL Paremeters
+
+varsList.add(&quot;domainCode&quot;);
+varsList.add(&quot;installedBaseItem_error&quot;);
+varsList.add(&quot;installedBaseItem_endUserCode&quot;);
+varsList.add(&quot;installedBaseItem_endUserCustomerCode&quot;);
+varsList.add(&quot;installedBaseItem_endUserCustomerName&quot;);
+varsList.add(&quot;installedBaseItem_endUserCustomerTimeZone&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField1&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField2&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField3&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField4&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField5&quot;);
+varsList.add(&quot;installedBaseItem_endUserAddressField6&quot;);
+varsList.add(&quot;installedBaseItem_itemCode&quot;);
+varsList.add(&quot;installedBaseItem_serialCode&quot;);
+varsList.add(&quot;installedBaseItem_newSerialCode&quot;);
+varsList.add(&quot;installedBaseItem_referenceCode&quot;);
+varsList.add(&quot;installedBaseItem_newReferenceCode&quot;);
+varsList.add(&quot;installedBaseItem_parentItemCode&quot;);
+varsList.add(&quot;installedBaseItem_parentSerialCode&quot;);
+varsList.add(&quot;installedBaseItem_parentReferenceCode&quot;);
+varsList.add(&quot;installedBaseItem_sequenceNumber&quot;);
+varsList.add(&quot;installedBaseItem_warrantyDuration&quot;);
+varsList.add(&quot;installedBaseItem_statusCode&quot;);
+varsList.add(&quot;installedBaseItem_statusCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_revision&quot;);
+varsList.add(&quot;installedBaseItem_revisionDescription&quot;);
+varsList.add(&quot;installedBaseItem_installDate&quot;);
+varsList.add(&quot;installedBaseItem_lastPreventiveMaintenanceDate&quot;);
+varsList.add(&quot;installedBaseItem_preventiveMaintenanceDays&quot;);
+varsList.add(&quot;installedBaseItem_salesOrderNumber&quot;);
+varsList.add(&quot;installedBaseItem_description&quot;);
+varsList.add(&quot;installedBaseItem_description2&quot;);
+varsList.add(&quot;installedBaseItem_warrantyCode&quot;);
+varsList.add(&quot;installedBaseItem_warrantyCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_isComponent&quot;);
+varsList.add(&quot;installedBaseItem_isParent&quot;);
+varsList.add(&quot;installedBaseItem_warrantyExpiration&quot;);
+varsList.add(&quot;installedBaseItem_nextPreventiveMaintenanceDate&quot;);
+varsList.add(&quot;installedBaseItem_salesOrderLine&quot;);
+varsList.add(&quot;installedBaseItem_invoiceNumber&quot;);
+varsList.add(&quot;installedBaseItem_ownership&quot;);
+varsList.add(&quot;installedBaseItem_ownershipDescription&quot;);
+varsList.add(&quot;installedBaseItem_tariffNumber&quot;);
+varsList.add(&quot;installedBaseItem_countryOfOrigin&quot;);
+varsList.add(&quot;installedBaseItem_itemTypeCode&quot;);
+varsList.add(&quot;installedBaseItem_itemTypeDescription&quot;);
+varsList.add(&quot;installedBaseItem_lastUpdatedDate&quot;);
+varsList.add(&quot;installedBaseItem_unitOfMeasure&quot;);
+varsList.add(&quot;installedBaseItem_location&quot;);
+varsList.add(&quot;installedBaseItem_shipDate&quot;);
+varsList.add(&quot;installedBaseItem_inventoryReference&quot;);
+varsList.add(&quot;installedBaseItem_calibration&quot;);
+varsList.add(&quot;installedBaseItem_calibrationDate&quot;);
+varsList.add(&quot;installedBaseItem_model&quot;);
+varsList.add(&quot;installedBaseItem_modelDescription&quot;);
+varsList.add(&quot;installedBaseItem_articleNumber&quot;);
+varsList.add(&quot;installedBaseItem_soldToCustomerCode&quot;);
+varsList.add(&quot;installedBaseItem_priceSold&quot;);
+varsList.add(&quot;installedBaseItem_isRebuildInstalledBase&quot;);
+varsList.add(&quot;installedBaseItem_customerId&quot;);
+varsList.add(&quot;installedBaseItem_commentIndex&quot;);
+varsList.add(&quot;installedBaseItem_updates&quot;);
+varsList.add(&quot;installedBaseItem_originalInstall&quot;);
+varsList.add(&quot;installedBaseItem_isInternalPreventiveMaintenance&quot;);
+varsList.add(&quot;installedBaseItem_engineerCode&quot;);
+varsList.add(&quot;installedBaseItem_laborWarrantyExpires&quot;);
+varsList.add(&quot;installedBaseItem_quantity&quot;);
+varsList.add(&quot;installedBaseItem_latestMeterReading&quot;);
+varsList.add(&quot;installedBaseItem_meterReadingDate&quot;);
+varsList.add(&quot;installedBaseItem_meterReadingInterval&quot;);
+varsList.add(&quot;installedBaseItem_meterReadingUnits&quot;);
+varsList.add(&quot;installedBaseItem_isWarrantyOverride&quot;);
+varsList.add(&quot;installedBaseItem_classificationCode&quot;);
+varsList.add(&quot;installedBaseItem_classificationCodeDescription&quot;);
+varsList.add(&quot;installedBaseItem_isRebuildConfigurationDetail&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrUser1&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrUser2&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr04&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr05&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr06&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr07&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr08&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr09&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrChr10&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDec01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDec02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDec03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrDte04&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog01&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog02&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog03&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog04&quot;);
+varsList.add(&quot;installedBaseItem_isbMstrLog05&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserCode&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserAddressField1&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserAddressField2&quot;);
+varsList.add(&quot;installedBaseItem_targetEndUserAddressField3&quot;);
+varsList.add(&quot;installedBaseItem_moveDate&quot;);
+varsList.add(&quot;installedBaseItem_isRecaculateCoverage&quot;);
+varsList.add(&quot;installedBaseItem_isClearWarranty&quot;);
+varsList.add(&quot;installedBaseItem_newWarranty&quot;);
+varsList.add(&quot;installedBaseItem_newWarrantyDescription&quot;);
+varsList.add(&quot;installedBaseItem_isRecaculateEnd&quot;);
+varsList.add(&quot;installedBaseItem_moveISB&quot;);
+varsList.add(&quot;installedBaseItem_dataOperation&quot;);
+varsList.add(&quot;installedBaseItem_location&quot;);
+varsList.add(&quot;installedBaseItem_concurrencyHash&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem filed change for End User:${installedBaseItem_endUserCode}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldChange?fieldName=endUserCode</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_endUserCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserCode= &quot;${installedBaseItem_endUserCode}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            <stringProp name="Sample.scope">all</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem filed change for : Item: ${installedBaseItem_itemCode} " enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldChange?fieldName=itemCode</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_itemCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].itemCode= &quot;${installedBaseItem_itemCode}&quot;;
+if (&quot;${installedBaseItem_itemTypeCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].itemTypeCode= &quot;${installedBaseItem_itemTypeCode}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem filed change for Lot/Serial:${installedBaseItem_newSerialCode}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldChange?fieldName=newSerialCode</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_newSerialCode}&quot; !=&quot;&quot; ) objRequest.installedBaseItems[0].newSerialCode= &quot;${installedBaseItem_newSerialCode}&quot;;
+if (&quot;${installedBaseItem_newSerialCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].serialCode= &quot;${installedBaseItem_newSerialCode}&quot;;
+if (&quot;${installedBaseItem_newReferenceCode}&quot; !=&quot;&quot; ) objRequest.installedBaseItems[0].newReferenceCode= &quot;${installedBaseItem_newReferenceCode}&quot;;
+if (&quot;${installedBaseItem_newReferenceCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].referenceCode= &quot;${installedBaseItem_newReferenceCode}&quot;;
+if (&quot;${installedBaseItem_itemTypeCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].itemTypeCode= &quot;${installedBaseItem_itemTypeCode}&quot;;
+
+if (&quot;${installedBaseItem_quantity}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].quantity= &quot;${installedBaseItem_quantity}&quot;;
+if (&quot;${installedBaseItem_parentItemCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].parentItemCode= &quot;${installedBaseItem_parentItemCode}&quot;;
+if (&quot;${installedBaseItem_parentSerialCode}&quot; !=&quot;&quot; ) objRequest.installedBaseItems[0].parentSerialCode= &quot;${installedBaseItem_parentSerialCode}&quot;;
+if (&quot;${installedBaseItem_parentReferenceCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].parentReferenceCode= &quot;${installedBaseItem_parentReferenceCode}&quot;;
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="false">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem filed change for Lot/Serial:${installedBaseItem_warrantyCode}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldChange?fieldName=warrantyCode</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_warrantyCode}&quot; !=&quot;&quot; ) objRequest.installedBaseItems[0].warrantyCode= &quot;${installedBaseItem_warrantyCode}&quot;;
+if (&quot;${installedBaseItem_warrantyExpiration}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].warrantyExpiration= &quot;${installedBaseItem_warrantyExpiration}&quot;;
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="false">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem filed change for Lot/Serial:${installedBaseItem_installDate}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldChange?fieldName=installDate</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_installDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].installDate= &quot;${installedBaseItem_installDate}&quot;;
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="false">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem filed change for Lot/Serial:${installedBaseItem_warrantyExpiration}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems/fieldChange?fieldName=warrantyExpiration</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${installedBaseItem_warrantyExpiration}&quot; !=&quot;&quot; ) objRequest.installedBaseItems[0].warrantyExpiration= &quot;${installedBaseItem_warrantyExpiration}&quot;;
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="false">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="InstalledBaseItem Create Lot/Serial: ${installedBaseItem_newSerialCode}  Reference: ${installedBaseItem_newReferenceCode}" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/installedBaseItems</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+
+//Update the value of the data object
+
+String defaultValue = &quot;&quot;;
+// All the fields in dataset should be set here
+//if (&quot;${installedBaseItem_endUserCustomerCode}&quot; != defaultValue) objRequest.installedBaseItems[0].endUserCustomerCode= &quot;${installedBaseItem_endUserCustomerCode}&quot;;
+//if (&quot;${installedBaseItem_endUserCustomerName}&quot; != defaultValue) objRequest.installedBaseItems[0].endUserCustomerName= &quot;${installedBaseItem_endUserCustomerName}&quot;;
+//if (&quot;${installedBaseItem_endUserCustomerTimeZone}&quot; != defaultValue) objRequest.installedBaseItems[0].endUserCustomerTimeZone= &quot;${installedBaseItem_endUserCustomerTimeZone}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField1}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserAddressField1= &quot;${installedBaseItem_endUserAddressField1}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField2}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserAddressField2= &quot;${installedBaseItem_endUserAddressField2}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField3}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserAddressField3= &quot;${installedBaseItem_endUserAddressField3}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField4}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserAddressField4= &quot;${installedBaseItem_endUserAddressField4}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField5}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserAddressField5= &quot;${installedBaseItem_endUserAddressField5}&quot;;
+if (&quot;${installedBaseItem_endUserAddressField6}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].endUserAddressField6= &quot;${installedBaseItem_endUserAddressField6}&quot;;
+if (&quot;${installedBaseItem_sequenceNumber}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].sequenceNumber= &quot;${installedBaseItem_sequenceNumber}&quot;;
+if (&quot;${installedBaseItem_warrantyDuration}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].warrantyDuration= &quot;${installedBaseItem_warrantyDuration}&quot;;
+if (&quot;${installedBaseItem_statusCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].statusCode= &quot;${installedBaseItem_statusCode}&quot;;
+if (&quot;${installedBaseItem_statusCodeDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].statusCodeDescription= &quot;${installedBaseItem_statusCodeDescription}&quot;;
+if (&quot;${installedBaseItem_revision}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].revision= &quot;${installedBaseItem_revision}&quot;;
+if (&quot;${installedBaseItem_revisionDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].revisionDescription= &quot;${installedBaseItem_revisionDescription}&quot;;
+//if (&quot;${installedBaseItem_installDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].installDate= &quot;${installedBaseItem_installDate}&quot;;
+if (&quot;${installedBaseItem_lastPreventiveMaintenanceDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].lastPreventiveMaintenanceDate= &quot;${installedBaseItem_lastPreventiveMaintenanceDate}&quot;;
+if (&quot;${installedBaseItem_preventiveMaintenanceDays}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].preventiveMaintenanceDays= &quot;${installedBaseItem_preventiveMaintenanceDays}&quot;;
+if (&quot;${installedBaseItem_salesOrderNumber}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].salesOrderNumber= &quot;${installedBaseItem_salesOrderNumber}&quot;;
+if (&quot;${installedBaseItem_description}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].description= &quot;${installedBaseItem_description}&quot;;
+if (&quot;${installedBaseItem_description2}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].description2= &quot;${installedBaseItem_description2}&quot;;
+//if (&quot;${installedBaseItem_warrantyCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].warrantyCode= &quot;${installedBaseItem_warrantyCode}&quot;;
+//if (&quot;${installedBaseItem_warrantyCodeDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].warrantyCodeDescription= &quot;${installedBaseItem_warrantyCodeDescription}&quot;;
+//if (&quot;${installedBaseItem_isComponent}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isComponent= &quot;${installedBaseItem_isComponent}&quot;;
+//if (&quot;${installedBaseItem_isParent}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isParent= &quot;${installedBaseItem_isParent}&quot;;
+//if (&quot;${installedBaseItem_warrantyExpiration}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].warrantyExpiration= &quot;${installedBaseItem_warrantyExpiration}&quot;;
+if (&quot;${installedBaseItem_nextPreventiveMaintenanceDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].nextPreventiveMaintenanceDate= &quot;${installedBaseItem_nextPreventiveMaintenanceDate}&quot;;
+if (&quot;${installedBaseItem_salesOrderLine}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].salesOrderLine= &quot;${installedBaseItem_salesOrderLine}&quot;;
+if (&quot;${installedBaseItem_invoiceNumber}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].invoiceNumber= &quot;${installedBaseItem_invoiceNumber}&quot;;
+if (&quot;${installedBaseItem_ownership}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].ownership= &quot;${installedBaseItem_ownership}&quot;;
+if (&quot;${installedBaseItem_ownershipDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].ownershipDescription= &quot;${installedBaseItem_ownershipDescription}&quot;;
+if (&quot;${installedBaseItem_tariffNumber}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].tariffNumber= &quot;${installedBaseItem_tariffNumber}&quot;;
+if (&quot;${installedBaseItem_countryOfOrigin}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].countryOfOrigin= &quot;${installedBaseItem_countryOfOrigin}&quot;;
+//if (&quot;${installedBaseItem_itemTypeDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].itemTypeDescription= &quot;${installedBaseItem_itemTypeDescription}&quot;;
+if (&quot;${installedBaseItem_lastUpdatedDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].lastUpdatedDate= &quot;${installedBaseItem_lastUpdatedDate}&quot;;
+if (&quot;${installedBaseItem_unitOfMeasure}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].unitOfMeasure= &quot;${installedBaseItem_unitOfMeasure}&quot;;
+if (&quot;${installedBaseItem_location}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].location= &quot;${installedBaseItem_location}&quot;;
+if (&quot;${installedBaseItem_shipDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].shipDate= &quot;${installedBaseItem_shipDate}&quot;;
+if (&quot;${installedBaseItem_inventoryReference}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].inventoryReference= &quot;${installedBaseItem_inventoryReference}&quot;;
+if (&quot;${installedBaseItem_calibration}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].calibration= &quot;${installedBaseItem_calibration}&quot;;
+if (&quot;${installedBaseItem_calibrationDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].calibrationDate= &quot;${installedBaseItem_calibrationDate}&quot;;
+if (&quot;${installedBaseItem_model}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].model= &quot;${installedBaseItem_model}&quot;;
+if (&quot;${installedBaseItem_modelDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].modelDescription= &quot;${installedBaseItem_modelDescription}&quot;;
+if (&quot;${installedBaseItem_articleNumber}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].articleNumber= &quot;${installedBaseItem_articleNumber}&quot;;
+if (&quot;${installedBaseItem_soldToCustomerCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].soldToCustomerCode= &quot;${installedBaseItem_soldToCustomerCode}&quot;;
+if (&quot;${installedBaseItem_priceSold}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].priceSold= &quot;${installedBaseItem_priceSold}&quot;;
+if (&quot;${installedBaseItem_isRebuildInstalledBase}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isRebuildInstalledBase= &quot;${installedBaseItem_isRebuildInstalledBase}&quot;;
+if (&quot;${installedBaseItem_customerId}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].customerId= &quot;${installedBaseItem_customerId}&quot;;
+if (&quot;${installedBaseItem_commentIndex}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].commentIndex= &quot;${installedBaseItem_commentIndex}&quot;;
+if (&quot;${installedBaseItem_updates}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].updates= &quot;${installedBaseItem_updates}&quot;;
+if (&quot;${installedBaseItem_originalInstall}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].originalInstall= &quot;${installedBaseItem_originalInstall}&quot;;
+if (&quot;${installedBaseItem_isInternalPreventiveMaintenance}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isInternalPreventiveMaintenance= &quot;${installedBaseItem_isInternalPreventiveMaintenance}&quot;;
+if (&quot;${installedBaseItem_engineerCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].engineerCode= &quot;${installedBaseItem_engineerCode}&quot;;
+if (&quot;${installedBaseItem_laborWarrantyExpires}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].laborWarrantyExpires= &quot;${installedBaseItem_laborWarrantyExpires}&quot;;
+if (&quot;${installedBaseItem_latestMeterReading}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].latestMeterReading= &quot;${installedBaseItem_latestMeterReading}&quot;;
+if (&quot;${installedBaseItem_meterReadingDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].meterReadingDate= &quot;${installedBaseItem_meterReadingDate}&quot;;
+if (&quot;${installedBaseItem_meterReadingInterval}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].meterReadingInterval= &quot;${installedBaseItem_meterReadingInterval}&quot;;
+if (&quot;${installedBaseItem_meterReadingUnits}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].meterReadingUnits= &quot;${installedBaseItem_meterReadingUnits}&quot;;
+if (&quot;${installedBaseItem_isWarrantyOverride}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isWarrantyOverride= &quot;${installedBaseItem_isWarrantyOverride}&quot;;
+if (&quot;${installedBaseItem_classificationCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].classificationCode= &quot;${installedBaseItem_classificationCode}&quot;;
+if (&quot;${installedBaseItem_classificationCodeDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].classificationCodeDescription= &quot;${installedBaseItem_classificationCodeDescription}&quot;;
+if (&quot;${installedBaseItem_isRebuildConfigurationDetail}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isRebuildConfigurationDetail= &quot;${installedBaseItem_isRebuildConfigurationDetail}&quot;;
+objRequest.installedBaseItems[0].isRebuildConfigurationDetail= &quot;true&quot;;
+if (&quot;${installedBaseItem_isbMstrUser1}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrUser1= &quot;${installedBaseItem_isbMstrUser1}&quot;;
+if (&quot;${installedBaseItem_isbMstrUser2}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrUser2= &quot;${installedBaseItem_isbMstrUser2}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr01}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr01= &quot;${installedBaseItem_isbMstrChr01}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr02}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr02= &quot;${installedBaseItem_isbMstrChr02}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr03}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr03= &quot;${installedBaseItem_isbMstrChr03}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr04}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr04= &quot;${installedBaseItem_isbMstrChr04}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr05}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr05= &quot;${installedBaseItem_isbMstrChr05}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr06}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr06= &quot;${installedBaseItem_isbMstrChr06}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr07}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr07= &quot;${installedBaseItem_isbMstrChr07}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr08}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr08= &quot;${installedBaseItem_isbMstrChr08}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr09}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr09= &quot;${installedBaseItem_isbMstrChr09}&quot;;
+if (&quot;${installedBaseItem_isbMstrChr10}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrChr10= &quot;${installedBaseItem_isbMstrChr10}&quot;;
+if (&quot;${installedBaseItem_isbMstrDec01}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDec01= &quot;${installedBaseItem_isbMstrDec01}&quot;;
+if (&quot;${installedBaseItem_isbMstrDec02}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDec02= &quot;${installedBaseItem_isbMstrDec02}&quot;;
+if (&quot;${installedBaseItem_isbMstrDec03}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDec03= &quot;${installedBaseItem_isbMstrDec03}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte01}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDte01= &quot;${installedBaseItem_isbMstrDte01}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte02}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDte02= &quot;${installedBaseItem_isbMstrDte02}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte03}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDte03= &quot;${installedBaseItem_isbMstrDte03}&quot;;
+if (&quot;${installedBaseItem_isbMstrDte04}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrDte04= &quot;${installedBaseItem_isbMstrDte04}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog01}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrLog01= &quot;${installedBaseItem_isbMstrLog01}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog02}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrLog02= &quot;${installedBaseItem_isbMstrLog02}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog03}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrLog03= &quot;${installedBaseItem_isbMstrLog03}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog04}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrLog04= &quot;${installedBaseItem_isbMstrLog04}&quot;;
+if (&quot;${installedBaseItem_isbMstrLog05}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isbMstrLog05= &quot;${installedBaseItem_isbMstrLog05}&quot;;
+if (&quot;${installedBaseItem_targetEndUserCode}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].targetEndUserCode= &quot;${installedBaseItem_targetEndUserCode}&quot;;
+if (&quot;${installedBaseItem_targetEndUserAddressField1}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].targetEndUserAddressField1= &quot;${installedBaseItem_targetEndUserAddressField1}&quot;;
+if (&quot;${installedBaseItem_targetEndUserAddressField2}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].targetEndUserAddressField2= &quot;${installedBaseItem_targetEndUserAddressField2}&quot;;
+if (&quot;${installedBaseItem_targetEndUserAddressField3}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].targetEndUserAddressField3= &quot;${installedBaseItem_targetEndUserAddressField3}&quot;;
+if (&quot;${installedBaseItem_moveDate}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].moveDate= &quot;${installedBaseItem_moveDate}&quot;;
+if (&quot;${installedBaseItem_isRecaculateCoverage}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isRecaculateCoverage= &quot;${installedBaseItem_isRecaculateCoverage}&quot;;
+if (&quot;${installedBaseItem_isClearWarranty}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isClearWarranty= &quot;${installedBaseItem_isClearWarranty}&quot;;
+if (&quot;${installedBaseItem_newWarranty}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].newWarranty= &quot;${installedBaseItem_newWarranty}&quot;;
+if (&quot;${installedBaseItem_newWarrantyDescription}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].newWarrantyDescription= &quot;${installedBaseItem_newWarrantyDescription}&quot;;
+if (&quot;${installedBaseItem_isRecaculateEnd}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].isRecaculateEnd= &quot;${installedBaseItem_isRecaculateEnd}&quot;;
+if (&quot;${installedBaseItem_moveISB}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].moveISB= &quot;${installedBaseItem_moveISB}&quot;;
+if (&quot;${installedBaseItem_dataOperation}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].dataOperation= &quot;${installedBaseItem_dataOperation}&quot;;
+if (&quot;${installedBaseItem_concurrencyHash}&quot; != &quot;&quot;) objRequest.installedBaseItems[0].concurrencyHash= &quot;${installedBaseItem_concurrencyHash}&quot;;
+//Convert the data object back to a JSON string 
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">application/json, text/plain, */*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="x-qadskipdefaulterrorhandling" elementType="Header">
+                <stringProp name="Header.name">x-qadskipdefaulterrorhandling</stringProp>
+                <stringProp name="Header.value">true</stringProp>
+              </elementProp>
+              <elementProp name="x-qadcalluid" elementType="Header">
+                <stringProp name="Header.name">x-qadcalluid</stringProp>
+                <stringProp name="Header.value">9bb158a4-46aa-4351-991a-5147c7335480</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers">0</stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="false">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String prefix = &quot;installedBaseItem_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="QuoteTypeChange" enabled="false">
+          <stringProp name="IfController.condition">&quot;${customerQuoteLine_referenceType}&quot; !=&quot;[N/A]&quot;
+//Create a depot type line-Only Repair Type</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="QuoteType fieldChange" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines/fieldChange?fieldName=referenceType</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+//Update the value of the data object
+if (&quot;${customerQuoteLine_referenceType}&quot;!=objRequest.customerQuoteLines[0].referenceType&amp;&amp;&quot;${customerQuoteLine_referenceType}&quot; != &quot;[N/A&quot;) 
+{
+	objRequest.customerQuoteLines[0].referenceType = &quot;${customerQuoteLine_referenceType}&quot;;
+}
+
+//Convert the data object back to a JSON string 
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="QuoteType fieldChange" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${RequestData}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${server}</stringProp>
+            <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines/fieldChange?fieldName=referenceType</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Content-Type" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">*/*</stringProp>
+                </elementProp>
+                <elementProp name="Origin" elementType="Header">
+                  <stringProp name="Header.name">Origin</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36</stringProp>
+                </elementProp>
+                <elementProp name="DNT" elementType="Header">
+                  <stringProp name="Header.name">DNT</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="X-Requested-With" elementType="Header">
+                  <stringProp name="Header.name">X-Requested-With</stringProp>
+                  <stringProp name="Header.value">XMLHttpRequest</stringProp>
+                </elementProp>
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+
+//Parse the JSON to get a JavaScript data object
+var objRequest = JSON.parse(requestData);
+
+//Update the value of the data object
+objRequest.customerQuoteLineConfs[0].isProcessedByBL =&quot;false&quot;;
+objRequest.customerQuoteLineConfs[0].isProcessedByClient =&quot;true&quot;;
+objRequest.customerQuoteLineConfs[0].isResponseAffirmative =&quot;false&quot;;
+objRequest.customerQuoteLines[0].referenceType = &quot;${customerQuoteLine_referenceType}&quot;;
+
+
+//Convert the data object back to a JSON string 
+var strUpdatedRequest = JSON.stringify(objRequest);
+
+//Update ${RequestData} to have the value of the updated JSON
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="result" enabled="true">
+              <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+              <stringProp name="EXPECTED_VALUE">true</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">false</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers">1</stringProp>
+              <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

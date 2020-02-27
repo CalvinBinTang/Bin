@@ -1,0 +1,5 @@
+actionRequestHeader_contactType,actionRequestHeader_contactCode,actionRequestHeader_itemCode,actionRequestHeader_severity,actionRequestHeader_requestDate
+End User,10c1001,99020,A,2018-06-26T01:36:00.000Z
+End User,11C1000,05001,B,2019-06-26T01:36:00.000Z
+End User,10c1001A,02002,C,2018-06-26T01:36:00.000Z
+End User,12C1000A,02001,,2019-06-26T01:36:00.000Z

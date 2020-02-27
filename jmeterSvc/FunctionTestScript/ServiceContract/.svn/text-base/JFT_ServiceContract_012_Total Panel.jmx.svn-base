@@ -1,0 +1,924 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1 r1853635">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="JFT_ServiceContract_012_totalPanel" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="domain" elementType="Argument">
+            <stringProp name="Argument.name">domain</stringProp>
+            <stringProp name="Argument.value">10USA</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="server" elementType="Argument">
+            <stringProp name="Argument.name">server</stringProp>
+            <stringProp name="Argument.value">suitcase.qad.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="protocol" elementType="Argument">
+            <stringProp name="Argument.name">protocol</stringProp>
+            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tomcatPort" elementType="Argument">
+            <stringProp name="Argument.name">tomcatPort</stringProp>
+            <stringProp name="Argument.value">22010</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="webapp" elementType="Argument">
+            <stringProp name="Argument.name">webapp</stringProp>
+            <stringProp name="Argument.value">qad-central</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="CustomerQuoteNumber" elementType="Argument">
+            <stringProp name="Argument.name">CustomerQuoteNumber</stringProp>
+            <stringProp name="Argument.value"></stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="JFT_ServiceContract_012_totalPanel" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1479226785000</longProp>
+        <longProp name="ThreadGroup.end_time">1479226785000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="TestPlan.comments">Error validations on fields update</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="domainCode" elementType="Argument">
+              <stringProp name="Argument.name">domainCode</stringProp>
+              <stringProp name="Argument.value">10USA</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="SetUpEnvironment" enabled="true">
+          <stringProp name="filename">..\..\CSV\LogIn.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.001 - Web UI - LogIn" enabled="true">
+          <stringProp name="IncludeController.includepath">../../TestFragement/Common/Login-Fragment.jmx</stringProp>
+        </IncludeController>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="Content-Type" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json; charset=UTF-8</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">~/log/${__TestPlanName}_${__time(YMDHMS)}.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree errors only" enabled="true">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="Assertion Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Service Contract Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for create header" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;serviceContract_customerCode&quot;, &quot;10c1001&quot;);
+vars.put(&quot;serviceContract_serviceType&quot;, &quot;std&quot;);
+vars.put(&quot;serviceContract_creditTerms&quot;, &quot;kterm&quot;);
+vars.put(&quot;serviceContract_purchaseOrder&quot;, &quot;po012&quot;);
+vars.put(&quot;serviceContract_startDate&quot;, &quot;2019-07-01T00:00:00.000Z&quot;);
+vars.put(&quot;serviceContract_endDate&quot;, &quot;2020-06-30T00:00:00.000Z&quot;);
+vars.put(&quot;serviceContract_isPeriodBasedBilling&quot;, false);
+vars.put(&quot;serviceContract_isProratePartialPeriods&quot;, false);</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.002 - Create Service Contract Header-001-Create" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateServiceContractHeader.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create End User 10C1001" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for end User" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;endUser_endUserCode&quot;, &quot;10C1001&quot;);
+vars.put(&quot;endUser_startDate&quot;, &quot;2019-07-01T00:00:00.000Z&quot;);
+vars.put(&quot;endUser_endDate&quot;, &quot;2020-06-30T00:00:00.000Z&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create End User" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateEndUser.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create End User 30c1001" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for end User" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;endUser_endUserCode&quot;, &quot;30C1001&quot;);
+vars.put(&quot;endUser_startDate&quot;, &quot;2019-07-01T00:00:00.000Z&quot;);
+vars.put(&quot;endUser_endDate&quot;, &quot;2020-06-30T00:00:00.000Z&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create End User" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateEndUser.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname=" Loop create line" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">9</stringProp>
+        </LoopController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="filename">CSV/JFT_ServiceContract_012_TotalPanel.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">true</boolProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">true</boolProp>
+            <stringProp name="shareMode">shareMode.group</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">CaseNumber</stringProp>
+            <stringProp name="CounterConfig.format"></stringProp>
+            <boolProp name="CounterConfig.per_user">false</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Case ${CaseNumber}" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="Create Line ${supportItem}" enabled="true">
+              <stringProp name="IfController.condition">${__jexl3(&quot;${type}&quot; == &quot;Line&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Create Contract Line ${supportItem}" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">vars.put(&quot;contractLine_endUserNumber&quot;, &quot;${endUser}&quot;);
+vars.put(&quot;contractLine_supportedItem&quot;, &quot;${supportItem}&quot;);
+vars.put(&quot;contractLine_itemQuantity&quot;, &quot;${quantity}&quot;);
+vars.put(&quot;contractLine_serviceType&quot;, &quot;STD&quot;);
+vars.put(&quot;contractLine_startDate&quot;, &quot;${startDate}&quot;+&quot;T00:00:00.000Z&quot;);
+vars.put(&quot;contractLine_endDate&quot;, &quot;${endDate}&quot;+&quot;T00:00:00.000Z&quot;);
+vars.put(&quot;contractLine_netPrice&quot;, ${netPrice});
+vars.put(&quot;contractLine_isTaxable&quot;, ${isTaxable});
+vars.put(&quot;contractLine_taxClass&quot;, &quot;${taxClass}&quot;);
+vars.put(&quot;contractLine_taxUsage&quot;, &quot;${taxUsage}&quot;);
+if(&quot;${isTaxIn}&quot; != &quot;[N/A]&quot;)
+	vars.put(&quot;contractLine_isTaxIn&quot;, ${isTaxIn});
+vars.put(&quot;contractLine_taxEnvironment&quot;, &quot;${taxEnvironment}&quot;);
+vars.put(&quot;contractLine_lotSerial&quot;, &quot;${__time()}&quot;);
+//contractLine
+</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Contract Line ${supportItem} ${contractLine_lotSerial}" enabled="true">
+                <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateContractLine.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="additional charge ${supportItem}" enabled="true">
+              <stringProp name="IfController.condition">${__jexl3(&quot;${type}&quot; == &quot;AdditionalCharge&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+              <boolProp name="IfController.useExpression">true</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="create additional charge ${endUser}" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">false</stringProp>
+                <stringProp name="script">vars.put(&quot;additionalCharge_contractNumber&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;additionalCharge_endUserCode&quot;, &quot;${endUser}&quot;);
+vars.put(&quot;additionalCharge_itemCode&quot;, &quot;${supportItem}&quot;);
+vars.put(&quot;additionalCharge_itemQuantity&quot;, &quot;${quantity}&quot;);
+//vars.put(&quot;contractLine_serviceType&quot;, &quot;STD&quot;);
+vars.put(&quot;additionalCharge_startDate&quot;, &quot;${startDate}&quot;+&quot;T00:00:00.000Z&quot;);
+vars.put(&quot;additionalCharge_endDate&quot;, &quot;${endDate}&quot;+&quot;T00:00:00.000Z&quot;);
+if(&quot;${netPrice}&quot; != &quot;[N/A]&quot;)
+	vars.put(&quot;additionalCharge_netPrice&quot;, ${netPrice});
+//vars.put(&quot;additionalCharge_netPrice&quot;, ${netPrice});
+vars.put(&quot;additionalCharge_isTaxable&quot;, ${isTaxable});
+vars.put(&quot;additionalCharge_taxClass&quot;, &quot;${taxClass}&quot;);
+vars.put(&quot;additionalCharge_taxUsage&quot;, &quot;${taxUsage}&quot;);
+if(&quot;${isTaxIn}&quot; !=&quot;[N/A]&quot; )
+	vars.put(&quot;additionalCharge_isTaxIncluded&quot;, ${isTaxIn});
+vars.put(&quot;additionalCharge_taxEnvironment&quot;, &quot;${taxEnvironment}&quot;);
+//contractLine
+//01010 % P
+//02002 F
+</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="create additional charge ${endUser}" enabled="true">
+                <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateAdditionalCharge.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="final save Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Fetch" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Fetch" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Save" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Save" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_update_i_isProcessContractSummary&quot;, 1);
+vars.put(&quot;serviceContract_update_i_isProcessPostTrailer&quot;, 1);
+vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;serviceContract_prefix&quot;, &quot;C&quot;);
+vars.put(&quot;serviceContract_uri&quot;, &quot;urn:be:com.qad.service.contract.IServiceContractHeader&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Save" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Save.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Summary" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Summary-Header" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-Header" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 1519.43);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;, 994);
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 466.37 ); //466.39
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 3488.37); //3488.42
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;,2962.94 ); //2962.99
+vars.put(&quot;serviceContract_summary_totalAmount&quot;,4948.74 ); //4948.81
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-Header" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Summary-10c1001" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-10c1001" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;10C1001&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 1440);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;, 312);
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 338.09);
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 2523.91);
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 1395.91);
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 3174);
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-10c1001" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Summary-30c1001" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-30c1001" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;30C1001&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 79.43);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;,682 );
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 10.81); //10.82 Intermediate Rounding in scontract control
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 81.23); //81.26 Intermediate Rounding in scontract control
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 683.8); // 683.83 Intermediate Rounding in scontract control
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 774.04); //774.08 Intermediate Rounding in scontract control
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-30c1001" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Add Trailer" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Fetch" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Fetch" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Save - Add Trailer-verify" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Save" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_update_s_trailer1&quot;, 11);
+vars.put(&quot;serviceContract_update_s_trailer2&quot;, 20);
+vars.put(&quot;serviceContract_update_s_trailer3&quot;, 31);
+vars.put(&quot;serviceContract_update_i_trailerAmount1&quot;, 110);
+vars.put(&quot;serviceContract_update_i_trailerAmount2&quot;, 200);
+vars.put(&quot;serviceContract_update_i_trailerAmount3&quot;, 310);
+
+vars.put(&quot;serviceContract_update_i_isProcessContractSummary&quot;, 1);
+vars.put(&quot;serviceContract_update_i_isProcessPostTrailer&quot;, 1);
+
+vars.put(&quot;serviceContract_validate_endUserCode&quot;, &quot;&quot;);
+vars.put(&quot;serviceContract_validate_totalAmount&quot;, 5633.01);
+vars.put(&quot;serviceContract_validate_nonTaxableAmount&quot;, 1194);
+vars.put(&quot;serviceContract_validate_totalTax&quot;, 530.59);
+vars.put(&quot;serviceContract_validate_taxableAmount&quot;, 3908.42);
+vars.put(&quot;serviceContract_validate_totalTrailerCharges&quot;, 620);
+
+vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;serviceContract_prefix&quot;, &quot;C&quot;);
+vars.put(&quot;serviceContract_uri&quot;, &quot;urn:be:com.qad.service.contract.IServiceContractHeader&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Save" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Save.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Change discount to 20%" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Fetch" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Fetch" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Save - Change Discount" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Save" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_update_i_discountPercentage&quot;, 20);
+
+vars.put(&quot;serviceContract_update_i_isProcessContractSummary&quot;, 1);
+vars.put(&quot;serviceContract_update_i_isProcessPostTrailer&quot;, 1);
+
+vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;serviceContract_prefix&quot;, &quot;C&quot;);
+vars.put(&quot;serviceContract_uri&quot;, &quot;urn:be:com.qad.service.contract.IServiceContractHeader&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Save" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Save.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Summary" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">true</boolProp>
+          </TransactionController>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Verify Summary-Header" enabled="true"/>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-Header" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 1521.55);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;, 995.2);
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 437.29); //437.3
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 3210.7); //3210.75
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 3021.65); //3021.71
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 4643.19 ); //4643.25
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-Header" enabled="true">
+                <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Verify Summary-10c1001" enabled="true"/>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-10c1001" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;10C1001&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 1440);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;, 312);
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 270.47);
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 2559.13);
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 1431.13);
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 3141.6);
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-10c1001" enabled="true">
+                <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Verify Summary-30c1001" enabled="true"/>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-30c1001" enabled="true">
+                <stringProp name="scriptLanguage">javascript</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;30C1001&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 81.55);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;,682 );
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 8.64); //8.65
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 83.35); //83.38
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 683.8); //683.83
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 773.99); //774.03
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+              </JSR223Sampler>
+              <hashTree/>
+              <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-30c1001" enabled="true">
+                <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+              </IncludeController>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Service Contract Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for create header" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;serviceContract_customerCode&quot;, &quot;10c1001&quot;);
+vars.put(&quot;serviceContract_serviceType&quot;, &quot;std&quot;);
+vars.put(&quot;serviceContract_purchaseOrder&quot;, &quot;po012&quot;);
+vars.put(&quot;serviceContract_startDate&quot;, &quot;2019-07-01T00:00:00.000Z&quot;);
+vars.put(&quot;serviceContract_endDate&quot;, &quot;2020-06-30T00:00:00.000Z&quot;);
+vars.put(&quot;serviceContract_isPeriodBasedBilling&quot;, false);
+vars.put(&quot;serviceContract_isProratePartialPeriods&quot;, false);</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="1.002 - Create Service Contract Header-001-Create" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateServiceContractHeader.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create End User" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Set value for end User" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;endUser_endUserCode&quot;, &quot;10C1005&quot;);
+vars.put(&quot;endUser_currencyCode&quot;, &quot;EUR&quot;);
+vars.put(&quot;endUser_isFixedRate&quot;, true);
+vars.put(&quot;endUser_exchangeRate2&quot;, 1);
+vars.put(&quot;endUser_exchangeRate&quot;, 0.773);</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create End User" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateEndUser.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Line 02002" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Create Contract Line 02002" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;contractLine_endUserNumber&quot;, &quot;10C1005&quot;);
+vars.put(&quot;contractLine_supportedItem&quot;, &quot;02002&quot;);
+vars.put(&quot;contractLine_itemQuantity&quot;, &quot;12&quot;);
+//vars.put(&quot;contractLine_serviceType&quot;, &quot;STD&quot;);
+vars.put(&quot;contractLine_netPrice&quot;, 15.26);
+vars.put(&quot;contractLine_isTaxable&quot;, true);
+//vars.put(&quot;contractLine_taxClass&quot;, &quot;${taxClass}&quot;);
+vars.put(&quot;contractLine_taxUsage&quot;, &quot;KKC&quot;);
+//vars.put(&quot;contractLine_isTaxIn&quot;, ${isTaxIn});
+vars.put(&quot;contractLine_taxEnvironment&quot;, &quot;US/NJ&quot;);
+vars.put(&quot;contractLine_lotSerial&quot;, &quot;${__time()}&quot;);
+//contractLine
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Create Contract Line ${contractLine_lotSerial}" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateContractLine.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Additional Charge Line 10C1005 01010" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Create Additional Charge Line 10C1005 01010" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;additionalCharge_contractNumber&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;additionalCharge_endUserCode&quot;, &quot;10C1005&quot;);
+vars.put(&quot;additionalCharge_itemCode&quot;, &quot;01010&quot;);
+//vars.put(&quot;additionalCharge_itemQuantity&quot;, &quot;${quantity}&quot;);
+//vars.put(&quot;contractLine_serviceType&quot;, &quot;STD&quot;);
+vars.put(&quot;additionalCharge_netPrice&quot;, 96.1233);
+vars.put(&quot;additionalCharge_isTaxable&quot;, true);
+//vars.put(&quot;additionalCharge_taxClass&quot;, &quot;${taxClass}&quot;);
+vars.put(&quot;additionalCharge_taxUsage&quot;, &quot;KKC&quot;);
+//vars.put(&quot;additionalCharge_isTaxIncluded&quot;, ${isTaxIn});
+vars.put(&quot;additionalCharge_taxEnvironment&quot;, &quot;US/NJ&quot;);
+//contractLine
+//01010 % P
+//02002 F
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="create additional charge 10C1005 01010" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateAdditionalCharge.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Create Additional Charge Line 02002" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Create Additional Charge Line 02002" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">vars.put(&quot;additionalCharge_contractNumber&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;additionalCharge_endUserCode&quot;, &quot;&quot;);
+vars.put(&quot;additionalCharge_itemCode&quot;, &quot;02002&quot;);
+vars.put(&quot;additionalCharge_itemQuantity&quot;, &quot;1&quot;);
+//vars.put(&quot;contractLine_serviceType&quot;, &quot;STD&quot;);
+vars.put(&quot;additionalCharge_netPrice&quot;, 59.23);
+vars.put(&quot;additionalCharge_isTaxable&quot;, true);
+//vars.put(&quot;additionalCharge_taxClass&quot;, &quot;${taxClass}&quot;);
+vars.put(&quot;additionalCharge_taxUsage&quot;, &quot;KKC&quot;);
+//vars.put(&quot;additionalCharge_isTaxIncluded&quot;, ${isTaxIn});
+vars.put(&quot;additionalCharge_taxEnvironment&quot;, &quot;US/NJ&quot;);
+//contractLine
+//01010 % P
+//02002 F
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="create additional charge 02002" enabled="true">
+            <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_CreateAdditionalCharge.jmx</stringProp>
+          </IncludeController>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="final save Header" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Fetch" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Fetch" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Fetch" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Header Save" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Header Save" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">false</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_update_i_isProcessContractSummary&quot;, 1);
+vars.put(&quot;serviceContract_update_i_isProcessPostTrailer&quot;, 1);
+vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+vars.put(&quot;serviceContract_prefix&quot;, &quot;C&quot;);
+vars.put(&quot;serviceContract_uri&quot;, &quot;urn:be:com.qad.service.contract.IServiceContractHeader&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Header Save" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Save.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Verify Summary" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Verify Summary-10C1005" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-10C1005" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;10C1005&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 2197.44);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;, 0);
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 646.45);
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 4309.68); //4309.69
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 2112.24); //2112.25
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 4956.13); //4956.14
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;EUR&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-10C1005" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Verify Summary-Header" enabled="true"/>
+          <hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Verify Summary-Header" enabled="true">
+              <stringProp name="scriptLanguage">javascript</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.put(&quot;serviceContract_contract&quot;, &quot;${nextContractNbr}&quot;);
+
+//Contract Header
+vars.put(&quot;serviceContract_summary_endUserCode&quot;, &quot;&quot;);
+vars.put(&quot;serviceContract_summary_lineTotal&quot;, 2842.74);
+vars.put(&quot;serviceContract_summary_nonTaxableAmount&quot;, 0);
+vars.put(&quot;serviceContract_summary_totalTax&quot;, 942.9);
+vars.put(&quot;serviceContract_summary_taxableAmount&quot;, 6286.02); //6286.04
+vars.put(&quot;serviceContract_summary_additionalCharges&quot;, 3443.28); //3443.3
+vars.put(&quot;serviceContract_summary_totalAmount&quot;, 7228.92); //7228.94
+vars.put(&quot;serviceContract_summary_summaryCurrencyCode&quot;, &quot;USD&quot;);</stringProp>
+            </JSR223Sampler>
+            <hashTree/>
+            <IncludeController guiclass="IncludeControllerGui" testclass="IncludeController" testname="Verify Summary-Header" enabled="true">
+              <stringProp name="IncludeController.includepath">..\..\TestFragement\ServiceContract\Fragement_ServiceContractHeader_Fetch.jmx</stringProp>
+            </IncludeController>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

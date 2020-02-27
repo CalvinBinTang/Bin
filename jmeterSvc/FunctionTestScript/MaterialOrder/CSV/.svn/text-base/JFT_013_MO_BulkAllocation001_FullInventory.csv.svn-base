@@ -1,0 +1,5 @@
+isSelected,MO,serviceOrderNumber,Engineer,ShipTo,OrderDate,DueDate,AllocDays,Confirmed,Site,ShipVia,ChargeCode,ActionStatus,languageCode,DetailAlloc,Line,SrvLine,LineItem,LineSite,Loc,QtyOrdered,QtyAlloc,QtyBackOrder,LineConfirmed,LineDetailAllc,LineDueDate,EMTType,EMTSupplier,LineUM,QtyPrevAlloc,qtyToDetAlloc
+false,MO01,,11-ENG02,11-ENG02,2019-10-01T00:00:00.000Z,2019-10-11T00:00:00.000Z,10,false,bSite1,UPS,,,us,false,1,,mItem01,bSite1,,10,0,0,false,false,2019-10-11T00:00:00.000Z,,,ea,1,5
+false,MO02,,11-ENG02,11-ENG02,2019-10-01T00:00:00.000Z,2019-10-11T00:00:00.000Z,10,true,bSite1,UPS,,,us,false,1,,mItem01,bSite1,,50,0,0,true,false,2019-10-11T00:00:00.000Z,,,ea,2,6
+true,MO03,,11-ENG02,11-ENG02,2019-10-01T00:00:00.000Z,2019-10-21T00:00:00.000Z,10,true,bSite1,UPS,,,us,false,1,,mItem01,bSite1,,100,0,0,true,false,2019-10-21T00:00:00.000Z,,,ea,3,7
+false,MO04,,11-ENG02,11-ENG02,2019-10-01T00:00:00.000Z,2019-10-08T00:00:00.000Z,10,true,bSite1,UPS,,,us,false,1,,mItem01,bSite1,,50,0,0,true,false,2019-10-08T00:00:00.000Z,,,ea,4,8

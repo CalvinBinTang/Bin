@@ -1,0 +1,4 @@
+type,limitType,workCode,serviceCategory,invoiceSort,startDate,endDate,limitAmount,percentCovered,listPriceLimit,chargeCode,overLimitChargeCode
+LTWC,D,3001,2001,,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,200,90,20,Contract,Billable
+LTIS,D,,,1,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,300,80,30,,
+LTT,T,,,,2019-01-01T00:00:00.000Z,2019-12-31T00:00:00.000Z,100,99,0,,

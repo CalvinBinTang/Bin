@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/qadmodule_repository/!svn/ver/215497/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV
+END
+WEBUI-Create Freight Zone.csv
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/qadmodule_repository/!svn/ver/211934/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-Create%20Freight%20Zone.csv
+END
+NETUI-WorkCodeMaintenance.csv
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/svn/qadmodule_repository/!svn/ver/215495/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/NETUI-WorkCodeMaintenance.csv
+END
+WEBUI-Create Freight List.csv
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/qadmodule_repository/!svn/ver/211934/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-Create%20Freight%20List.csv
+END
+customer-create.csv
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svn/qadmodule_repository/!svn/ver/210548/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/customer-create.csv
+END
+WEBUI-InventoryMovements.csv
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/qadmodule_repository/!svn/ver/203545/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-InventoryMovements.csv
+END
+WEBUI-CreateInstalledBaseItem.csv
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/svn/qadmodule_repository/!svn/ver/215497/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-CreateInstalledBaseItem.csv
+END
+NETUI-ReceiptUnplanned.csv
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/qadmodule_repository/!svn/ver/215495/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/NETUI-ReceiptUnplanned.csv
+END
+WEBUI-Create generalized codes.csv
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/qadmodule_repository/!svn/ver/214225/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-Create%20generalized%20codes.csv
+END
+WEBUI-Create Items.csv
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/qadmodule_repository/!svn/ver/214225/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-Create%20Items.csv
+END
+WEBUI-Create Freight Charges.csv
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/svn/qadmodule_repository/!svn/ver/211934/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/WEBUI-Create%20Freight%20Charges.csv
+END
+customer-create1.csv
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/qadmodule_repository/!svn/ver/215495/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/customer-create1.csv
+END
+NETUI-DefaultSiteMaintenance.csv
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/qadmodule_repository/!svn/ver/215495/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/Setup/CSV/NETUI-DefaultSiteMaintenance.csv
+END

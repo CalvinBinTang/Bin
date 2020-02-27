@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="sarRouteExpense fieldChange" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="fieldChange" enabled="false"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set Default Data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String defaultValue = &quot;[N/A]&quot;;
+List varsList = [];
+
+// URL Paremeters
+
+
+// All the fields in dataset should be configurable here (for input)
+varsList.add(&quot;sarRouteExpense_domainCode&quot;);
+varsList.add(&quot;sarRouteExpense_serviceOrderNumber&quot;);
+varsList.add(&quot;sarRouteExpense_reportID&quot;);
+varsList.add(&quot;sarRouteExpense_operationNumber&quot;);
+varsList.add(&quot;sarRouteExpense_description&quot;);
+varsList.add(&quot;sarRouteExpense_workCenterCode&quot;);
+varsList.add(&quot;sarRouteExpense_machinesPerOperation&quot;);
+varsList.add(&quot;sarRouteExpense_standardSetupTime&quot;);
+varsList.add(&quot;sarRouteExpense_standardRunTime&quot;);
+varsList.add(&quot;sarRouteExpense_standardMoveTime&quot;);
+varsList.add(&quot;sarRouteExpense_actualRunTime&quot;);
+varsList.add(&quot;sarRouteExpense_quantityOrdered&quot;);
+varsList.add(&quot;sarRouteExpense_quantityWIP&quot;);
+varsList.add(&quot;sarRouteExpense_quantityCompleted&quot;);
+varsList.add(&quot;sarRouteExpense_statusCode&quot;);
+varsList.add(&quot;sarRouteExpense_toolCode&quot;);
+varsList.add(&quot;sarRouteExpense_supplierCode&quot;);
+varsList.add(&quot;sarRouteExpense_startDate&quot;);
+varsList.add(&quot;sarRouteExpense_dueDate&quot;);
+varsList.add(&quot;sarRouteExpense_yieldPercent&quot;);
+varsList.add(&quot;sarRouteExpense_itemCode&quot;);
+varsList.add(&quot;sarRouteExpense_burdenStandardCost&quot;);
+varsList.add(&quot;sarRouteExpense_burdenActualCost&quot;);
+varsList.add(&quot;sarRouteExpense_laborStandardCost&quot;);
+varsList.add(&quot;sarRouteExpense_laborActualCost&quot;);
+varsList.add(&quot;sarRouteExpense_subcontractStandardCost&quot;);
+varsList.add(&quot;sarRouteExpense_commentIndex&quot;);
+varsList.add(&quot;sarRouteExpense_machineCode&quot;);
+varsList.add(&quot;sarRouteExpense_isMilestoneOperation&quot;);
+varsList.add(&quot;sarRouteExpense_standardOperationCode&quot;);
+varsList.add(&quot;sarRouteExpense_standardOperationDescription&quot;);
+varsList.add(&quot;sarRouteExpense_setupCrew&quot;);
+varsList.add(&quot;sarRouteExpense_runCrew&quot;);
+varsList.add(&quot;sarRouteExpense_overlapUnits&quot;);
+varsList.add(&quot;sarRouteExpense_queueTime&quot;);
+varsList.add(&quot;sarRouteExpense_waitTime&quot;);
+varsList.add(&quot;sarRouteExpense_subcontractLeadTime&quot;);
+varsList.add(&quot;sarRouteExpense_laborUsagePosted&quot;);
+varsList.add(&quot;sarRouteExpense_laborRatePosted&quot;);
+varsList.add(&quot;sarRouteExpense_laborRateAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_laborUseAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_burdenRateAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_burdenUsageAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_workCode&quot;);
+varsList.add(&quot;sarRouteExpense_workCodeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_wokeCodeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_coveredAmount&quot;);
+varsList.add(&quot;sarRouteExpense_currencyCode&quot;);
+varsList.add(&quot;sarRouteExpense_endTime&quot;);
+varsList.add(&quot;sarRouteExpense_engineerCode&quot;);
+varsList.add(&quot;sarRouteExpense_engineerName&quot;);
+varsList.add(&quot;sarRouteExpense_chargeCode&quot;);
+varsList.add(&quot;sarRouteExpense_chargeCodeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_chargeCodeIndex&quot;);
+varsList.add(&quot;sarRouteExpense_invoiceType&quot;);
+varsList.add(&quot;sarRouteExpense_invoiceSortCode&quot;);
+varsList.add(&quot;sarRouteExpense_serviceCategoryCode&quot;);
+varsList.add(&quot;sarRouteExpense_serviceCategoryDescription&quot;);
+varsList.add(&quot;sarRouteExpense_serviceOrderType&quot;);
+varsList.add(&quot;sarRouteExpense_listPrice&quot;);
+varsList.add(&quot;sarRouteExpense_netPrice&quot;);
+varsList.add(&quot;sarRouteExpense_productLine&quot;);
+varsList.add(&quot;sarRouteExpense_productLineDescription&quot;);
+varsList.add(&quot;sarRouteExpense_startTime&quot;);
+varsList.add(&quot;sarRouteExpense_quantityPosted&quot;);
+varsList.add(&quot;sarRouteExpense_isExpense&quot;);
+varsList.add(&quot;sarRouteExpense_coveredAmountPosted&quot;);
+varsList.add(&quot;sarRouteExpense_serviceTypeCode&quot;);
+varsList.add(&quot;sarRouteExpense_serviceTypeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_postedRun&quot;);
+varsList.add(&quot;sarRouteExpense_standardCost&quot;);
+varsList.add(&quot;sarRouteExpense_standardUnitCost&quot;);
+varsList.add(&quot;sarRouteExpense_projectCode&quot;);
+varsList.add(&quot;sarRouteExpense_projectDescription&quot;);
+varsList.add(&quot;sarRouteExpense_unitOfMeasure&quot;);
+varsList.add(&quot;sarRouteExpense_standardBurdenCost&quot;);
+varsList.add(&quot;sarRouteExpense_serviceOrderLine&quot;);
+varsList.add(&quot;sarRouteExpense_unprocessedAmount&quot;);
+varsList.add(&quot;sarRouteExpense_isManualPrice&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteUser01&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteUser02&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteChr01&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteChr02&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteChr03&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteChr04&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteChr05&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteDec01&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteDec02&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteDte01&quot;);
+varsList.add(&quot;sarRouteExpense_wrRouteDte02&quot;);
+varsList.add(&quot;sarRouteExpense_extendedPrice&quot;);
+varsList.add(&quot;sarRouteExpense_disallowedActions&quot;);
+varsList.add(&quot;sarRouteExpense_disallowedActionsMessage&quot;);
+varsList.add(&quot;sarRouteExpense_lineIsOverrideLimits&quot;);
+varsList.add(&quot;sarRouteExpense_oldInvoiceSortCode&quot;);
+varsList.add(&quot;sarRouteExpense_oldWorkCode&quot;);
+varsList.add(&quot;sarRouteExpense_oldServiceCategoryCode&quot;);
+varsList.add(&quot;sarRouteExpense_oldQty&quot;);
+varsList.add(&quot;sarRouteExpense_oldChargeCode&quot;);
+varsList.add(&quot;sarRouteExpense_oldCoveredAmt&quot;);
+varsList.add(&quot;sarRouteExpense_oldServiceType&quot;);
+varsList.add(&quot;sarRouteExpense_limitUnpostedAmt&quot;);
+varsList.add(&quot;sarRouteExpense_limitFirstActDate&quot;);
+varsList.add(&quot;sarRouteExpense_limitLastActDate&quot;);
+varsList.add(&quot;sarRouteExpense_isAskOver&quot;);
+varsList.add(&quot;sarRouteExpense_isAskDefault&quot;);
+varsList.add(&quot;sarRouteExpense_isLimitDefault&quot;);
+varsList.add(&quot;sarRouteExpense_isCoveredAmountChanged&quot;);
+varsList.add(&quot;sarRouteExpense_bOMCodeToLoad&quot;);
+varsList.add(&quot;sarRouteExpense_dataOperation&quot;);
+varsList.add(&quot;sarRouteExpense_workOrderRoutingConcurrencyHash&quot;);
+varsList.add(&quot;sarRouteExpense_concurrencyHash&quot;);
+
+
+// All the fields in dataset should be configurable here (for validation)
+varsList.add(&quot;sarRouteExpense_validate_domainCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceOrderNumber&quot;);
+varsList.add(&quot;sarRouteExpense_validate_reportID&quot;);
+varsList.add(&quot;sarRouteExpense_validate_operationNumber&quot;);
+varsList.add(&quot;sarRouteExpense_validate_description&quot;);
+varsList.add(&quot;sarRouteExpense_validate_workCenterCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_machinesPerOperation&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardSetupTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardRunTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardMoveTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_actualRunTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_quantityOrdered&quot;);
+varsList.add(&quot;sarRouteExpense_validate_quantityWIP&quot;);
+varsList.add(&quot;sarRouteExpense_validate_quantityCompleted&quot;);
+varsList.add(&quot;sarRouteExpense_validate_statusCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_toolCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_supplierCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_startDate&quot;);
+varsList.add(&quot;sarRouteExpense_validate_dueDate&quot;);
+varsList.add(&quot;sarRouteExpense_validate_yieldPercent&quot;);
+varsList.add(&quot;sarRouteExpense_validate_itemCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_burdenStandardCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_burdenActualCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_laborStandardCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_laborActualCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_subcontractStandardCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_commentIndex&quot;);
+varsList.add(&quot;sarRouteExpense_validate_machineCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isMilestoneOperation&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardOperationCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardOperationDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_setupCrew&quot;);
+varsList.add(&quot;sarRouteExpense_validate_runCrew&quot;);
+varsList.add(&quot;sarRouteExpense_validate_overlapUnits&quot;);
+varsList.add(&quot;sarRouteExpense_validate_queueTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_waitTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_subcontractLeadTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_laborUsagePosted&quot;);
+varsList.add(&quot;sarRouteExpense_validate_laborRatePosted&quot;);
+varsList.add(&quot;sarRouteExpense_validate_laborRateAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_validate_laborUseAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_validate_burdenRateAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_validate_burdenUsageAccrued&quot;);
+varsList.add(&quot;sarRouteExpense_validate_workCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_workCodeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wokeCodeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_coveredAmount&quot;);
+varsList.add(&quot;sarRouteExpense_validate_currencyCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_endTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_engineerCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_engineerName&quot;);
+varsList.add(&quot;sarRouteExpense_validate_chargeCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_chargeCodeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_chargeCodeIndex&quot;);
+varsList.add(&quot;sarRouteExpense_validate_invoiceType&quot;);
+varsList.add(&quot;sarRouteExpense_validate_invoiceSortCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceCategoryCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceCategoryDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceOrderType&quot;);
+varsList.add(&quot;sarRouteExpense_validate_listPrice&quot;);
+varsList.add(&quot;sarRouteExpense_validate_netPrice&quot;);
+varsList.add(&quot;sarRouteExpense_validate_productLine&quot;);
+varsList.add(&quot;sarRouteExpense_validate_productLineDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_startTime&quot;);
+varsList.add(&quot;sarRouteExpense_validate_quantityPosted&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isExpense&quot;);
+varsList.add(&quot;sarRouteExpense_validate_coveredAmountPosted&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceTypeCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceTypeDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_postedRun&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardUnitCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_projectCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_projectDescription&quot;);
+varsList.add(&quot;sarRouteExpense_validate_unitOfMeasure&quot;);
+varsList.add(&quot;sarRouteExpense_validate_standardBurdenCost&quot;);
+varsList.add(&quot;sarRouteExpense_validate_serviceOrderLine&quot;);
+varsList.add(&quot;sarRouteExpense_validate_unprocessedAmount&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isManualPrice&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteUser01&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteUser02&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteChr01&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteChr02&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteChr03&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteChr04&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteChr05&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteDec01&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteDec02&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteDte01&quot;);
+varsList.add(&quot;sarRouteExpense_validate_wrRouteDte02&quot;);
+varsList.add(&quot;sarRouteExpense_validate_extendedPrice&quot;);
+varsList.add(&quot;sarRouteExpense_validate_disallowedActions&quot;);
+varsList.add(&quot;sarRouteExpense_validate_disallowedActionsMessage&quot;);
+varsList.add(&quot;sarRouteExpense_validate_lineIsOverrideLimits&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldInvoiceSortCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldWorkCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldServiceCategoryCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldQty&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldChargeCode&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldCoveredAmt&quot;);
+varsList.add(&quot;sarRouteExpense_validate_oldServiceType&quot;);
+varsList.add(&quot;sarRouteExpense_validate_limitUnpostedAmt&quot;);
+varsList.add(&quot;sarRouteExpense_validate_limitFirstActDate&quot;);
+varsList.add(&quot;sarRouteExpense_validate_limitLastActDate&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isAskOver&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isAskDefault&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isLimitDefault&quot;);
+varsList.add(&quot;sarRouteExpense_validate_isCoveredAmountChanged&quot;);
+varsList.add(&quot;sarRouteExpense_validate_bOMCodeToLoad&quot;);
+varsList.add(&quot;sarRouteExpense_validate_dataOperation&quot;);
+varsList.add(&quot;sarRouteExpense_validate_workOrderRoutingConcurrencyHash&quot;);
+varsList.add(&quot;sarRouteExpense_validate_concurrencyHash&quot;);
+
+
+varsList.each {
+if (vars.get(&quot;${it}&quot;) == null) vars.put(&quot;${it}&quot;, defaultValue);
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="sarRouteExpense fieldChange" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${RequestData}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/sarRouteExpenses/fieldChange?fieldName=${sarRouteExpense_url_filedName}</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Update JSON using JavaScript" enabled="true">
+            <stringProp name="scriptLanguage">javascript</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+
+// All the fields in dataset should be set here
+if (&quot;${sarRouteExpense_domainCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].domainCode= &quot;${sarRouteExpense_domainCode}&quot;;
+if (&quot;${sarRouteExpense_serviceOrderNumber}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceOrderNumber= &quot;${sarRouteExpense_serviceOrderNumber}&quot;;
+if (&quot;${sarRouteExpense_reportID}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].reportID= &quot;${sarRouteExpense_reportID}&quot;;
+if (&quot;${sarRouteExpense_operationNumber}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].operationNumber= &quot;${sarRouteExpense_operationNumber}&quot;;
+if (&quot;${sarRouteExpense_description}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].description= &quot;${sarRouteExpense_description}&quot;;
+if (&quot;${sarRouteExpense_workCenterCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].workCenterCode= &quot;${sarRouteExpense_workCenterCode}&quot;;
+if (&quot;${sarRouteExpense_machinesPerOperation}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].machinesPerOperation= &quot;${sarRouteExpense_machinesPerOperation}&quot;;
+if (&quot;${sarRouteExpense_standardSetupTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardSetupTime= &quot;${sarRouteExpense_standardSetupTime}&quot;;
+if (&quot;${sarRouteExpense_standardRunTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardRunTime= &quot;${sarRouteExpense_standardRunTime}&quot;;
+if (&quot;${sarRouteExpense_standardMoveTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardMoveTime= &quot;${sarRouteExpense_standardMoveTime}&quot;;
+if (&quot;${sarRouteExpense_actualRunTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].actualRunTime= &quot;${sarRouteExpense_actualRunTime}&quot;;
+if (&quot;${sarRouteExpense_quantityOrdered}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].quantityOrdered= &quot;${sarRouteExpense_quantityOrdered}&quot;;
+if (&quot;${sarRouteExpense_quantityWIP}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].quantityWIP= &quot;${sarRouteExpense_quantityWIP}&quot;;
+if (&quot;${sarRouteExpense_quantityCompleted}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].quantityCompleted= &quot;${sarRouteExpense_quantityCompleted}&quot;;
+if (&quot;${sarRouteExpense_statusCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].statusCode= &quot;${sarRouteExpense_statusCode}&quot;;
+if (&quot;${sarRouteExpense_toolCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].toolCode= &quot;${sarRouteExpense_toolCode}&quot;;
+if (&quot;${sarRouteExpense_supplierCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].supplierCode= &quot;${sarRouteExpense_supplierCode}&quot;;
+if (&quot;${sarRouteExpense_startDate}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].startDate= &quot;${sarRouteExpense_startDate}&quot;;
+if (&quot;${sarRouteExpense_dueDate}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].dueDate= &quot;${sarRouteExpense_dueDate}&quot;;
+if (&quot;${sarRouteExpense_yieldPercent}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].yieldPercent= &quot;${sarRouteExpense_yieldPercent}&quot;;
+if (&quot;${sarRouteExpense_itemCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].itemCode= &quot;${sarRouteExpense_itemCode}&quot;;
+if (&quot;${sarRouteExpense_burdenStandardCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].burdenStandardCost= &quot;${sarRouteExpense_burdenStandardCost}&quot;;
+if (&quot;${sarRouteExpense_burdenActualCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].burdenActualCost= &quot;${sarRouteExpense_burdenActualCost}&quot;;
+if (&quot;${sarRouteExpense_laborStandardCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].laborStandardCost= &quot;${sarRouteExpense_laborStandardCost}&quot;;
+if (&quot;${sarRouteExpense_laborActualCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].laborActualCost= &quot;${sarRouteExpense_laborActualCost}&quot;;
+if (&quot;${sarRouteExpense_subcontractStandardCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].subcontractStandardCost= &quot;${sarRouteExpense_subcontractStandardCost}&quot;;
+if (&quot;${sarRouteExpense_commentIndex}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].commentIndex= &quot;${sarRouteExpense_commentIndex}&quot;;
+if (&quot;${sarRouteExpense_machineCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].machineCode= &quot;${sarRouteExpense_machineCode}&quot;;
+if (&quot;${sarRouteExpense_isMilestoneOperation}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isMilestoneOperation= &quot;${sarRouteExpense_isMilestoneOperation}&quot;;
+if (&quot;${sarRouteExpense_standardOperationCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardOperationCode= &quot;${sarRouteExpense_standardOperationCode}&quot;;
+if (&quot;${sarRouteExpense_standardOperationDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardOperationDescription= &quot;${sarRouteExpense_standardOperationDescription}&quot;;
+if (&quot;${sarRouteExpense_setupCrew}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].setupCrew= &quot;${sarRouteExpense_setupCrew}&quot;;
+if (&quot;${sarRouteExpense_runCrew}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].runCrew= &quot;${sarRouteExpense_runCrew}&quot;;
+if (&quot;${sarRouteExpense_overlapUnits}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].overlapUnits= &quot;${sarRouteExpense_overlapUnits}&quot;;
+if (&quot;${sarRouteExpense_queueTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].queueTime= &quot;${sarRouteExpense_queueTime}&quot;;
+if (&quot;${sarRouteExpense_waitTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].waitTime= &quot;${sarRouteExpense_waitTime}&quot;;
+if (&quot;${sarRouteExpense_subcontractLeadTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].subcontractLeadTime= &quot;${sarRouteExpense_subcontractLeadTime}&quot;;
+if (&quot;${sarRouteExpense_laborUsagePosted}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].laborUsagePosted= &quot;${sarRouteExpense_laborUsagePosted}&quot;;
+if (&quot;${sarRouteExpense_laborRatePosted}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].laborRatePosted= &quot;${sarRouteExpense_laborRatePosted}&quot;;
+if (&quot;${sarRouteExpense_laborRateAccrued}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].laborRateAccrued= &quot;${sarRouteExpense_laborRateAccrued}&quot;;
+if (&quot;${sarRouteExpense_laborUseAccrued}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].laborUseAccrued= &quot;${sarRouteExpense_laborUseAccrued}&quot;;
+if (&quot;${sarRouteExpense_burdenRateAccrued}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].burdenRateAccrued= &quot;${sarRouteExpense_burdenRateAccrued}&quot;;
+if (&quot;${sarRouteExpense_burdenUsageAccrued}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].burdenUsageAccrued= &quot;${sarRouteExpense_burdenUsageAccrued}&quot;;
+if (&quot;${sarRouteExpense_workCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].workCode= &quot;${sarRouteExpense_workCode}&quot;;
+if (&quot;${sarRouteExpense_workCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].workCodeDescription= &quot;${sarRouteExpense_workCodeDescription}&quot;;
+if (&quot;${sarRouteExpense_wokeCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wokeCodeDescription= &quot;${sarRouteExpense_wokeCodeDescription}&quot;;
+if (&quot;${sarRouteExpense_coveredAmount}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].coveredAmount= &quot;${sarRouteExpense_coveredAmount}&quot;;
+if (&quot;${sarRouteExpense_currencyCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].currencyCode= &quot;${sarRouteExpense_currencyCode}&quot;;
+if (&quot;${sarRouteExpense_endTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].endTime= &quot;${sarRouteExpense_endTime}&quot;;
+if (&quot;${sarRouteExpense_engineerCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].engineerCode= &quot;${sarRouteExpense_engineerCode}&quot;;
+if (&quot;${sarRouteExpense_engineerName}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].engineerName= &quot;${sarRouteExpense_engineerName}&quot;;
+if (&quot;${sarRouteExpense_chargeCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].chargeCode= &quot;${sarRouteExpense_chargeCode}&quot;;
+if (&quot;${sarRouteExpense_chargeCodeDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].chargeCodeDescription= &quot;${sarRouteExpense_chargeCodeDescription}&quot;;
+if (&quot;${sarRouteExpense_chargeCodeIndex}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].chargeCodeIndex= &quot;${sarRouteExpense_chargeCodeIndex}&quot;;
+if (&quot;${sarRouteExpense_invoiceType}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].invoiceType= &quot;${sarRouteExpense_invoiceType}&quot;;
+if (&quot;${sarRouteExpense_invoiceSortCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].invoiceSortCode= &quot;${sarRouteExpense_invoiceSortCode}&quot;;
+if (&quot;${sarRouteExpense_serviceCategoryCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceCategoryCode= &quot;${sarRouteExpense_serviceCategoryCode}&quot;;
+if (&quot;${sarRouteExpense_serviceCategoryDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceCategoryDescription= &quot;${sarRouteExpense_serviceCategoryDescription}&quot;;
+if (&quot;${sarRouteExpense_serviceOrderType}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceOrderType= &quot;${sarRouteExpense_serviceOrderType}&quot;;
+if (&quot;${sarRouteExpense_listPrice}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].listPrice= &quot;${sarRouteExpense_listPrice}&quot;;
+if (&quot;${sarRouteExpense_netPrice}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].netPrice= &quot;${sarRouteExpense_netPrice}&quot;;
+if (&quot;${sarRouteExpense_productLine}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].productLine= &quot;${sarRouteExpense_productLine}&quot;;
+if (&quot;${sarRouteExpense_productLineDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].productLineDescription= &quot;${sarRouteExpense_productLineDescription}&quot;;
+if (&quot;${sarRouteExpense_startTime}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].startTime= &quot;${sarRouteExpense_startTime}&quot;;
+if (&quot;${sarRouteExpense_quantityPosted}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].quantityPosted= &quot;${sarRouteExpense_quantityPosted}&quot;;
+if (&quot;${sarRouteExpense_isExpense}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isExpense= &quot;${sarRouteExpense_isExpense}&quot;;
+if (&quot;${sarRouteExpense_coveredAmountPosted}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].coveredAmountPosted= &quot;${sarRouteExpense_coveredAmountPosted}&quot;;
+if (&quot;${sarRouteExpense_serviceTypeCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceTypeCode= &quot;${sarRouteExpense_serviceTypeCode}&quot;;
+if (&quot;${sarRouteExpense_serviceTypeDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceTypeDescription= &quot;${sarRouteExpense_serviceTypeDescription}&quot;;
+if (&quot;${sarRouteExpense_postedRun}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].postedRun= &quot;${sarRouteExpense_postedRun}&quot;;
+if (&quot;${sarRouteExpense_standardCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardCost= &quot;${sarRouteExpense_standardCost}&quot;;
+if (&quot;${sarRouteExpense_standardUnitCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardUnitCost= &quot;${sarRouteExpense_standardUnitCost}&quot;;
+if (&quot;${sarRouteExpense_projectCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].projectCode= &quot;${sarRouteExpense_projectCode}&quot;;
+if (&quot;${sarRouteExpense_projectDescription}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].projectDescription= &quot;${sarRouteExpense_projectDescription}&quot;;
+if (&quot;${sarRouteExpense_unitOfMeasure}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].unitOfMeasure= &quot;${sarRouteExpense_unitOfMeasure}&quot;;
+if (&quot;${sarRouteExpense_standardBurdenCost}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].standardBurdenCost= &quot;${sarRouteExpense_standardBurdenCost}&quot;;
+if (&quot;${sarRouteExpense_serviceOrderLine}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].serviceOrderLine= &quot;${sarRouteExpense_serviceOrderLine}&quot;;
+if (&quot;${sarRouteExpense_unprocessedAmount}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].unprocessedAmount= &quot;${sarRouteExpense_unprocessedAmount}&quot;;
+if (&quot;${sarRouteExpense_isManualPrice}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isManualPrice= &quot;${sarRouteExpense_isManualPrice}&quot;;
+if (&quot;${sarRouteExpense_wrRouteUser01}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteUser01= &quot;${sarRouteExpense_wrRouteUser01}&quot;;
+if (&quot;${sarRouteExpense_wrRouteUser02}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteUser02= &quot;${sarRouteExpense_wrRouteUser02}&quot;;
+if (&quot;${sarRouteExpense_wrRouteChr01}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteChr01= &quot;${sarRouteExpense_wrRouteChr01}&quot;;
+if (&quot;${sarRouteExpense_wrRouteChr02}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteChr02= &quot;${sarRouteExpense_wrRouteChr02}&quot;;
+if (&quot;${sarRouteExpense_wrRouteChr03}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteChr03= &quot;${sarRouteExpense_wrRouteChr03}&quot;;
+if (&quot;${sarRouteExpense_wrRouteChr04}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteChr04= &quot;${sarRouteExpense_wrRouteChr04}&quot;;
+if (&quot;${sarRouteExpense_wrRouteChr05}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteChr05= &quot;${sarRouteExpense_wrRouteChr05}&quot;;
+if (&quot;${sarRouteExpense_wrRouteDec01}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteDec01= &quot;${sarRouteExpense_wrRouteDec01}&quot;;
+if (&quot;${sarRouteExpense_wrRouteDec02}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteDec02= &quot;${sarRouteExpense_wrRouteDec02}&quot;;
+if (&quot;${sarRouteExpense_wrRouteDte01}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteDte01= &quot;${sarRouteExpense_wrRouteDte01}&quot;;
+if (&quot;${sarRouteExpense_wrRouteDte02}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].wrRouteDte02= &quot;${sarRouteExpense_wrRouteDte02}&quot;;
+if (&quot;${sarRouteExpense_extendedPrice}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].extendedPrice= &quot;${sarRouteExpense_extendedPrice}&quot;;
+if (&quot;${sarRouteExpense_disallowedActions}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].disallowedActions= &quot;${sarRouteExpense_disallowedActions}&quot;;
+if (&quot;${sarRouteExpense_disallowedActionsMessage}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].disallowedActionsMessage= &quot;${sarRouteExpense_disallowedActionsMessage}&quot;;
+if (&quot;${sarRouteExpense_lineIsOverrideLimits}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].lineIsOverrideLimits= &quot;${sarRouteExpense_lineIsOverrideLimits}&quot;;
+if (&quot;${sarRouteExpense_oldInvoiceSortCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldInvoiceSortCode= &quot;${sarRouteExpense_oldInvoiceSortCode}&quot;;
+if (&quot;${sarRouteExpense_oldWorkCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldWorkCode= &quot;${sarRouteExpense_oldWorkCode}&quot;;
+if (&quot;${sarRouteExpense_oldServiceCategoryCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldServiceCategoryCode= &quot;${sarRouteExpense_oldServiceCategoryCode}&quot;;
+if (&quot;${sarRouteExpense_oldQty}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldQty= &quot;${sarRouteExpense_oldQty}&quot;;
+if (&quot;${sarRouteExpense_oldChargeCode}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldChargeCode= &quot;${sarRouteExpense_oldChargeCode}&quot;;
+if (&quot;${sarRouteExpense_oldCoveredAmt}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldCoveredAmt= &quot;${sarRouteExpense_oldCoveredAmt}&quot;;
+if (&quot;${sarRouteExpense_oldServiceType}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].oldServiceType= &quot;${sarRouteExpense_oldServiceType}&quot;;
+if (&quot;${sarRouteExpense_limitUnpostedAmt}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].limitUnpostedAmt= &quot;${sarRouteExpense_limitUnpostedAmt}&quot;;
+if (&quot;${sarRouteExpense_limitFirstActDate}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].limitFirstActDate= &quot;${sarRouteExpense_limitFirstActDate}&quot;;
+if (&quot;${sarRouteExpense_limitLastActDate}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].limitLastActDate= &quot;${sarRouteExpense_limitLastActDate}&quot;;
+if (&quot;${sarRouteExpense_isAskOver}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isAskOver= &quot;${sarRouteExpense_isAskOver}&quot;;
+if (&quot;${sarRouteExpense_isAskDefault}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isAskDefault= &quot;${sarRouteExpense_isAskDefault}&quot;;
+if (&quot;${sarRouteExpense_isLimitDefault}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isLimitDefault= &quot;${sarRouteExpense_isLimitDefault}&quot;;
+if (&quot;${sarRouteExpense_isCoveredAmountChanged}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].isCoveredAmountChanged= &quot;${sarRouteExpense_isCoveredAmountChanged}&quot;;
+if (&quot;${sarRouteExpense_bOMCodeToLoad}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].bOMCodeToLoad= &quot;${sarRouteExpense_bOMCodeToLoad}&quot;;
+if (&quot;${sarRouteExpense_dataOperation}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].dataOperation= &quot;${sarRouteExpense_dataOperation}&quot;;
+if (&quot;${sarRouteExpense_workOrderRoutingConcurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].workOrderRoutingConcurrencyHash= &quot;${sarRouteExpense_workOrderRoutingConcurrencyHash}&quot;;
+if (&quot;${sarRouteExpense_concurrencyHash}&quot; != &quot;[N/A]&quot;) objRequest.sarRouteExpenses[0].concurrencyHash= &quot;${sarRouteExpense_concurrencyHash}&quot;;
+
+var strUpdatedRequest = JSON.stringify(objRequest);
+vars.put(&quot;RequestData&quot;, strUpdatedRequest);</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.gui.JSONPathExtractorGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="VAR">RequestData</stringProp>
+            <stringProp name="JSONPATH">$.data</stringProp>
+            <stringProp name="DEFAULT">NotFound</stringProp>
+            <stringProp name="VARIABLE"></stringProp>
+            <stringProp name="SUBJECT">BODY</stringProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathextractor.JSONPathExtractor>
+          <hashTree/>
+          <com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion guiclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.gui.JSONPathAssertionGui" testclass="com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion" testname="result" enabled="true">
+            <stringProp name="JSON_PATH">$.submitResult.success</stringProp>
+            <stringProp name="EXPECTED_VALUE">true</stringProp>
+            <boolProp name="JSONVALIDATION">true</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">false</boolProp>
+          </com.atlantbh.jmeter.plugins.jsonutils.jsonpathassertion.JSONPathAssertion>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+
+// All the fields in dataset should be set here
+if (&quot;${sarRouteExpense_validate_domainCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].domainCode!= &quot;${sarRouteExpense_validate_domainCode}&quot;) { failureMessage = failureMessage + &quot;Expect domainCode${sarRouteExpense_validate_domainCode} but got &quot; + objRequest.sarRouteExpenses[0].domainCode}
+if (&quot;${sarRouteExpense_validate_serviceOrderNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceOrderNumber!= &quot;${sarRouteExpense_validate_serviceOrderNumber}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderNumber${sarRouteExpense_validate_serviceOrderNumber} but got &quot; + objRequest.sarRouteExpenses[0].serviceOrderNumber}
+if (&quot;${sarRouteExpense_validate_reportID}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].reportID!= &quot;${sarRouteExpense_validate_reportID}&quot;) { failureMessage = failureMessage + &quot;Expect reportID${sarRouteExpense_validate_reportID} but got &quot; + objRequest.sarRouteExpenses[0].reportID}
+if (&quot;${sarRouteExpense_validate_operationNumber}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].operationNumber!= &quot;${sarRouteExpense_validate_operationNumber}&quot;) { failureMessage = failureMessage + &quot;Expect operationNumber${sarRouteExpense_validate_operationNumber} but got &quot; + objRequest.sarRouteExpenses[0].operationNumber}
+if (&quot;${sarRouteExpense_validate_description}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].description!= &quot;${sarRouteExpense_validate_description}&quot;) { failureMessage = failureMessage + &quot;Expect description${sarRouteExpense_validate_description} but got &quot; + objRequest.sarRouteExpenses[0].description}
+if (&quot;${sarRouteExpense_validate_workCenterCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].workCenterCode!= &quot;${sarRouteExpense_validate_workCenterCode}&quot;) { failureMessage = failureMessage + &quot;Expect workCenterCode${sarRouteExpense_validate_workCenterCode} but got &quot; + objRequest.sarRouteExpenses[0].workCenterCode}
+if (&quot;${sarRouteExpense_validate_machinesPerOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].machinesPerOperation!= &quot;${sarRouteExpense_validate_machinesPerOperation}&quot;) { failureMessage = failureMessage + &quot;Expect machinesPerOperation${sarRouteExpense_validate_machinesPerOperation} but got &quot; + objRequest.sarRouteExpenses[0].machinesPerOperation}
+if (&quot;${sarRouteExpense_validate_standardSetupTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardSetupTime!= &quot;${sarRouteExpense_validate_standardSetupTime}&quot;) { failureMessage = failureMessage + &quot;Expect standardSetupTime${sarRouteExpense_validate_standardSetupTime} but got &quot; + objRequest.sarRouteExpenses[0].standardSetupTime}
+if (&quot;${sarRouteExpense_validate_standardRunTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardRunTime!= &quot;${sarRouteExpense_validate_standardRunTime}&quot;) { failureMessage = failureMessage + &quot;Expect standardRunTime${sarRouteExpense_validate_standardRunTime} but got &quot; + objRequest.sarRouteExpenses[0].standardRunTime}
+if (&quot;${sarRouteExpense_validate_standardMoveTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardMoveTime!= &quot;${sarRouteExpense_validate_standardMoveTime}&quot;) { failureMessage = failureMessage + &quot;Expect standardMoveTime${sarRouteExpense_validate_standardMoveTime} but got &quot; + objRequest.sarRouteExpenses[0].standardMoveTime}
+if (&quot;${sarRouteExpense_validate_actualRunTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].actualRunTime!= &quot;${sarRouteExpense_validate_actualRunTime}&quot;) { failureMessage = failureMessage + &quot;Expect actualRunTime${sarRouteExpense_validate_actualRunTime} but got &quot; + objRequest.sarRouteExpenses[0].actualRunTime}
+if (&quot;${sarRouteExpense_validate_quantityOrdered}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].quantityOrdered!= &quot;${sarRouteExpense_validate_quantityOrdered}&quot;) { failureMessage = failureMessage + &quot;Expect quantityOrdered${sarRouteExpense_validate_quantityOrdered} but got &quot; + objRequest.sarRouteExpenses[0].quantityOrdered}
+if (&quot;${sarRouteExpense_validate_quantityWIP}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].quantityWIP!= &quot;${sarRouteExpense_validate_quantityWIP}&quot;) { failureMessage = failureMessage + &quot;Expect quantityWIP${sarRouteExpense_validate_quantityWIP} but got &quot; + objRequest.sarRouteExpenses[0].quantityWIP}
+if (&quot;${sarRouteExpense_validate_quantityCompleted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].quantityCompleted!= &quot;${sarRouteExpense_validate_quantityCompleted}&quot;) { failureMessage = failureMessage + &quot;Expect quantityCompleted${sarRouteExpense_validate_quantityCompleted} but got &quot; + objRequest.sarRouteExpenses[0].quantityCompleted}
+if (&quot;${sarRouteExpense_validate_statusCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].statusCode!= &quot;${sarRouteExpense_validate_statusCode}&quot;) { failureMessage = failureMessage + &quot;Expect statusCode${sarRouteExpense_validate_statusCode} but got &quot; + objRequest.sarRouteExpenses[0].statusCode}
+if (&quot;${sarRouteExpense_validate_toolCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].toolCode!= &quot;${sarRouteExpense_validate_toolCode}&quot;) { failureMessage = failureMessage + &quot;Expect toolCode${sarRouteExpense_validate_toolCode} but got &quot; + objRequest.sarRouteExpenses[0].toolCode}
+if (&quot;${sarRouteExpense_validate_supplierCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].supplierCode!= &quot;${sarRouteExpense_validate_supplierCode}&quot;) { failureMessage = failureMessage + &quot;Expect supplierCode${sarRouteExpense_validate_supplierCode} but got &quot; + objRequest.sarRouteExpenses[0].supplierCode}
+if (&quot;${sarRouteExpense_validate_startDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].startDate!= &quot;${sarRouteExpense_validate_startDate}&quot;) { failureMessage = failureMessage + &quot;Expect startDate${sarRouteExpense_validate_startDate} but got &quot; + objRequest.sarRouteExpenses[0].startDate}
+if (&quot;${sarRouteExpense_validate_dueDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].dueDate!= &quot;${sarRouteExpense_validate_dueDate}&quot;) { failureMessage = failureMessage + &quot;Expect dueDate${sarRouteExpense_validate_dueDate} but got &quot; + objRequest.sarRouteExpenses[0].dueDate}
+if (&quot;${sarRouteExpense_validate_yieldPercent}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].yieldPercent!= &quot;${sarRouteExpense_validate_yieldPercent}&quot;) { failureMessage = failureMessage + &quot;Expect yieldPercent${sarRouteExpense_validate_yieldPercent} but got &quot; + objRequest.sarRouteExpenses[0].yieldPercent}
+if (&quot;${sarRouteExpense_validate_itemCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].itemCode!= &quot;${sarRouteExpense_validate_itemCode}&quot;) { failureMessage = failureMessage + &quot;Expect itemCode${sarRouteExpense_validate_itemCode} but got &quot; + objRequest.sarRouteExpenses[0].itemCode}
+if (&quot;${sarRouteExpense_validate_burdenStandardCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].burdenStandardCost!= &quot;${sarRouteExpense_validate_burdenStandardCost}&quot;) { failureMessage = failureMessage + &quot;Expect burdenStandardCost${sarRouteExpense_validate_burdenStandardCost} but got &quot; + objRequest.sarRouteExpenses[0].burdenStandardCost}
+if (&quot;${sarRouteExpense_validate_burdenActualCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].burdenActualCost!= &quot;${sarRouteExpense_validate_burdenActualCost}&quot;) { failureMessage = failureMessage + &quot;Expect burdenActualCost${sarRouteExpense_validate_burdenActualCost} but got &quot; + objRequest.sarRouteExpenses[0].burdenActualCost}
+if (&quot;${sarRouteExpense_validate_laborStandardCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].laborStandardCost!= &quot;${sarRouteExpense_validate_laborStandardCost}&quot;) { failureMessage = failureMessage + &quot;Expect laborStandardCost${sarRouteExpense_validate_laborStandardCost} but got &quot; + objRequest.sarRouteExpenses[0].laborStandardCost}
+if (&quot;${sarRouteExpense_validate_laborActualCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].laborActualCost!= &quot;${sarRouteExpense_validate_laborActualCost}&quot;) { failureMessage = failureMessage + &quot;Expect laborActualCost${sarRouteExpense_validate_laborActualCost} but got &quot; + objRequest.sarRouteExpenses[0].laborActualCost}
+if (&quot;${sarRouteExpense_validate_subcontractStandardCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].subcontractStandardCost!= &quot;${sarRouteExpense_validate_subcontractStandardCost}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractStandardCost${sarRouteExpense_validate_subcontractStandardCost} but got &quot; + objRequest.sarRouteExpenses[0].subcontractStandardCost}
+if (&quot;${sarRouteExpense_validate_commentIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].commentIndex!= &quot;${sarRouteExpense_validate_commentIndex}&quot;) { failureMessage = failureMessage + &quot;Expect commentIndex${sarRouteExpense_validate_commentIndex} but got &quot; + objRequest.sarRouteExpenses[0].commentIndex}
+if (&quot;${sarRouteExpense_validate_machineCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].machineCode!= &quot;${sarRouteExpense_validate_machineCode}&quot;) { failureMessage = failureMessage + &quot;Expect machineCode${sarRouteExpense_validate_machineCode} but got &quot; + objRequest.sarRouteExpenses[0].machineCode}
+if (&quot;${sarRouteExpense_validate_isMilestoneOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isMilestoneOperation!= &quot;${sarRouteExpense_validate_isMilestoneOperation}&quot;) { failureMessage = failureMessage + &quot;Expect isMilestoneOperation${sarRouteExpense_validate_isMilestoneOperation} but got &quot; + objRequest.sarRouteExpenses[0].isMilestoneOperation}
+if (&quot;${sarRouteExpense_validate_standardOperationCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardOperationCode!= &quot;${sarRouteExpense_validate_standardOperationCode}&quot;) { failureMessage = failureMessage + &quot;Expect standardOperationCode${sarRouteExpense_validate_standardOperationCode} but got &quot; + objRequest.sarRouteExpenses[0].standardOperationCode}
+if (&quot;${sarRouteExpense_validate_standardOperationDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardOperationDescription!= &quot;${sarRouteExpense_validate_standardOperationDescription}&quot;) { failureMessage = failureMessage + &quot;Expect standardOperationDescription${sarRouteExpense_validate_standardOperationDescription} but got &quot; + objRequest.sarRouteExpenses[0].standardOperationDescription}
+if (&quot;${sarRouteExpense_validate_setupCrew}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].setupCrew!= &quot;${sarRouteExpense_validate_setupCrew}&quot;) { failureMessage = failureMessage + &quot;Expect setupCrew${sarRouteExpense_validate_setupCrew} but got &quot; + objRequest.sarRouteExpenses[0].setupCrew}
+if (&quot;${sarRouteExpense_validate_runCrew}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].runCrew!= &quot;${sarRouteExpense_validate_runCrew}&quot;) { failureMessage = failureMessage + &quot;Expect runCrew${sarRouteExpense_validate_runCrew} but got &quot; + objRequest.sarRouteExpenses[0].runCrew}
+if (&quot;${sarRouteExpense_validate_overlapUnits}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].overlapUnits!= &quot;${sarRouteExpense_validate_overlapUnits}&quot;) { failureMessage = failureMessage + &quot;Expect overlapUnits${sarRouteExpense_validate_overlapUnits} but got &quot; + objRequest.sarRouteExpenses[0].overlapUnits}
+if (&quot;${sarRouteExpense_validate_queueTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].queueTime!= &quot;${sarRouteExpense_validate_queueTime}&quot;) { failureMessage = failureMessage + &quot;Expect queueTime${sarRouteExpense_validate_queueTime} but got &quot; + objRequest.sarRouteExpenses[0].queueTime}
+if (&quot;${sarRouteExpense_validate_waitTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].waitTime!= &quot;${sarRouteExpense_validate_waitTime}&quot;) { failureMessage = failureMessage + &quot;Expect waitTime${sarRouteExpense_validate_waitTime} but got &quot; + objRequest.sarRouteExpenses[0].waitTime}
+if (&quot;${sarRouteExpense_validate_subcontractLeadTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].subcontractLeadTime!= &quot;${sarRouteExpense_validate_subcontractLeadTime}&quot;) { failureMessage = failureMessage + &quot;Expect subcontractLeadTime${sarRouteExpense_validate_subcontractLeadTime} but got &quot; + objRequest.sarRouteExpenses[0].subcontractLeadTime}
+if (&quot;${sarRouteExpense_validate_laborUsagePosted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].laborUsagePosted!= &quot;${sarRouteExpense_validate_laborUsagePosted}&quot;) { failureMessage = failureMessage + &quot;Expect laborUsagePosted${sarRouteExpense_validate_laborUsagePosted} but got &quot; + objRequest.sarRouteExpenses[0].laborUsagePosted}
+if (&quot;${sarRouteExpense_validate_laborRatePosted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].laborRatePosted!= &quot;${sarRouteExpense_validate_laborRatePosted}&quot;) { failureMessage = failureMessage + &quot;Expect laborRatePosted${sarRouteExpense_validate_laborRatePosted} but got &quot; + objRequest.sarRouteExpenses[0].laborRatePosted}
+if (&quot;${sarRouteExpense_validate_laborRateAccrued}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].laborRateAccrued!= &quot;${sarRouteExpense_validate_laborRateAccrued}&quot;) { failureMessage = failureMessage + &quot;Expect laborRateAccrued${sarRouteExpense_validate_laborRateAccrued} but got &quot; + objRequest.sarRouteExpenses[0].laborRateAccrued}
+if (&quot;${sarRouteExpense_validate_laborUseAccrued}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].laborUseAccrued!= &quot;${sarRouteExpense_validate_laborUseAccrued}&quot;) { failureMessage = failureMessage + &quot;Expect laborUseAccrued${sarRouteExpense_validate_laborUseAccrued} but got &quot; + objRequest.sarRouteExpenses[0].laborUseAccrued}
+if (&quot;${sarRouteExpense_validate_burdenRateAccrued}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].burdenRateAccrued!= &quot;${sarRouteExpense_validate_burdenRateAccrued}&quot;) { failureMessage = failureMessage + &quot;Expect burdenRateAccrued${sarRouteExpense_validate_burdenRateAccrued} but got &quot; + objRequest.sarRouteExpenses[0].burdenRateAccrued}
+if (&quot;${sarRouteExpense_validate_burdenUsageAccrued}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].burdenUsageAccrued!= &quot;${sarRouteExpense_validate_burdenUsageAccrued}&quot;) { failureMessage = failureMessage + &quot;Expect burdenUsageAccrued${sarRouteExpense_validate_burdenUsageAccrued} but got &quot; + objRequest.sarRouteExpenses[0].burdenUsageAccrued}
+if (&quot;${sarRouteExpense_validate_workCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].workCode!= &quot;${sarRouteExpense_validate_workCode}&quot;) { failureMessage = failureMessage + &quot;Expect workCode${sarRouteExpense_validate_workCode} but got &quot; + objRequest.sarRouteExpenses[0].workCode}
+if (&quot;${sarRouteExpense_validate_workCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].workCodeDescription!= &quot;${sarRouteExpense_validate_workCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect workCodeDescription${sarRouteExpense_validate_workCodeDescription} but got &quot; + objRequest.sarRouteExpenses[0].workCodeDescription}
+if (&quot;${sarRouteExpense_validate_wokeCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wokeCodeDescription!= &quot;${sarRouteExpense_validate_wokeCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect wokeCodeDescription${sarRouteExpense_validate_wokeCodeDescription} but got &quot; + objRequest.sarRouteExpenses[0].wokeCodeDescription}
+if (&quot;${sarRouteExpense_validate_coveredAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].coveredAmount!= &quot;${sarRouteExpense_validate_coveredAmount}&quot;) { failureMessage = failureMessage + &quot;Expect coveredAmount${sarRouteExpense_validate_coveredAmount} but got &quot; + objRequest.sarRouteExpenses[0].coveredAmount}
+if (&quot;${sarRouteExpense_validate_currencyCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].currencyCode!= &quot;${sarRouteExpense_validate_currencyCode}&quot;) { failureMessage = failureMessage + &quot;Expect currencyCode${sarRouteExpense_validate_currencyCode} but got &quot; + objRequest.sarRouteExpenses[0].currencyCode}
+if (&quot;${sarRouteExpense_validate_endTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].endTime!= &quot;${sarRouteExpense_validate_endTime}&quot;) { failureMessage = failureMessage + &quot;Expect endTime${sarRouteExpense_validate_endTime} but got &quot; + objRequest.sarRouteExpenses[0].endTime}
+if (&quot;${sarRouteExpense_validate_engineerCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].engineerCode!= &quot;${sarRouteExpense_validate_engineerCode}&quot;) { failureMessage = failureMessage + &quot;Expect engineerCode${sarRouteExpense_validate_engineerCode} but got &quot; + objRequest.sarRouteExpenses[0].engineerCode}
+if (&quot;${sarRouteExpense_validate_engineerName}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].engineerName!= &quot;${sarRouteExpense_validate_engineerName}&quot;) { failureMessage = failureMessage + &quot;Expect engineerName${sarRouteExpense_validate_engineerName} but got &quot; + objRequest.sarRouteExpenses[0].engineerName}
+if (&quot;${sarRouteExpense_validate_chargeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].chargeCode!= &quot;${sarRouteExpense_validate_chargeCode}&quot;) { failureMessage = failureMessage + &quot;Expect chargeCode${sarRouteExpense_validate_chargeCode} but got &quot; + objRequest.sarRouteExpenses[0].chargeCode}
+if (&quot;${sarRouteExpense_validate_chargeCodeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].chargeCodeDescription!= &quot;${sarRouteExpense_validate_chargeCodeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect chargeCodeDescription${sarRouteExpense_validate_chargeCodeDescription} but got &quot; + objRequest.sarRouteExpenses[0].chargeCodeDescription}
+if (&quot;${sarRouteExpense_validate_chargeCodeIndex}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].chargeCodeIndex!= &quot;${sarRouteExpense_validate_chargeCodeIndex}&quot;) { failureMessage = failureMessage + &quot;Expect chargeCodeIndex${sarRouteExpense_validate_chargeCodeIndex} but got &quot; + objRequest.sarRouteExpenses[0].chargeCodeIndex}
+if (&quot;${sarRouteExpense_validate_invoiceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].invoiceType!= &quot;${sarRouteExpense_validate_invoiceType}&quot;) { failureMessage = failureMessage + &quot;Expect invoiceType${sarRouteExpense_validate_invoiceType} but got &quot; + objRequest.sarRouteExpenses[0].invoiceType}
+if (&quot;${sarRouteExpense_validate_invoiceSortCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].invoiceSortCode!= &quot;${sarRouteExpense_validate_invoiceSortCode}&quot;) { failureMessage = failureMessage + &quot;Expect invoiceSortCode${sarRouteExpense_validate_invoiceSortCode} but got &quot; + objRequest.sarRouteExpenses[0].invoiceSortCode}
+if (&quot;${sarRouteExpense_validate_serviceCategoryCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceCategoryCode!= &quot;${sarRouteExpense_validate_serviceCategoryCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceCategoryCode${sarRouteExpense_validate_serviceCategoryCode} but got &quot; + objRequest.sarRouteExpenses[0].serviceCategoryCode}
+if (&quot;${sarRouteExpense_validate_serviceCategoryDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceCategoryDescription!= &quot;${sarRouteExpense_validate_serviceCategoryDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceCategoryDescription${sarRouteExpense_validate_serviceCategoryDescription} but got &quot; + objRequest.sarRouteExpenses[0].serviceCategoryDescription}
+if (&quot;${sarRouteExpense_validate_serviceOrderType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceOrderType!= &quot;${sarRouteExpense_validate_serviceOrderType}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderType${sarRouteExpense_validate_serviceOrderType} but got &quot; + objRequest.sarRouteExpenses[0].serviceOrderType}
+if (&quot;${sarRouteExpense_validate_listPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].listPrice!= &quot;${sarRouteExpense_validate_listPrice}&quot;) { failureMessage = failureMessage + &quot;Expect listPrice${sarRouteExpense_validate_listPrice} but got &quot; + objRequest.sarRouteExpenses[0].listPrice}
+if (&quot;${sarRouteExpense_validate_netPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].netPrice!= &quot;${sarRouteExpense_validate_netPrice}&quot;) { failureMessage = failureMessage + &quot;Expect netPrice${sarRouteExpense_validate_netPrice} but got &quot; + objRequest.sarRouteExpenses[0].netPrice}
+if (&quot;${sarRouteExpense_validate_productLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].productLine!= &quot;${sarRouteExpense_validate_productLine}&quot;) { failureMessage = failureMessage + &quot;Expect productLine${sarRouteExpense_validate_productLine} but got &quot; + objRequest.sarRouteExpenses[0].productLine}
+if (&quot;${sarRouteExpense_validate_productLineDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].productLineDescription!= &quot;${sarRouteExpense_validate_productLineDescription}&quot;) { failureMessage = failureMessage + &quot;Expect productLineDescription${sarRouteExpense_validate_productLineDescription} but got &quot; + objRequest.sarRouteExpenses[0].productLineDescription}
+if (&quot;${sarRouteExpense_validate_startTime}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].startTime!= &quot;${sarRouteExpense_validate_startTime}&quot;) { failureMessage = failureMessage + &quot;Expect startTime${sarRouteExpense_validate_startTime} but got &quot; + objRequest.sarRouteExpenses[0].startTime}
+if (&quot;${sarRouteExpense_validate_quantityPosted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].quantityPosted!= &quot;${sarRouteExpense_validate_quantityPosted}&quot;) { failureMessage = failureMessage + &quot;Expect quantityPosted${sarRouteExpense_validate_quantityPosted} but got &quot; + objRequest.sarRouteExpenses[0].quantityPosted}
+if (&quot;${sarRouteExpense_validate_isExpense}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isExpense!= &quot;${sarRouteExpense_validate_isExpense}&quot;) { failureMessage = failureMessage + &quot;Expect isExpense${sarRouteExpense_validate_isExpense} but got &quot; + objRequest.sarRouteExpenses[0].isExpense}
+if (&quot;${sarRouteExpense_validate_coveredAmountPosted}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].coveredAmountPosted!= &quot;${sarRouteExpense_validate_coveredAmountPosted}&quot;) { failureMessage = failureMessage + &quot;Expect coveredAmountPosted${sarRouteExpense_validate_coveredAmountPosted} but got &quot; + objRequest.sarRouteExpenses[0].coveredAmountPosted}
+if (&quot;${sarRouteExpense_validate_serviceTypeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceTypeCode!= &quot;${sarRouteExpense_validate_serviceTypeCode}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeCode${sarRouteExpense_validate_serviceTypeCode} but got &quot; + objRequest.sarRouteExpenses[0].serviceTypeCode}
+if (&quot;${sarRouteExpense_validate_serviceTypeDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceTypeDescription!= &quot;${sarRouteExpense_validate_serviceTypeDescription}&quot;) { failureMessage = failureMessage + &quot;Expect serviceTypeDescription${sarRouteExpense_validate_serviceTypeDescription} but got &quot; + objRequest.sarRouteExpenses[0].serviceTypeDescription}
+if (&quot;${sarRouteExpense_validate_postedRun}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].postedRun!= &quot;${sarRouteExpense_validate_postedRun}&quot;) { failureMessage = failureMessage + &quot;Expect postedRun${sarRouteExpense_validate_postedRun} but got &quot; + objRequest.sarRouteExpenses[0].postedRun}
+if (&quot;${sarRouteExpense_validate_standardCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardCost!= &quot;${sarRouteExpense_validate_standardCost}&quot;) { failureMessage = failureMessage + &quot;Expect standardCost${sarRouteExpense_validate_standardCost} but got &quot; + objRequest.sarRouteExpenses[0].standardCost}
+if (&quot;${sarRouteExpense_validate_standardUnitCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardUnitCost!= &quot;${sarRouteExpense_validate_standardUnitCost}&quot;) { failureMessage = failureMessage + &quot;Expect standardUnitCost${sarRouteExpense_validate_standardUnitCost} but got &quot; + objRequest.sarRouteExpenses[0].standardUnitCost}
+if (&quot;${sarRouteExpense_validate_projectCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].projectCode!= &quot;${sarRouteExpense_validate_projectCode}&quot;) { failureMessage = failureMessage + &quot;Expect projectCode${sarRouteExpense_validate_projectCode} but got &quot; + objRequest.sarRouteExpenses[0].projectCode}
+if (&quot;${sarRouteExpense_validate_projectDescription}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].projectDescription!= &quot;${sarRouteExpense_validate_projectDescription}&quot;) { failureMessage = failureMessage + &quot;Expect projectDescription${sarRouteExpense_validate_projectDescription} but got &quot; + objRequest.sarRouteExpenses[0].projectDescription}
+if (&quot;${sarRouteExpense_validate_unitOfMeasure}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].unitOfMeasure!= &quot;${sarRouteExpense_validate_unitOfMeasure}&quot;) { failureMessage = failureMessage + &quot;Expect unitOfMeasure${sarRouteExpense_validate_unitOfMeasure} but got &quot; + objRequest.sarRouteExpenses[0].unitOfMeasure}
+if (&quot;${sarRouteExpense_validate_standardBurdenCost}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].standardBurdenCost!= &quot;${sarRouteExpense_validate_standardBurdenCost}&quot;) { failureMessage = failureMessage + &quot;Expect standardBurdenCost${sarRouteExpense_validate_standardBurdenCost} but got &quot; + objRequest.sarRouteExpenses[0].standardBurdenCost}
+if (&quot;${sarRouteExpense_validate_serviceOrderLine}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].serviceOrderLine!= &quot;${sarRouteExpense_validate_serviceOrderLine}&quot;) { failureMessage = failureMessage + &quot;Expect serviceOrderLine${sarRouteExpense_validate_serviceOrderLine} but got &quot; + objRequest.sarRouteExpenses[0].serviceOrderLine}
+if (&quot;${sarRouteExpense_validate_unprocessedAmount}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].unprocessedAmount!= &quot;${sarRouteExpense_validate_unprocessedAmount}&quot;) { failureMessage = failureMessage + &quot;Expect unprocessedAmount${sarRouteExpense_validate_unprocessedAmount} but got &quot; + objRequest.sarRouteExpenses[0].unprocessedAmount}
+if (&quot;${sarRouteExpense_validate_isManualPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isManualPrice!= &quot;${sarRouteExpense_validate_isManualPrice}&quot;) { failureMessage = failureMessage + &quot;Expect isManualPrice${sarRouteExpense_validate_isManualPrice} but got &quot; + objRequest.sarRouteExpenses[0].isManualPrice}
+if (&quot;${sarRouteExpense_validate_wrRouteUser01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteUser01!= &quot;${sarRouteExpense_validate_wrRouteUser01}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteUser01${sarRouteExpense_validate_wrRouteUser01} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteUser01}
+if (&quot;${sarRouteExpense_validate_wrRouteUser02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteUser02!= &quot;${sarRouteExpense_validate_wrRouteUser02}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteUser02${sarRouteExpense_validate_wrRouteUser02} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteUser02}
+if (&quot;${sarRouteExpense_validate_wrRouteChr01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteChr01!= &quot;${sarRouteExpense_validate_wrRouteChr01}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteChr01${sarRouteExpense_validate_wrRouteChr01} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteChr01}
+if (&quot;${sarRouteExpense_validate_wrRouteChr02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteChr02!= &quot;${sarRouteExpense_validate_wrRouteChr02}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteChr02${sarRouteExpense_validate_wrRouteChr02} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteChr02}
+if (&quot;${sarRouteExpense_validate_wrRouteChr03}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteChr03!= &quot;${sarRouteExpense_validate_wrRouteChr03}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteChr03${sarRouteExpense_validate_wrRouteChr03} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteChr03}
+if (&quot;${sarRouteExpense_validate_wrRouteChr04}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteChr04!= &quot;${sarRouteExpense_validate_wrRouteChr04}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteChr04${sarRouteExpense_validate_wrRouteChr04} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteChr04}
+if (&quot;${sarRouteExpense_validate_wrRouteChr05}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteChr05!= &quot;${sarRouteExpense_validate_wrRouteChr05}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteChr05${sarRouteExpense_validate_wrRouteChr05} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteChr05}
+if (&quot;${sarRouteExpense_validate_wrRouteDec01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteDec01!= &quot;${sarRouteExpense_validate_wrRouteDec01}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteDec01${sarRouteExpense_validate_wrRouteDec01} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteDec01}
+if (&quot;${sarRouteExpense_validate_wrRouteDec02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteDec02!= &quot;${sarRouteExpense_validate_wrRouteDec02}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteDec02${sarRouteExpense_validate_wrRouteDec02} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteDec02}
+if (&quot;${sarRouteExpense_validate_wrRouteDte01}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteDte01!= &quot;${sarRouteExpense_validate_wrRouteDte01}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteDte01${sarRouteExpense_validate_wrRouteDte01} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteDte01}
+if (&quot;${sarRouteExpense_validate_wrRouteDte02}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].wrRouteDte02!= &quot;${sarRouteExpense_validate_wrRouteDte02}&quot;) { failureMessage = failureMessage + &quot;Expect wrRouteDte02${sarRouteExpense_validate_wrRouteDte02} but got &quot; + objRequest.sarRouteExpenses[0].wrRouteDte02}
+if (&quot;${sarRouteExpense_validate_extendedPrice}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].extendedPrice!= &quot;${sarRouteExpense_validate_extendedPrice}&quot;) { failureMessage = failureMessage + &quot;Expect extendedPrice${sarRouteExpense_validate_extendedPrice} but got &quot; + objRequest.sarRouteExpenses[0].extendedPrice}
+if (&quot;${sarRouteExpense_validate_disallowedActions}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].disallowedActions!= &quot;${sarRouteExpense_validate_disallowedActions}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActions${sarRouteExpense_validate_disallowedActions} but got &quot; + objRequest.sarRouteExpenses[0].disallowedActions}
+if (&quot;${sarRouteExpense_validate_disallowedActionsMessage}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].disallowedActionsMessage!= &quot;${sarRouteExpense_validate_disallowedActionsMessage}&quot;) { failureMessage = failureMessage + &quot;Expect disallowedActionsMessage${sarRouteExpense_validate_disallowedActionsMessage} but got &quot; + objRequest.sarRouteExpenses[0].disallowedActionsMessage}
+if (&quot;${sarRouteExpense_validate_lineIsOverrideLimits}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].lineIsOverrideLimits!= &quot;${sarRouteExpense_validate_lineIsOverrideLimits}&quot;) { failureMessage = failureMessage + &quot;Expect lineIsOverrideLimits${sarRouteExpense_validate_lineIsOverrideLimits} but got &quot; + objRequest.sarRouteExpenses[0].lineIsOverrideLimits}
+if (&quot;${sarRouteExpense_validate_oldInvoiceSortCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldInvoiceSortCode!= &quot;${sarRouteExpense_validate_oldInvoiceSortCode}&quot;) { failureMessage = failureMessage + &quot;Expect oldInvoiceSortCode${sarRouteExpense_validate_oldInvoiceSortCode} but got &quot; + objRequest.sarRouteExpenses[0].oldInvoiceSortCode}
+if (&quot;${sarRouteExpense_validate_oldWorkCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldWorkCode!= &quot;${sarRouteExpense_validate_oldWorkCode}&quot;) { failureMessage = failureMessage + &quot;Expect oldWorkCode${sarRouteExpense_validate_oldWorkCode} but got &quot; + objRequest.sarRouteExpenses[0].oldWorkCode}
+if (&quot;${sarRouteExpense_validate_oldServiceCategoryCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldServiceCategoryCode!= &quot;${sarRouteExpense_validate_oldServiceCategoryCode}&quot;) { failureMessage = failureMessage + &quot;Expect oldServiceCategoryCode${sarRouteExpense_validate_oldServiceCategoryCode} but got &quot; + objRequest.sarRouteExpenses[0].oldServiceCategoryCode}
+if (&quot;${sarRouteExpense_validate_oldQty}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldQty!= &quot;${sarRouteExpense_validate_oldQty}&quot;) { failureMessage = failureMessage + &quot;Expect oldQty${sarRouteExpense_validate_oldQty} but got &quot; + objRequest.sarRouteExpenses[0].oldQty}
+if (&quot;${sarRouteExpense_validate_oldChargeCode}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldChargeCode!= &quot;${sarRouteExpense_validate_oldChargeCode}&quot;) { failureMessage = failureMessage + &quot;Expect oldChargeCode${sarRouteExpense_validate_oldChargeCode} but got &quot; + objRequest.sarRouteExpenses[0].oldChargeCode}
+if (&quot;${sarRouteExpense_validate_oldCoveredAmt}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldCoveredAmt!= &quot;${sarRouteExpense_validate_oldCoveredAmt}&quot;) { failureMessage = failureMessage + &quot;Expect oldCoveredAmt${sarRouteExpense_validate_oldCoveredAmt} but got &quot; + objRequest.sarRouteExpenses[0].oldCoveredAmt}
+if (&quot;${sarRouteExpense_validate_oldServiceType}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].oldServiceType!= &quot;${sarRouteExpense_validate_oldServiceType}&quot;) { failureMessage = failureMessage + &quot;Expect oldServiceType${sarRouteExpense_validate_oldServiceType} but got &quot; + objRequest.sarRouteExpenses[0].oldServiceType}
+if (&quot;${sarRouteExpense_validate_limitUnpostedAmt}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].limitUnpostedAmt!= &quot;${sarRouteExpense_validate_limitUnpostedAmt}&quot;) { failureMessage = failureMessage + &quot;Expect limitUnpostedAmt${sarRouteExpense_validate_limitUnpostedAmt} but got &quot; + objRequest.sarRouteExpenses[0].limitUnpostedAmt}
+if (&quot;${sarRouteExpense_validate_limitFirstActDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].limitFirstActDate!= &quot;${sarRouteExpense_validate_limitFirstActDate}&quot;) { failureMessage = failureMessage + &quot;Expect limitFirstActDate${sarRouteExpense_validate_limitFirstActDate} but got &quot; + objRequest.sarRouteExpenses[0].limitFirstActDate}
+if (&quot;${sarRouteExpense_validate_limitLastActDate}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].limitLastActDate!= &quot;${sarRouteExpense_validate_limitLastActDate}&quot;) { failureMessage = failureMessage + &quot;Expect limitLastActDate${sarRouteExpense_validate_limitLastActDate} but got &quot; + objRequest.sarRouteExpenses[0].limitLastActDate}
+if (&quot;${sarRouteExpense_validate_isAskOver}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isAskOver!= &quot;${sarRouteExpense_validate_isAskOver}&quot;) { failureMessage = failureMessage + &quot;Expect isAskOver${sarRouteExpense_validate_isAskOver} but got &quot; + objRequest.sarRouteExpenses[0].isAskOver}
+if (&quot;${sarRouteExpense_validate_isAskDefault}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isAskDefault!= &quot;${sarRouteExpense_validate_isAskDefault}&quot;) { failureMessage = failureMessage + &quot;Expect isAskDefault${sarRouteExpense_validate_isAskDefault} but got &quot; + objRequest.sarRouteExpenses[0].isAskDefault}
+if (&quot;${sarRouteExpense_validate_isLimitDefault}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isLimitDefault!= &quot;${sarRouteExpense_validate_isLimitDefault}&quot;) { failureMessage = failureMessage + &quot;Expect isLimitDefault${sarRouteExpense_validate_isLimitDefault} but got &quot; + objRequest.sarRouteExpenses[0].isLimitDefault}
+if (&quot;${sarRouteExpense_validate_isCoveredAmountChanged}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].isCoveredAmountChanged!= &quot;${sarRouteExpense_validate_isCoveredAmountChanged}&quot;) { failureMessage = failureMessage + &quot;Expect isCoveredAmountChanged${sarRouteExpense_validate_isCoveredAmountChanged} but got &quot; + objRequest.sarRouteExpenses[0].isCoveredAmountChanged}
+if (&quot;${sarRouteExpense_validate_bOMCodeToLoad}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].bOMCodeToLoad!= &quot;${sarRouteExpense_validate_bOMCodeToLoad}&quot;) { failureMessage = failureMessage + &quot;Expect bOMCodeToLoad${sarRouteExpense_validate_bOMCodeToLoad} but got &quot; + objRequest.sarRouteExpenses[0].bOMCodeToLoad}
+if (&quot;${sarRouteExpense_validate_dataOperation}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].dataOperation!= &quot;${sarRouteExpense_validate_dataOperation}&quot;) { failureMessage = failureMessage + &quot;Expect dataOperation${sarRouteExpense_validate_dataOperation} but got &quot; + objRequest.sarRouteExpenses[0].dataOperation}
+if (&quot;${sarRouteExpense_validate_workOrderRoutingConcurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].workOrderRoutingConcurrencyHash!= &quot;${sarRouteExpense_validate_workOrderRoutingConcurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect workOrderRoutingConcurrencyHash${sarRouteExpense_validate_workOrderRoutingConcurrencyHash} but got &quot; + objRequest.sarRouteExpenses[0].workOrderRoutingConcurrencyHash}
+if (&quot;${sarRouteExpense_validate_concurrencyHash}&quot; != &quot;[N/A]&quot; &amp;&amp; objRequest.sarRouteExpenses[0].concurrencyHash!= &quot;${sarRouteExpense_validate_concurrencyHash}&quot;) { failureMessage = failureMessage + &quot;Expect concurrencyHash${sarRouteExpense_validate_concurrencyHash} but got &quot; + objRequest.sarRouteExpenses[0].concurrencyHash}
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="resetData" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;sarRouteExpense_&quot;
+
+vars.entrySet().each { entry -&gt;
+def name = entry.getKey()
+if (name.startsWith(prefix)) {
+vars.put(name, &quot;[N/A]&quot;);
+}
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

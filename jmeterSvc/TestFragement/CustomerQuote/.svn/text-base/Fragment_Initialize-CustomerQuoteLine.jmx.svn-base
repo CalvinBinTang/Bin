@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Create CustomerQuoteLine" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Create CustomerQuoteLine" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Validate the customer quote line initialized" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">vars.put(&quot;customerQuoteLine_url_quoteNumber&quot;,&quot;${customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;customerQuoteLine_url_revision&quot;,&quot;${customerQuoteHeaderUI_revision}&quot;);
+
+
+//Main panel validation
+vars.put(&quot;customerQuoteLine_validate_quoteLine&quot;, &quot;1&quot;);
+vars.put(&quot;customerQuoteLine_validate_referenceTypeDescription&quot;,&quot;Service&quot;);
+vars.put(&quot;customerQuoteLine_validate_endUserCode&quot;,&quot;10C1001&quot;);
+//lack of Order reference
+//lack of Line
+vars.put(&quot;customerQuoteLine_validate_itemCode&quot;,&quot;&quot;);
+vars.put(&quot;customerQuoteLine_validate_lotSerial&quot;,&quot;&quot;);
+vars.put(&quot;customerQuoteLine_validate_quantityQuoted&quot;,&quot;1&quot;);
+
+//No repair type field
+vars.put(&quot;customerQuoteLine_validate_workCode&quot;,&quot;3001&quot;);
+vars.put(&quot;customerQuoteLine_validate_workCodeDescription&quot;,&quot;Technical&quot;);
+vars.put(&quot;customerQuoteLine_validate_serviceTypeCode&quot;,&quot;STD&quot;);
+vars.put(&quot;customerQuoteLine_validate_serviceTypeDescription&quot;,&quot;Standard Contract&quot;);
+vars.put(&quot;customerQuoteLine_validate_siteCode&quot;,&quot;10-100&quot;);
+vars.put(&quot;customerQuoteLine_validate_siteDescription&quot;,&quot;Ultrasound Mfg Site&quot;);
+vars.put(&quot;customerQuoteLine_validate_locationCode&quot;,&quot;191&quot;);
+vars.put(&quot;customerQuoteLine_validate_locationDescription&quot;,&quot;Trunk Inventory 10-ENG01&quot;);
+vars.put(&quot;customerQuoteLine_validate_priceListCode&quot;,&quot;RP10-100&quot;);
+vars.put(&quot;customerQuoteLine_validate_netPrice&quot;,&quot;0&quot;);
+vars.put(&quot;customerQuoteLine_validate_cost&quot;,&quot;0&quot;);
+
+//Quote Line Options
+vars.put(&quot;customerQuoteLine_validate_isTaxable&quot;,&quot;true&quot;);
+//lack of resonLost vars.put(&quot;customerQuoteLine_validate_resonLost&quot;,&quot;&quot;);
+
+//Item Service Structure
+//lack of BOMCode vars.put(&quot;customerQuoteLine_validate_billOfMaterialCode&quot;,&quot;&quot;);
+//lack of routingCode vars.put(&quot;customerQuoteLine_validate_routingCode&quot;,&quot;&quot;);
+
+//Billing
+vars.put(&quot;customerQuoteLine_validate_isFixedPrice&quot;,&quot;false&quot;);
+vars.put(&quot;customerQuoteLine_validate_fixedPrice&quot;,&quot;0&quot;);</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Customer Quote Line Initialize" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="initialize" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">initialize</stringProp>
+                <stringProp name="Argument.value">true</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="domainCode" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">domainCode</stringProp>
+                <stringProp name="Argument.value">${domainCode}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+              <elementProp name="revision" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${customerQuoteLine_url_revision}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">revision</stringProp>
+              </elementProp>
+              <elementProp name="quoteNumber" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${customerQuoteLine_url_quoteNumber}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">quoteNumber</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${tomcatPort}</stringProp>
+          <stringProp name="HTTPSampler.protocol">${protocol}</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/${webapp}/api/erp/customerQuoteLines</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json; charset=UTF-8
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Language" elementType="Header">
+                <stringProp name="Header.name">Accept-Language</stringProp>
+                <stringProp name="Header.value">en-US,en;q=0.8</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+              <elementProp name="Origin" elementType="Header">
+                <stringProp name="Header.name">Origin</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}
+				</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">Mozilla/5.0 (Windows NT 6.1; WOW64)
+					AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87
+					Safari/537.36</stringProp>
+              </elementProp>
+              <elementProp name="DNT" elementType="Header">
+                <stringProp name="Header.name">DNT</stringProp>
+                <stringProp name="Header.value">1</stringProp>
+              </elementProp>
+              <elementProp name="X-Requested-With" elementType="Header">
+                <stringProp name="Header.name">X-Requested-With</stringProp>
+                <stringProp name="Header.value">XMLHttpRequest</stringProp>
+              </elementProp>
+              <elementProp name="Referer" elementType="Header">
+                <stringProp name="Header.name">Referer</stringProp>
+                <stringProp name="Header.value">${protocol}://${server}:${tomcatPort}/${webapp}/
+				</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="ExtractFullResponse" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">RequestData</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.data</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            <stringProp name="JSONPostProcessor.defaultValues">NotFound</stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var prefix = &quot;customerQuoteLine_validate_&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+
+// All the fields in dataset should be set here
+// Below code block is only for depotOrderHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix)){
+		var actValue = eval(&quot;objRequest.customerQuoteLines[0].&quot; + varName.replace(prefix,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  e.getValue() != String(actValue)){
+			//failureMessage = failureMessage + typeof e.getValue() + &quot; &quot; + typeof actValue + &quot;\n&quot;;
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot; \n&quot;;
+		}
+	}
+}
+
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">javascript</stringProp>
+          </JSR223Assertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Check_if_disabled" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1231431123">&quot;isModifiedByUI&quot;:false.*&quot;fieldName&quot;:&quot;FixedPrice&quot;</stringProp>
+              <stringProp name="-1655617757">&quot;fieldName&quot;:&quot;IsFixedPrice&quot;.*&quot;isModifiedByUI&quot;:false</stringProp>
+              <stringProp name="743634326">&quot;fieldName&quot;:&quot;NetPrice&quot;.*&quot;isModifiedByUI&quot;:false</stringProp>
+              <stringProp name="2089943237">&quot;fieldName&quot;:&quot;Reference&quot;.*&quot;isModifiedByUI&quot;:false</stringProp>
+              <stringProp name="2047083285">&quot;fieldName&quot;:&quot;Cost&quot;.*&quot;isModifiedByUI&quot;:false</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;depotOrderHeader_&quot;;
+
+vars.entrySet().each { entry -&gt; 
+	def name = entry.getKey()
+	if (name.startsWith(prefix)) {
+		vars.put(name, &quot;[N/A]&quot;);
+	}
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

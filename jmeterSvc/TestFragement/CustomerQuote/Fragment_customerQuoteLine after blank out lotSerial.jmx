@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.1.1 r1855137">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Validate the customer quote line after blank out lotSerial" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Validate the customer quote line after blank out lotSerial" enabled="true"/>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Validate the customer quote line after blank out lotSerial" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">vars.put(&quot;customerQuoteLine_url_quoteNumber&quot;,&quot;${customerQuoteHeaderUI_quoteNumber}&quot;);
+vars.put(&quot;customerQuoteLine_url_revision&quot;,&quot;${customerQuoteHeaderUI_revision}&quot;);
+
+//Main panel validation
+vars.put(&quot;customerQuoteLine_validate_quoteLine&quot;, &quot;1&quot;);
+vars.put(&quot;customerQuoteLine_validate_referenceTypeDescription&quot;,&quot;Service&quot;)
+vars.put(&quot;customerQuoteLine_validate_endUserCode&quot;,&quot;10c1001&quot;)
+//lack of Order reference
+//lack of Line
+vars.put(&quot;customerQuoteLine_validate_itemCode&quot;,&quot;01010&quot;)
+vars.put(&quot;customerQuoteLine_validate_lotSerial&quot;,&quot;&quot;)
+vars.put(&quot;customerQuoteLine_validate_quantityQuoted&quot;,&quot;1&quot;)
+
+//No repair type field
+vars.put(&quot;customerQuoteLine_validate_workCode&quot;,&quot;3001&quot;)
+vars.put(&quot;customerQuoteLine_validate_workCodeDescription&quot;,&quot;Technical&quot;)
+vars.put(&quot;customerQuoteLine_validate_serviceTypeCode&quot;,&quot;STD&quot;)
+vars.put(&quot;customerQuoteLine_validate_serviceTypeDescription&quot;,&quot;Standard Contract&quot;)
+vars.put(&quot;customerQuoteLine_validate_siteCode&quot;,&quot;10-100&quot;)
+vars.put(&quot;customerQuoteLine_validate_siteDescription&quot;,&quot;Ultrasound Mfg Site&quot;)
+vars.put(&quot;customerQuoteLine_validate_locationCode&quot;,&quot;191&quot;)
+vars.put(&quot;customerQuoteLine_validate_locationDescription&quot;,&quot;Trunk Inventory 10-ENG01&quot;)
+vars.put(&quot;customerQuoteLine_validate_priceListCode&quot;,&quot;RP10-100&quot;)
+vars.put(&quot;customerQuoteLine_validate_netPrice&quot;,&quot;713.75&quot;)
+vars.put(&quot;customerQuoteLine_validate_cost&quot;,&quot;541.76&quot;)
+
+//Quote Line Options
+vars.put(&quot;customerQuoteLine_validate_isTaxable&quot;,&quot;true&quot;)
+//vars.put(&quot;customerQuoteLine_validate_resonLost&quot;,&quot;&quot;);
+
+//Item Service Structure
+vars.put(&quot;customerQuoteLine_validate_billOfMaterialCode&quot;,&quot;RP-1002&quot;)
+vars.put(&quot;customerQuoteLine_validate_bomCodeDescription&quot;,&quot;Ultrasound Repair&quot;)
+vars.put(&quot;customerQuoteLine_validate_routingCode&quot;,&quot;RP-1001&quot;);
+
+//Accounts
+vars.put(&quot;customerQuoteLine_validate_salesAccount&quot;,&quot;4000&quot;)
+vars.put(&quot;customerQuoteLine_validate_discountAccount&quot;,&quot;4200&quot;)
+
+//There is no shipping  panel for service type customer quote line.</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="Data Assertion" enabled="true">
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">var requestData = vars.get(&quot;RequestData&quot;);
+var objRequest = JSON.parse(requestData);
+var failureMessage = &quot;&quot;;
+var prefix = &quot;customerQuoteLine_validate_&quot;;
+var defaultValue = &quot;[N/A]&quot;;
+
+// All the fields in dataset should be set here
+// Below code block is only for depotOrderHeaders[0] validation, please use other prefix and code to cover other scenarios.
+var iter = vars.getIterator();
+
+while (iter.hasNext()){
+	//var varName = o.name;
+	var e = iter.next();
+	var varName = e.getKey();
+	//log.info(varName);
+	// if the prefix matches
+	if (varName.startsWith(prefix)){
+		var actValue = eval(&quot;objRequest.customerQuoteLines[0].&quot; + varName.replace(prefix,&quot;&quot;));
+		if(e.getValue() != defaultValue &amp;&amp;  String(actValue) != e.getValue()){
+			failureMessage = failureMessage + &quot;Expect &quot; + varName.replace(prefix,&quot;&quot;) +&quot; = &quot; + e.getValue() + &quot; but got &quot; + actValue + &quot; \n&quot;;
+		}
+	}
+}
+
+
+AssertionResult.setFailureMessage(failureMessage);
+AssertionResult.setFailure(failureMessage != &quot;&quot;);
+</stringProp>
+          <stringProp name="scriptLanguage">javascript</stringProp>
+        </JSR223Assertion>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset data" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">false</stringProp>
+          <stringProp name="script">String prefix = &quot;depotOrderHeader_&quot;;
+
+vars.entrySet().each { entry -&gt; 
+	def name = entry.getKey()
+	if (name.startsWith(prefix)) {
+		vars.put(name, &quot;[N/A]&quot;);
+	}
+}</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

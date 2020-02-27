@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qadmodule_repository/!svn/ver/229799/service/autoScripts/trunk/JMeter_Service/TestFragement/Common
+END
+date.bsh
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/qadmodule_repository/!svn/ver/198015/service/autoScripts/trunk/JMeter_Service/TestFragement/Common/date.bsh
+END
+SwitchWorkspace.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/qadmodule_repository/!svn/ver/218440/service/autoScripts/trunk/JMeter_Service/TestFragement/Common/SwitchWorkspace.jmx
+END
+Fragment_Login_withSwitchDomain.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/svn/qadmodule_repository/!svn/ver/218440/service/autoScripts/trunk/JMeter_Service/TestFragement/Common/Fragment_Login_withSwitchDomain.jmx
+END
+Login-Fragment.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/qadmodule_repository/!svn/ver/201087/service/autoScripts/trunk/JMeter_Service/TestFragement/Common/Login-Fragment.jmx
+END
+Logout Fragment.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/qadmodule_repository/!svn/ver/229799/service/autoScripts/trunk/JMeter_Service/TestFragement/Common/Logout%20Fragment.jmx
+END
+Fragment_SwitchDomain.jmx
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/qadmodule_repository/!svn/ver/218440/service/autoScripts/trunk/JMeter_Service/TestFragement/Common/Fragment_SwitchDomain.jmx
+END

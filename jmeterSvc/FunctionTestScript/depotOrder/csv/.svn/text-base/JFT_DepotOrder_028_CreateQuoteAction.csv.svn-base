@@ -1,0 +1,2 @@
+line,repairType,itemCode,quantity,lotSerial,estimatedCost,status,line1,repairType1,itemCode1,quantity1,lotSerial1,estimatedCost1,status1
+1,Replace,02002,1,lot2,0,70,2,Item Repl,01010,1,lot3,5,60

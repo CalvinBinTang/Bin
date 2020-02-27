@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/qadmodule_repository/!svn/ver/230813/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV
+END
+JFT_ServiceContract_012_TotalPanel.csv
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/qadmodule_repository/!svn/ver/203762/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_012_TotalPanel.csv
+END
+JFT_ServiceContract_011_ContractHeaderVerifyCoverageLimit.csv
+K 25
+svn:wc:ra_dav:version-url
+V 183
+/svn/qadmodule_repository/!svn/ver/199789/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_011_ContractHeaderVerifyCoverageLimit.csv
+END
+JFT_ServiceContract_010_ContractHeaderLoadCoverageLimit.csv
+K 25
+svn:wc:ra_dav:version-url
+V 181
+/svn/qadmodule_repository/!svn/ver/197992/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_010_ContractHeaderLoadCoverageLimit.csv
+END
+JFT_ServiceContract_009_ContractHeaderCoverageLimit_fieldValidation.csv
+K 25
+svn:wc:ra_dav:version-url
+V 193
+/svn/qadmodule_repository/!svn/ver/197163/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_009_ContractHeaderCoverageLimit_fieldValidation.csv
+END
+JFT_ServiceContract_011_ContractEndUserVerifyCoverageLimit.csv
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/qadmodule_repository/!svn/ver/199789/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_011_ContractEndUserVerifyCoverageLimit.csv
+END
+ServiceContract_MultipleCreate.csv
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/qadmodule_repository/!svn/ver/230813/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/ServiceContract_MultipleCreate.csv
+END
+JFT_ServiceContract_003_taxCalculate.csv
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/qadmodule_repository/!svn/ver/199903/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_003_taxCalculate.csv
+END
+JFT_ServiceContract_002_ContractLinePrice.csv
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/svn/qadmodule_repository/!svn/ver/188559/service/autoScripts/trunk/JMeter_Service/FunctionTestScript/ServiceContract/CSV/JFT_ServiceContract_002_ContractLinePrice.csv
+END

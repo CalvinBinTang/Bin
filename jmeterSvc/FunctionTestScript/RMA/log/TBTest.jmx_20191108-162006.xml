@@ -1,0 +1,6 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1573201206808,634, Login,200,"Number of samples in transaction : 1, number of failing samples : 0",Thread Group 1-1,,true,,12671,1089,1,1,null,0,143,0
+1573201206951,634,Login-001-login,200,OK,Thread Group 1-1,text,true,,12671,1089,1,1,https://vmlcmsh001.qad.com:22011/qad-central/,596,0,29
+1573201207609,52,Transaction Controller,500,"Number of samples in transaction : 2, number of failing samples : 1",Thread Group 1-1,,false,,316085,1091,1,1,null,0,168,0
+1573201207609,48,Setup - IRmaAllocation : GetFieldDescription,200,OK,Thread Group 1-1,text,true,,315245,141,1,1,http://vmlcmsh001.qad.com:22000/wsa/wsa1/wsdl,15,0,1
+1573201207658,4,Call GetFieldDescription,500,Internal Server Error,Thread Group 1-1,text,false,Test failed: text expected to contain /siteFromDescription/,840,950,1,1,http://vmlcmsh001.qad.com:22000/wsa/wsa1,4,0,0
